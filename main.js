@@ -4390,7 +4390,7 @@ var elm$core$Set$toList = function (_n0) {
 	var dict = _n0.a;
 	return elm$core$Dict$keys(dict);
 };
-var author$project$Main$init = {input: '', memos: _List_Nil};
+var author$project$Main$init = {facilities: _List_Nil, input: '', memos: _List_Nil, searchMode: 'AAA'};
 var author$project$Main$update = F2(
 	function (msg, model) {
 		return model;
@@ -4808,7 +4808,10 @@ var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
+var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
+var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm$json$Json$Encode$string = _Json_wrap;
 var elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -4825,7 +4828,16 @@ var author$project$Main$view = function (model) {
 			[
 				elm$html$Html$Attributes$id('map')
 			]),
-		_List_Nil);
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$button,
+				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$text('aaa')
+					]))
+			]));
 };
 var elm$core$Platform$Cmd$batch = _Platform_batch;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
