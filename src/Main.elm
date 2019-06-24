@@ -6,6 +6,8 @@ import Json.Decode as Json
 import Html.Events as Events exposing (on)
 import Html.Keyed as Keyed
 import Debug exposing (..)
+import Http
+import Csv exposing (..)
 
 main : Program () Model Msg
 main =
@@ -56,6 +58,11 @@ type alias CancerPart =
 
 -- SerchModeでzipCode選択時の病院情報
 
+urlDownload : Cmd Msg
+urlDownload  =
+    Http.get {url = "http://localhost:8000/csv/eye_cancer_facilities.csv"
+            ,expect = Http.expectString GotCsv
+            }
 
 
 selectOption : String -> String -> Html Msg
@@ -99,6 +106,12 @@ unique : String -> Html msg -> Html msg
 unique identifier html =
   Keyed.node "span" [] [ ( identifier, html ) ]
 
+
+type alias Csv =
+  { headers : List String
+  , records : List (List String)
+  }
+
 -- MODEL
 type alias Model =
      {input : String
@@ -108,8 +121,10 @@ type alias Model =
      , zipcode : String
      , selectedCancerType : String --選択されたがんの種類
      , selectedCancerPart : String --選択されたがんの詳細
-     , result : String
+     , resultCsv : String
+     , parseCsv : Csv
      , onChange : String
+     , rawCsv : String
      }
 
 init : () -> ( Model, Cmd Msg)
@@ -120,11 +135,15 @@ init _ =
           , memos = []
           , facilities = []
           , searchMode = Zipcode
-          , result = "none"
+          , resultCsv = ""
           , zipcode = ""
           , selectedCancerType = ""
           , selectedCancerPart = ""
           , onChange = ""
+          , parseCsv =   { headers = []
+                         , records = []
+                         }
+          , rawCsv = ""
           }, Cmd.none)
 
 
@@ -135,6 +154,7 @@ type Msg = ModeGeolocation
           | ChangedCancerType String
           | ChangedCancerPart String
           | Change String
+          | GotCsv (Result Http.Error String)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -147,11 +167,19 @@ update msg model =
         SubmitZipcode string ->
             ({model | zipcode = string}, Cmd.none)
         ChangedCancerType cancerType ->
-            ({model | selectedCancerType = cancerType}, Cmd.none)
+            case cancerType of
+                "SoftTissue" ->
+                    ({model | selectedCancerType = cancerType} , urlDownload)
+                _ ->
+                    ({model | selectedCancerType = cancerType} , Cmd.none)
         ChangedCancerPart cancerPart ->
             ({model | selectedCancerPart = cancerPart}, Cmd.none)
         Change value ->
             ({model | onChange = (Debug.log "log label" value)}, Cmd.none)
+        GotCsv (Ok repo) ->
+            ({model | resultCsv = repo, parseCsv = Csv.parse repo }, Cmd.none)
+        GotCsv (Err error) ->
+            ({model | resultCsv = Debug.toString error}, Cmd.none)
 
 
 -- VIEW
