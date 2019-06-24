@@ -2,7 +2,10 @@ import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Http
+import Json.Decode as Json
+import Html.Events as Events exposing (on)
+import Html.Keyed as Keyed
+import Debug exposing (..)
 
 main : Program () Model Msg
 main =
@@ -60,6 +63,41 @@ selectOption inputValue inputText =
     option [value inputValue] [text inputText]
 
 
+-- 眼内腫瘍選択時のセレクトボックス生成
+htmlSelectIntraocular : Html Msg
+htmlSelectIntraocular  =
+    select [id "cancerpart", on "change" (Json.map ChangedCancerPart targetValue)] [
+                             option [selected True] [text "選択してください"]
+                             ,selectOption "Retinoblastoma" "網膜芽細胞腫"
+                             ,selectOption "UvealMalignantMelanoma" "ぶどう膜悪性黒色腫"
+                             ,selectOption "IntraocularLymphoma" "眼内リンパ腫"
+                             ]
+-- 角結膜腫瘍選択時のセレクトボックス生成
+htmlSelectKeratoconjunctival : Html Msg
+htmlSelectKeratoconjunctival  =
+    select [id "cancerpart", on "change" (Json.map ChangedCancerPart targetValue)] [option [selected True] [text "選択してください"]
+                             ,selectOption "ConjunctivalMalignantLymphoma" "結膜悪性リンパ腫"
+                             ,selectOption "KeratoconjunctivalSquamousCellCarcinoma" "角結膜扁平上皮癌"
+                             ,selectOption "ConjunctivalMalignantMelanoma" "結膜悪性黒色腫"
+                             ]
+-- 眼窩腫瘍選択時のセレクトボックス生成
+htmlSelectOrbital : Html Msg
+htmlSelectOrbital  =
+    select [id "cancerpart", on "change" (Json.map ChangedCancerPart targetValue)] [option [selected True] [text "選択してください"]
+    ,selectOption "OrbitalMalignantLymphoma" "眼窩悪性リンパ腫"
+                             ,selectOption "LacrimalGlandCancer" "涙腺がん"
+                             ]
+-- 眼瞼腫瘍選択時のセレクトボックス生成
+htmlSelectEyelid : Html Msg
+htmlSelectEyelid  =
+    select [id "cancerpart",  on "change" (Json.map ChangedCancerPart targetValue)] [option [selected True] [text "選択してください"]
+    ,selectOption "BasalCellCarcinoma" "基底細胞がん"
+                             ,selectOption "SebaceousGlandCancer" "脂腺がん"
+                             ,selectOption "SquamousCellCarcinoma" "扁平上皮がん"
+                             ]
+unique : String -> Html msg -> Html msg
+unique identifier html =
+  Keyed.node "span" [] [ ( identifier, html ) ]
 
 -- MODEL
 type alias Model =
@@ -69,13 +107,15 @@ type alias Model =
      , searchMode : SearchMode
      , zipcode : String
      , selectedCancerType : String --選択されたがんの種類
-     , cancerParts :List CancerPart --選択できるがんの詳細
      , selectedCancerPart : String --選択されたがんの詳細
      , result : String
+     , onChange : String
      }
 
 init : () -> ( Model, Cmd Msg)
 init _ =
+
+    let _ = Debug.log "model" "aaa" in
     (     {input = ""
           , memos = []
           , facilities = []
@@ -83,8 +123,8 @@ init _ =
           , result = "none"
           , zipcode = ""
           , selectedCancerType = ""
-          , cancerParts = []
           , selectedCancerPart = ""
+          , onChange = ""
           }, Cmd.none)
 
 
@@ -92,8 +132,9 @@ init _ =
 type Msg = ModeGeolocation
           | ModeZipcode
           | SubmitZipcode String
-          | ChengedCancerType String
+          | ChangedCancerType String
           | ChangedCancerPart String
+          | Change String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -105,36 +146,12 @@ update msg model =
             ({model | searchMode = Geolocation}, Cmd.none)
         SubmitZipcode string ->
             ({model | zipcode = string}, Cmd.none)
-        ChengedCancerType cancerType ->
+        ChangedCancerType cancerType ->
             ({model | selectedCancerType = cancerType}, Cmd.none)
         ChangedCancerPart cancerPart ->
-            case cancerPart of
-                "SoftTissue" ->
-                    ({model | cancerParts = []}, Cmd.none)
-                "Intraocular" ->
-                    ({model | cancerParts = [ CancerPart "Retinoblastoma" "網膜芽細胞腫"
-                                            , CancerPart "UvealMalignantMelanoma" "ぶどう膜悪性黒色腫"
-                                            , CancerPart "IntraocularLymphoma" "眼内リンパ腫"
-                                            ]}, Cmd.none)
-                "Keratoconjunctival" ->
-                    ({model | cancerParts = [ CancerPart "ConjunctivalMalignantLymphoma" "結膜悪性リンパ腫"
-                                            , CancerPart "KeratoconjunctivalSquamousCellCarcinoma" "角結膜扁平上皮癌"
-                                            , CancerPart "ConjunctivalMalignantMelanoma" "結膜悪性黒色腫"
-                                            ]}, Cmd.none)
-                "Orbital" ->
-                    ({model | cancerParts = [ CancerPart "OrbitalMalignantLymphoma" "眼窩悪性リンパ腫"
-                                            , CancerPart "LacrimalGlandCancer" "涙腺がん"
-                                            ]}, Cmd.none)
-                "Eyelid" ->
-                    ({model | cancerParts = [ CancerPart "BasalCellCarcinoma" "基底細胞がん"
-                                             , CancerPart "SebaceousGlandCancer" "脂腺がん"
-                                             , CancerPart "SquamousCellCarcinoma" "扁平上皮がん"
-                                             ]}, Cmd.none)
-                _ ->
-                    ({model | cancerParts = []}, Cmd.none)
-
-
-
+            ({model | selectedCancerPart = cancerPart}, Cmd.none)
+        Change value ->
+            ({model | onChange = (Debug.log "log label" value)}, Cmd.none)
 
 
 -- VIEW
@@ -163,12 +180,27 @@ view model =
                 _ ->
                     div [] []
 
-            ,select [id "cancerType", onInput ChangedCancerPart ] [selectOption "SoftTissue" "四肢軟部肉腫"
+            ,
+            select [on "change" (Json.map ChangedCancerType targetValue)] [
+                                      selectOption "SoftTissue" "四肢軟部肉腫"
                                       ,selectOption "Intraocular" "眼内腫瘍"
                                       ,selectOption "Keratoconjunctival" "角結膜腫瘍"
                                       ,selectOption "Orbital" "眼窩腫瘍"
                                       ,selectOption "Eyelid" "眼瞼腫瘍"
                                      ]
-            ,select [id "cancerPart"] []
+            ,
+            unique model.selectedCancerType <|
+            case model.selectedCancerType of
+                "Intraocular" ->
+                    htmlSelectIntraocular
+                "Keratoconjunctival" ->
+                    htmlSelectKeratoconjunctival
+                "Orbital" ->
+                    htmlSelectOrbital
+                "Eyelid" ->
+                    htmlSelectEyelid
+                _ ->
+                    div[] []
+
          ]
     ]
