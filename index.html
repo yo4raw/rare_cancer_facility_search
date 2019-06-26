@@ -24,22 +24,16 @@
 </head>
 
 <body>
-<div id="elm-node"></div>
-<script>
-  var app = Elm.Main.init({
-    node: document.getElementById('elm-node')
-  });
-</script>
 <div id="map"></div>
-<script>
-  var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 35.783575, lng: 139.7144516},
-      zoom: 15
-    });
-  }
+<div id="elm-node"></div>
 
+<script>
+
+    var app = Elm.Main.init({
+        flags: {lat: 0, lng: 0},
+        node: document.getElementById('elm-node')
+
+    });
 
   // Geolocation APIに対応している
   if (navigator.geolocation) {
@@ -48,13 +42,32 @@
     alert("この端末では位置情報が取得できないため、【郵便番号から探す】をご利用ください");
   }
 
-  // 現在地取得処理
-  function getPosition() {
+
+    function updateCurrentLocation(lat, lng) {
+
+    }
+
+    var map;
+
+    var currentLat;
+    var currentLng;
+
+    // 地図表示
+    function initMap() {
     // 現在地を取得
     navigator.geolocation.getCurrentPosition(
             // 取得成功した場合
             function (position) {
-              alert("緯度:" + position.coords.latitude + ",経度" + position.coords.longitude);
+                currentLat = position.coords.latitude;
+                currentLng = position.coords.longitude;
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: currentLat, lng: currentLng},
+                    zoom: 15
+                });
+                if ((typeof currentLat !== 'undefined') && (typeof currentLng !== 'undefined') && (typeof app !== 'undefined')) {
+                    app.ports.updateCurrentLocation.send({lat: currentLat, lng: currentLng})
+                }
+
             },
             // 取得失敗した場合
             function (error) {
@@ -75,7 +88,6 @@
             }
     );
   }
-
 
 </script>
 

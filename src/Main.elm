@@ -1,4 +1,4 @@
-module Main exposing (CancerPart, CancerType(..), Csv, EyelidType(..), IntraocularType(..), KeratoconjunctivalType(..), Model, Msg(..), OrbitalType(..), SearchMode(..), htmlSelectEyelid, htmlSelectIntraocular, htmlSelectKeratoconjunctival, htmlSelectOrbital, init, main, selectOption, unique, update, urlDownload, view)
+port module Main exposing (CancerPart, CancerType(..), Csv, EyelidType(..), IntraocularType(..), KeratoconjunctivalType(..), Model, Msg(..), OrbitalType(..), SearchMode(..), getEyelidCsv, getIntraocularCsv, getKeratoconjunctivalCsv, getOrbitalCsv, getSoftTissueCsv, htmlSelectEyelid, htmlSelectIntraocular, htmlSelectKeratoconjunctival, htmlSelectOrbital, init, main, selectOption, unique, update, view)
 
 import Browser
 import Csv exposing (..)
@@ -9,15 +9,19 @@ import Html.Events as Events exposing (..)
 import Html.Keyed as Keyed
 import Http
 import Json.Decode as Json
+import List.Extra exposing (find, getAt)
 
 
-main : Program () Model Msg
+port updateCurrentLocation : (CurrentLocation -> msg) -> Sub msg
+
+
+main : Program CurrentLocation Model Msg
 main =
     Browser.element
         { init = init
         , update = update
         , view = view
-        , subscriptions = \_ -> Sub.none
+        , subscriptions = subscriptions
         }
 
 
@@ -87,15 +91,178 @@ type alias CancerPart =
     }
 
 
+type alias Location =
+    { lat : Float
+    , lng : Float
+    }
 
--- SerchModeでcurrentLocation選択時の病院情報
--- SerchModeでzipCode選択時の病院情報
+
+type alias CurrentLocation =
+    { lat : Maybe Float
+    , lng : Maybe Float
+    }
 
 
-urlDownload : Cmd Msg
-urlDownload =
+type alias Facility =
+    { id : Maybe String
+    , name : Maybe String
+    , lat : Maybe Float
+    , lng : Maybe Float
+    , distance : Maybe Float
+    }
+
+
+type alias Facilities =
+    List Facility
+
+
+type alias SoftTissueFacility =
+    { id : Maybe String
+    , name : Maybe String
+    , joshi : Maybe Int
+    , kashi : Maybe Int
+    , taikan : Maybe Int
+    , saihatsushoshin : Maybe Int
+    , ope : Maybe Int
+    , housyasen : Maybe Int
+    , yakubutsu : Maybe Int
+    , secondopinion : Maybe Int
+    , distance : Maybe Float
+    }
+
+
+type alias SoftTissueFacilities =
+    List SoftTissueFacility
+
+
+setFacilities : Csv -> Facilities
+setFacilities csv =
+    csv.records
+        |> List.map helperConvListtoFacilityRecord
+
+
+helperConvListtoFacilityRecord : List String -> Facility
+helperConvListtoFacilityRecord list =
+    { id = getAt 0 list
+    , name = getAt 1 list
+    , lat = getAt 2 list |> Maybe.withDefault "0" |> String.toFloat
+    , lng = getAt 3 list |> Maybe.withDefault "0" |> String.toFloat
+    , distance = Nothing
+    }
+
+
+
+--setFacilityDistance : Facilities -> Location -> List a -> List a
+--setSoftTissueFacilityDistance facilities location targetFacilites =
+--    targetFacilites
+--        |> List.map ( \targetFacility ->
+--                        if getFacilityLocation facilities targetFacility.name then
+--                            {targetFacility | name = "aaa"}
+--                        else
+--                            {targetFacility | name ="bbb"}
+--
+--        )
+--
+--getFacilityLocation : Facilities -> String -> Location
+--getFacilityLocation facilities facilityName =
+--    facilities
+--        |> List.map
+--            (\facility ->
+--                if isTargetFacility facility facilityName then
+--                    { facility.lat, facility.lng }
+--                else
+--                    Nothing
+--            )
+--        |> List.head
+
+
+isTargetFacility : String -> Facility -> Bool
+isTargetFacility facilityId facility =
+    if (facility.id |> Maybe.withDefault "none") == facilityId then
+        True
+
+    else
+        False
+
+
+toListTableHead : List String -> List (Html Msg)
+toListTableHead myListItems =
+    myListItems
+        |> List.map (\th_ -> th [] [ text th_ ])
+
+
+toListTableRow : List (List String) -> List (Html Msg)
+toListTableRow myListItems =
+    myListItems
+        |> List.map
+            (\tr_ ->
+                tr_
+                    |> List.map (\td_ -> td [] [ text td_ ])
+                    |> tr []
+            )
+
+
+initFunction : Cmd Msg
+initFunction =
+    Cmd.batch
+        [ getFacilitiesCsv
+        ]
+
+
+getFacilitiesCsv : Cmd Msg
+getFacilitiesCsv =
     Http.get
-        { url = "http://localhost:8000/csv/eye_cancer_facilities.csv"
+        { url = "http://localhost:8000/csv/Facilities.csv"
+        , expect = Http.expectString GotCsv
+        }
+
+
+getSoftTissueCsv : Cmd Msg
+getSoftTissueCsv =
+    Http.get
+        { url = "http://localhost:8000/csv/SoftTissue.csv"
+        , expect = Http.expectString GotCsv
+        }
+
+
+makeSoftTissueTable : List String -> List (List String) -> Html Msg
+makeSoftTissueTable headers records =
+    table [ class "table" ]
+        [ thead [] <|
+            toListTableHead headers
+        , tbody [] <|
+            toListTableRow records
+        ]
+
+
+getIntraocularCsv : Cmd Msg
+getIntraocularCsv =
+    Http.get
+        { url = "http://localhost:8000/csv/Intraocular.csv"
+        , expect = Http.expectString GotCsv
+        }
+
+
+getKeratoconjunctivalCsv : Cmd Msg
+getKeratoconjunctivalCsv =
+    Http.get
+        { url = "http://localhost:8000/csv/Keratoconjunctival.csv"
+        , expect = Http.expectString GotCsv
+        }
+
+
+getOrbitalCsv : Cmd Msg
+getOrbitalCsv =
+    Http.get
+        { url = "http://localhost:8000/csv/Orbital.csv"
+        , expect = Http.expectString GotCsv
+        }
+
+
+getEyelidCsv : Cmd Msg
+getEyelidCsv =
+    Http.get
+        { url = "http://localhost:8000/csv/Eyelid.csv"
         , expect = Http.expectString GotCsv
         }
 
@@ -178,7 +345,8 @@ type alias Csv =
 type alias Model =
     { input : String
     , memos : List String
-    , facilities : List String
+    , location : CurrentLocation
+    , facilities : Facilities
     , searchMode : SearchMode
     , zipcode : String
     , selectedCancerType : String --選択されたがんの種類
@@ -187,19 +355,17 @@ type alias Model =
     , parseCsv : Csv
     , onChange : String
     , rawCsv : String
+    , currentLocation : CurrentLocation
     }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    let
-        _ =
-            Debug.log "model" "aaa"
-    in
+init : CurrentLocation -> ( Model, Cmd Msg )
+init flags =
     ( { input = ""
+      , location = flags
       , memos = []
       , facilities = []
-      , searchMode = Zipcode
+      , searchMode = Geolocation
       , resultCsv = ""
       , zipcode = ""
       , selectedCancerType = ""
@@ -210,8 +376,9 @@ init _ =
             , records = []
             }
       , rawCsv = ""
+      , currentLocation = CurrentLocation Nothing Nothing
       }
-    , Cmd.none
+    , initFunction
     )
 
 
@@ -227,16 +394,22 @@ type Msg
     | ChangedCancerPart String
     | Change String
     | GotCsv (Result Http.Error String)
+    | UpdateCurrentLocation CurrentLocation
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    updateCurrentLocation UpdateCurrentLocation
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ModeZipcode ->
-            ( { model | searchMode = Zipcode }, Cmd.none )
+            ( { model | searchMode = Zipcode, facilities = setFacilities model.parseCsv }, Cmd.none )
 
         ModeGeolocation ->
-            ( { model | searchMode = Geolocation }, Cmd.none )
+            ( { model | searchMode = Geolocation, facilities = setFacilities model.parseCsv }, Cmd.none )
 
         SubmitZipcode string ->
             ( { model | zipcode = string }, Cmd.none )
@@ -244,7 +417,19 @@ update msg model =
         ChangedCancerType cancerType ->
             case cancerType of
                 "SoftTissue" ->
-                    ( { model | selectedCancerType = cancerType }, urlDownload )
+                    ( { model | selectedCancerType = cancerType }, getSoftTissueCsv )
+
+                "Intraocular" ->
+                    ( { model | selectedCancerType = cancerType }, getIntraocularCsv )
+
+                "Keratoconjunctival" ->
+                    ( { model | selectedCancerType = cancerType }, getKeratoconjunctivalCsv )
+
+                "Orbital" ->
+                    ( { model | selectedCancerType = cancerType }, getOrbitalCsv )
+
+                "Eyelid" ->
+                    ( { model | selectedCancerType = cancerType }, getEyelidCsv )
 
                 _ ->
                     ( { model | selectedCancerType = cancerType }, Cmd.none )
@@ -261,6 +446,9 @@ update msg model =
         GotCsv (Err error) ->
             ( { model | resultCsv = Debug.toString error }, Cmd.none )
 
+        UpdateCurrentLocation location ->
+            ( { model | currentLocation = location }, Cmd.none )
+
 
 
 -- VIEW
@@ -268,7 +456,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
+    div [ id "container" ]
         [ section [ class "section" ]
             [ div [ class "tabs" ]
                 [ ul []
@@ -302,6 +490,14 @@ view model =
 
                 _ ->
                     div [] []
+            , select [ on "change" (Json.map ChangedCancerType targetValue) ]
+                [ option [ selected True ] [ text "選択してください" ]
+                , selectOption "SoftTissue" "四肢軟部肉腫"
+                , selectOption "Intraocular" "眼内腫瘍"
+                , selectOption "Keratoconjunctival" "角結膜腫瘍"
+                , selectOption "Orbital" "眼窩腫瘍"
+                , selectOption "Eyelid" "眼瞼腫瘍"
+                ]
             , unique model.selectedCancerType <|
                 case model.selectedCancerType of
                     "Intraocular" ->
@@ -318,12 +514,27 @@ view model =
 
                     _ ->
                         div [] []
-            , select [ on "change" (Json.map ChangedCancerType targetValue) ]
-                [ selectOption "SoftTissue" "四肢軟部肉腫"
-                , selectOption "Intraocular" "眼内腫瘍"
-                , selectOption "Keratoconjunctival" "角結膜腫瘍"
-                , selectOption "Orbital" "眼窩腫瘍"
-                , selectOption "Eyelid" "眼瞼腫瘍"
+            ]
+        , div [ id "resultTable" ]
+            [ table [ class "table" ]
+                [ case model.selectedCancerType of
+                    "SoftTissue" ->
+                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+
+                    "Intraocular" ->
+                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+
+                    "Keratoconjunctival" ->
+                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+
+                    "Orbital" ->
+                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+
+                    "Eyelid" ->
+                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+
+                    _ ->
+                        div [] []
                 ]
             ]
         ]
