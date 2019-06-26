@@ -3,6 +3,7 @@ port module Main exposing (CancerPart, CancerType(..), Csv, EyelidType(..), Intr
 import Browser
 import Csv exposing (..)
 import Debug exposing (..)
+import Distance exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events as Events exposing (..)
@@ -91,16 +92,14 @@ type alias CancerPart =
     }
 
 
-type alias Location =
-    { lat : Float
-    , lng : Float
-    }
-
-
 type alias CurrentLocation =
     { lat : Maybe Float
     , lng : Maybe Float
     }
+
+
+type alias Location =
+    CurrentLocation
 
 
 type alias Facility =
@@ -108,7 +107,7 @@ type alias Facility =
     , name : Maybe String
     , lat : Maybe Float
     , lng : Maybe Float
-    , distance : Maybe Float
+    , distance : Maybe Int
     }
 
 
@@ -127,7 +126,8 @@ type alias SoftTissueFacility =
     , housyasen : Maybe Int
     , yakubutsu : Maybe Int
     , secondopinion : Maybe Int
-    , distance : Maybe Float
+    , distance : Maybe Int
+    , location : Location
     }
 
 
@@ -145,23 +145,61 @@ helperConvListtoFacilityRecord : List String -> Facility
 helperConvListtoFacilityRecord list =
     { id = getAt 0 list
     , name = getAt 1 list
-    , lat = getAt 2 list |> Maybe.withDefault "0" |> String.toFloat
-    , lng = getAt 3 list |> Maybe.withDefault "0" |> String.toFloat
+    , lat = getAt 3 list |> Maybe.withDefault "0" |> String.toFloat
+    , lng = getAt 2 list |> Maybe.withDefault "0" |> String.toFloat
     , distance = Nothing
     }
 
 
+setSoftTissueFacilities : Csv -> Location -> Facilities -> SoftTissueFacilities
+setSoftTissueFacilities csv location facilities =
+    csv.records
+        |> List.map (helperConvListToSoftTissueFacilityRecord facilities location)
 
---setFacilityDistance : Facilities -> Location -> List a -> List a
---setSoftTissueFacilityDistance facilities location targetFacilites =
---    targetFacilites
---        |> List.map ( \targetFacility ->
---                        if getFacilityLocation facilities targetFacility.name then
---                            {targetFacility | name = "aaa"}
---                        else
---                            {targetFacility | name ="bbb"}
---
---        )
+
+helperConvListToSoftTissueFacilityRecord : Facilities -> Location -> List String -> SoftTissueFacility
+helperConvListToSoftTissueFacilityRecord facilities location list =
+    { id = getAt 0 list
+    , name = getAt 1 list
+    , joshi = getAt 2 list |> Maybe.withDefault "0" |> String.toInt
+    , kashi = getAt 3 list |> Maybe.withDefault "0" |> String.toInt
+    , taikan = getAt 4 list |> Maybe.withDefault "0" |> String.toInt
+    , saihatsushoshin = getAt 5 list |> Maybe.withDefault "0" |> String.toInt
+    , ope = getAt 6 list |> Maybe.withDefault "0" |> String.toInt
+    , housyasen = getAt 7 list |> Maybe.withDefault "0" |> String.toInt
+    , yakubutsu = getAt 8 list |> Maybe.withDefault "0" |> String.toInt
+    , secondopinion = getAt 9 list |> Maybe.withDefault "0" |> String.toInt
+    , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities
+    , location = location
+    }
+
+
+helperGetDistance : String -> Facilities -> Maybe Int
+helperGetDistance facilityId facilities =
+    facilities
+        |> List.map
+            (\facility ->
+                if (facility.id |> Maybe.withDefault "") == facilityId then
+                    facility.distance |> Maybe.withDefault 0
+
+                else
+                    0
+            )
+        |> List.maximum
+
+
+setFacilitiesDistance : CurrentLocation -> Facilities -> Facilities
+setFacilitiesDistance currentLocation facilities =
+    facilities
+        |> List.map (\facility -> setFacilityDistance currentLocation facility)
+
+
+setFacilityDistance : CurrentLocation -> Facility -> Facility
+setFacilityDistance currentLocation facility =
+    { facility | distance = Just (Distance.distance (facility.lat |> Maybe.withDefault 0) (facility.lng |> Maybe.withDefault 0) (currentLocation.lat |> Maybe.withDefault 0) (currentLocation.lng |> Maybe.withDefault 0)) }
+
+
+
 --
 --getFacilityLocation : Facilities -> String -> Location
 --getFacilityLocation facilities facilityName =
@@ -213,7 +251,7 @@ getFacilitiesCsv : Cmd Msg
 getFacilitiesCsv =
     Http.get
         { url = "http://localhost:8000/csv/Facilities.csv"
-        , expect = Http.expectString GotCsv
+        , expect = Http.expectString GotFacilitiesCsv
         }
 
 
@@ -221,17 +259,30 @@ getSoftTissueCsv : Cmd Msg
 getSoftTissueCsv =
     Http.get
         { url = "http://localhost:8000/csv/SoftTissue.csv"
-        , expect = Http.expectString GotCsv
+        , expect = Http.expectString GotSoftTissueCsv
         }
 
 
-makeSoftTissueTable : List String -> List (List String) -> Html Msg
-makeSoftTissueTable headers records =
+makeSoftTissueTable : SoftTissueFacilities -> Html Msg
+makeSoftTissueTable facilities =
     table [ class "table" ]
-        [ thead [] <|
-            toListTableHead headers
+        [ thead []
+            [ tr []
+                [ th [] [ text "施設名" ]
+                , th [] [ text "距離" ]
+                , th [] [ text "上肢" ]
+                ]
+            ]
         , tbody [] <|
-            toListTableRow records
+            List.map (\facility -> makeSoftTissueTableRow facility) facilities
+        ]
+
+
+makeSoftTissueTableRow : SoftTissueFacility -> Html Msg
+makeSoftTissueTableRow facility =
+    tr []
+        [ td [] [ text (facility.name |> Maybe.withDefault "0") ]
+        , td [] [ text ("約" ++ (facility.distance |> Maybe.withDefault 0 |> String.fromInt) ++ "km") ]
         ]
 
 
@@ -347,6 +398,7 @@ type alias Model =
     , memos : List String
     , location : CurrentLocation
     , facilities : Facilities
+    , resultSoftTissueFacilities : SoftTissueFacilities
     , searchMode : SearchMode
     , zipcode : String
     , selectedCancerType : String --選択されたがんの種類
@@ -356,6 +408,7 @@ type alias Model =
     , onChange : String
     , rawCsv : String
     , currentLocation : CurrentLocation
+    , parseFacilitesCsv : Csv
     }
 
 
@@ -365,6 +418,7 @@ init flags =
       , location = flags
       , memos = []
       , facilities = []
+      , resultSoftTissueFacilities = []
       , searchMode = Geolocation
       , resultCsv = ""
       , zipcode = ""
@@ -377,9 +431,18 @@ init flags =
             }
       , rawCsv = ""
       , currentLocation = CurrentLocation Nothing Nothing
+      , parseFacilitesCsv =
+            { headers = []
+            , records = []
+            }
       }
     , initFunction
     )
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    updateCurrentLocation UpdateCurrentLocation
 
 
 
@@ -394,45 +457,76 @@ type Msg
     | ChangedCancerPart String
     | Change String
     | GotCsv (Result Http.Error String)
+    | GotSoftTissueCsv (Result Http.Error String)
+    | GotFacilitiesCsv (Result Http.Error String)
     | UpdateCurrentLocation CurrentLocation
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    updateCurrentLocation UpdateCurrentLocation
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ModeZipcode ->
-            ( { model | searchMode = Zipcode, facilities = setFacilities model.parseCsv }, Cmd.none )
+            ( { model | searchMode = Zipcode }, Cmd.none )
 
         ModeGeolocation ->
-            ( { model | searchMode = Geolocation, facilities = setFacilities model.parseCsv }, Cmd.none )
+            ( { model | searchMode = Geolocation }, Cmd.none )
 
         SubmitZipcode string ->
             ( { model | zipcode = string }, Cmd.none )
 
         ChangedCancerType cancerType ->
+            let
+                facilitiesMaster =
+                    setFacilitiesDistance model.currentLocation model.facilities
+            in
             case cancerType of
                 "SoftTissue" ->
-                    ( { model | selectedCancerType = cancerType }, getSoftTissueCsv )
+                    ( { model
+                        | selectedCancerType = cancerType
+                        , facilities = facilitiesMaster
+                      }
+                    , getSoftTissueCsv
+                    )
 
                 "Intraocular" ->
-                    ( { model | selectedCancerType = cancerType }, getIntraocularCsv )
+                    ( { model
+                        | selectedCancerType = cancerType
+                        , facilities = facilitiesMaster
+                      }
+                    , getIntraocularCsv
+                    )
 
                 "Keratoconjunctival" ->
-                    ( { model | selectedCancerType = cancerType }, getKeratoconjunctivalCsv )
+                    ( { model
+                        | selectedCancerType = cancerType
+                        , facilities = facilitiesMaster
+                      }
+                    , getKeratoconjunctivalCsv
+                    )
 
                 "Orbital" ->
-                    ( { model | selectedCancerType = cancerType }, getOrbitalCsv )
+                    ( { model
+                        | selectedCancerType = cancerType
+                        , facilities = facilitiesMaster
+                      }
+                    , getOrbitalCsv
+                    )
 
                 "Eyelid" ->
-                    ( { model | selectedCancerType = cancerType }, getEyelidCsv )
+                    ( { model
+                        | selectedCancerType = cancerType
+                        , facilities = facilitiesMaster
+                      }
+                    , getEyelidCsv
+                    )
 
                 _ ->
-                    ( { model | selectedCancerType = cancerType }, Cmd.none )
+                    ( { model
+                        | selectedCancerType = cancerType
+                        , facilities = facilitiesMaster
+                      }
+                    , Cmd.none
+                    )
 
         ChangedCancerPart cancerPart ->
             ( { model | selectedCancerPart = cancerPart }, Cmd.none )
@@ -444,6 +538,18 @@ update msg model =
             ( { model | resultCsv = repo, parseCsv = Csv.parse repo }, Cmd.none )
 
         GotCsv (Err error) ->
+            ( { model | resultCsv = Debug.toString error }, Cmd.none )
+
+        GotSoftTissueCsv (Ok repo) ->
+            ( { model | resultSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.currentLocation model.facilities }, Cmd.none )
+
+        GotSoftTissueCsv (Err error) ->
+            ( { model | resultCsv = Debug.toString error }, Cmd.none )
+
+        GotFacilitiesCsv (Ok repo) ->
+            ( { model | parseFacilitesCsv = Csv.parse repo, facilities = setFacilities (Csv.parse repo) }, Cmd.none )
+
+        GotFacilitiesCsv (Err error) ->
             ( { model | resultCsv = Debug.toString error }, Cmd.none )
 
         UpdateCurrentLocation location ->
@@ -519,19 +625,19 @@ view model =
             [ table [ class "table" ]
                 [ case model.selectedCancerType of
                     "SoftTissue" ->
-                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+                        makeSoftTissueTable model.resultSoftTissueFacilities
 
                     "Intraocular" ->
-                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+                        makeSoftTissueTable model.resultSoftTissueFacilities
 
                     "Keratoconjunctival" ->
-                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+                        makeSoftTissueTable model.resultSoftTissueFacilities
 
                     "Orbital" ->
-                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+                        makeSoftTissueTable model.resultSoftTissueFacilities
 
                     "Eyelid" ->
-                        makeSoftTissueTable model.parseCsv.headers model.parseCsv.records
+                        makeSoftTissueTable model.resultSoftTissueFacilities
 
                     _ ->
                         div [] []

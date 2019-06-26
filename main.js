@@ -603,6 +603,7 @@ function _Debug_regionToString(region)
 }
 
 
+
 // EQUALITY
 
 	function _Utils_eq(x, y) {
@@ -662,6 +663,7 @@ function _Debug_regionToString(region)
 	var _Utils_notEqual = F2(function (a, b) {
 		return !_Utils_eq(a, b);
 	});
+
 
 
 // COMPARISONS
@@ -5053,8 +5055,8 @@ function _Browser_load(url)
 			return {lat: lat, lng: lng};
 		});
 	var author$project$Main$Geolocation = {$: 'Geolocation'};
-	var author$project$Main$GotCsv = function (a) {
-		return {$: 'GotCsv', a: a};
+	var author$project$Main$GotFacilitiesCsv = function (a) {
+		return {$: 'GotFacilitiesCsv', a: a};
 	};
 	var elm$core$Result$Ok = function (a) {
 		return {$: 'Ok', a: a};
@@ -6422,7 +6424,7 @@ var elm$core$Maybe$Nothing = {$: 'Nothing'};
 	};
 	var author$project$Main$getFacilitiesCsv = elm$http$Http$get(
 		{
-			expect: elm$http$Http$expectString(author$project$Main$GotCsv),
+			expect: elm$http$Http$expectString(author$project$Main$GotFacilitiesCsv),
 			url: 'http://localhost:8000/csv/Facilities.csv'
 		});
 	var elm$core$Platform$Cmd$batch = _Platform_batch;
@@ -6439,8 +6441,10 @@ var elm$core$Maybe$Nothing = {$: 'Nothing'};
 				memos: _List_Nil,
 				onChange: '',
 				parseCsv: {headers: _List_Nil, records: _List_Nil},
+				parseFacilitesCsv: {headers: _List_Nil, records: _List_Nil},
 				rawCsv: '',
 				resultCsv: '',
+				resultSoftTissueFacilities: _List_Nil,
 				searchMode: author$project$Main$Geolocation,
 				selectedCancerPart: '',
 				selectedCancerType: '',
@@ -6492,6 +6496,9 @@ var elm$core$Maybe$Nothing = {$: 'Nothing'};
 		return author$project$Main$updateCurrentLocation(author$project$Main$UpdateCurrentLocation);
 	};
 	var author$project$Main$Zipcode = {$: 'Zipcode'};
+	var author$project$Main$GotCsv = function (a) {
+		return {$: 'GotCsv', a: a};
+	};
 	var author$project$Main$getEyelidCsv = elm$http$Http$get(
 		{
 			expect: elm$http$Http$expectString(author$project$Main$GotCsv),
@@ -6512,9 +6519,12 @@ var elm$core$Maybe$Nothing = {$: 'Nothing'};
 			expect: elm$http$Http$expectString(author$project$Main$GotCsv),
 			url: 'http://localhost:8000/csv/Orbital.csv'
 		});
+	var author$project$Main$GotSoftTissueCsv = function (a) {
+		return {$: 'GotSoftTissueCsv', a: a};
+	};
 	var author$project$Main$getSoftTissueCsv = elm$http$Http$get(
 		{
-			expect: elm$http$Http$expectString(author$project$Main$GotCsv),
+			expect: elm$http$Http$expectString(author$project$Main$GotSoftTissueCsv),
 			url: 'http://localhost:8000/csv/SoftTissue.csv'
 		});
 	var elm$core$Maybe$withDefault = F2(
@@ -6570,12 +6580,12 @@ var elm$core$Maybe$Nothing = {$: 'Nothing'};
 				A2(
 					elm$core$Maybe$withDefault,
 					'0',
-					A2(elm_community$list_extra$List$Extra$getAt, 2, list))),
+					A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
 			lng: elm$core$String$toFloat(
 				A2(
 					elm$core$Maybe$withDefault,
 					'0',
-					A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
+					A2(elm_community$list_extra$List$Extra$getAt, 2, list))),
 			name: A2(elm_community$list_extra$List$Extra$getAt, 1, list)
 		};
 	};
@@ -6596,6 +6606,125 @@ var elm$core$Maybe$Nothing = {$: 'Nothing'};
 	var author$project$Main$setFacilities = function (csv) {
 		return A2(elm$core$List$map, author$project$Main$helperConvListtoFacilityRecord, csv.records);
 	};
+	var elm$core$Basics$acos = _Basics_acos;
+	var elm$core$Basics$cos = _Basics_cos;
+	var elm$core$Basics$pi = _Basics_pi;
+	var elm$core$Basics$round = _Basics_round;
+	var elm$core$Basics$sin = _Basics_sin;
+	var author$project$Distance$distance = F4(
+		function (lat1, lng1, lat2, lng2) {
+			return elm$core$Basics$round(
+				6371 * elm$core$Basics$acos(
+				((elm$core$Basics$cos((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$cos((lat2 * elm$core$Basics$pi) / 180)) * elm$core$Basics$cos(((lng2 * elm$core$Basics$pi) / 180) - ((lng1 * elm$core$Basics$pi) / 180))) + (elm$core$Basics$sin((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$sin((lat2 * elm$core$Basics$pi) / 180))));
+		});
+	var author$project$Main$setFacilityDistance = F2(
+		function (currentLocation, facility) {
+			return _Utils_update(
+				facility,
+				{
+					distance: elm$core$Maybe$Just(
+						A4(
+							author$project$Distance$distance,
+							A2(elm$core$Maybe$withDefault, 0, facility.lat),
+							A2(elm$core$Maybe$withDefault, 0, facility.lng),
+							A2(elm$core$Maybe$withDefault, 0, currentLocation.lat),
+							A2(elm$core$Maybe$withDefault, 0, currentLocation.lng)))
+				});
+		});
+	var author$project$Main$setFacilitiesDistance = F2(
+		function (currentLocation, facilities) {
+			return A2(
+				elm$core$List$map,
+				function (facility) {
+					return A2(author$project$Main$setFacilityDistance, currentLocation, facility);
+				},
+				facilities);
+		});
+	var elm$core$List$maximum = function (list) {
+		if (list.b) {
+			var x = list.a;
+			var xs = list.b;
+			return elm$core$Maybe$Just(
+				A3(elm$core$List$foldl, elm$core$Basics$max, x, xs));
+		} else {
+			return elm$core$Maybe$Nothing;
+		}
+	};
+	var author$project$Main$helperGetDistance = F2(
+		function (facilityId, facilities) {
+			return elm$core$List$maximum(
+				A2(
+					elm$core$List$map,
+					function (facility) {
+						return _Utils_eq(
+							A2(elm$core$Maybe$withDefault, '', facility.id),
+							facilityId) ? A2(elm$core$Maybe$withDefault, 0, facility.distance) : 0;
+					},
+					facilities));
+		});
+	var elm$core$String$toInt = _String_toInt;
+	var author$project$Main$helperConvListToSoftTissueFacilityRecord = F3(
+		function (facilities, location, list) {
+			return {
+				distance: A2(
+					author$project$Main$helperGetDistance,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				housyasen: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 7, list))),
+				id: A2(elm_community$list_extra$List$Extra$getAt, 0, list),
+				joshi: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 2, list))),
+				kashi: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
+				location: location,
+				name: A2(elm_community$list_extra$List$Extra$getAt, 1, list),
+				ope: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 6, list))),
+				saihatsushoshin: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 5, list))),
+				secondopinion: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 9, list))),
+				taikan: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 4, list))),
+				yakubutsu: elm$core$String$toInt(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 8, list)))
+			};
+		});
+	var author$project$Main$setSoftTissueFacilities = F3(
+		function (csv, location, facilities) {
+			return A2(
+				elm$core$List$map,
+				A2(author$project$Main$helperConvListToSoftTissueFacilityRecord, facilities, location),
+				csv.records);
+		});
 	var elm$core$Debug$log = _Debug_log;
 	var elm$core$Debug$toString = _Debug_toString;
 	var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
@@ -6731,19 +6860,13 @@ var author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{
-							facilities: author$project$Main$setFacilities(model.parseCsv),
-							searchMode: author$project$Main$Zipcode
-						}),
+						{searchMode: author$project$Main$Zipcode}),
 					elm$core$Platform$Cmd$none);
 			case 'ModeGeolocation':
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{
-							facilities: author$project$Main$setFacilities(model.parseCsv),
-							searchMode: author$project$Main$Geolocation
-						}),
+						{searchMode: author$project$Main$Geolocation}),
 					elm$core$Platform$Cmd$none);
 			case 'SubmitZipcode':
 				var string = msg.a;
@@ -6754,42 +6877,43 @@ var author$project$Main$update = F2(
 					elm$core$Platform$Cmd$none);
 			case 'ChangedCancerType':
 				var cancerType = msg.a;
+				var facilitiesMaster = A2(author$project$Main$setFacilitiesDistance, model.currentLocation, model.facilities);
 				switch (cancerType) {
 					case 'SoftTissue':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{selectedCancerType: cancerType}),
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
 							author$project$Main$getSoftTissueCsv);
 					case 'Intraocular':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{selectedCancerType: cancerType}),
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
 							author$project$Main$getIntraocularCsv);
 					case 'Keratoconjunctival':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{selectedCancerType: cancerType}),
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
 							author$project$Main$getKeratoconjunctivalCsv);
 					case 'Orbital':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{selectedCancerType: cancerType}),
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
 							author$project$Main$getOrbitalCsv);
 					case 'Eyelid':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{selectedCancerType: cancerType}),
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
 							author$project$Main$getEyelidCsv);
 					default:
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-								{selectedCancerType: cancerType}),
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
 							elm$core$Platform$Cmd$none);
 				}
 			case 'ChangedCancerPart':
@@ -6817,6 +6941,52 @@ var author$project$Main$update = F2(
 							{
 								parseCsv: lovasoa$elm_csv$Csv$parse(repo),
 								resultCsv: repo
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								resultCsv: elm$core$Debug$toString(error)
+							}),
+						elm$core$Platform$Cmd$none);
+				}
+			case 'GotSoftTissueCsv':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								resultSoftTissueFacilities: A3(
+									author$project$Main$setSoftTissueFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.currentLocation,
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								resultCsv: elm$core$Debug$toString(error)
+							}),
+						elm$core$Platform$Cmd$none);
+				}
+			case 'GotFacilitiesCsv':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								facilities: author$project$Main$setFacilities(
+									lovasoa$elm_csv$Csv$parse(repo)),
+								parseFacilitesCsv: lovasoa$elm_csv$Csv$parse(repo)
 							}),
 						elm$core$Platform$Cmd$none);
 				} else {
@@ -7022,69 +7192,91 @@ var author$project$Main$htmlSelectOrbital = A2(
 			A2(author$project$Main$selectOption, 'OrbitalMalignantLymphoma', '眼窩悪性リンパ腫'),
 			A2(author$project$Main$selectOption, 'LacrimalGlandCancer', '涙腺がん')
 		]));
-	var elm$html$Html$th = _VirtualDom_node('th');
-	var author$project$Main$toListTableHead = function (myListItems) {
-		return A2(
-			elm$core$List$map,
-			function (th_) {
-				return A2(
-					elm$html$Html$th,
-					_List_Nil,
-					_List_fromArray(
-						[
-							elm$html$Html$text(th_)
-						]));
-			},
-			myListItems);
-	};
 	var elm$html$Html$td = _VirtualDom_node('td');
 	var elm$html$Html$tr = _VirtualDom_node('tr');
-	var author$project$Main$toListTableRow = function (myListItems) {
+	var author$project$Main$makeSoftTissueTableRow = function (facility) {
 		return A2(
-			elm$core$List$map,
-			function (tr_) {
-				return A2(
-					elm$html$Html$tr,
-					_List_Nil,
+			elm$html$Html$tr,
+			_List_Nil,
+			_List_fromArray(
+				[
 					A2(
-						elm$core$List$map,
-						function (td_) {
-							return A2(
-								elm$html$Html$td,
-								_List_Nil,
-								_List_fromArray(
-									[
-										elm$html$Html$text(td_)
-									]));
-						},
-						tr_));
-			},
-			myListItems);
+						elm$html$Html$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								elm$html$Html$text(
+									A2(elm$core$Maybe$withDefault, '0', facility.name))
+							])),
+					A2(
+						elm$html$Html$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								elm$html$Html$text(
+									'約' + (elm$core$String$fromInt(
+									A2(elm$core$Maybe$withDefault, 0, facility.distance)) + 'km'))
+							]))
+				]));
 	};
 	var elm$html$Html$table = _VirtualDom_node('table');
 	var elm$html$Html$tbody = _VirtualDom_node('tbody');
+	var elm$html$Html$th = _VirtualDom_node('th');
 	var elm$html$Html$thead = _VirtualDom_node('thead');
 	var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
-	var author$project$Main$makeSoftTissueTable = F2(
-		function (headers, records) {
-			return A2(
-				elm$html$Html$table,
-				_List_fromArray(
-					[
-						elm$html$Html$Attributes$class('table')
-					]),
-				_List_fromArray(
-					[
+	var author$project$Main$makeSoftTissueTable = function (facilities) {
+		return A2(
+			elm$html$Html$table,
+			_List_fromArray(
+				[
+					elm$html$Html$Attributes$class('table')
+				]),
+			_List_fromArray(
+				[
+					A2(
+						elm$html$Html$thead,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+									elm$html$Html$tr,
+									_List_Nil,
+									_List_fromArray(
+										[
+											A2(
+												elm$html$Html$th,
+												_List_Nil,
+												_List_fromArray(
+													[
+														elm$html$Html$text('施設名')
+													])),
+											A2(
+												elm$html$Html$th,
+												_List_Nil,
+												_List_fromArray(
+													[
+														elm$html$Html$text('距離')
+													])),
+											A2(
+												elm$html$Html$th,
+												_List_Nil,
+												_List_fromArray(
+													[
+														elm$html$Html$text('上肢')
+													]))
+										]))
+							])),
+					A2(
+						elm$html$Html$tbody,
+						_List_Nil,
 						A2(
-							elm$html$Html$thead,
-							_List_Nil,
-							author$project$Main$toListTableHead(headers)),
-						A2(
-							elm$html$Html$tbody,
-							_List_Nil,
-							author$project$Main$toListTableRow(records))
-					]));
-		});
+							elm$core$List$map,
+							function (facility) {
+								return author$project$Main$makeSoftTissueTableRow(facility);
+							},
+							facilities))
+				]));
+	};
 var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
 	return _VirtualDom_keyedNode(
 		_VirtualDom_noScript(tag));
@@ -7296,15 +7488,15 @@ var author$project$Main$view = function (model) {
 											var _n2 = model.selectedCancerType;
 											switch (_n2) {
 												case 'SoftTissue':
-													return A2(author$project$Main$makeSoftTissueTable, model.parseCsv.headers, model.parseCsv.records);
+													return author$project$Main$makeSoftTissueTable(model.resultSoftTissueFacilities);
 												case 'Intraocular':
-													return A2(author$project$Main$makeSoftTissueTable, model.parseCsv.headers, model.parseCsv.records);
+													return author$project$Main$makeSoftTissueTable(model.resultSoftTissueFacilities);
 												case 'Keratoconjunctival':
-													return A2(author$project$Main$makeSoftTissueTable, model.parseCsv.headers, model.parseCsv.records);
+													return author$project$Main$makeSoftTissueTable(model.resultSoftTissueFacilities);
 												case 'Orbital':
-													return A2(author$project$Main$makeSoftTissueTable, model.parseCsv.headers, model.parseCsv.records);
+													return author$project$Main$makeSoftTissueTable(model.resultSoftTissueFacilities);
 												case 'Eyelid':
-													return A2(author$project$Main$makeSoftTissueTable, model.parseCsv.headers, model.parseCsv.records);
+													return author$project$Main$makeSoftTissueTable(model.resultSoftTissueFacilities);
 												default:
 													return A2(elm$html$Html$div, _List_Nil, _List_Nil);
 											}
@@ -10779,7 +10971,6 @@ var elm$core$Set$foldr = F3(
 var elm$url$Url$Http = {$: 'Http'};
 var elm$url$Url$Https = {$: 'Https'};
 var elm$core$String$indexes = _String_indexes;
-var elm$core$String$toInt = _String_toInt;
 var elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
 		return {fragment: fragment, host: host, path: path, port_: port_, protocol: protocol, query: query};
@@ -10923,8 +11114,7 @@ _Platform_export({'Main':{'init':author$project$Main$main(
 								elm$json$Json$Decode$null(elm$core$Maybe$Nothing),
 								A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, elm$json$Json$Decode$float)
 							])))))({
-			"versions": {"elm": "0.19.0"},
-			"types": {
+			"versions": {"elm": "0.19.0"}, "types": {
 				"message": "Main.Msg",
 				"aliases": {
 					"Main.CurrentLocation": {
@@ -10943,6 +11133,8 @@ _Platform_export({'Main':{'init':author$project$Main$main(
 							"ChangedCancerPart": ["String.String"],
 							"Change": ["String.String"],
 							"GotCsv": ["Result.Result Http.Error String.String"],
+							"GotSoftTissueCsv": ["Result.Result Http.Error String.String"],
+							"GotFacilitiesCsv": ["Result.Result Http.Error String.String"],
 							"UpdateCurrentLocation": ["Main.CurrentLocation"]
 						}
 					},
