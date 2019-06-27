@@ -11,6 +11,7 @@ import Html.Keyed as Keyed
 import Http
 import Json.Decode as Json
 import List.Extra exposing (find, getAt)
+import Table exposing (defaultCustomizations)
 
 
 port updateCurrentLocation : (CurrentLocation -> msg) -> Sub msg
@@ -116,23 +117,39 @@ type alias Facilities =
 
 
 type alias SoftTissueFacility =
-    { id : Maybe String
-    , name : Maybe String
-    , joshi : Maybe Int
-    , kashi : Maybe Int
-    , taikan : Maybe Int
-    , saihatsushoshin : Maybe Int
-    , ope : Maybe Int
-    , housyasen : Maybe Int
-    , yakubutsu : Maybe Int
-    , secondopinion : Maybe Int
-    , distance : Maybe Int
+    { id : String
+    , name : String
+    , joshi : Int
+    , kashi : Int
+    , taikan : Int
+    , saihatsushoshin : Int
+    , ope : Int
+    , housyasen : Int
+    , yakubutsu : Int
+    , secondopinion : Int
+    , distance : Int
     , location : Location
+    , selected : Bool
     }
 
 
 type alias SoftTissueFacilities =
     List SoftTissueFacility
+
+
+type alias GeneralCancerFacility =
+    { id : String
+    , name : String
+    , count : Int --件数
+    , diagnosis : String --診断
+    , treatment : String --治療
+    , distance : Int
+    , location : Location
+    }
+
+
+type alias GeneralCancerFacilities =
+    List GeneralCancerFacility
 
 
 setFacilities : Csv -> Facilities
@@ -159,19 +176,25 @@ setSoftTissueFacilities csv location facilities =
 
 helperConvListToSoftTissueFacilityRecord : Facilities -> Location -> List String -> SoftTissueFacility
 helperConvListToSoftTissueFacilityRecord facilities location list =
-    { id = getAt 0 list
-    , name = getAt 1 list
-    , joshi = getAt 2 list |> Maybe.withDefault "0" |> String.toInt
-    , kashi = getAt 3 list |> Maybe.withDefault "0" |> String.toInt
-    , taikan = getAt 4 list |> Maybe.withDefault "0" |> String.toInt
-    , saihatsushoshin = getAt 5 list |> Maybe.withDefault "0" |> String.toInt
-    , ope = getAt 6 list |> Maybe.withDefault "0" |> String.toInt
-    , housyasen = getAt 7 list |> Maybe.withDefault "0" |> String.toInt
-    , yakubutsu = getAt 8 list |> Maybe.withDefault "0" |> String.toInt
-    , secondopinion = getAt 9 list |> Maybe.withDefault "0" |> String.toInt
-    , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities
+    { id = getAt 0 list |> Maybe.withDefault "00000"
+    , name = getAt 1 list |> Maybe.withDefault "未設定"
+    , joshi = getAt 2 list |> maybeStringtoInt
+    , kashi = getAt 3 list |> maybeStringtoInt
+    , taikan = getAt 4 list |> maybeStringtoInt
+    , saihatsushoshin = getAt 5 list |> maybeStringtoInt
+    , ope = getAt 6 list |> maybeStringtoInt
+    , housyasen = getAt 7 list |> maybeStringtoInt
+    , yakubutsu = getAt 8 list |> maybeStringtoInt
+    , secondopinion = getAt 9 list |> maybeStringtoInt
+    , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = location
+    , selected = False
     }
+
+
+maybeStringtoInt : Maybe String -> Int
+maybeStringtoInt string =
+    string |> Maybe.withDefault "-1" |> String.toInt |> Maybe.withDefault -1
 
 
 helperGetDistance : String -> Facilities -> Maybe Int
@@ -188,6 +211,56 @@ helperGetDistance facilityId facilities =
         |> List.maximum
 
 
+configSoftTissue : Table.Config SoftTissueFacility Msg
+configSoftTissue =
+    Table.customConfig
+        { toId = .id
+        , toMsg = SetTableState
+        , columns =
+            [ Table.stringColumn "施設名" .name
+            , Table.intColumn "距離(km)" .distance
+            , Table.intColumn "上肢" .joshi
+            , Table.intColumn "下肢" .kashi
+            , Table.intColumn "体幹" .taikan
+            , Table.intColumn "再発後初診" .saihatsushoshin
+            , Table.intColumn "手術件数" .ope
+            , Table.intColumn "放射線治療" .housyasen
+            , Table.intColumn "薬物療法" .yakubutsu
+            , Table.intColumn "セカンドオピニオン" .secondopinion
+            ]
+        , customizations =
+            { defaultCustomizations | rowAttrs = toRowAttrs }
+        }
+
+
+toRowAttrs : SoftTissueFacility -> List (Attribute Msg)
+toRowAttrs facility =
+    [ onClick (ToggleSoftTissueSelected facility.id)
+    , style "background"
+        (if facility.selected then
+            "#CEFAF8"
+
+         else
+            "white"
+        )
+    ]
+
+
+configGeneralCancer : Table.Config GeneralCancerFacility Msg
+configGeneralCancer =
+    Table.config
+        { toId = .id
+        , toMsg = SetTableState
+        , columns =
+            [ Table.stringColumn "施設名" .name
+            , Table.intColumn "距離(km)" .distance
+            , Table.intColumn "件数" .count
+            , Table.stringColumn "診断" .diagnosis
+            , Table.stringColumn "治療" .treatment
+            ]
+        }
+
+
 setFacilitiesDistance : CurrentLocation -> Facilities -> Facilities
 setFacilitiesDistance currentLocation facilities =
     facilities
@@ -197,30 +270,6 @@ setFacilitiesDistance currentLocation facilities =
 setFacilityDistance : CurrentLocation -> Facility -> Facility
 setFacilityDistance currentLocation facility =
     { facility | distance = Just (Distance.distance (facility.lat |> Maybe.withDefault 0) (facility.lng |> Maybe.withDefault 0) (currentLocation.lat |> Maybe.withDefault 0) (currentLocation.lng |> Maybe.withDefault 0)) }
-
-
-
---
---getFacilityLocation : Facilities -> String -> Location
---getFacilityLocation facilities facilityName =
---    facilities
---        |> List.map
---            (\facility ->
---                if isTargetFacility facility facilityName then
---                    { facility.lat, facility.lng }
---                else
---                    Nothing
---            )
---        |> List.head
-
-
-isTargetFacility : String -> Facility -> Bool
-isTargetFacility facilityId facility =
-    if (facility.id |> Maybe.withDefault "none") == facilityId then
-        True
-
-    else
-        False
 
 
 toListTableHead : List String -> List (Html Msg)
@@ -263,29 +312,6 @@ getSoftTissueCsv =
         }
 
 
-makeSoftTissueTable : SoftTissueFacilities -> Html Msg
-makeSoftTissueTable facilities =
-    table [ class "table" ]
-        [ thead []
-            [ tr []
-                [ th [] [ text "施設名" ]
-                , th [] [ text "距離" ]
-                , th [] [ text "上肢" ]
-                ]
-            ]
-        , tbody [] <|
-            List.map (\facility -> makeSoftTissueTableRow facility) facilities
-        ]
-
-
-makeSoftTissueTableRow : SoftTissueFacility -> Html Msg
-makeSoftTissueTableRow facility =
-    tr []
-        [ td [] [ text (facility.name |> Maybe.withDefault "0") ]
-        , td [] [ text ("約" ++ (facility.distance |> Maybe.withDefault 0 |> String.fromInt) ++ "km") ]
-        ]
-
-
 getIntraocularCsv : Cmd Msg
 getIntraocularCsv =
     Http.get
@@ -316,6 +342,10 @@ getEyelidCsv =
         { url = "http://localhost:8000/csv/Eyelid.csv"
         , expect = Http.expectString GotCsv
         }
+
+
+
+-- 距離が入力されている四肢軟部肉腫の結果をTableに出力する
 
 
 selectOption : String -> String -> Html Msg
@@ -409,6 +439,7 @@ type alias Model =
     , rawCsv : String
     , currentLocation : CurrentLocation
     , parseFacilitesCsv : Csv
+    , tableState : Table.State
     }
 
 
@@ -425,16 +456,11 @@ init flags =
       , selectedCancerType = ""
       , selectedCancerPart = ""
       , onChange = ""
-      , parseCsv =
-            { headers = []
-            , records = []
-            }
+      , parseCsv = Csv [] []
       , rawCsv = ""
       , currentLocation = CurrentLocation Nothing Nothing
-      , parseFacilitesCsv =
-            { headers = []
-            , records = []
-            }
+      , parseFacilitesCsv = Csv [] []
+      , tableState = Table.initialSort "id"
       }
     , initFunction
     )
@@ -460,6 +486,8 @@ type Msg
     | GotSoftTissueCsv (Result Http.Error String)
     | GotFacilitiesCsv (Result Http.Error String)
     | UpdateCurrentLocation CurrentLocation
+    | SetTableState Table.State
+    | ToggleSoftTissueSelected String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -555,6 +583,25 @@ update msg model =
         UpdateCurrentLocation location ->
             ( { model | currentLocation = location }, Cmd.none )
 
+        SetTableState newState ->
+            ( { model | tableState = newState }
+            , Cmd.none
+            )
+
+        ToggleSoftTissueSelected id ->
+            ( { model | resultSoftTissueFacilities = List.map (toggleSoftTissue id) model.resultSoftTissueFacilities }
+            , Cmd.none
+            )
+
+
+toggleSoftTissue : String -> SoftTissueFacility -> SoftTissueFacility
+toggleSoftTissue id facility =
+    if facility.id == id then
+        { facility | selected = not facility.selected }
+
+    else
+        facility
+
 
 
 -- VIEW
@@ -621,26 +668,5 @@ view model =
                     _ ->
                         div [] []
             ]
-        , div [ id "resultTable" ]
-            [ table [ class "table" ]
-                [ case model.selectedCancerType of
-                    "SoftTissue" ->
-                        makeSoftTissueTable model.resultSoftTissueFacilities
-
-                    "Intraocular" ->
-                        makeSoftTissueTable model.resultSoftTissueFacilities
-
-                    "Keratoconjunctival" ->
-                        makeSoftTissueTable model.resultSoftTissueFacilities
-
-                    "Orbital" ->
-                        makeSoftTissueTable model.resultSoftTissueFacilities
-
-                    "Eyelid" ->
-                        makeSoftTissueTable model.resultSoftTissueFacilities
-
-                    _ ->
-                        div [] []
-                ]
-            ]
+        , Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities
         ]
