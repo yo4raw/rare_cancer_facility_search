@@ -428,7 +428,7 @@ function _Debug_toAnsiString(ansi, value)
 		{
 			var output = '[';
 
-			value.b && (output += _Debug_toAnsiString(ansi, value.a), value = value.b)
+            value.b && (output += _Debug_toAnsiString(ansi, value.a), value = value.b);
 
 			for (; value.b; value = value.b) // WHILE_CONS
 			{
@@ -742,7 +742,10 @@ function _Utils_Tuple3_UNUSED(a, b, c) { return { a: a, b: b, c: c }; }
 function _Utils_Tuple3(a, b, c) { return { $: '#3', a: a, b: b, c: c }; }
 
 function _Utils_chr_UNUSED(c) { return c; }
-function _Utils_chr(c) { return new String(c); }
+
+    function _Utils_chr(c) {
+        return String(c);
+    }
 
 
 // RECORDS
@@ -783,7 +786,7 @@ function _Utils_ap(xs, ys)
 		return ys;
 	}
 	var root = _List_Cons(xs.a, ys);
-	xs = xs.b
+    xs = xs.b;
 	for (var curr = root; xs.b; xs = xs.b) // WHILE_CONS
 	{
 		curr = curr.b = _List_Cons(xs.a, ys);
@@ -3828,7 +3831,7 @@ function _VirtualDom_applyPatchesHelp(rootDomNode, patches)
 	for (var i = 0; i < patches.length; i++)
 	{
 		var patch = patches[i];
-		var localDomNode = patch.t
+        var localDomNode = patch.t;
 		var newNode = _VirtualDom_applyPatch(localDomNode, patch);
 		if (localDomNode === rootDomNode)
 		{
@@ -4065,9 +4068,9 @@ var _Bitwise_xor = F2(function(a, b)
 function _Bitwise_complement(a)
 {
 	return ~a;
-};
+}
 
-var _Bitwise_shiftLeftBy = F2(function(offset, a)
+    var _Bitwise_shiftLeftBy = F2(function (offset, a)
 {
 	return a << offset;
 });
@@ -4658,7 +4661,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.update,
 		impl.subscriptions,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.setup && impl.setup(sendToApp)
+            var divertHrefToApp = impl.setup && impl.setup(sendToApp);
 			var view = impl.view;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
@@ -5119,7 +5122,7 @@ var elm$core$Dict$foldr = F3(
 				func = $temp$func;
 				acc = $temp$acc;
 				t = $temp$t;
-				continue foldr;
+
 			}
 		}
 	});
@@ -5157,7 +5160,6 @@ var elm$core$Maybe$Just = function (a) {
 var elm$core$Maybe$Nothing = {$: 'Nothing'};
 var elm$core$Dict$get = F2(
 	function (targetKey, dict) {
-		get:
 		while (true) {
 			if (dict.$ === 'RBEmpty_elm_builtin') {
 				return elm$core$Maybe$Nothing;
@@ -5181,7 +5183,7 @@ var elm$core$Dict$get = F2(
 							$temp$dict = right;
 						targetKey = $temp$targetKey;
 						dict = $temp$dict;
-						continue get;
+
 				}
 			}
 		}
@@ -5303,7 +5305,7 @@ var elm$core$Dict$getMin = function (dict) {
 			var left = dict.d;
 			var $temp$dict = left;
 			dict = $temp$dict;
-			continue getMin;
+
 		} else {
 			return dict;
 		}
@@ -5483,7 +5485,7 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 							var _n5 = _n4.a;
 							return elm$core$Dict$moveRedRight(dict);
 						} else {
-							break _n2$2;
+                            break;
 						}
 					} else {
 						var _n6 = right.a;
@@ -5491,7 +5493,7 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 						return elm$core$Dict$moveRedRight(dict);
 					}
 				} else {
-					break _n2$2;
+                    break;
 				}
 			}
 			return dict;
@@ -5723,7 +5725,7 @@ var elm$core$List$foldl = F3(
 				func = $temp$func;
 				acc = $temp$acc;
 				list = $temp$list;
-				continue foldl;
+
 			}
 		}
 	});
@@ -5748,7 +5750,7 @@ var elm$core$Array$compressNodes = F2(
 					$temp$acc = newAcc;
 				nodes = $temp$nodes;
 				acc = $temp$acc;
-				continue compressNodes;
+
 			}
 		}
 	});
@@ -5772,7 +5774,7 @@ var elm$core$Array$treeFromBuilder = F2(
 					$temp$nodeListSize = newNodeSize;
 				nodeList = $temp$nodeList;
 				nodeListSize = $temp$nodeListSize;
-				continue treeFromBuilder;
+
 			}
 		}
 	});
@@ -5837,7 +5839,7 @@ var elm$core$Array$initializeHelp = F5(
 				len = $temp$len;
 				nodeList = $temp$nodeList;
 				tail = $temp$tail;
-				continue initializeHelp;
+
 			}
 		}
 	});
@@ -5916,7 +5918,7 @@ var elm$core$List$rangeHelp = F3(
 				lo = $temp$lo;
 				hi = $temp$hi;
 				list = $temp$list;
-				continue rangeHelp;
+
 			} else {
 				return list;
 			}
@@ -5991,7 +5993,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 						$temp$context = A2(elm$core$List$cons, fieldName, context);
 					error = $temp$error;
 					context = $temp$context;
-					continue errorToStringHelp;
+                    continue;
 				case 'Index':
 					var i = error.a;
 					var err = error.b;
@@ -6000,7 +6002,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 						$temp$context = A2(elm$core$List$cons, indexName, context);
 					error = $temp$error;
 					context = $temp$context;
-					continue errorToStringHelp;
+                    continue;
 				case 'OneOf':
 					var errors = error.a;
 					if (!errors.b) {
@@ -6021,7 +6023,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 								$temp$context = context;
 							error = $temp$error;
 							context = $temp$context;
-							continue errorToStringHelp;
+                            continue;
 						} else {
 							var starter = function () {
 								if (!context.b) {
@@ -6186,7 +6188,7 @@ var elm$http$Http$updateReqs = F3(
 						router = $temp$router;
 						cmds = $temp$cmds;
 						reqs = $temp$reqs;
-						continue updateReqs;
+
 					} else {
 						var pid = _n2.a;
 						return A2(
@@ -6433,8 +6435,16 @@ var author$project$Main$init = function (flags) {
 			parseCsv: A2(author$project$Main$Csv, _List_Nil, _List_Nil),
 			parseFacilitesCsv: A2(author$project$Main$Csv, _List_Nil, _List_Nil),
 			rawCsv: '',
+            resultConjunctivalMalignantLymphomaFacilities: _List_Nil,
+            resultConjunctivalMalignantMelanomaFacilities: _List_Nil,
 			resultCsv: '',
+            resultEyelidFacilities: _List_Nil,
+            resultIntraocularLymphomaFacilities: _List_Nil,
+            resultKeratoconjunctivalSquamousCellCarcinomaFacilities: _List_Nil,
+            resultLacrimalGlandCancerFacilities: _List_Nil,
+            resultOrbitalMalignantLymphomaFacilities: _List_Nil,
 			resultSoftTissueFacilities: _List_Nil,
+            resultUvealMalignantMelanomaFacilities: _List_Nil,
 			searchMode: author$project$Main$Geolocation,
 			selectedCancerPart: '',
 			selectedCancerType: '',
@@ -6544,7 +6554,7 @@ var elm$core$List$drop = F2(
 						$temp$list = xs;
 					n = $temp$n;
 					list = $temp$list;
-					continue drop;
+
 				}
 			}
 		}
@@ -6567,16 +6577,18 @@ var author$project$Main$helperConvListtoFacilityRecord = function (list) {
 	return {
 		distance: elm$core$Maybe$Nothing,
 		id: A2(elm_community$list_extra$List$Extra$getAt, 0, list),
-		lat: elm$core$String$toFloat(
-			A2(
-				elm$core$Maybe$withDefault,
-				'0',
-				A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
-		lng: elm$core$String$toFloat(
-			A2(
-				elm$core$Maybe$withDefault,
-				'0',
-				A2(elm_community$list_extra$List$Extra$getAt, 2, list))),
+        location: {
+            lat: elm$core$String$toFloat(
+                A2(
+                    elm$core$Maybe$withDefault,
+                    '0',
+                    A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
+            lng: elm$core$String$toFloat(
+                A2(
+                    elm$core$Maybe$withDefault,
+                    '0',
+                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)))
+        },
 		name: A2(elm_community$list_extra$List$Extra$getAt, 1, list)
 	};
 };
@@ -6616,8 +6628,8 @@ var author$project$Main$setFacilityDistance = F2(
 				distance: elm$core$Maybe$Just(
 					A4(
 						author$project$Distance$distance,
-						A2(elm$core$Maybe$withDefault, 0, facility.lat),
-						A2(elm$core$Maybe$withDefault, 0, facility.lng),
+                        A2(elm$core$Maybe$withDefault, 0, facility.location.lat),
+                        A2(elm$core$Maybe$withDefault, 0, facility.location.lng),
 						A2(elm$core$Maybe$withDefault, 0, currentLocation.lat),
 						A2(elm$core$Maybe$withDefault, 0, currentLocation.lng)))
 			});
@@ -6631,6 +6643,48 @@ var author$project$Main$setFacilitiesDistance = F2(
 			},
 			facilities);
 	});
+    var elm$core$Maybe$destruct = F3(
+        function (_default, func, maybe) {
+            if (maybe.$ === 'Just') {
+                var a = maybe.a;
+                return func(a);
+            } else {
+                return _default;
+            }
+        });
+    var elm$json$Json$Encode$float = _Json_wrap;
+    var elm$json$Json$Encode$null = _Json_encodeNull;
+    var elm$json$Json$Encode$object = function (pairs) {
+        return _Json_wrap(
+            A3(
+                elm$core$List$foldl,
+                F2(
+                    function (_n0, obj) {
+                        var k = _n0.a;
+                        var v = _n0.b;
+                        return A3(_Json_addField, k, v, obj);
+                    }),
+                _Json_emptyObject(_Utils_Tuple0),
+                pairs));
+    };
+    var author$project$Main$setMapMaker = _Platform_outgoingPort(
+        'setMapMaker',
+        function ($) {
+            return elm$json$Json$Encode$object(
+                _List_fromArray(
+                    [
+                        _Utils_Tuple2(
+                            'lat',
+                            function ($) {
+                                return A3(elm$core$Maybe$destruct, elm$json$Json$Encode$null, elm$json$Json$Encode$float, $);
+                            }($.lat)),
+                        _Utils_Tuple2(
+                            'lng',
+                            function ($) {
+                                return A3(elm$core$Maybe$destruct, elm$json$Json$Encode$null, elm$json$Json$Encode$float, $);
+                            }($.lng))
+                    ]));
+        });
 var elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -6653,6 +6707,41 @@ var author$project$Main$helperGetDistance = F2(
 				},
 				facilities));
 	});
+    var elm$core$Basics$neq = _Utils_notEqual;
+    var elm$core$List$filter = F2(
+        function (isGood, list) {
+            return A3(
+                elm$core$List$foldr,
+                F2(
+                    function (x, xs) {
+                        return isGood(x) ? A2(elm$core$List$cons, x, xs) : xs;
+                    }),
+                _List_Nil,
+                list);
+        });
+    var author$project$Main$helperGetLocation = F2(
+        function (facilityId, facilities) {
+            return A2(
+                elm$core$Maybe$withDefault,
+                {lat: elm$core$Maybe$Nothing, lng: elm$core$Maybe$Nothing},
+                elm$core$List$head(
+                    A2(
+                        elm$core$List$filter,
+                        function (location) {
+                            return (!_Utils_eq(location.lat, elm$core$Maybe$Nothing)) && (!_Utils_eq(location.lng, elm$core$Maybe$Nothing));
+                        },
+                        A2(
+                            elm$core$List$map,
+                            function (facility) {
+                                return _Utils_eq(
+                                    A2(elm$core$Maybe$withDefault, '', facility.id),
+                                    facilityId) ? facility.location : {
+                                    lat: elm$core$Maybe$Nothing,
+                                    lng: elm$core$Maybe$Nothing
+                                };
+                            },
+                            facilities))));
+        });
 var elm$core$Basics$negate = function (n) {
 	return -n;
 };
@@ -6664,8 +6753,8 @@ var author$project$Main$maybeStringtoInt = function (string) {
 		elm$core$String$toInt(
 			A2(elm$core$Maybe$withDefault, '-1', string)));
 };
-var author$project$Main$helperConvListToSoftTissueFacilityRecord = F3(
-	function (facilities, location, list) {
+    var author$project$Main$helperConvListToSoftTissueFacility = F2(
+        function (facilities, list) {
 		return {
 			distance: A2(
 				elm$core$Maybe$withDefault,
@@ -6687,7 +6776,13 @@ var author$project$Main$helperConvListToSoftTissueFacilityRecord = F3(
 				A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
 			kashi: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-			location: location,
+            location: A2(
+                author$project$Main$helperGetLocation,
+                A2(
+                    elm$core$Maybe$withDefault,
+                    '0',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                facilities),
 			name: A2(
 				elm$core$Maybe$withDefault,
 				'未設定',
@@ -6705,15 +6800,15 @@ var author$project$Main$helperConvListToSoftTissueFacilityRecord = F3(
 				A2(elm_community$list_extra$List$Extra$getAt, 8, list))
 		};
 	});
-var author$project$Main$setSoftTissueFacilities = F3(
-	function (csv, location, facilities) {
+    var author$project$Main$setSoftTissueFacilities = F2(
+        function (csv, facilities) {
 		return A2(
 			elm$core$List$map,
-			A2(author$project$Main$helperConvListToSoftTissueFacilityRecord, facilities, location),
+            author$project$Main$helperConvListToSoftTissueFacility(facilities),
 			csv.records);
 	});
 var elm$core$Basics$not = _Basics_not;
-var author$project$Main$toggleSoftTissue = F2(
+    var author$project$Main$toggleSoftTissueFacility = F2(
 	function (id, facility) {
 		return _Utils_eq(facility.id, id) ? _Utils_update(
 			facility,
@@ -6722,22 +6817,10 @@ var author$project$Main$toggleSoftTissue = F2(
 var elm$core$Debug$log = _Debug_log;
 var elm$core$Debug$toString = _Debug_toString;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
-var elm$core$List$filter = F2(
-	function (isGood, list) {
-		return A3(
-			elm$core$List$foldr,
-			F2(
-				function (x, xs) {
-					return isGood(x) ? A2(elm$core$List$cons, x, xs) : xs;
-				}),
-			_List_Nil,
-			list);
-	});
 var elm$core$String$isEmpty = function (string) {
 	return string === '';
 };
 var elm$core$String$lines = _String_lines;
-var elm$core$Basics$neq = _Utils_notEqual;
 var elm$core$List$tail = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -6779,7 +6862,7 @@ var lovasoa$elm_csv$Helper$parseRemaining = F4(
 					quoted = $temp$quoted;
 					remaining = $temp$remaining;
 					done = $temp$done;
-					continue parseRemaining;
+
 				} else {
 					var others = A2(
 						elm$core$Maybe$withDefault,
@@ -6812,7 +6895,7 @@ var lovasoa$elm_csv$Helper$parseRemaining = F4(
 					quoted = $temp$quoted;
 					remaining = $temp$remaining;
 					done = $temp$done;
-					continue parseRemaining;
+
 				}
 			}
 		}
@@ -6953,10 +7036,9 @@ var author$project$Main$update = F2(
 						_Utils_update(
 							model,
 							{
-								resultSoftTissueFacilities: A3(
+                                resultSoftTissueFacilities: A2(
 									author$project$Main$setSoftTissueFacilities,
 									lovasoa$elm_csv$Csv$parse(repo),
-									model.currentLocation,
 									model.facilities)
 							}),
 						elm$core$Platform$Cmd$none);
@@ -7008,16 +7090,17 @@ var author$project$Main$update = F2(
 					elm$core$Platform$Cmd$none);
 			default:
 				var id = msg.a;
+                var location = msg.b;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
 							resultSoftTissueFacilities: A2(
 								elm$core$List$map,
-								author$project$Main$toggleSoftTissue(id),
+                                author$project$Main$toggleSoftTissueFacility(id),
 								model.resultSoftTissueFacilities)
 						}),
-					elm$core$Platform$Cmd$none);
+                    author$project$Main$setMapMaker(location));
 		}
 	});
 var author$project$Main$ChangedCancerType = function (a) {
@@ -7031,9 +7114,10 @@ var author$project$Main$SubmitZipcode = function (a) {
 var author$project$Main$SetTableState = function (a) {
 	return {$: 'SetTableState', a: a};
 };
-var author$project$Main$ToggleSoftTissueSelected = function (a) {
-	return {$: 'ToggleSoftTissueSelected', a: a};
-};
+    var author$project$Main$ToggleSoftTissueSelected = F2(
+        function (a, b) {
+            return {$: 'ToggleSoftTissueSelected', a: a, b: b};
+        });
 var elm$json$Json$Decode$map2 = _Json_map2;
 var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 	switch (handler.$) {
@@ -7070,7 +7154,7 @@ var author$project$Main$toRowAttrs = function (facility) {
 	return _List_fromArray(
 		[
 			elm$html$Html$Events$onClick(
-			author$project$Main$ToggleSoftTissueSelected(facility.id)),
+                A2(author$project$Main$ToggleSoftTissueSelected, facility.id, facility.location)),
 			A2(
 			elm$html$Html$Attributes$style,
 			'background',
@@ -7312,9 +7396,6 @@ var author$project$Main$configSoftTissue = billstclair$elm_sortable_table$Table$
 		},
 		toMsg: author$project$Main$SetTableState
 	});
-var author$project$Main$ChangedCancerPart = function (a) {
-	return {$: 'ChangedCancerPart', a: a};
-};
 var elm$html$Html$option = _VirtualDom_node('option');
 var elm$json$Json$Encode$string = _Json_wrap;
 var elm$html$Html$Attributes$stringProperty = F2(
@@ -7336,146 +7417,6 @@ var author$project$Main$selectOption = F2(
 			_List_fromArray(
 				[
 					elm$html$Html$text(inputText)
-				]));
-	});
-var elm$html$Html$select = _VirtualDom_node('select');
-var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
-var elm$json$Json$Encode$bool = _Json_wrap;
-var elm$html$Html$Attributes$boolProperty = F2(
-	function (key, bool) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			elm$json$Json$Encode$bool(bool));
-	});
-var elm$html$Html$Attributes$selected = elm$html$Html$Attributes$boolProperty('selected');
-var elm$json$Json$Decode$at = F2(
-	function (fields, decoder) {
-		return A3(elm$core$List$foldr, elm$json$Json$Decode$field, decoder, fields);
-	});
-var elm$json$Json$Decode$string = _Json_decodeString;
-var elm$html$Html$Events$targetValue = A2(
-	elm$json$Json$Decode$at,
-	_List_fromArray(
-		['target', 'value']),
-	elm$json$Json$Decode$string);
-var author$project$Main$htmlSelectEyelid = A2(
-	elm$html$Html$select,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$id('cancerpart'),
-			A2(
-			elm$html$Html$Events$on,
-			'change',
-			A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-		]),
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$option,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$selected(true)
-				]),
-			_List_fromArray(
-				[
-					elm$html$Html$text('選択してください')
-				])),
-			A2(author$project$Main$selectOption, 'BasalCellCarcinoma', '基底細胞がん'),
-			A2(author$project$Main$selectOption, 'SebaceousGlandCancer', '脂腺がん'),
-			A2(author$project$Main$selectOption, 'SquamousCellCarcinoma', '扁平上皮がん')
-		]));
-var author$project$Main$htmlSelectIntraocular = A2(
-	elm$html$Html$select,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$id('cancerpart'),
-			A2(
-			elm$html$Html$Events$on,
-			'change',
-			A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-		]),
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$option,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$selected(true)
-				]),
-			_List_fromArray(
-				[
-					elm$html$Html$text('選択してください')
-				])),
-			A2(author$project$Main$selectOption, 'Retinoblastoma', '網膜芽細胞腫'),
-			A2(author$project$Main$selectOption, 'UvealMalignantMelanoma', 'ぶどう膜悪性黒色腫'),
-			A2(author$project$Main$selectOption, 'IntraocularLymphoma', '眼内リンパ腫')
-		]));
-var author$project$Main$htmlSelectKeratoconjunctival = A2(
-	elm$html$Html$select,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$id('cancerpart'),
-			A2(
-			elm$html$Html$Events$on,
-			'change',
-			A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-		]),
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$option,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$selected(true)
-				]),
-			_List_fromArray(
-				[
-					elm$html$Html$text('選択してください')
-				])),
-			A2(author$project$Main$selectOption, 'ConjunctivalMalignantLymphoma', '結膜悪性リンパ腫'),
-			A2(author$project$Main$selectOption, 'KeratoconjunctivalSquamousCellCarcinoma', '角結膜扁平上皮癌'),
-			A2(author$project$Main$selectOption, 'ConjunctivalMalignantMelanoma', '結膜悪性黒色腫')
-		]));
-var author$project$Main$htmlSelectOrbital = A2(
-	elm$html$Html$select,
-	_List_fromArray(
-		[
-			elm$html$Html$Attributes$id('cancerpart'),
-			A2(
-			elm$html$Html$Events$on,
-			'change',
-			A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-		]),
-	_List_fromArray(
-		[
-			A2(
-			elm$html$Html$option,
-			_List_fromArray(
-				[
-					elm$html$Html$Attributes$selected(true)
-				]),
-			_List_fromArray(
-				[
-					elm$html$Html$text('選択してください')
-				])),
-			A2(author$project$Main$selectOption, 'OrbitalMalignantLymphoma', '眼窩悪性リンパ腫'),
-			A2(author$project$Main$selectOption, 'LacrimalGlandCancer', '涙腺がん')
-		]));
-var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
-	return _VirtualDom_keyedNode(
-		_VirtualDom_noScript(tag));
-};
-var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
-var author$project$Main$unique = F2(
-	function (identifier, html) {
-		return A3(
-			elm$html$Html$Keyed$node,
-			'span',
-			_List_Nil,
-			_List_fromArray(
-				[
-					_Utils_Tuple2(identifier, html)
 				]));
 	});
 var billstclair$elm_sortable_table$Table$applySorter = F3(
@@ -7517,8 +7458,8 @@ var billstclair$elm_sortable_table$Table$findSorter = F2(
 						$temp$columnData = remainingColumnData;
 					selectedColumn = $temp$selectedColumn;
 					columnData = $temp$columnData;
-					continue findSorter;
-				}
+
+                }
 			}
 		}
 	});
@@ -7637,6 +7578,11 @@ var elm$html$Html$caption = _VirtualDom_node('caption');
 var elm$html$Html$table = _VirtualDom_node('table');
 var elm$html$Html$tfoot = _VirtualDom_node('tfoot');
 var elm$html$Html$thead = _VirtualDom_node('thead');
+    var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
+        return _VirtualDom_keyedNode(
+            _VirtualDom_noScript(tag));
+    };
+    var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
 var billstclair$elm_sortable_table$Table$view = F3(
 	function (conf, state, data) {
 		var toId = conf.a.toId;
@@ -7699,9 +7645,20 @@ var elm$html$Html$div = _VirtualDom_node('div');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$li = _VirtualDom_node('li');
 var elm$html$Html$section = _VirtualDom_node('section');
+    var elm$html$Html$select = _VirtualDom_node('select');
 var elm$html$Html$ul = _VirtualDom_node('ul');
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
+    var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
 var elm$html$Html$Attributes$placeholder = elm$html$Html$Attributes$stringProperty('placeholder');
+    var elm$json$Json$Encode$bool = _Json_wrap;
+    var elm$html$Html$Attributes$boolProperty = F2(
+        function (key, bool) {
+            return A2(
+                _VirtualDom_property,
+                key,
+                elm$json$Json$Encode$bool(bool));
+        });
+    var elm$html$Html$Attributes$selected = elm$html$Html$Attributes$boolProperty('selected');
 var elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
@@ -7715,6 +7672,16 @@ var elm$html$Html$Events$stopPropagationOn = F2(
 			event,
 			elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
 	});
+    var elm$json$Json$Decode$at = F2(
+        function (fields, decoder) {
+            return A3(elm$core$List$foldr, elm$json$Json$Decode$field, decoder, fields);
+        });
+    var elm$json$Json$Decode$string = _Json_decodeString;
+    var elm$html$Html$Events$targetValue = A2(
+        elm$json$Json$Decode$at,
+        _List_fromArray(
+            ['target', 'value']),
+        elm$json$Json$Decode$string);
 var elm$html$Html$Events$onInput = function (tagger) {
 	return A2(
 		elm$html$Html$Events$stopPropagationOn,
@@ -7844,25 +7811,7 @@ var author$project$Main$view = function (model) {
 								A2(author$project$Main$selectOption, 'Keratoconjunctival', '角結膜腫瘍'),
 								A2(author$project$Main$selectOption, 'Orbital', '眼窩腫瘍'),
 								A2(author$project$Main$selectOption, 'Eyelid', '眼瞼腫瘍')
-							])),
-						A2(
-						author$project$Main$unique,
-						model.selectedCancerType,
-						function () {
-							var _n1 = model.selectedCancerType;
-							switch (_n1) {
-								case 'Intraocular':
-									return author$project$Main$htmlSelectIntraocular;
-								case 'Keratoconjunctival':
-									return author$project$Main$htmlSelectKeratoconjunctival;
-								case 'Orbital':
-									return author$project$Main$htmlSelectOrbital;
-								case 'Eyelid':
-									return author$project$Main$htmlSelectEyelid;
-								default:
-									return A2(elm$html$Html$div, _List_Nil, _List_Nil);
-							}
-						}())
+                            ]))
 					])),
 				A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configSoftTissue, model.tableState, model.resultSoftTissueFacilities)
 			]));
@@ -7882,8 +7831,8 @@ var elm$core$Basics$never = function (_n0) {
 		var nvr = _n0.a;
 		var $temp$_n0 = nvr;
 		_n0 = $temp$_n0;
-		continue never;
-	}
+
+    }
 };
 var elm$core$Task$Perform = function (a) {
 	return {$: 'Perform', a: a};
@@ -9661,8 +9610,8 @@ var elm$core$Dict$sizeHelp = F2(
 					$temp$dict = left;
 				n = $temp$n;
 				dict = $temp$dict;
-				continue sizeHelp;
-			}
+
+            }
 		}
 	});
 var elm$core$Dict$size = function (dict) {
@@ -9955,8 +9904,8 @@ var elm$core$Dict$foldl = F3(
 				func = $temp$func;
 				acc = $temp$acc;
 				dict = $temp$dict;
-				continue foldl;
-			}
+
+            }
 		}
 	});
 var elm$browser$Debugger$Metadata$isPortable = function (_n0) {
@@ -10321,8 +10270,8 @@ var elm$core$Array$fromListHelp = F3(
 				list = $temp$list;
 				nodeList = $temp$nodeList;
 				nodeListSize = $temp$nodeListSize;
-				continue fromListHelp;
-			}
+
+            }
 		}
 	});
 var elm$core$Array$fromList = function (list) {
@@ -10495,8 +10444,8 @@ var elm$browser$Debugger$History$undone = function (getResult) {
 		} else {
 			var $temp$getResult = getResult;
 			getResult = $temp$getResult;
-			continue undone;
-		}
+
+        }
 	}
 };
 var elm$core$Array$getHelp = F3(
@@ -10513,8 +10462,8 @@ var elm$core$Array$getHelp = F3(
 				shift = $temp$shift;
 				index = $temp$index;
 				tree = $temp$tree;
-				continue getHelp;
-			} else {
+
+            } else {
 				var values = _n0.a;
 				return A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, values);
 			}
@@ -10537,7 +10486,6 @@ var elm$core$Array$get = F2(
 	});
 var elm$browser$Debugger$History$get = F3(
 	function (update, index, history) {
-		get:
 		while (true) {
 			var recent = history.recent;
 			var snapshotMax = history.numMessages - recent.numMessages;
@@ -10557,8 +10505,8 @@ var elm$browser$Debugger$History$get = F3(
 					update = $temp$update;
 					index = $temp$index;
 					history = $temp$history;
-					continue get;
-				} else {
+
+                } else {
 					var model = _n0.a.model;
 					var messages = _n0.a.messages;
 					return elm$browser$Debugger$History$undone(
@@ -10600,19 +10548,6 @@ var elm$browser$Debugger$History$encode = function (_n0) {
 			elm$browser$Debugger$History$encodeHelp,
 			elm$core$List$reverse(recent.messages),
 			snapshots));
-};
-var elm$json$Json$Encode$object = function (pairs) {
-	return _Json_wrap(
-		A3(
-			elm$core$List$foldl,
-			F2(
-				function (_n0, obj) {
-					var k = _n0.a;
-					var v = _n0.b;
-					return A3(_Json_addField, k, v, obj);
-				}),
-			_Json_emptyObject(_Utils_Tuple0),
-			pairs));
 };
 var elm$browser$Debugger$Metadata$encodeAlias = function (_n0) {
 	var args = _n0.args;
@@ -10907,8 +10842,8 @@ var elm$core$Dict$merge = F6(
 							rKey = $temp$rKey;
 							rValue = $temp$rValue;
 							_n0 = $temp$_n0;
-							continue stepState;
-						} else {
+
+                        } else {
 							if (_Utils_cmp(lKey, rKey) > 0) {
 								return _Utils_Tuple2(
 									list,
@@ -11043,7 +10978,7 @@ var elm$browser$Debugger$Report$worstCase = F2(
 							$temp$statusList = rest;
 						status = $temp$status;
 						statusList = $temp$statusList;
-						continue worstCase;
+                        continue;
 					default:
 						var _n3 = statusList.a;
 						var rest = statusList.b;
@@ -11051,8 +10986,8 @@ var elm$browser$Debugger$Report$worstCase = F2(
 							$temp$statusList = rest;
 						status = $temp$status;
 						statusList = $temp$statusList;
-						continue worstCase;
-				}
+
+                }
 			}
 		}
 	});
@@ -11224,7 +11159,7 @@ var elm$browser$Debugger$Main$wrapUpdate = F3(
 						update = $temp$update;
 						msg = $temp$msg;
 						model = $temp$model;
-						continue wrapUpdate;
+                        continue;
 					} else {
 						return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 					}
@@ -11244,7 +11179,7 @@ var elm$browser$Debugger$Main$wrapUpdate = F3(
 							update = $temp$update;
 							msg = $temp$msg;
 							model = $temp$model;
-							continue wrapUpdate;
+                            continue;
 						} else {
 							var $temp$update = update,
 								$temp$msg = elm$browser$Debugger$Main$Jump(index + 1),
@@ -11252,7 +11187,7 @@ var elm$browser$Debugger$Main$wrapUpdate = F3(
 							update = $temp$update;
 							msg = $temp$msg;
 							model = $temp$model;
-							continue wrapUpdate;
+                            continue;
 						}
 					}
 				case 'Import':
@@ -11458,4 +11393,53 @@ _Platform_export({'Main':{'init':author$project$Main$main(
 					[
 						elm$json$Json$Decode$null(elm$core$Maybe$Nothing),
 						A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, elm$json$Json$Decode$float)
-					])))))({"versions":{"elm":"0.19.0"},"types":{"message":"Main.Msg","aliases":{"Main.CurrentLocation":{"args":[],"type":"{ lat : Maybe.Maybe Basics.Float, lng : Maybe.Maybe Basics.Float }"}},"unions":{"Main.Msg":{"args":[],"tags":{"ModeGeolocation":[],"ModeZipcode":[],"SubmitZipcode":["String.String"],"ChangedCancerType":["String.String"],"ChangedCancerPart":["String.String"],"Change":["String.String"],"GotCsv":["Result.Result Http.Error String.String"],"GotSoftTissueCsv":["Result.Result Http.Error String.String"],"GotFacilitiesCsv":["Result.Result Http.Error String.String"],"UpdateCurrentLocation":["Main.CurrentLocation"],"SetTableState":["Table.State"],"ToggleSoftTissueSelected":["String.String"]}},"Table.State":{"args":[],"tags":{"State":["String.String","Basics.Bool"]}},"Basics.Float":{"args":[],"tags":{"Float":[]}},"Maybe.Maybe":{"args":["a"],"tags":{"Just":["a"],"Nothing":[]}},"Result.Result":{"args":["error","value"],"tags":{"Ok":["value"],"Err":["error"]}},"String.String":{"args":[],"tags":{"String":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"Basics.Bool":{"args":[],"tags":{"True":[],"False":[]}},"Basics.Int":{"args":[],"tags":{"Int":[]}}}}})}});}(this));
+                    ])))))({
+            "versions": {"elm": "0.19.0"}, "types": {
+                "message": "Main.Msg",
+                "aliases": {
+                    "Main.CurrentLocation": {
+                        "args": [],
+                        "type": "{ lat : Maybe.Maybe Basics.Float, lng : Maybe.Maybe Basics.Float }"
+                    }, "Main.Location": {"args": [], "type": "Main.CurrentLocation"}
+                },
+                "unions": {
+                    "Main.Msg": {
+                        "args": [],
+                        "tags": {
+                            "ModeGeolocation": [],
+                            "ModeZipcode": [],
+                            "SubmitZipcode": ["String.String"],
+                            "ChangedCancerType": ["String.String"],
+                            "ChangedCancerPart": ["String.String"],
+                            "Change": ["String.String"],
+                            "GotCsv": ["Result.Result Http.Error String.String"],
+                            "GotSoftTissueCsv": ["Result.Result Http.Error String.String"],
+                            "GotFacilitiesCsv": ["Result.Result Http.Error String.String"],
+                            "UpdateCurrentLocation": ["Main.CurrentLocation"],
+                            "SetTableState": ["Table.State"],
+                            "ToggleSoftTissueSelected": ["String.String", "Main.Location"]
+                        }
+                    },
+                    "Table.State": {"args": [], "tags": {"State": ["String.String", "Basics.Bool"]}},
+                    "Basics.Float": {"args": [], "tags": {"Float": []}},
+                    "Maybe.Maybe": {"args": ["a"], "tags": {"Just": ["a"], "Nothing": []}},
+                    "Result.Result": {"args": ["error", "value"], "tags": {"Ok": ["value"], "Err": ["error"]}},
+                    "String.String": {"args": [], "tags": {"String": []}},
+                    "Http.Error": {
+                        "args": [],
+                        "tags": {
+                            "BadUrl": ["String.String"],
+                            "Timeout": [],
+                            "NetworkError": [],
+                            "BadStatus": ["Basics.Int"],
+                            "BadBody": ["String.String"]
+                        }
+                    },
+                    "Basics.Bool": {"args": [], "tags": {"True": [], "False": []}},
+                    "Basics.Int": {"args": [], "tags": {"Int": []}}
+                }
+            }
+        })
+    }
+});
+}(this));
