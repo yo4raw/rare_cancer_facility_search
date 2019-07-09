@@ -18,17 +18,17 @@ import Table exposing (defaultCustomizations)
 -- JavaScript to Elm
 
 
-port updateCurrentLocation : (CurrentLocation -> msg) -> Sub msg
+port updateCurrentLocation : (Location -> msg) -> Sub msg
 
 
 
 -- Elm to Javascript
 
 
-port setMapMaker : Location -> Cmd msg
+port setMapMaker : ToJsLocation -> Cmd msg
 
 
-main : Program CurrentLocation Model Msg
+main : Program Location Model Msg
 main =
     Browser.element
         { init = init
@@ -98,14 +98,17 @@ type alias CancerPart =
     }
 
 
-type alias CurrentLocation =
-    { lat : Maybe Float
+type alias ToJsLocation =
+    { id : String
+    , lat : Maybe Float
     , lng : Maybe Float
     }
 
 
 type alias Location =
-    CurrentLocation
+    { lat : Maybe Float
+    , lng : Maybe Float
+    }
 
 
 type alias Facility =
@@ -433,7 +436,7 @@ helperGetLocation facilityId facilities =
         |> List.map
             (\facility ->
                 if (facility.id |> Maybe.withDefault "") == facilityId then
-                    facility.location
+                    { lat = facility.location.lat, lng = facility.location.lng }
 
                 else
                     { lat = Nothing, lng = Nothing }
@@ -496,13 +499,13 @@ toRowAttrs facility =
     ]
 
 
-setFacilitiesDistance : CurrentLocation -> Facilities -> Facilities
+setFacilitiesDistance : Location -> Facilities -> Facilities
 setFacilitiesDistance currentLocation facilities =
     facilities
         |> List.map (\facility -> setFacilityDistance currentLocation facility)
 
 
-setFacilityDistance : CurrentLocation -> Facility -> Facility
+setFacilityDistance : Location -> Facility -> Facility
 setFacilityDistance currentLocation facility =
     { facility
         | distance =
@@ -538,6 +541,28 @@ initFunction =
     Cmd.batch
         [ getFacilitiesCsv
         ]
+
+
+type CsvType
+    = SoftTissueCSV
+    | IntraocularCSV
+
+
+getCsv : CsvType -> String -> Cmd Msg
+getCsv csvType path =
+    let
+        target_url =
+            "http://http://localhost:8000/csv/" ++ path
+    in
+    case csvType of
+        SoftTissueCSV ->
+            Http.get
+                { url = target_url
+                , expect = Http.expectString GotSoftTissueCsv
+                }
+
+        _ ->
+            Cmd.none
 
 
 getFacilitiesCsv : Cmd Msg
@@ -670,7 +695,7 @@ type alias Csv =
 type alias Model =
     { input : String
     , memos : List String
-    , location : CurrentLocation
+    , location : Location
     , facilities : Facilities
     , resultSoftTissueFacilities : SoftTissueFacilities
     , resultUvealMalignantMelanomaFacilities : UvealMalignantMelanomaFacilities
@@ -689,13 +714,13 @@ type alias Model =
     , parseCsv : Csv
     , onChange : String
     , rawCsv : String
-    , currentLocation : CurrentLocation
+    , currentLocation : Location
     , parseFacilitesCsv : Csv
     , tableState : Table.State
     }
 
 
-init : CurrentLocation -> ( Model, Cmd Msg )
+init : Location -> ( Model, Cmd Msg )
 init flags =
     ( { input = ""
       , location = flags
@@ -718,7 +743,7 @@ init flags =
       , onChange = ""
       , parseCsv = Csv [] []
       , rawCsv = ""
-      , currentLocation = CurrentLocation Nothing Nothing
+      , currentLocation = Location Nothing Nothing
       , parseFacilitesCsv = Csv [] []
       , tableState = Table.initialSort "id"
       }
@@ -745,7 +770,7 @@ type Msg
     | GotCsv (Result Http.Error String)
     | GotSoftTissueCsv (Result Http.Error String)
     | GotFacilitiesCsv (Result Http.Error String)
-    | UpdateCurrentLocation CurrentLocation
+    | UpdateCurrentLocation Location
     | SetTableState Table.State
     | ToggleSoftTissueSelected String Location
 
@@ -835,18 +860,7 @@ update msg model =
         GotSoftTissueCsv (Err error) ->
             ( { model | resultCsv = Debug.toString error }, Cmd.none )
 
-        GotSoftTissueCsv (Ok repo) ->
-            ( { model | resultSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.facilities }, Cmd.none )
-
-        GotSoftTissueCsv (Err error) ->
-            ( { model | resultCsv = Debug.toString error }, Cmd.none )
-
-        GotFacilitiesCsv (Ok repo) ->
-            ( { model | parseFacilitesCsv = Csv.parse repo, facilities = setFacilities (Csv.parse repo) }, Cmd.none )
-
-        GotFacilitiesCsv (Err error) ->
-            ( { model | resultCsv = Debug.toString error }, Cmd.none )
-
+        --基準点の変更
         UpdateCurrentLocation location ->
             ( { model | currentLocation = location }, Cmd.none )
 
@@ -860,8 +874,11 @@ update msg model =
                 | resultSoftTissueFacilities =
                     List.map (toggleSoftTissueFacility id) model.resultSoftTissueFacilities
               }
-            , setMapMaker location
+            , setMapMaker { id = id, lat = location.lat, lng = location.lng }
             )
+
+        _ ->
+            ( model, Cmd.none )
 
 
 toggleSoftTissueFacility : String -> SoftTissueFacility -> SoftTissueFacility
