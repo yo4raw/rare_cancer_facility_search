@@ -2,7 +2,6 @@ port module Main exposing (CancerPart, CancerType(..), Csv, IntraocularType(..),
 
 import Browser
 import Csv exposing (..)
-import Debug exposing (..)
 import Distance exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -548,24 +547,76 @@ initFunction =
 
 type CsvType
     = SoftTissueCSV
-    | IntraocularCSV
+    | RetinoblastomaCSV
+    | UvealMalignantMelanomaCSV
+    | IntraocularLymphomaCSV
+    | ConjunctivalMalignantLymphomaCSV
+    | KeratoconjunctivalSquamousCellCarcinomaCSV
+    | ConjunctivalMalignantMelanomaCSV
+    | OrbitalMalignantLymphomaCSV
+    | LacrimalGlandCancerCSV
 
 
-getCsv : CsvType -> String -> Cmd Msg
-getCsv csvType path =
+getCsv : CsvType -> Cmd Msg
+getCsv csvType =
     let
         target_url =
-            "http://http://localhost:8000/csv/" ++ path
+            "http://localhost:8000/csv/"
     in
     case csvType of
         SoftTissueCSV ->
             Http.get
-                { url = target_url
+                { url = target_url ++ "SoftTissue.csv"
                 , expect = Http.expectString GotSoftTissueCsv
                 }
 
-        _ ->
-            Cmd.none
+        RetinoblastomaCSV ->
+            Http.get
+                { url = target_url ++ "Intraocular.csv"
+                , expect = Http.expectString GotRetinoblastomaCSV
+                }
+
+        UvealMalignantMelanomaCSV ->
+            Http.get
+                { url = target_url ++ "Intraocular.csv"
+                , expect = Http.expectString GotUvealMalignantMelanomaCSV
+                }
+
+        IntraocularLymphomaCSV ->
+            Http.get
+                { url = target_url ++ "Intraocular.csv"
+                , expect = Http.expectString GotIntraocularLymphomaCSV
+                }
+
+        ConjunctivalMalignantLymphomaCSV ->
+            Http.get
+                { url = target_url ++ "Keratoconjunctival.csv"
+                , expect = Http.expectString GotConjunctivalMalignantLymphomaCSV
+                }
+
+        KeratoconjunctivalSquamousCellCarcinomaCSV ->
+            Http.get
+                { url = target_url ++ "Keratoconjunctival.csv"
+                , expect = Http.expectString GotKeratoconjunctivalSquamousCellCarcinomaCSV
+                }
+
+        ConjunctivalMalignantMelanomaCSV ->
+            Http.get
+                { url = target_url ++ "Keratoconjunctival.csv"
+                , expect = Http.expectString GotConjunctivalMalignantMelanomaCSV
+                }
+
+        OrbitalMalignantLymphomaCSV ->
+            Http.get
+                { url = target_url ++ "Orbital.csv"
+                , expect = Http.expectString GotOrbitalMalignantLymphomaCSV
+                }
+
+        LacrimalGlandCancerCSV ->
+            Http.get
+                { url = target_url ++ "Orbital.csv"
+                , expect = Http.expectString GotLacrimalGlandCancerCSV
+                }
 
 
 getFacilitiesCsv : Cmd Msg
@@ -702,6 +753,7 @@ type alias Model =
     , facilities : Facilities
     , address : String
     , resultSoftTissueFacilities : SoftTissueFacilities
+    , resultRetinoblastomaFacilities : RetinoblastomaFacilities
     , resultUvealMalignantMelanomaFacilities : UvealMalignantMelanomaFacilities
     , resultIntraocularLymphomaFacilities : IntraocularLymphomaFacilities
     , resultConjunctivalMalignantLymphomaFacilities : ConjunctivalMalignantLymphomaFacilities
@@ -721,6 +773,7 @@ type alias Model =
     , currentLocation : Location
     , parseFacilitesCsv : Csv
     , tableState : Table.State
+    , getCsvError : String
     }
 
 
@@ -732,6 +785,7 @@ init flags =
       , memos = []
       , facilities = []
       , resultSoftTissueFacilities = []
+      , resultRetinoblastomaFacilities = []
       , resultUvealMalignantMelanomaFacilities = []
       , resultIntraocularLymphomaFacilities = []
       , resultConjunctivalMalignantLymphomaFacilities = []
@@ -751,6 +805,7 @@ init flags =
       , currentLocation = Location Nothing Nothing
       , parseFacilitesCsv = Csv [] []
       , tableState = Table.initialSort "id"
+      , getCsvError = ""
       }
     , initFunction
     )
@@ -771,10 +826,17 @@ type Msg
     | SubmitZipcode String
     | ChangedCancerType String
     | ChangedCancerPart String
-    | Change String
     | GotCsv (Result Http.Error String)
-    | GotSoftTissueCsv (Result Http.Error String)
     | GotFacilitiesCsv (Result Http.Error String)
+    | GotSoftTissueCsv (Result Http.Error String)
+    | GotRetinoblastomaCSV (Result Http.Error String)
+    | GotUvealMalignantMelanomaCSV (Result Http.Error String)
+    | GotIntraocularLymphomaCSV (Result Http.Error String)
+    | GotConjunctivalMalignantLymphomaCSV (Result Http.Error String)
+    | GotKeratoconjunctivalSquamousCellCarcinomaCSV (Result Http.Error String)
+    | GotConjunctivalMalignantMelanomaCSV (Result Http.Error String)
+    | GotOrbitalMalignantLymphomaCSV (Result Http.Error String)
+    | GotLacrimalGlandCancerCSV (Result Http.Error String)
     | UpdateCurrentLocation Location
     | SetTableState Table.State
     | ToggleSoftTissueSelected String Location
@@ -806,7 +868,7 @@ update msg model =
                         | selectedCancerType = cancerType
                         , facilities = facilitiesMaster
                       }
-                    , getSoftTissueCsv
+                    , getCsv SoftTissueCSV
                     )
 
                 "Intraocular" ->
@@ -814,7 +876,7 @@ update msg model =
                         | selectedCancerType = cancerType
                         , facilities = facilitiesMaster
                       }
-                    , getIntraocularCsv
+                    , Cmd.none
                     )
 
                 "Keratoconjunctival" ->
@@ -822,7 +884,7 @@ update msg model =
                         | selectedCancerType = cancerType
                         , facilities = facilitiesMaster
                       }
-                    , getKeratoconjunctivalCsv
+                    , Cmd.none
                     )
 
                 "Orbital" ->
@@ -830,7 +892,7 @@ update msg model =
                         | selectedCancerType = cancerType
                         , facilities = facilitiesMaster
                       }
-                    , getOrbitalCsv
+                    , Cmd.none
                     )
 
                 "Eyelid" ->
@@ -838,34 +900,107 @@ update msg model =
                         | selectedCancerType = cancerType
                         , facilities = facilitiesMaster
                       }
-                    , getEyelidCsv
-                    )
-
-                _ ->
-                    ( { model
-                        | selectedCancerType = cancerType
-                        , facilities = facilitiesMaster
-                      }
                     , Cmd.none
                     )
 
-        ChangedCancerPart cancerPart ->
-            ( { model | selectedCancerPart = cancerPart }, Cmd.none )
+                _ ->
+                    ( model, Cmd.none )
 
-        Change value ->
-            ( { model | onChange = Debug.log "log label" value }, Cmd.none )
+        -- 癌の詳細のドロップダウン変更時
+        ChangedCancerPart cancerPart ->
+            case cancerPart of
+                "Retinoblastoma" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv RetinoblastomaCSV )
+
+                "UvealMalignantMelanoma" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv UvealMalignantMelanomaCSV )
+
+                "IntraocularLymphoma" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv IntraocularLymphomaCSV )
+
+                "ConjunctivalMalignantLymphoma" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv ConjunctivalMalignantLymphomaCSV )
+
+                "KeratoconjunctivalSquamousCellCarcinoma" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv KeratoconjunctivalSquamousCellCarcinomaCSV )
+
+                "ConjunctivalMalignantMelanoma" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv ConjunctivalMalignantMelanomaCSV )
+
+                "OrbitalMalignantLymphoma" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv OrbitalMalignantLymphomaCSV )
+
+                "LacrimalGlandCancer" ->
+                    ( { model | selectedCancerPart = cancerPart }, getCsv LacrimalGlandCancerCSV )
+
+                _ ->
+                    ( { model | selectedCancerPart = cancerPart }, Cmd.none )
 
         GotCsv (Ok repo) ->
             ( { model | resultCsv = repo, parseCsv = Csv.parse repo }, Cmd.none )
 
         GotCsv (Err error) ->
-            ( { model | resultCsv = Debug.toString error }, Cmd.none )
+            ( model, Cmd.none )
 
         GotSoftTissueCsv (Ok repo) ->
             ( { model | resultSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.facilities }, Cmd.none )
 
         GotSoftTissueCsv (Err error) ->
-            ( { model | resultCsv = Debug.toString error }, Cmd.none )
+            ( model, Cmd.none )
+
+        GotRetinoblastomaCSV (Ok repo) ->
+            ( { model | resultRetinoblastomaFacilities = setRetinoblastomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotRetinoblastomaCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotUvealMalignantMelanomaCSV (Ok repo) ->
+            ( { model | resultUvealMalignantMelanomaFacilities = setUvealMalignantMelanomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotUvealMalignantMelanomaCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotIntraocularLymphomaCSV (Ok repo) ->
+            ( { model | resultIntraocularLymphomaFacilities = setIntraocularLymphomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotIntraocularLymphomaCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotConjunctivalMalignantLymphomaCSV (Ok repo) ->
+            ( { model | resultConjunctivalMalignantLymphomaFacilities = setConjunctivalMalignantLymphomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotConjunctivalMalignantLymphomaCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotKeratoconjunctivalSquamousCellCarcinomaCSV (Ok repo) ->
+            ( { model | resultKeratoconjunctivalSquamousCellCarcinomaFacilities = setKeratoconjunctivalSquamousCellCarcinomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotKeratoconjunctivalSquamousCellCarcinomaCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotConjunctivalMalignantMelanomaCSV (Ok repo) ->
+            ( { model | resultConjunctivalMalignantMelanomaFacilities = setConjunctivalMalignantMelanomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotConjunctivalMalignantMelanomaCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotOrbitalMalignantLymphomaCSV (Ok repo) ->
+            ( { model | resultOrbitalMalignantLymphomaFacilities = setOrbitalMalignantLymphomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotOrbitalMalignantLymphomaCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotLacrimalGlandCancerCSV (Ok repo) ->
+            ( { model | resultLacrimalGlandCancerFacilities = setLacrimalGlandCancerFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+
+        GotLacrimalGlandCancerCSV (Err error) ->
+            ( model, Cmd.none )
+
+        GotFacilitiesCsv (Ok repo) ->
+            ( { model | parseFacilitesCsv = Csv.parse repo, facilities = setFacilities (Csv.parse repo) }, Cmd.none )
+
+        GotFacilitiesCsv (Err error) ->
+            ( model, Cmd.none )
 
         --基準点の変更
         UpdateCurrentLocation location ->
@@ -889,9 +1024,6 @@ update msg model =
 
         UpdateZipcode zipcode ->
             ( { model | zipcode = zipcode }, Cmd.none )
-
-        _ ->
-            ( model, Cmd.none )
 
 
 toggleSoftTissueFacility : String -> SoftTissueFacility -> SoftTissueFacility
@@ -942,13 +1074,13 @@ view model =
                     input [ placeholder "郵便番号を7桁で入力してください", onInput UpdateZipcode ] []
 
                 _ ->
-                    div [] []
+                    text ""
             , case model.searchMode of
                 Zipcode ->
                     button [ onClick ChangeCurrentLocationFromZipcode ] [ text "決定" ]
 
                 _ ->
-                    div [] []
+                    text ""
             , select [ on "change" (Json.map ChangedCancerType targetValue) ]
                 [ option [ selected True ] [ text "選択してください" ]
                 , selectOption "SoftTissue" "四肢軟部肉腫"
@@ -958,5 +1090,52 @@ view model =
                 , selectOption "Eyelid" "眼瞼腫瘍"
                 ]
             ]
-        , Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities
+        , unique model.selectedCancerType <|
+            case model.selectedCancerType of
+                "Intraocular" ->
+                    htmlSelectIntraocular
+
+                "Keratoconjunctival" ->
+                    htmlSelectKeratoconjunctival
+
+                "Orbital" ->
+                    htmlSelectOrbital
+
+                "Eyelid" ->
+                    htmlSelectEyelid
+
+                _ ->
+                    text ""
+        , case model.selectedCancerType of
+            "SoftTissue" ->
+                Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities
+
+            _ ->
+                case model.selectedCancerPart of
+                    "Retinoblastoma" ->
+                        Table.view configGeneralCancer model.tableState model.resultRetinoblastomaFacilities
+
+                    "UvealMalignantMelanoma" ->
+                        Table.view configGeneralCancer model.tableState model.resultUvealMalignantMelanomaFacilities
+
+                    "IntraocularLymphoma" ->
+                        Table.view configGeneralCancer model.tableState model.resultIntraocularLymphomaFacilities
+
+                    "ConjunctivalMalignantLymphoma" ->
+                        Table.view configGeneralCancer model.tableState model.resultConjunctivalMalignantLymphomaFacilities
+
+                    "KeratoconjunctivalSquamousCellCarcinoma" ->
+                        Table.view configGeneralCancer model.tableState model.resultKeratoconjunctivalSquamousCellCarcinomaFacilities
+
+                    "ConjunctivalMalignantMelanoma" ->
+                        Table.view configGeneralCancer model.tableState model.resultConjunctivalMalignantMelanomaFacilities
+
+                    "OrbitalMalignantLymphoma" ->
+                        Table.view configGeneralCancer model.tableState model.resultOrbitalMalignantLymphomaFacilities
+
+                    "LacrimalGlandCancer" ->
+                        Table.view configGeneralCancer model.tableState model.resultLacrimalGlandCancerFacilities
+
+                    _ ->
+                        text ""
         ]
