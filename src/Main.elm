@@ -28,6 +28,9 @@ port updateCurrentLocation : (Location -> msg) -> Sub msg
 port setMapMaker : ToJsLocation -> Cmd msg
 
 
+port changeCurrentLocationFromAddress : String -> Cmd msg
+
+
 main : Program Location Model Msg
 main =
     Browser.element
@@ -697,6 +700,7 @@ type alias Model =
     , memos : List String
     , location : Location
     , facilities : Facilities
+    , address : String
     , resultSoftTissueFacilities : SoftTissueFacilities
     , resultUvealMalignantMelanomaFacilities : UvealMalignantMelanomaFacilities
     , resultIntraocularLymphomaFacilities : IntraocularLymphomaFacilities
@@ -724,6 +728,7 @@ init : Location -> ( Model, Cmd Msg )
 init flags =
     ( { input = ""
       , location = flags
+      , address = ""
       , memos = []
       , facilities = []
       , resultSoftTissueFacilities = []
@@ -773,6 +778,8 @@ type Msg
     | UpdateCurrentLocation Location
     | SetTableState Table.State
     | ToggleSoftTissueSelected String Location
+    | ChangeCurrentLocationFromZipcode
+    | UpdateZipcode String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -877,6 +884,12 @@ update msg model =
             , setMapMaker { id = id, lat = location.lat, lng = location.lng }
             )
 
+        ChangeCurrentLocationFromZipcode ->
+            ( model, changeCurrentLocationFromAddress model.zipcode )
+
+        UpdateZipcode zipcode ->
+            ( { model | zipcode = zipcode }, Cmd.none )
+
         _ ->
             ( model, Cmd.none )
 
@@ -926,7 +939,13 @@ view model =
         , div [ id "inputField" ]
             [ case model.searchMode of
                 Zipcode ->
-                    input [ placeholder "郵便番号を7桁で入力してください", onInput SubmitZipcode ] []
+                    input [ placeholder "郵便番号を7桁で入力してください", onInput UpdateZipcode ] []
+
+                _ ->
+                    div [] []
+            , case model.searchMode of
+                Zipcode ->
+                    button [ onClick ChangeCurrentLocationFromZipcode ] [ text "決定" ]
 
                 _ ->
                     div [] []

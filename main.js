@@ -5052,11 +5052,11 @@ var author$project$Main$Csv = F2(
 	function (headers, records) {
 		return {headers: headers, records: records};
 	});
-var author$project$Main$CurrentLocation = F2(
+    var author$project$Main$Geolocation = {$: 'Geolocation'};
+    var author$project$Main$Location = F2(
 	function (lat, lng) {
 		return {lat: lat, lng: lng};
 	});
-var author$project$Main$Geolocation = {$: 'Geolocation'};
 var author$project$Main$GotFacilitiesCsv = function (a) {
 	return {$: 'GotFacilitiesCsv', a: a};
 };
@@ -6426,7 +6426,8 @@ var billstclair$elm_sortable_table$Table$initialSort = function (header) {
 var author$project$Main$init = function (flags) {
 	return _Utils_Tuple2(
 		{
-			currentLocation: A2(author$project$Main$CurrentLocation, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing),
+            address: '',
+            currentLocation: A2(author$project$Main$Location, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing),
 			facilities: _List_Nil,
 			input: '',
 			location: flags,
@@ -6497,6 +6498,8 @@ var author$project$Main$subscriptions = function (model) {
 	return author$project$Main$updateCurrentLocation(author$project$Main$UpdateCurrentLocation);
 };
 var author$project$Main$Zipcode = {$: 'Zipcode'};
+    var elm$json$Json$Encode$string = _Json_wrap;
+    var author$project$Main$changeCurrentLocationFromAddress = _Platform_outgoingPort('changeCurrentLocationFromAddress', elm$json$Json$Encode$string);
 var author$project$Main$GotCsv = function (a) {
 	return {$: 'GotCsv', a: a};
 };
@@ -6528,87 +6531,6 @@ var author$project$Main$getSoftTissueCsv = elm$http$Http$get(
 		expect: elm$http$Http$expectString(author$project$Main$GotSoftTissueCsv),
 		url: 'http://localhost:8000/csv/SoftTissue.csv'
 	});
-var elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
-		}
-	});
-var elm$core$String$toFloat = _String_toFloat;
-var elm$core$List$drop = F2(
-	function (n, list) {
-		drop:
-		while (true) {
-			if (n <= 0) {
-				return list;
-			} else {
-				if (!list.b) {
-					return list;
-				} else {
-					var x = list.a;
-					var xs = list.b;
-					var $temp$n = n - 1,
-						$temp$list = xs;
-					n = $temp$n;
-					list = $temp$list;
-
-				}
-			}
-		}
-	});
-var elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return elm$core$Maybe$Just(x);
-	} else {
-		return elm$core$Maybe$Nothing;
-	}
-};
-var elm_community$list_extra$List$Extra$getAt = F2(
-	function (idx, xs) {
-		return (idx < 0) ? elm$core$Maybe$Nothing : elm$core$List$head(
-			A2(elm$core$List$drop, idx, xs));
-	});
-var author$project$Main$helperConvListtoFacilityRecord = function (list) {
-	return {
-		distance: elm$core$Maybe$Nothing,
-		id: A2(elm_community$list_extra$List$Extra$getAt, 0, list),
-        location: {
-            lat: elm$core$String$toFloat(
-                A2(
-                    elm$core$Maybe$withDefault,
-                    '0',
-                    A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
-            lng: elm$core$String$toFloat(
-                A2(
-                    elm$core$Maybe$withDefault,
-                    '0',
-                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)))
-        },
-		name: A2(elm_community$list_extra$List$Extra$getAt, 1, list)
-	};
-};
-var elm$core$List$map = F2(
-	function (f, xs) {
-		return A3(
-			elm$core$List$foldr,
-			F2(
-				function (x, acc) {
-					return A2(
-						elm$core$List$cons,
-						f(x),
-						acc);
-				}),
-			_List_Nil,
-			xs);
-	});
-var author$project$Main$setFacilities = function (csv) {
-	return A2(elm$core$List$map, author$project$Main$helperConvListtoFacilityRecord, csv.records);
-};
 var elm$core$Basics$acos = _Basics_acos;
 var elm$core$Basics$cos = _Basics_cos;
 var elm$core$Basics$pi = _Basics_pi;
@@ -6620,6 +6542,15 @@ var author$project$Distance$distance = F4(
 			6371 * elm$core$Basics$acos(
 				((elm$core$Basics$cos((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$cos((lat2 * elm$core$Basics$pi) / 180)) * elm$core$Basics$cos(((lng2 * elm$core$Basics$pi) / 180) - ((lng1 * elm$core$Basics$pi) / 180))) + (elm$core$Basics$sin((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$sin((lat2 * elm$core$Basics$pi) / 180))));
 	});
+    var elm$core$Maybe$withDefault = F2(
+        function (_default, maybe) {
+            if (maybe.$ === 'Just') {
+                var value = maybe.a;
+                return value;
+            } else {
+                return _default;
+            }
+        });
 var author$project$Main$setFacilityDistance = F2(
 	function (currentLocation, facility) {
 		return _Utils_update(
@@ -6634,6 +6565,20 @@ var author$project$Main$setFacilityDistance = F2(
 						A2(elm$core$Maybe$withDefault, 0, currentLocation.lng)))
 			});
 	});
+    var elm$core$List$map = F2(
+        function (f, xs) {
+            return A3(
+                elm$core$List$foldr,
+                F2(
+                    function (x, acc) {
+                        return A2(
+                            elm$core$List$cons,
+                            f(x),
+                            acc);
+                    }),
+                _List_Nil,
+                xs);
+        });
 var author$project$Main$setFacilitiesDistance = F2(
 	function (currentLocation, facilities) {
 		return A2(
@@ -6673,6 +6618,9 @@ var author$project$Main$setFacilitiesDistance = F2(
             return elm$json$Json$Encode$object(
                 _List_fromArray(
                     [
+                        _Utils_Tuple2(
+                            'id',
+                            elm$json$Json$Encode$string($.id)),
                         _Utils_Tuple2(
                             'lat',
                             function ($) {
@@ -6719,6 +6667,15 @@ var author$project$Main$helperGetDistance = F2(
                 _List_Nil,
                 list);
         });
+    var elm$core$List$head = function (list) {
+        if (list.b) {
+            var x = list.a;
+            var xs = list.b;
+            return elm$core$Maybe$Just(x);
+        } else {
+            return elm$core$Maybe$Nothing;
+        }
+    };
     var author$project$Main$helperGetLocation = F2(
         function (facilityId, facilities) {
             return A2(
@@ -6735,10 +6692,10 @@ var author$project$Main$helperGetDistance = F2(
                             function (facility) {
                                 return _Utils_eq(
                                     A2(elm$core$Maybe$withDefault, '', facility.id),
-                                    facilityId) ? facility.location : {
-                                    lat: elm$core$Maybe$Nothing,
-                                    lng: elm$core$Maybe$Nothing
-                                };
+                                    facilityId) ? {
+                                    lat: facility.location.lat,
+                                    lng: facility.location.lng
+                                } : {lat: elm$core$Maybe$Nothing, lng: elm$core$Maybe$Nothing};
                             },
                             facilities))));
         });
@@ -6753,6 +6710,32 @@ var author$project$Main$maybeStringtoInt = function (string) {
 		elm$core$String$toInt(
 			A2(elm$core$Maybe$withDefault, '-1', string)));
 };
+    var elm$core$List$drop = F2(
+        function (n, list) {
+            drop:
+                while (true) {
+                    if (n <= 0) {
+                        return list;
+                    } else {
+                        if (!list.b) {
+                            return list;
+                        } else {
+                            var x = list.a;
+                            var xs = list.b;
+                            var $temp$n = n - 1,
+                                $temp$list = xs;
+                            n = $temp$n;
+                            list = $temp$list;
+
+                        }
+                    }
+                }
+        });
+    var elm_community$list_extra$List$Extra$getAt = F2(
+        function (idx, xs) {
+            return (idx < 0) ? elm$core$Maybe$Nothing : elm$core$List$head(
+                A2(elm$core$List$drop, idx, xs));
+        });
     var author$project$Main$helperConvListToSoftTissueFacility = F2(
         function (facilities, list) {
 		return {
@@ -7052,28 +7035,6 @@ var author$project$Main$update = F2(
 							}),
 						elm$core$Platform$Cmd$none);
 				}
-			case 'GotFacilitiesCsv':
-				if (msg.a.$ === 'Ok') {
-					var repo = msg.a.a;
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{
-								facilities: author$project$Main$setFacilities(
-									lovasoa$elm_csv$Csv$parse(repo)),
-								parseFacilitesCsv: lovasoa$elm_csv$Csv$parse(repo)
-							}),
-						elm$core$Platform$Cmd$none);
-				} else {
-					var error = msg.a.a;
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{
-								resultCsv: elm$core$Debug$toString(error)
-							}),
-						elm$core$Platform$Cmd$none);
-				}
 			case 'UpdateCurrentLocation':
 				var location = msg.a;
 				return _Utils_Tuple2(
@@ -7088,7 +7049,7 @@ var author$project$Main$update = F2(
 						model,
 						{tableState: newState}),
 					elm$core$Platform$Cmd$none);
-			default:
+            case 'ToggleSoftTissueSelected':
 				var id = msg.a;
                 var location = msg.b;
 				return _Utils_Tuple2(
@@ -7100,16 +7061,31 @@ var author$project$Main$update = F2(
                                 author$project$Main$toggleSoftTissueFacility(id),
 								model.resultSoftTissueFacilities)
 						}),
-                    author$project$Main$setMapMaker(location));
+                    author$project$Main$setMapMaker(
+                        {id: id, lat: location.lat, lng: location.lng}));
+            case 'ChangeCurrentLocationFromZipcode':
+                return _Utils_Tuple2(
+                    model,
+                    author$project$Main$changeCurrentLocationFromAddress(model.zipcode));
+            case 'UpdateZipcode':
+                var zipcode = msg.a;
+                return _Utils_Tuple2(
+                    _Utils_update(
+                        model,
+                        {zipcode: zipcode}),
+                    elm$core$Platform$Cmd$none);
+            default:
+                return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 		}
 	});
+    var author$project$Main$ChangeCurrentLocationFromZipcode = {$: 'ChangeCurrentLocationFromZipcode'};
 var author$project$Main$ChangedCancerType = function (a) {
 	return {$: 'ChangedCancerType', a: a};
 };
 var author$project$Main$ModeGeolocation = {$: 'ModeGeolocation'};
 var author$project$Main$ModeZipcode = {$: 'ModeZipcode'};
-var author$project$Main$SubmitZipcode = function (a) {
-	return {$: 'SubmitZipcode', a: a};
+    var author$project$Main$UpdateZipcode = function (a) {
+        return {$: 'UpdateZipcode', a: a};
 };
 var author$project$Main$SetTableState = function (a) {
 	return {$: 'SetTableState', a: a};
@@ -7397,7 +7373,6 @@ var author$project$Main$configSoftTissue = billstclair$elm_sortable_table$Table$
 		toMsg: author$project$Main$SetTableState
 	});
 var elm$html$Html$option = _VirtualDom_node('option');
-var elm$json$Json$Encode$string = _Json_wrap;
 var elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
 		return A2(
@@ -7641,6 +7616,7 @@ var billstclair$elm_sortable_table$Table$view = F3(
 			}());
 	});
 var elm$html$Html$a = _VirtualDom_node('a');
+    var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$li = _VirtualDom_node('li');
@@ -7778,13 +7754,30 @@ var author$project$Main$view = function (model) {
 								_List_fromArray(
 									[
 										elm$html$Html$Attributes$placeholder('郵便番号を7桁で入力してください'),
-										elm$html$Html$Events$onInput(author$project$Main$SubmitZipcode)
+                                        elm$html$Html$Events$onInput(author$project$Main$UpdateZipcode)
 									]),
 								_List_Nil);
 						} else {
 							return A2(elm$html$Html$div, _List_Nil, _List_Nil);
-						}
-					}(),
+                        }
+                        }(),
+                        function () {
+                            var _n1 = model.searchMode;
+                            if (_n1.$ === 'Zipcode') {
+                                return A2(
+                                    elm$html$Html$button,
+                                    _List_fromArray(
+                                        [
+                                            elm$html$Html$Events$onClick(author$project$Main$ChangeCurrentLocationFromZipcode)
+                                        ]),
+                                    _List_fromArray(
+                                        [
+                                            elm$html$Html$text('決定')
+                                        ]));
+                            } else {
+                                return A2(elm$html$Html$div, _List_Nil, _List_Nil);
+                            }
+                        }(),
 						A2(
 						elm$html$Html$select,
 						_List_fromArray(
@@ -8072,7 +8065,6 @@ var elm$browser$Debugger$Overlay$viewBadMetadata = function (_n0) {
 };
 var elm$browser$Debugger$Overlay$Cancel = {$: 'Cancel'};
 var elm$browser$Debugger$Overlay$Proceed = {$: 'Proceed'};
-var elm$html$Html$button = _VirtualDom_node('button');
 var elm$browser$Debugger$Overlay$viewButtons = function (buttons) {
 	var btn = F2(
 		function (msg, string) {
@@ -11397,10 +11389,10 @@ _Platform_export({'Main':{'init':author$project$Main$main(
             "versions": {"elm": "0.19.0"}, "types": {
                 "message": "Main.Msg",
                 "aliases": {
-                    "Main.CurrentLocation": {
+                    "Main.Location": {
                         "args": [],
                         "type": "{ lat : Maybe.Maybe Basics.Float, lng : Maybe.Maybe Basics.Float }"
-                    }, "Main.Location": {"args": [], "type": "Main.CurrentLocation"}
+                    }
                 },
                 "unions": {
                     "Main.Msg": {
@@ -11415,9 +11407,11 @@ _Platform_export({'Main':{'init':author$project$Main$main(
                             "GotCsv": ["Result.Result Http.Error String.String"],
                             "GotSoftTissueCsv": ["Result.Result Http.Error String.String"],
                             "GotFacilitiesCsv": ["Result.Result Http.Error String.String"],
-                            "UpdateCurrentLocation": ["Main.CurrentLocation"],
+                            "UpdateCurrentLocation": ["Main.Location"],
                             "SetTableState": ["Table.State"],
-                            "ToggleSoftTissueSelected": ["String.String", "Main.Location"]
+                            "ToggleSoftTissueSelected": ["String.String", "Main.Location"],
+                            "ChangeCurrentLocationFromZipcode": [],
+                            "UpdateZipcode": ["String.String"]
                         }
                     },
                     "Table.State": {"args": [], "tags": {"State": ["String.String", "Basics.Bool"]}},
