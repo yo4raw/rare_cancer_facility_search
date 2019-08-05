@@ -1,4 +1,4 @@
-port module Main exposing (CancerPart, CancerType(..), Csv, IntraocularType(..), KeratoconjunctivalType(..), Model, Msg(..), OrbitalType(..), SearchMode(..), getEyelidCsv, getIntraocularCsv, getKeratoconjunctivalCsv, getOrbitalCsv, getSoftTissueCsv, htmlSelectEyelid, htmlSelectIntraocular, htmlSelectKeratoconjunctival, htmlSelectOrbital, init, main, selectOption, unique, update, view)
+port module Main exposing (CancerPart, CancerType(..), Csv, IntraocularType(..), KeratoconjunctivalType(..), Model, Msg(..), OrbitalType(..), SearchMode(..), htmlSelectEyelid, htmlSelectIntraocular, htmlSelectKeratoconjunctival, htmlSelectOrbital, init, main, selectOption, unique, update, view)
 
 import Browser
 import Csv exposing (..)
@@ -10,6 +10,7 @@ import Html.Keyed as Keyed
 import Http
 import Json.Decode as Json
 import List.Extra exposing (find, getAt)
+import MultiSelect exposing (..)
 import Table exposing (defaultCustomizations)
 
 
@@ -118,6 +119,8 @@ type alias Facility =
     , name : Maybe String
     , location : Location
     , distance : Maybe Int
+    , prefecture : Maybe String
+    , region : Maybe String
     }
 
 
@@ -208,6 +211,8 @@ helperConvListtoFacilityRecord list =
         , lng = getAt 2 list |> Maybe.withDefault "0" |> String.toFloat
         }
     , distance = Nothing
+    , prefecture = getAt 4 list
+    , region = getAt 5 list
     }
 
 
@@ -557,64 +562,65 @@ type CsvType
     | LacrimalGlandCancerCSV
 
 
+targetUrl : String
+targetUrl =
+    "http://localhost:8000/"
+
+
 getCsv : CsvType -> Cmd Msg
 getCsv csvType =
-    let
-        target_url =
-            "http://localhost:8000/csv/"
-    in
     case csvType of
         SoftTissueCSV ->
             Http.get
-                { url = target_url ++ "SoftTissue.csv"
+                { url = targetUrl ++ "csv/SoftTissue.csv"
                 , expect = Http.expectString GotSoftTissueCsv
                 }
 
         RetinoblastomaCSV ->
             Http.get
-                { url = target_url ++ "Intraocular.csv"
+                { url = targetUrl ++ "csv/Intraocular.csv"
                 , expect = Http.expectString GotRetinoblastomaCSV
                 }
 
         UvealMalignantMelanomaCSV ->
             Http.get
-                { url = target_url ++ "Intraocular.csv"
+                { url = targetUrl ++ "csv/Intraocular.csv"
                 , expect = Http.expectString GotUvealMalignantMelanomaCSV
                 }
 
         IntraocularLymphomaCSV ->
             Http.get
-                { url = target_url ++ "Intraocular.csv"
+                { url = targetUrl ++ "csv/Intraocular.csv"
                 , expect = Http.expectString GotIntraocularLymphomaCSV
                 }
 
         ConjunctivalMalignantLymphomaCSV ->
             Http.get
-                { url = target_url ++ "Keratoconjunctival.csv"
+                { url = targetUrl ++ "csv/Keratoconjunctival.csv"
                 , expect = Http.expectString GotConjunctivalMalignantLymphomaCSV
                 }
 
         KeratoconjunctivalSquamousCellCarcinomaCSV ->
             Http.get
-                { url = target_url ++ "Keratoconjunctival.csv"
+                { url = targetUrl ++ "csv/Keratoconjunctival.csv"
                 , expect = Http.expectString GotKeratoconjunctivalSquamousCellCarcinomaCSV
                 }
 
         ConjunctivalMalignantMelanomaCSV ->
             Http.get
-                { url = target_url ++ "Keratoconjunctival.csv"
+                { url = targetUrl ++ "csv/Keratoconjunctival.csv"
                 , expect = Http.expectString GotConjunctivalMalignantMelanomaCSV
                 }
 
         OrbitalMalignantLymphomaCSV ->
             Http.get
-                { url = target_url ++ "Orbital.csv"
+                { url = targetUrl ++ "csv/Orbital.csv"
                 , expect = Http.expectString GotOrbitalMalignantLymphomaCSV
                 }
 
         LacrimalGlandCancerCSV ->
             Http.get
-                { url = target_url ++ "Orbital.csv"
+                { url = targetUrl ++ "csv/Orbital.csv"
                 , expect = Http.expectString GotLacrimalGlandCancerCSV
                 }
 
@@ -622,48 +628,8 @@ getCsv csvType =
 getFacilitiesCsv : Cmd Msg
 getFacilitiesCsv =
     Http.get
-        { url = "http://localhost:8000/csv/Facilities.csv"
+        { url = targetUrl ++ "csv/Facilities.csv"
         , expect = Http.expectString GotFacilitiesCsv
-        }
-
-
-getSoftTissueCsv : Cmd Msg
-getSoftTissueCsv =
-    Http.get
-        { url = "http://localhost:8000/csv/SoftTissue.csv"
-        , expect = Http.expectString GotSoftTissueCsv
-        }
-
-
-getIntraocularCsv : Cmd Msg
-getIntraocularCsv =
-    Http.get
-        { url = "http://localhost:8000/csv/Intraocular.csv"
-        , expect = Http.expectString GotCsv
-        }
-
-
-getKeratoconjunctivalCsv : Cmd Msg
-getKeratoconjunctivalCsv =
-    Http.get
-        { url = "http://localhost:8000/csv/Keratoconjunctival.csv"
-        , expect = Http.expectString GotCsv
-        }
-
-
-getOrbitalCsv : Cmd Msg
-getOrbitalCsv =
-    Http.get
-        { url = "http://localhost:8000/csv/Orbital.csv"
-        , expect = Http.expectString GotCsv
-        }
-
-
-getEyelidCsv : Cmd Msg
-getEyelidCsv =
-    Http.get
-        { url = "http://localhost:8000/csv/Eyelid.csv"
-        , expect = Http.expectString GotCsv
         }
 
 
@@ -731,6 +697,65 @@ htmlSelectEyelid =
         ]
 
 
+multiSelectTodofukenOptions : MultiSelect.Options Msg
+multiSelectTodofukenOptions =
+    let
+        defaultOptions =
+            MultiSelect.defaultOptions ChangeTodofuken
+    in
+    { defaultOptions
+        | items =
+            [ { value = "北海道", text = "北海道", enabled = True }
+            , { value = "青森県", text = "青森県", enabled = True }
+            , { value = "岩手県", text = "岩手県", enabled = True }
+            , { value = "宮城県", text = "宮城県", enabled = True }
+            , { value = "秋田県", text = "秋田県", enabled = True }
+            , { value = "山形県", text = "山形県", enabled = True }
+            , { value = "福島県", text = "福島県", enabled = True }
+            , { value = "茨城県", text = "茨城県", enabled = True }
+            , { value = "栃木県", text = "栃木県", enabled = True }
+            , { value = "群馬県", text = "群馬県", enabled = True }
+            , { value = "埼玉県", text = "埼玉県", enabled = True }
+            , { value = "千葉県", text = "千葉県", enabled = True }
+            , { value = "東京都", text = "東京都", enabled = True }
+            , { value = "神奈川県", text = "神奈川県", enabled = True }
+            , { value = "新潟県", text = "新潟県", enabled = True }
+            , { value = "富山県", text = "富山県", enabled = True }
+            , { value = "石川県", text = "石川県", enabled = True }
+            , { value = "福井県", text = "福井県", enabled = True }
+            , { value = "山梨県", text = "山梨県", enabled = True }
+            , { value = "長野県", text = "長野県", enabled = True }
+            , { value = "岐阜県", text = "岐阜県", enabled = True }
+            , { value = "静岡県", text = "静岡県", enabled = True }
+            , { value = "愛知県", text = "愛知県", enabled = True }
+            , { value = "三重県", text = "三重県", enabled = True }
+            , { value = "滋賀県", text = "滋賀県", enabled = True }
+            , { value = "京都府", text = "京都府", enabled = True }
+            , { value = "大阪府", text = "大阪府", enabled = True }
+            , { value = "兵庫県", text = "兵庫県", enabled = True }
+            , { value = "奈良県", text = "奈良県", enabled = True }
+            , { value = "和歌山県", text = "和歌山県", enabled = True }
+            , { value = "鳥取県", text = "鳥取県", enabled = True }
+            , { value = "島根県", text = "島根県", enabled = True }
+            , { value = "岡山県", text = "岡山県", enabled = True }
+            , { value = "広島県", text = "広島県", enabled = True }
+            , { value = "山口県", text = "山口県", enabled = True }
+            , { value = "徳島県", text = "徳島県", enabled = True }
+            , { value = "香川県", text = "香川県", enabled = True }
+            , { value = "愛媛県", text = "愛媛県", enabled = True }
+            , { value = "高知県", text = "高知県", enabled = True }
+            , { value = "福岡県", text = "福岡県", enabled = True }
+            , { value = "佐賀県", text = "佐賀県", enabled = True }
+            , { value = "長崎県", text = "長崎県", enabled = True }
+            , { value = "熊本県", text = "熊本県", enabled = True }
+            , { value = "大分県", text = "大分県", enabled = True }
+            , { value = "宮崎県", text = "宮崎県", enabled = True }
+            , { value = "鹿児島県", text = "鹿児島県", enabled = True }
+            , { value = "沖縄県", text = "沖縄県", enabled = True }
+            ]
+    }
+
+
 unique : String -> Html msg -> Html msg
 unique identifier html =
     Keyed.node "span" [] [ ( identifier, html ) ]
@@ -774,6 +799,7 @@ type alias Model =
     , parseFacilitesCsv : Csv
     , tableState : Table.State
     , getCsvError : String
+    , selectedTodofuken : List String
     }
 
 
@@ -806,6 +832,7 @@ init flags =
       , parseFacilitesCsv = Csv [] []
       , tableState = Table.initialSort "id"
       , getCsvError = ""
+      , selectedTodofuken = []
       }
     , initFunction
     )
@@ -842,6 +869,7 @@ type Msg
     | ToggleSoftTissueSelected String Location
     | ChangeCurrentLocationFromZipcode
     | UpdateZipcode String
+    | ChangeTodofuken (List String)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -1025,6 +1053,9 @@ update msg model =
         UpdateZipcode zipcode ->
             ( { model | zipcode = zipcode }, Cmd.none )
 
+        ChangeTodofuken todofuken ->
+            ( { model | selectedTodofuken = todofuken }, Cmd.none )
+
 
 toggleSoftTissueFacility : String -> SoftTissueFacility -> SoftTissueFacility
 toggleSoftTissueFacility id facility =
@@ -1081,6 +1112,7 @@ view model =
 
                 _ ->
                     text ""
+            , text "がん選択:"
             , select [ on "change" (Json.map ChangedCancerType targetValue) ]
                 [ option [ selected True ] [ text "選択してください" ]
                 , selectOption "SoftTissue" "四肢軟部肉腫"
@@ -1106,6 +1138,10 @@ view model =
 
                 _ ->
                     text ""
+        , MultiSelect.multiSelect
+            multiSelectTodofukenOptions
+            []
+            model.selectedTodofuken
         , case model.selectedCancerType of
             "SoftTissue" ->
                 Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities

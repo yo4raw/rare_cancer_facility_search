@@ -1,25 +1,24 @@
 var app;
+
 app = Elm.Main.init({
     flags: {lat: 0, lng: 0},
     node: document.getElementById('elm-node')
-
 });
 
 
-var makers = Array();
+//var makers = Array();
 
 
 //
-app.ports.setMapMaker.subscribe(function (data) {
-
-    var marker = new google.maps.Marker({ // マーカーの追加
-        position: {
-            lat: data.lat,
-            lng: data.lng
-        }, // マーカーを立てる位置を指定
-        map: map // マーカーを立てる地図を指定
-    });
-});
+// app.ports.setMapMaker.subscribe(function (data) {
+//     var marker = new google.maps.Marker({ // マーカーの追加
+//         position: {
+//             lat: data.lat,
+//             lng: data.lng
+//         }, // マーカーを立てる位置を指定
+//         map: map // マーカーを立てる地図を指定
+//     });
+// });
 
 // Geolocation APIに対応している
 if (navigator.geolocation) {
@@ -29,15 +28,10 @@ if (navigator.geolocation) {
 }
 
 
-function updateCurrentLocation(lat, lng) {
-
-}
 
 var map;
-
 var currentLat;
 var currentLng;
-
 var center = {
     lat: 34.7019399, // 緯度
     lng: 135.51002519999997 // 経度
@@ -56,10 +50,10 @@ function initMap() {
                 zoom: 10
             });
 
-            var marker = new google.maps.Marker({ // マーカーの追加
-                position: {lat: currentLat, lng: currentLng}, // マーカーを立てる位置を指定
-                map: map // マーカーを立てる地図を指定
-            });
+            // var marker = new google.maps.Marker({ // マーカーの追加
+            //     position: {lat: currentLat, lng: currentLng}, // マーカーを立てる位置を指定
+            //     map: map // マーカーを立てる地図を指定
+            // });
             if ((typeof currentLat !== 'undefined') && (typeof currentLng !== 'undefined') && (typeof app !== 'undefined')) {
                 app.ports.updateCurrentLocation.send({lat: currentLat, lng: currentLng})
             }
