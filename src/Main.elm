@@ -142,6 +142,8 @@ type alias SoftTissueFacility =
     , distance : Int
     , location : Location
     , selected : Bool
+    , prefecture : Maybe String
+    , region : Maybe String
     }
 
 
@@ -157,43 +159,9 @@ type alias GeneralCancerFacility =
     , treatment : String --治療
     , distance : Int
     , location : Location
+    , prefecture : Maybe String
+    , region : Maybe String
     }
-
-
-type alias RetinoblastomaFacilities =
-    List GeneralCancerFacility
-
-
-type alias UvealMalignantMelanomaFacilities =
-    List GeneralCancerFacility
-
-
-type alias IntraocularLymphomaFacilities =
-    List GeneralCancerFacility
-
-
-type alias ConjunctivalMalignantLymphomaFacilities =
-    List GeneralCancerFacility
-
-
-type alias KeratoconjunctivalSquamousCellCarcinomaFacilities =
-    List GeneralCancerFacility
-
-
-type alias ConjunctivalMalignantMelanomaFacilities =
-    List GeneralCancerFacility
-
-
-type alias OrbitalMalignantLymphomaFacilities =
-    List GeneralCancerFacility
-
-
-type alias LacrimalGlandCancerFacilities =
-    List GeneralCancerFacility
-
-
-type alias EyelidFacilities =
-    List GeneralCancerFacility
 
 
 setFacilities : Csv -> Facilities
@@ -222,6 +190,10 @@ helperConvListtoFacilityRecord list =
 parse済みのcsvをresultに挿入する関数
 
 --}
+--filterPrefecture : Facilities -> List a -> Facilities
+--filterPrefecture facilities prefecture =
+--    case prefecture of
+--        [] ->
 
 
 setSoftTissueFacilities : Csv -> Facilities -> SoftTissueFacilities
@@ -230,55 +202,55 @@ setSoftTissueFacilities csv facilities =
         |> List.map (helperConvListToSoftTissueFacility facilities)
 
 
-setRetinoblastomaFacilities : Csv -> Facilities -> RetinoblastomaFacilities
+setRetinoblastomaFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setRetinoblastomaFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToRetinoblastomaFacility facilities)
 
 
-setUvealMalignantMelanomaFacilities : Csv -> Facilities -> UvealMalignantMelanomaFacilities
+setUvealMalignantMelanomaFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setUvealMalignantMelanomaFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToUvealMalignantMelanomaFacility facilities)
 
 
-setIntraocularLymphomaFacilities : Csv -> Facilities -> IntraocularLymphomaFacilities
+setIntraocularLymphomaFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setIntraocularLymphomaFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToIntraocularLymphomaFacility facilities)
 
 
-setConjunctivalMalignantLymphomaFacilities : Csv -> Facilities -> ConjunctivalMalignantLymphomaFacilities
+setConjunctivalMalignantLymphomaFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setConjunctivalMalignantLymphomaFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToConjunctivalMalignantLymphomaFacility facilities)
 
 
-setKeratoconjunctivalSquamousCellCarcinomaFacilities : Csv -> Facilities -> KeratoconjunctivalSquamousCellCarcinomaFacilities
+setKeratoconjunctivalSquamousCellCarcinomaFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setKeratoconjunctivalSquamousCellCarcinomaFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility facilities)
 
 
-setConjunctivalMalignantMelanomaFacilities : Csv -> Facilities -> ConjunctivalMalignantMelanomaFacilities
+setConjunctivalMalignantMelanomaFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setConjunctivalMalignantMelanomaFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToConjunctivalMalignantMelanomaFacility facilities)
 
 
-setOrbitalMalignantLymphomaFacilities : Csv -> Facilities -> OrbitalMalignantLymphomaFacilities
+setOrbitalMalignantLymphomaFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setOrbitalMalignantLymphomaFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToOrbitalMalignantLymphomaFacility facilities)
 
 
-setLacrimalGlandCancerFacilities : Csv -> Facilities -> LacrimalGlandCancerFacilities
+setLacrimalGlandCancerFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setLacrimalGlandCancerFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToLacrimalGlandCancerFacility facilities)
 
 
-setEyelidFacilities : Csv -> Facilities -> EyelidFacilities
+setEyelidFacilities : Csv -> Facilities -> List GeneralCancerFacility
 setEyelidFacilities csv facilities =
     csv.records
         |> List.map (helperConvListToEyelidFacility facilities)
@@ -306,6 +278,8 @@ helperConvListToSoftTissueFacility facilities list =
     , secondopinion = getAt 9 list |> maybeStringtoInt
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     , selected = False
     }
 
@@ -319,6 +293,8 @@ helperConvListToRetinoblastomaFacility facilities list =
     , treatment = getAt 4 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -331,6 +307,8 @@ helperConvListToUvealMalignantMelanomaFacility facilities list =
     , treatment = getAt 7 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -343,6 +321,8 @@ helperConvListToIntraocularLymphomaFacility facilities list =
     , treatment = getAt 10 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -355,6 +335,8 @@ helperConvListToConjunctivalMalignantLymphomaFacility facilities list =
     , treatment = getAt 4 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -367,6 +349,8 @@ helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility facilities list 
     , treatment = getAt 7 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -379,6 +363,8 @@ helperConvListToConjunctivalMalignantMelanomaFacility facilities list =
     , treatment = getAt 10 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -391,6 +377,8 @@ helperConvListToOrbitalMalignantLymphomaFacility facilities list =
     , treatment = getAt 4 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -403,6 +391,8 @@ helperConvListToLacrimalGlandCancerFacility facilities list =
     , treatment = getAt 7 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -415,6 +405,8 @@ helperConvListToEyelidFacility facilities list =
     , treatment = getAt 4 list |> Maybe.withDefault "未設定"
     , distance = helperGetDistance (getAt 0 list |> Maybe.withDefault "0") facilities |> Maybe.withDefault -1
     , location = helperGetLocation (getAt 0 list |> Maybe.withDefault "0") facilities
+    , prefecture = helperGetPrefecture (getAt 0 list |> Maybe.withDefault "0") facilities
+    , region = helperGetRegion (getAt 0 list |> Maybe.withDefault "0") facilities
     }
 
 
@@ -454,6 +446,44 @@ helperGetLocation facilityId facilities =
             )
         |> List.head
         |> Maybe.withDefault { lat = Nothing, lng = Nothing }
+
+
+helperGetPrefecture : String -> Facilities -> Maybe String
+helperGetPrefecture facilityId facilities =
+    facilities
+        |> List.map
+            (\facility ->
+                if (facility.id |> Maybe.withDefault "") == facilityId then
+                    facility.prefecture
+
+                else
+                    Nothing
+            )
+        |> List.filter
+            (\prefecture ->
+                prefecture /= Nothing
+            )
+        |> List.head
+        |> Maybe.withDefault Nothing
+
+
+helperGetRegion : String -> Facilities -> Maybe String
+helperGetRegion facilityId facilities =
+    facilities
+        |> List.map
+            (\facility ->
+                if (facility.id |> Maybe.withDefault "") == facilityId then
+                    facility.region
+
+                else
+                    Nothing
+            )
+        |> List.filter
+            (\region ->
+                region /= Nothing
+            )
+        |> List.head
+        |> Maybe.withDefault Nothing
 
 
 configSoftTissue : Table.Config SoftTissueFacility Msg
@@ -778,15 +808,15 @@ type alias Model =
     , facilities : Facilities
     , address : String
     , resultSoftTissueFacilities : SoftTissueFacilities
-    , resultRetinoblastomaFacilities : RetinoblastomaFacilities
-    , resultUvealMalignantMelanomaFacilities : UvealMalignantMelanomaFacilities
-    , resultIntraocularLymphomaFacilities : IntraocularLymphomaFacilities
-    , resultConjunctivalMalignantLymphomaFacilities : ConjunctivalMalignantLymphomaFacilities
-    , resultKeratoconjunctivalSquamousCellCarcinomaFacilities : KeratoconjunctivalSquamousCellCarcinomaFacilities
-    , resultConjunctivalMalignantMelanomaFacilities : ConjunctivalMalignantMelanomaFacilities
-    , resultOrbitalMalignantLymphomaFacilities : OrbitalMalignantLymphomaFacilities
-    , resultLacrimalGlandCancerFacilities : LacrimalGlandCancerFacilities
-    , resultEyelidFacilities : EyelidFacilities
+    , resultRetinoblastomaFacilities : List GeneralCancerFacility
+    , resultUvealMalignantMelanomaFacilities : List GeneralCancerFacility
+    , resultIntraocularLymphomaFacilities : List GeneralCancerFacility
+    , resultConjunctivalMalignantLymphomaFacilities : List GeneralCancerFacility
+    , resultKeratoconjunctivalSquamousCellCarcinomaFacilities : List GeneralCancerFacility
+    , resultConjunctivalMalignantMelanomaFacilities : List GeneralCancerFacility
+    , resultOrbitalMalignantLymphomaFacilities : List GeneralCancerFacility
+    , resultLacrimalGlandCancerFacilities : List GeneralCancerFacility
+    , resultEyelidFacilities : List GeneralCancerFacility
     , searchMode : SearchMode
     , zipcode : String
     , selectedCancerType : String --選択されたがんの種類
