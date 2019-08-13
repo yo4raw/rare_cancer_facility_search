@@ -9,7 +9,7 @@ import Html.Events as Events exposing (..)
 import Html.Keyed as Keyed
 import Http
 import Json.Decode as Json
-import List.Extra exposing (find, getAt)
+import List.Extra exposing (find, getAt, isPermutationOf)
 import MultiSelect exposing (..)
 import Table exposing (defaultCustomizations)
 
@@ -159,8 +159,8 @@ type alias GeneralCancerFacility =
     , treatment : String --治療
     , distance : Int
     , location : Location
-    , prefecture : Maybe String
-    , region : Maybe String
+    , prefecture : Maybe String --都道府県
+    , region : Maybe String --地域
     }
 
 
@@ -190,10 +190,17 @@ helperConvListtoFacilityRecord list =
 parse済みのcsvをresultに挿入する関数
 
 --}
---filterPrefecture : Facilities -> List a -> Facilities
---filterPrefecture facilities prefecture =
---    case prefecture of
---        [] ->
+
+
+filterGeneralCancerFacilityPrefecture : List String -> List GeneralCancerFacility -> List GeneralCancerFacility
+filterGeneralCancerFacilityPrefecture prefectures facilities =
+    if List.isEmpty prefectures then
+        facilities
+
+    else
+        facilities
+            |> List.filter
+                (\facility -> List.member (facility.prefecture |> Maybe.withDefault "") prefectures)
 
 
 setSoftTissueFacilities : Csv -> Facilities -> SoftTissueFacilities
@@ -594,7 +601,7 @@ type CsvType
 
 targetUrl : String
 targetUrl =
-    "http://localhost:8000/"
+    "https://www.ossia.co.jp/forimake/"
 
 
 getCsv : CsvType -> Cmd Msg
@@ -808,15 +815,25 @@ type alias Model =
     , facilities : Facilities
     , address : String
     , resultSoftTissueFacilities : SoftTissueFacilities
+    , originSoftTissueFacilities : SoftTissueFacilities
     , resultRetinoblastomaFacilities : List GeneralCancerFacility
+    , originRetinoblastomaFacilities : List GeneralCancerFacility
     , resultUvealMalignantMelanomaFacilities : List GeneralCancerFacility
+    , originUvealMalignantMelanomaFacilities : List GeneralCancerFacility
     , resultIntraocularLymphomaFacilities : List GeneralCancerFacility
+    , originIntraocularLymphomaFacilities : List GeneralCancerFacility
     , resultConjunctivalMalignantLymphomaFacilities : List GeneralCancerFacility
+    , originConjunctivalMalignantLymphomaFacilities : List GeneralCancerFacility
     , resultKeratoconjunctivalSquamousCellCarcinomaFacilities : List GeneralCancerFacility
+    , originKeratoconjunctivalSquamousCellCarcinomaFacilities : List GeneralCancerFacility
     , resultConjunctivalMalignantMelanomaFacilities : List GeneralCancerFacility
+    , originConjunctivalMalignantMelanomaFacilities : List GeneralCancerFacility
     , resultOrbitalMalignantLymphomaFacilities : List GeneralCancerFacility
+    , originOrbitalMalignantLymphomaFacilities : List GeneralCancerFacility
     , resultLacrimalGlandCancerFacilities : List GeneralCancerFacility
+    , originLacrimalGlandCancerFacilities : List GeneralCancerFacility
     , resultEyelidFacilities : List GeneralCancerFacility
+    , originEyelidFacilities : List GeneralCancerFacility
     , searchMode : SearchMode
     , zipcode : String
     , selectedCancerType : String --選択されたがんの種類
@@ -841,15 +858,25 @@ init flags =
       , memos = []
       , facilities = []
       , resultSoftTissueFacilities = []
+      , originSoftTissueFacilities = []
       , resultRetinoblastomaFacilities = []
+      , originRetinoblastomaFacilities = []
       , resultUvealMalignantMelanomaFacilities = []
+      , originUvealMalignantMelanomaFacilities = []
       , resultIntraocularLymphomaFacilities = []
+      , originIntraocularLymphomaFacilities = []
       , resultConjunctivalMalignantLymphomaFacilities = []
+      , originConjunctivalMalignantLymphomaFacilities = []
       , resultKeratoconjunctivalSquamousCellCarcinomaFacilities = []
+      , originKeratoconjunctivalSquamousCellCarcinomaFacilities = []
       , resultConjunctivalMalignantMelanomaFacilities = []
+      , originConjunctivalMalignantMelanomaFacilities = []
       , resultOrbitalMalignantLymphomaFacilities = []
+      , originOrbitalMalignantLymphomaFacilities = []
       , resultLacrimalGlandCancerFacilities = []
+      , originLacrimalGlandCancerFacilities = []
       , resultEyelidFacilities = []
+      , originEyelidFacilities = []
       , searchMode = Geolocation
       , resultCsv = ""
       , zipcode = ""
@@ -1001,61 +1028,111 @@ update msg model =
             ( model, Cmd.none )
 
         GotSoftTissueCsv (Ok repo) ->
-            ( { model | resultSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.facilities
+                , originSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotSoftTissueCsv (Err error) ->
             ( model, Cmd.none )
 
         GotRetinoblastomaCSV (Ok repo) ->
-            ( { model | resultRetinoblastomaFacilities = setRetinoblastomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultRetinoblastomaFacilities = setRetinoblastomaFacilities (Csv.parse repo) model.facilities
+                , originRetinoblastomaFacilities = setRetinoblastomaFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotRetinoblastomaCSV (Err error) ->
             ( model, Cmd.none )
 
         GotUvealMalignantMelanomaCSV (Ok repo) ->
-            ( { model | resultUvealMalignantMelanomaFacilities = setUvealMalignantMelanomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultUvealMalignantMelanomaFacilities = setUvealMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+                , originUvealMalignantMelanomaFacilities = setUvealMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotUvealMalignantMelanomaCSV (Err error) ->
             ( model, Cmd.none )
 
         GotIntraocularLymphomaCSV (Ok repo) ->
-            ( { model | resultIntraocularLymphomaFacilities = setIntraocularLymphomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultIntraocularLymphomaFacilities = setIntraocularLymphomaFacilities (Csv.parse repo) model.facilities
+                , originIntraocularLymphomaFacilities = setIntraocularLymphomaFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotIntraocularLymphomaCSV (Err error) ->
             ( model, Cmd.none )
 
         GotConjunctivalMalignantLymphomaCSV (Ok repo) ->
-            ( { model | resultConjunctivalMalignantLymphomaFacilities = setConjunctivalMalignantLymphomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultConjunctivalMalignantLymphomaFacilities = setConjunctivalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+                , originConjunctivalMalignantLymphomaFacilities = setConjunctivalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotConjunctivalMalignantLymphomaCSV (Err error) ->
             ( model, Cmd.none )
 
         GotKeratoconjunctivalSquamousCellCarcinomaCSV (Ok repo) ->
-            ( { model | resultKeratoconjunctivalSquamousCellCarcinomaFacilities = setKeratoconjunctivalSquamousCellCarcinomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultKeratoconjunctivalSquamousCellCarcinomaFacilities = setKeratoconjunctivalSquamousCellCarcinomaFacilities (Csv.parse repo) model.facilities
+                , originKeratoconjunctivalSquamousCellCarcinomaFacilities = setKeratoconjunctivalSquamousCellCarcinomaFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotKeratoconjunctivalSquamousCellCarcinomaCSV (Err error) ->
             ( model, Cmd.none )
 
         GotConjunctivalMalignantMelanomaCSV (Ok repo) ->
-            ( { model | resultConjunctivalMalignantMelanomaFacilities = setConjunctivalMalignantMelanomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultConjunctivalMalignantMelanomaFacilities = setConjunctivalMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+                , originConjunctivalMalignantMelanomaFacilities = setConjunctivalMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotConjunctivalMalignantMelanomaCSV (Err error) ->
             ( model, Cmd.none )
 
         GotOrbitalMalignantLymphomaCSV (Ok repo) ->
-            ( { model | resultOrbitalMalignantLymphomaFacilities = setOrbitalMalignantLymphomaFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultOrbitalMalignantLymphomaFacilities = setOrbitalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+                , originOrbitalMalignantLymphomaFacilities = setOrbitalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotOrbitalMalignantLymphomaCSV (Err error) ->
             ( model, Cmd.none )
 
         GotLacrimalGlandCancerCSV (Ok repo) ->
-            ( { model | resultLacrimalGlandCancerFacilities = setLacrimalGlandCancerFacilities (Csv.parse repo) model.facilities }, Cmd.none )
+            ( { model
+                | resultLacrimalGlandCancerFacilities = setLacrimalGlandCancerFacilities (Csv.parse repo) model.facilities
+                , originLacrimalGlandCancerFacilities = setLacrimalGlandCancerFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
 
         GotLacrimalGlandCancerCSV (Err error) ->
             ( model, Cmd.none )
 
         GotFacilitiesCsv (Ok repo) ->
-            ( { model | parseFacilitesCsv = Csv.parse repo, facilities = setFacilities (Csv.parse repo) }, Cmd.none )
+            ( { model
+                | parseFacilitesCsv = Csv.parse repo
+                , facilities = setFacilities (Csv.parse repo)
+              }
+            , Cmd.none
+            )
 
         GotFacilitiesCsv (Err error) ->
             ( model, Cmd.none )
@@ -1073,6 +1150,8 @@ update msg model =
             ( { model
                 | resultSoftTissueFacilities =
                     List.map (toggleSoftTissueFacility id) model.resultSoftTissueFacilities
+                , originSoftTissueFacilities =
+                    List.map (toggleSoftTissueFacility id) model.resultSoftTissueFacilities
               }
             , setMapMaker { id = id, lat = location.lat, lng = location.lng }
             )
@@ -1084,7 +1163,20 @@ update msg model =
             ( { model | zipcode = zipcode }, Cmd.none )
 
         ChangeTodofuken todofuken ->
-            ( { model | selectedTodofuken = todofuken }, Cmd.none )
+            ( { model
+                | selectedTodofuken = todofuken
+                , resultRetinoblastomaFacilities = model.originRetinoblastomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultUvealMalignantMelanomaFacilities = model.originUvealMalignantMelanomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultIntraocularLymphomaFacilities = model.originIntraocularLymphomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultConjunctivalMalignantLymphomaFacilities = model.originConjunctivalMalignantLymphomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultKeratoconjunctivalSquamousCellCarcinomaFacilities = model.originKeratoconjunctivalSquamousCellCarcinomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultConjunctivalMalignantMelanomaFacilities = model.originConjunctivalMalignantMelanomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultOrbitalMalignantLymphomaFacilities = model.originOrbitalMalignantLymphomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultLacrimalGlandCancerFacilities = model.originLacrimalGlandCancerFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+                , resultEyelidFacilities = model.originEyelidFacilities |> filterGeneralCancerFacilityPrefecture todofuken
+              }
+            , Cmd.none
+            )
 
 
 toggleSoftTissueFacility : String -> SoftTissueFacility -> SoftTissueFacility
