@@ -77,7 +77,7 @@ function A9(fun, a, b, c, d, e, f, g, h, i) {
   return fun.a === 9 ? fun.f(a, b, c, d, e, f, g, h, i) : fun(a)(b)(c)(d)(e)(f)(g)(h)(i);
 }
 
-    console.warn('Compiled in DEBUG mode. Follow the advice at https://elm-lang.org/0.19.0/optimize for better performance and smaller assets.');
+	console.warn('Compiled in DEBUG mode. Follow the advice at https://elm-lang.org/0.19.0/optimize for better performance and smaller assets.');
 
 
 var _JsArray_empty = [];
@@ -231,16 +231,16 @@ var _JsArray_appendN = F3(function(n, dest, source)
 });
 
 
-    var _List_Nil_UNUSED = {$: 0};
-    var _List_Nil = {$: '[]'};
+	var _List_Nil_UNUSED = {$: 0};
+	var _List_Nil = {$: '[]'};
 
-    function _List_Cons_UNUSED(hd, tl) {
-        return {$: 1, a: hd, b: tl};
-    }
+	function _List_Cons_UNUSED(hd, tl) {
+		return {$: 1, a: hd, b: tl};
+	}
 
-    function _List_Cons(hd, tl) {
-        return {$: '::', a: hd, b: tl};
-    }
+	function _List_Cons(hd, tl) {
+		return {$: '::', a: hd, b: tl};
+	}
 
 
 var _List_cons = F2(_List_Cons);
@@ -319,13 +319,13 @@ var _List_sortWith = F2(function(f, xs)
 
 // LOG
 
-    var _Debug_log_UNUSED = F2(function (tag, value) {
-        return value;
+	var _Debug_log_UNUSED = F2(function (tag, value) {
+		return value;
 });
 
-    var _Debug_log = F2(function (tag, value) {
-        console.log(tag + ': ' + _Debug_toString(value));
-        return value;
+	var _Debug_log = F2(function (tag, value) {
+		console.log(tag + ': ' + _Debug_toString(value));
+		return value;
 });
 
 
@@ -348,11 +348,11 @@ function _Debug_todoCase(moduleName, region, value)
 
 // TO STRING
 
-    function _Debug_toString_UNUSED(value) {
-        return '<internals>';
-    }
+	function _Debug_toString_UNUSED(value) {
+		return '<internals>';
+	}
 
-    function _Debug_toString(value)
+	function _Debug_toString(value)
 {
 	return _Debug_toAnsiString(false, value);
 }
@@ -429,7 +429,7 @@ function _Debug_toAnsiString(ansi, value)
 		{
 			var output = '[';
 
-            value.b && (output += _Debug_toAnsiString(ansi, value.a), value = value.b);
+			value.b && (output += _Debug_toAnsiString(ansi, value.a), value = value.b);
 
 			for (; value.b; value = value.b) // WHILE_CONS
 			{
@@ -537,13 +537,13 @@ function _Debug_toHexDigit(n)
 // CRASH
 
 
-    function _Debug_crash_UNUSED(identifier)
+	function _Debug_crash_UNUSED(identifier)
 {
 	throw new Error('https://github.com/elm/core/blob/1.0.0/hints/' + identifier + '.md');
 }
 
 
-    function _Debug_crash(identifier, fact1, fact2, fact3, fact4)
+	function _Debug_crash(identifier, fact1, fact2, fact3, fact4)
 {
 	switch(identifier)
 	{
@@ -601,10 +601,10 @@ function _Debug_toHexDigit(n)
 
 function _Debug_regionToString(region)
 {
-    if (region.start.line === region.end.line) {
-        return 'on line ' + region.start.line;
-    }
-    return 'on lines ' + region.start.line + ' through ' + region.end.line;
+	if (region.start.line === region.end.line) {
+		return 'on line ' + region.start.line;
+	}
+	return 'on lines ' + region.start.line + ' through ' + region.end.line;
 }
 
 
@@ -642,7 +642,7 @@ function _Utils_eqHelp(x, y, depth, stack)
 		return false;
 	}
 
-    /**/
+	/**/
 	if (x.$ === 'Set_elm_builtin')
 	{
 		x = elm$core$Set$toList(x);
@@ -655,7 +655,7 @@ function _Utils_eqHelp(x, y, depth, stack)
 	}
 	//*/
 
-    /**_UNUSED/
+	/**_UNUSED/
 	if (x.$ < 0)
 	{
 		x = elm$core$Dict$toList(x);
@@ -690,7 +690,7 @@ function _Utils_cmp(x, y, ord)
 		return x === y ? /*EQ*/ 0 : x < y ? /*LT*/ -1 : /*GT*/ 1;
 	}
 
-    /**/
+	/**/
 	if (x instanceof String)
 	{
 		var a = x.valueOf();
@@ -699,10 +699,10 @@ function _Utils_cmp(x, y, ord)
 	}
 	//*/
 
-    /**_UNUSED/
+	/**_UNUSED/
 	if (typeof x.$ === 'undefined')
 	//*/
-    /**/
+	/**/
 	if (x.$[0] === '#')
 	//*/
 	{
@@ -732,32 +732,32 @@ var _Utils_compare = F2(function(x, y)
 
 // COMMON VALUES
 
-    var _Utils_Tuple0_UNUSED = 0;
-    var _Utils_Tuple0 = {$: '#0'};
+	var _Utils_Tuple0_UNUSED = 0;
+	var _Utils_Tuple0 = {$: '#0'};
 
-    function _Utils_Tuple2_UNUSED(a, b) {
-        return {a: a, b: b};
-    }
+	function _Utils_Tuple2_UNUSED(a, b) {
+		return {a: a, b: b};
+	}
 
-    function _Utils_Tuple2(a, b) {
-        return {$: '#2', a: a, b: b};
-    }
+	function _Utils_Tuple2(a, b) {
+		return {$: '#2', a: a, b: b};
+	}
 
-    function _Utils_Tuple3_UNUSED(a, b, c) {
-        return {a: a, b: b, c: c};
-    }
+	function _Utils_Tuple3_UNUSED(a, b, c) {
+		return {a: a, b: b, c: c};
+	}
 
-    function _Utils_Tuple3(a, b, c) {
-        return {$: '#3', a: a, b: b, c: c};
-    }
+	function _Utils_Tuple3(a, b, c) {
+		return {$: '#3', a: a, b: b, c: c};
+	}
 
-    function _Utils_chr_UNUSED(c) {
-        return c;
-    }
+	function _Utils_chr_UNUSED(c) {
+		return c;
+	}
 
-    function _Utils_chr(c) {
-        return String(c);
-    }
+	function _Utils_chr(c) {
+		return String(c);
+	}
 
 
 // RECORDS
@@ -798,7 +798,7 @@ function _Utils_ap(xs, ys)
 		return ys;
 	}
 	var root = _List_Cons(xs.a, ys);
-    xs = xs.b;
+	xs = xs.b;
 	for (var curr = root; xs.b; xs = xs.b) // WHILE_CONS
 	{
 		curr = curr.b = _List_Cons(xs.a, ys);
@@ -1225,7 +1225,7 @@ function _String_fromList(chars)
 }
 
 
-    /**/
+	/**/
 function _Json_errorToString(error)
 {
 	return elm$json$Json$Decode$errorToString(error);
@@ -1629,21 +1629,21 @@ var _Json_encode = F2(function(indentLevel, value)
 	return JSON.stringify(_Json_unwrap(value), null, indentLevel) + '';
 });
 
-    function _Json_wrap(value) {
-        return {$: 0, a: value};
-    }
+	function _Json_wrap(value) {
+		return {$: 0, a: value};
+	}
 
-    function _Json_unwrap(value) {
-        return value.a;
-    }
+	function _Json_unwrap(value) {
+		return value.a;
+	}
 
-    function _Json_wrap_UNUSED(value) {
-        return value;
-    }
+	function _Json_wrap_UNUSED(value) {
+		return value;
+	}
 
-    function _Json_unwrap_UNUSED(value) {
-        return value;
-    }
+	function _Json_unwrap_UNUSED(value) {
+		return value;
+	}
 
 function _Json_emptyArray() { return []; }
 function _Json_emptyObject() { return {}; }
@@ -1880,9 +1880,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-        impl.init,
-        impl.update,
-        impl.subscriptions,
+		impl.init,
+		impl.update,
+		impl.subscriptions,
 		function() { return function() {} }
 	);
 });
@@ -1895,7 +1895,7 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 function _Platform_initialize(flagDecoder, args, init, update, subscriptions, stepperBuilder)
 {
 	var result = A2(_Json_run, flagDecoder, _Json_wrap(args ? args['flags'] : undefined));
-    elm$core$Result$isOk(result) || _Debug_crash(2 /**/, _Json_errorToString(result.a) /**/);
+	elm$core$Result$isOk(result) || _Debug_crash(2 /**/, _Json_errorToString(result.a) /**/);
 	var managers = {};
 	result = init(result.a);
 	var model = result.a;
@@ -2294,7 +2294,7 @@ function _Platform_setupIncomingPort(name, sendToApp)
 //
 
 
-    function _Platform_export_UNUSED(exports)
+	function _Platform_export_UNUSED(exports)
 {
 	scope['Elm']
 		? _Platform_mergeExportsProd(scope['Elm'], exports)
@@ -2315,7 +2315,7 @@ function _Platform_mergeExportsProd(obj, exports)
 }
 
 
-    function _Platform_export(exports)
+	function _Platform_export(exports)
 {
 	scope['Elm']
 		? _Platform_mergeExportsDebug('Elm', scope['Elm'], exports)
@@ -2344,27 +2344,27 @@ var _Http_toTask = F3(function(router, toTask, request)
 	return _Scheduler_binding(function(callback)
 	{
 		function done(response) {
-            callback(toTask(request.expect.a(response)));
+			callback(toTask(request.expect.a(response)));
 		}
 
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener('error', function() { done(elm$http$Http$NetworkError_); });
 		xhr.addEventListener('timeout', function() { done(elm$http$Http$Timeout_); });
-        xhr.addEventListener('load', function () {
-            done(_Http_toResponse(request.expect.b, xhr));
-        });
-        elm$core$Maybe$isJust(request.tracker) && _Http_track(router, xhr, request.tracker.a);
+		xhr.addEventListener('load', function () {
+			done(_Http_toResponse(request.expect.b, xhr));
+		});
+		elm$core$Maybe$isJust(request.tracker) && _Http_track(router, xhr, request.tracker.a);
 
 		try {
-            xhr.open(request.method, request.url, true);
+			xhr.open(request.method, request.url, true);
 		} catch (e) {
-            return done(elm$http$Http$BadUrl_(request.url));
+			return done(elm$http$Http$BadUrl_(request.url));
 		}
 
 		_Http_configureRequest(xhr, request);
 
-        request.body.a && xhr.setRequestHeader('Content-Type', request.body.a);
-        xhr.send(request.body.b);
+		request.body.a && xhr.setRequestHeader('Content-Type', request.body.a);
+		xhr.send(request.body.b);
 
 		return function() { xhr.c = true; xhr.abort(); };
 	});
@@ -2375,13 +2375,13 @@ var _Http_toTask = F3(function(router, toTask, request)
 
 function _Http_configureRequest(xhr, request)
 {
-    for (var headers = request.headers; headers.b; headers = headers.b) // WHILE_CONS
+	for (var headers = request.headers; headers.b; headers = headers.b) // WHILE_CONS
 	{
 		xhr.setRequestHeader(headers.a.a, headers.a.b);
 	}
-    xhr.timeout = request.timeout.a || 0;
-    xhr.responseType = request.expect.d;
-    xhr.withCredentials = request.allowCookiesFromOtherDomains;
+	xhr.timeout = request.timeout.a || 0;
+	xhr.responseType = request.expect.d;
+	xhr.withCredentials = request.allowCookiesFromOtherDomains;
 }
 
 
@@ -2402,10 +2402,10 @@ function _Http_toResponse(toBody, xhr)
 function _Http_toMetadata(xhr)
 {
 	return {
-        url: xhr.responseURL,
-        statusCode: xhr.status,
-        statusText: xhr.statusText,
-        headers: _Http_parseHeaders(xhr.getAllResponseHeaders())
+		url: xhr.responseURL,
+		statusCode: xhr.status,
+		statusText: xhr.statusText,
+		headers: _Http_parseHeaders(xhr.getAllResponseHeaders())
 	};
 }
 
@@ -2500,15 +2500,15 @@ function _Http_track(router, xhr, tracker)
 	xhr.upload.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2(elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, elm$http$Http$Sending({
-            sent: event.loaded,
-            size: event.total
+			sent: event.loaded,
+			size: event.total
 		}))));
 	});
 	xhr.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2(elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, elm$http$Http$Receiving({
-            received: event.loaded,
-            size: event.lengthComputable ? elm$core$Maybe$Just(event.total) : elm$core$Maybe$Nothing
+			received: event.loaded,
+			size: event.lengthComputable ? elm$core$Maybe$Just(event.total) : elm$core$Maybe$Nothing
 		}))));
 	});
 }
@@ -2532,10 +2532,10 @@ var _VirtualDom_init = F4(function(virtualNode, flagDecoder, debugMetadata, args
 {
 	// NOTE: this function needs _Platform_export available to work
 
-    /**_UNUSED/
+	/**_UNUSED/
 	var node = args['node'];
 	//*/
-    /**/
+	/**/
 	var node = args && args['node'] ? args['node'] : _Debug_crash(0);
 	//*/
 
@@ -2790,24 +2790,24 @@ function _VirtualDom_noInnerHtmlOrFormAction(key)
 	return key == 'innerHTML' || key == 'formAction' ? 'data-' + key : key;
 }
 
-    function _VirtualDom_noJavaScriptUri_UNUSED(value) {
-        return /^javascript:/i.test(value.replace(/\s/g, '')) ? '' : value;
-    }
+	function _VirtualDom_noJavaScriptUri_UNUSED(value) {
+		return /^javascript:/i.test(value.replace(/\s/g, '')) ? '' : value;
+	}
 
-    function _VirtualDom_noJavaScriptUri(value) {
-        return /^javascript:/i.test(value.replace(/\s/g,''))
-            ? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
-            : value;
-}
+	function _VirtualDom_noJavaScriptUri(value) {
+		return /^javascript:/i.test(value.replace(/\s/g, ''))
+			? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
+			: value;
+	}
 
-    function _VirtualDom_noJavaScriptOrHtmlUri_UNUSED(value) {
-        return /^\s*(javascript:|data:text\/html)/i.test(value) ? '' : value;
-    }
+	function _VirtualDom_noJavaScriptOrHtmlUri_UNUSED(value) {
+		return /^\s*(javascript:|data:text\/html)/i.test(value) ? '' : value;
+	}
 
-    function _VirtualDom_noJavaScriptOrHtmlUri(value) {
-        return /^\s*(javascript:|data:text\/html)/i.test(value)
-            ? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
-            : value;
+	function _VirtualDom_noJavaScriptOrHtmlUri(value) {
+		return /^\s*(javascript:|data:text\/html)/i.test(value)
+			? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
+			: value;
 }
 
 
@@ -2855,9 +2855,9 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-        message: func(record.message),
-        stopPropagation: record.stopPropagation,
-        preventDefault: record.preventDefault
+		message: func(record.message),
+		stopPropagation: record.stopPropagation,
+		preventDefault: record.preventDefault
 	}
 });
 
@@ -3125,11 +3125,11 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		// 3 = Custom
 
 		var value = result.a;
-        var message = !tag ? value : tag < 3 ? value.a : value.message;
-        var stopPropagation = tag == 1 ? value.b : tag == 3 && value.stopPropagation;
+		var message = !tag ? value : tag < 3 ? value.a : value.message;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.stopPropagation;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-            (tag == 2 ? value.b : tag == 3 && value.preventDefault) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.preventDefault) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -3849,7 +3849,7 @@ function _VirtualDom_applyPatchesHelp(rootDomNode, patches)
 	for (var i = 0; i < patches.length; i++)
 	{
 		var patch = patches[i];
-        var localDomNode = patch.t;
+		var localDomNode = patch.t;
 		var newNode = _VirtualDom_applyPatch(localDomNode, patch);
 		if (localDomNode === rootDomNode)
 		{
@@ -4067,490 +4067,498 @@ function _VirtualDom_dekey(keyedNode)
 }
 
 
-    var _Bitwise_and = F2(function (a, b) {
-        return a & b;
-    });
+	var _Bitwise_and = F2(function (a, b) {
+		return a & b;
+	});
 
-    var _Bitwise_or = F2(function (a, b) {
-        return a | b;
-    });
+	var _Bitwise_or = F2(function (a, b) {
+		return a | b;
+	});
 
-    var _Bitwise_xor = F2(function (a, b) {
-        return a ^ b;
-    });
+	var _Bitwise_xor = F2(function (a, b) {
+		return a ^ b;
+	});
 
-    function _Bitwise_complement(a) {
-        return ~a;
-    }
+	function _Bitwise_complement(a) {
+		return ~a;
+	}
 
-    var _Bitwise_shiftLeftBy = F2(function (offset, a) {
-        return a << offset;
-    });
+	var _Bitwise_shiftLeftBy = F2(function (offset, a) {
+		return a << offset;
+	});
 
-    var _Bitwise_shiftRightBy = F2(function (offset, a) {
-        return a >> offset;
-    });
+	var _Bitwise_shiftRightBy = F2(function (offset, a) {
+		return a >> offset;
+	});
 
-    var _Bitwise_shiftRightZfBy = F2(function (offset, a) {
-        return a >>> offset;
-    });
+	var _Bitwise_shiftRightZfBy = F2(function (offset, a) {
+		return a >>> offset;
+	});
+
+
 
 
 // HELPERS
 
 
-    function _Debugger_unsafeCoerce(value) {
-        return value;
-    }
+	function _Debugger_unsafeCoerce(value) {
+		return value;
+	}
+
 
 
 // PROGRAMS
 
 
-    var _Debugger_element = F4(function (impl, flagDecoder, debugMetadata, args) {
-        return _Platform_initialize(
-            flagDecoder,
-            args,
-            A3(elm$browser$Debugger$Main$wrapInit, _Json_wrap(debugMetadata), _Debugger_popout(), impl.init),
-            elm$browser$Debugger$Main$wrapUpdate(impl.update),
-            elm$browser$Debugger$Main$wrapSubs(impl.subscriptions),
-            function (sendToApp, initialModel) {
-                var view = impl.view;
-                var title = _VirtualDom_doc.title;
-                var domNode = args && args['node'] ? args['node'] : _Debug_crash(0);
-                var currNode = _VirtualDom_virtualize(domNode);
-                var currBlocker = elm$browser$Debugger$Main$toBlockerType(initialModel);
-                var currPopout;
+	var _Debugger_element = F4(function (impl, flagDecoder, debugMetadata, args) {
+		return _Platform_initialize(
+			flagDecoder,
+			args,
+			A3(elm$browser$Debugger$Main$wrapInit, _Json_wrap(debugMetadata), _Debugger_popout(), impl.init),
+			elm$browser$Debugger$Main$wrapUpdate(impl.update),
+			elm$browser$Debugger$Main$wrapSubs(impl.subscriptions),
+			function (sendToApp, initialModel) {
+				var view = impl.view;
+				var title = _VirtualDom_doc.title;
+				var domNode = args && args['node'] ? args['node'] : _Debug_crash(0);
+				var currNode = _VirtualDom_virtualize(domNode);
+				var currBlocker = elm$browser$Debugger$Main$toBlockerType(initialModel);
+				var currPopout;
 
-                var cornerNode = _VirtualDom_doc.createElement('div');
-                domNode.parentNode.insertBefore(cornerNode, domNode.nextSibling);
-                var cornerCurr = _VirtualDom_virtualize(cornerNode);
+				var cornerNode = _VirtualDom_doc.createElement('div');
+				domNode.parentNode.insertBefore(cornerNode, domNode.nextSibling);
+				var cornerCurr = _VirtualDom_virtualize(cornerNode);
 
-                initialModel.popout.a = sendToApp;
+				initialModel.popout.a = sendToApp;
 
-                return _Browser_makeAnimator(initialModel, function (model) {
-                    var nextNode = A2(_VirtualDom_map, elm$browser$Debugger$Main$UserMsg, view(elm$browser$Debugger$Main$getUserModel(model)));
-                    var patches = _VirtualDom_diff(currNode, nextNode);
-                    domNode = _VirtualDom_applyPatches(domNode, currNode, patches, sendToApp);
-                    currNode = nextNode;
+				return _Browser_makeAnimator(initialModel, function (model) {
+					var nextNode = A2(_VirtualDom_map, elm$browser$Debugger$Main$UserMsg, view(elm$browser$Debugger$Main$getUserModel(model)));
+					var patches = _VirtualDom_diff(currNode, nextNode);
+					domNode = _VirtualDom_applyPatches(domNode, currNode, patches, sendToApp);
+					currNode = nextNode;
 
-                    // update blocker
+					// update blocker
 
-                    var nextBlocker = elm$browser$Debugger$Main$toBlockerType(model);
-                    _Debugger_updateBlocker(currBlocker, nextBlocker);
-                    currBlocker = nextBlocker;
+					var nextBlocker = elm$browser$Debugger$Main$toBlockerType(model);
+					_Debugger_updateBlocker(currBlocker, nextBlocker);
+					currBlocker = nextBlocker;
 
-                    // view corner
+					// view corner
 
-                    if (!model.popout.b) {
-                        var cornerNext = elm$browser$Debugger$Main$cornerView(model);
-                        var cornerPatches = _VirtualDom_diff(cornerCurr, cornerNext);
-                        cornerNode = _VirtualDom_applyPatches(cornerNode, cornerCurr, cornerPatches, sendToApp);
-                        cornerCurr = cornerNext;
-                        currPopout = undefined;
-                        return;
-                    }
+					if (!model.popout.b) {
+						var cornerNext = elm$browser$Debugger$Main$cornerView(model);
+						var cornerPatches = _VirtualDom_diff(cornerCurr, cornerNext);
+						cornerNode = _VirtualDom_applyPatches(cornerNode, cornerCurr, cornerPatches, sendToApp);
+						cornerCurr = cornerNext;
+						currPopout = undefined;
+						return;
+					}
 
-                    // view popout
+					// view popout
 
-                    _VirtualDom_doc = model.popout.b; // SWITCH TO POPOUT DOC
-                    currPopout || (currPopout = _VirtualDom_virtualize(model.popout.b));
-                    var nextPopout = elm$browser$Debugger$Main$popoutView(model);
-                    var popoutPatches = _VirtualDom_diff(currPopout, nextPopout);
-                    _VirtualDom_applyPatches(model.popout.b.body, currPopout, popoutPatches, sendToApp);
-                    currPopout = nextPopout;
-                    _VirtualDom_doc = document; // SWITCH BACK TO NORMAL DOC
-                });
-            }
-        );
-    });
-
-
-    var _Debugger_document = F4(function (impl, flagDecoder, debugMetadata, args) {
-        return _Platform_initialize(
-            flagDecoder,
-            args,
-            A3(elm$browser$Debugger$Main$wrapInit, _Json_wrap(debugMetadata), _Debugger_popout(), impl.init),
-            elm$browser$Debugger$Main$wrapUpdate(impl.update),
-            elm$browser$Debugger$Main$wrapSubs(impl.subscriptions),
-            function (sendToApp, initialModel) {
-                var divertHrefToApp = impl.setup && impl.setup(function (x) {
-                    return sendToApp(elm$browser$Debugger$Main$UserMsg(x));
-                });
-                var view = impl.view;
-                var title = _VirtualDom_doc.title;
-                var bodyNode = _VirtualDom_doc.body;
-                var currNode = _VirtualDom_virtualize(bodyNode);
-                var currBlocker = elm$browser$Debugger$Main$toBlockerType(initialModel);
-                var currPopout;
-
-                initialModel.popout.a = sendToApp;
-
-                return _Browser_makeAnimator(initialModel, function (model) {
-                    _VirtualDom_divertHrefToApp = divertHrefToApp;
-                    var doc = view(elm$browser$Debugger$Main$getUserModel(model));
-                    var nextNode = _VirtualDom_node('body')(_List_Nil)(
-                        _Utils_ap(
-                            A2(elm$core$List$map, _VirtualDom_map(elm$browser$Debugger$Main$UserMsg), doc.body),
-                            _List_Cons(elm$browser$Debugger$Main$cornerView(model), _List_Nil)
-                        )
-                    );
-                    var patches = _VirtualDom_diff(currNode, nextNode);
-                    bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
-                    currNode = nextNode;
-                    _VirtualDom_divertHrefToApp = 0;
-                    (title !== doc.title) && (_VirtualDom_doc.title = title = doc.title);
-
-                    // update blocker
-
-                    var nextBlocker = elm$browser$Debugger$Main$toBlockerType(model);
-                    _Debugger_updateBlocker(currBlocker, nextBlocker);
-                    currBlocker = nextBlocker;
-
-                    // view popout
-
-                    if (!model.popout.b) {
-                        currPopout = undefined;
-                        return;
-                    }
-
-                    _VirtualDom_doc = model.popout.b; // SWITCH TO POPOUT DOC
-                    currPopout || (currPopout = _VirtualDom_virtualize(model.popout.b));
-                    var nextPopout = elm$browser$Debugger$Main$popoutView(model);
-                    var popoutPatches = _VirtualDom_diff(currPopout, nextPopout);
-                    _VirtualDom_applyPatches(model.popout.b.body, currPopout, popoutPatches, sendToApp);
-                    currPopout = nextPopout;
-                    _VirtualDom_doc = document; // SWITCH BACK TO NORMAL DOC
-                });
-            }
-        );
-    });
+					_VirtualDom_doc = model.popout.b; // SWITCH TO POPOUT DOC
+					currPopout || (currPopout = _VirtualDom_virtualize(model.popout.b));
+					var nextPopout = elm$browser$Debugger$Main$popoutView(model);
+					var popoutPatches = _VirtualDom_diff(currPopout, nextPopout);
+					_VirtualDom_applyPatches(model.popout.b.body, currPopout, popoutPatches, sendToApp);
+					currPopout = nextPopout;
+					_VirtualDom_doc = document; // SWITCH BACK TO NORMAL DOC
+				});
+			}
+		);
+	});
 
 
-    function _Debugger_popout() {
-        return {
-            b: undefined,
-            a: undefined
-        };
-    }
+	var _Debugger_document = F4(function (impl, flagDecoder, debugMetadata, args) {
+		return _Platform_initialize(
+			flagDecoder,
+			args,
+			A3(elm$browser$Debugger$Main$wrapInit, _Json_wrap(debugMetadata), _Debugger_popout(), impl.init),
+			elm$browser$Debugger$Main$wrapUpdate(impl.update),
+			elm$browser$Debugger$Main$wrapSubs(impl.subscriptions),
+			function (sendToApp, initialModel) {
+				var divertHrefToApp = impl.setup && impl.setup(function (x) {
+					return sendToApp(elm$browser$Debugger$Main$UserMsg(x));
+				});
+				var view = impl.view;
+				var title = _VirtualDom_doc.title;
+				var bodyNode = _VirtualDom_doc.body;
+				var currNode = _VirtualDom_virtualize(bodyNode);
+				var currBlocker = elm$browser$Debugger$Main$toBlockerType(initialModel);
+				var currPopout;
 
-    function _Debugger_isOpen(popout) {
-        return !!popout.b;
-    }
+				initialModel.popout.a = sendToApp;
 
-    function _Debugger_open(popout) {
-        return _Scheduler_binding(function (callback) {
-            _Debugger_openWindow(popout);
-            callback(_Scheduler_succeed(_Utils_Tuple0));
-        });
-    }
+				return _Browser_makeAnimator(initialModel, function (model) {
+					_VirtualDom_divertHrefToApp = divertHrefToApp;
+					var doc = view(elm$browser$Debugger$Main$getUserModel(model));
+					var nextNode = _VirtualDom_node('body')(_List_Nil)(
+						_Utils_ap(
+							A2(elm$core$List$map, _VirtualDom_map(elm$browser$Debugger$Main$UserMsg), doc.body),
+							_List_Cons(elm$browser$Debugger$Main$cornerView(model), _List_Nil)
+						)
+					);
+					var patches = _VirtualDom_diff(currNode, nextNode);
+					bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
+					currNode = nextNode;
+					_VirtualDom_divertHrefToApp = 0;
+					(title !== doc.title) && (_VirtualDom_doc.title = title = doc.title);
 
-    function _Debugger_openWindow(popout) {
-        var w = 900, h = 360, x = screen.width - w, y = screen.height - h;
-        var debuggerWindow = window.open('', '', 'width=' + w + ',height=' + h + ',left=' + x + ',top=' + y);
-        var doc = debuggerWindow.document;
-        doc.title = 'Elm Debugger';
+					// update blocker
 
-        // handle arrow keys
-        doc.addEventListener('keydown', function (event) {
-            event.metaKey && event.which === 82 && window.location.reload();
-            event.which === 38 && (popout.a(elm$browser$Debugger$Main$Up), event.preventDefault());
-            event.which === 40 && (popout.a(elm$browser$Debugger$Main$Down), event.preventDefault());
-        });
+					var nextBlocker = elm$browser$Debugger$Main$toBlockerType(model);
+					_Debugger_updateBlocker(currBlocker, nextBlocker);
+					currBlocker = nextBlocker;
 
-        // handle window close
-        window.addEventListener('unload', close);
-        debuggerWindow.addEventListener('unload', function () {
-            popout.b = undefined;
-            popout.a(elm$browser$Debugger$Main$NoOp);
-            window.removeEventListener('unload', close);
-        });
+					// view popout
 
-        function close() {
-            popout.b = undefined;
-            popout.a(elm$browser$Debugger$Main$NoOp);
-            debuggerWindow.close();
-        }
+					if (!model.popout.b) {
+						currPopout = undefined;
+						return;
+					}
 
-        // register new window
-        popout.b = doc;
-    }
+					_VirtualDom_doc = model.popout.b; // SWITCH TO POPOUT DOC
+					currPopout || (currPopout = _VirtualDom_virtualize(model.popout.b));
+					var nextPopout = elm$browser$Debugger$Main$popoutView(model);
+					var popoutPatches = _VirtualDom_diff(currPopout, nextPopout);
+					_VirtualDom_applyPatches(model.popout.b.body, currPopout, popoutPatches, sendToApp);
+					currPopout = nextPopout;
+					_VirtualDom_doc = document; // SWITCH BACK TO NORMAL DOC
+				});
+			}
+		);
+	});
+
+
+	function _Debugger_popout() {
+		return {
+			b: undefined,
+			a: undefined
+		};
+	}
+
+	function _Debugger_isOpen(popout) {
+		return !!popout.b;
+	}
+
+	function _Debugger_open(popout) {
+		return _Scheduler_binding(function (callback) {
+			_Debugger_openWindow(popout);
+			callback(_Scheduler_succeed(_Utils_Tuple0));
+		});
+	}
+
+	function _Debugger_openWindow(popout) {
+		var w = 900, h = 360, x = screen.width - w, y = screen.height - h;
+		var debuggerWindow = window.open('', '', 'width=' + w + ',height=' + h + ',left=' + x + ',top=' + y);
+		var doc = debuggerWindow.document;
+		doc.title = 'Elm Debugger';
+
+		// handle arrow keys
+		doc.addEventListener('keydown', function (event) {
+			event.metaKey && event.which === 82 && window.location.reload();
+			event.which === 38 && (popout.a(elm$browser$Debugger$Main$Up), event.preventDefault());
+			event.which === 40 && (popout.a(elm$browser$Debugger$Main$Down), event.preventDefault());
+		});
+
+		// handle window close
+		window.addEventListener('unload', close);
+		debuggerWindow.addEventListener('unload', function () {
+			popout.b = undefined;
+			popout.a(elm$browser$Debugger$Main$NoOp);
+			window.removeEventListener('unload', close);
+		});
+
+		function close() {
+			popout.b = undefined;
+			popout.a(elm$browser$Debugger$Main$NoOp);
+			debuggerWindow.close();
+		}
+
+		// register new window
+		popout.b = doc;
+	}
+
 
 
 // SCROLL
 
 
-    function _Debugger_scroll(popout) {
-        return _Scheduler_binding(function (callback) {
-            if (popout.b) {
-                var msgs = popout.b.getElementById('elm-debugger-sidebar');
-                if (msgs) {
-                    msgs.scrollTop = msgs.scrollHeight;
-                }
-            }
-            callback(_Scheduler_succeed(_Utils_Tuple0));
-        });
-    }
+	function _Debugger_scroll(popout) {
+		return _Scheduler_binding(function (callback) {
+			if (popout.b) {
+				var msgs = popout.b.getElementById('elm-debugger-sidebar');
+				if (msgs) {
+					msgs.scrollTop = msgs.scrollHeight;
+				}
+			}
+			callback(_Scheduler_succeed(_Utils_Tuple0));
+		});
+	}
+
 
 
 // UPLOAD
 
 
-    function _Debugger_upload() {
-        return _Scheduler_binding(function (callback) {
-            var element = document.createElement('input');
-            element.setAttribute('type', 'file');
-            element.setAttribute('accept', 'text/json');
-            element.style.display = 'none';
-            element.addEventListener('change', function (event) {
-                var fileReader = new FileReader();
-                fileReader.onload = function (e) {
-                    callback(_Scheduler_succeed(e.target.result));
-                };
-                fileReader.readAsText(event.target.files[0]);
-                document.body.removeChild(element);
-            });
-            document.body.appendChild(element);
-            element.click();
-        });
-    }
+	function _Debugger_upload() {
+		return _Scheduler_binding(function (callback) {
+			var element = document.createElement('input');
+			element.setAttribute('type', 'file');
+			element.setAttribute('accept', 'text/json');
+			element.style.display = 'none';
+			element.addEventListener('change', function (event) {
+				var fileReader = new FileReader();
+				fileReader.onload = function (e) {
+					callback(_Scheduler_succeed(e.target.result));
+				};
+				fileReader.readAsText(event.target.files[0]);
+				document.body.removeChild(element);
+			});
+			document.body.appendChild(element);
+			element.click();
+		});
+	}
+
 
 
 // DOWNLOAD
 
 
-    var _Debugger_download = F2(function (historyLength, json) {
-        return _Scheduler_binding(function (callback) {
-            var fileName = 'history-' + historyLength + '.txt';
-            var jsonString = JSON.stringify(json);
-            var mime = 'text/plain;charset=utf-8';
-            var done = _Scheduler_succeed(_Utils_Tuple0);
+	var _Debugger_download = F2(function (historyLength, json) {
+		return _Scheduler_binding(function (callback) {
+			var fileName = 'history-' + historyLength + '.txt';
+			var jsonString = JSON.stringify(json);
+			var mime = 'text/plain;charset=utf-8';
+			var done = _Scheduler_succeed(_Utils_Tuple0);
 
-            // for IE10+
-            if (navigator.msSaveBlob) {
-                navigator.msSaveBlob(new Blob([jsonString], {type: mime}), fileName);
-                return callback(done);
-            }
+			// for IE10+
+			if (navigator.msSaveBlob) {
+				navigator.msSaveBlob(new Blob([jsonString], {type: mime}), fileName);
+				return callback(done);
+			}
 
-            // for HTML5
-            var element = document.createElement('a');
-            element.setAttribute('href', 'data:' + mime + ',' + encodeURIComponent(jsonString));
-            element.setAttribute('download', fileName);
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-            callback(done);
-        });
-    });
+			// for HTML5
+			var element = document.createElement('a');
+			element.setAttribute('href', 'data:' + mime + ',' + encodeURIComponent(jsonString));
+			element.setAttribute('download', fileName);
+			element.style.display = 'none';
+			document.body.appendChild(element);
+			element.click();
+			document.body.removeChild(element);
+			callback(done);
+		});
+	});
+
 
 
 // POPOUT CONTENT
 
 
-    function _Debugger_messageToString(value) {
-        if (typeof value === 'boolean') {
-            return value ? 'True' : 'False';
-        }
+	function _Debugger_messageToString(value) {
+		if (typeof value === 'boolean') {
+			return value ? 'True' : 'False';
+		}
 
-        if (typeof value === 'number') {
-            return value + '';
-        }
+		if (typeof value === 'number') {
+			return value + '';
+		}
 
-        if (typeof value === 'string') {
-            return '"' + _Debugger_addSlashes(value, false) + '"';
-        }
+		if (typeof value === 'string') {
+			return '"' + _Debugger_addSlashes(value, false) + '"';
+		}
 
-        if (value instanceof String) {
-            return "'" + _Debugger_addSlashes(value, true) + "'";
-        }
+		if (value instanceof String) {
+			return "'" + _Debugger_addSlashes(value, true) + "'";
+		}
 
-        if (typeof value !== 'object' || value === null || !('$' in value)) {
-            return '…';
-        }
+		if (typeof value !== 'object' || value === null || !('$' in value)) {
+			return '…';
+		}
 
-        if (typeof value.$ === 'number') {
-            return '…';
-        }
+		if (typeof value.$ === 'number') {
+			return '…';
+		}
 
-        var code = value.$.charCodeAt(0);
-        if (code === 0x23 /* # */ || /* a */ 0x61 <= code && code <= 0x7A /* z */) {
-            return '…';
-        }
+		var code = value.$.charCodeAt(0);
+		if (code === 0x23 /* # */ || /* a */ 0x61 <= code && code <= 0x7A /* z */) {
+			return '…';
+		}
 
-        if (['Array_elm_builtin', 'Set_elm_builtin', 'RBNode_elm_builtin', 'RBEmpty_elm_builtin'].indexOf(value.$) >= 0) {
-            return '…';
-        }
+		if (['Array_elm_builtin', 'Set_elm_builtin', 'RBNode_elm_builtin', 'RBEmpty_elm_builtin'].indexOf(value.$) >= 0) {
+			return '…';
+		}
 
-        var keys = Object.keys(value);
-        switch (keys.length) {
-            case 1:
-                return value.$;
-            case 2:
-                return value.$ + ' ' + _Debugger_messageToString(value.a);
-            default:
-                return value.$ + ' … ' + _Debugger_messageToString(value[keys[keys.length - 1]]);
-        }
-    }
+		var keys = Object.keys(value);
+		switch (keys.length) {
+			case 1:
+				return value.$;
+			case 2:
+				return value.$ + ' ' + _Debugger_messageToString(value.a);
+			default:
+				return value.$ + ' … ' + _Debugger_messageToString(value[keys[keys.length - 1]]);
+		}
+	}
 
 
-    function _Debugger_init(value) {
-        if (typeof value === 'boolean') {
-            return A3(elm$browser$Debugger$Expando$Constructor, elm$core$Maybe$Just(value ? 'True' : 'False'), true, _List_Nil);
-        }
+	function _Debugger_init(value) {
+		if (typeof value === 'boolean') {
+			return A3(elm$browser$Debugger$Expando$Constructor, elm$core$Maybe$Just(value ? 'True' : 'False'), true, _List_Nil);
+		}
 
-        if (typeof value === 'number') {
-            return elm$browser$Debugger$Expando$Primitive(value + '');
-        }
+		if (typeof value === 'number') {
+			return elm$browser$Debugger$Expando$Primitive(value + '');
+		}
 
-        if (typeof value === 'string') {
-            return elm$browser$Debugger$Expando$S('"' + _Debugger_addSlashes(value, false) + '"');
-        }
+		if (typeof value === 'string') {
+			return elm$browser$Debugger$Expando$S('"' + _Debugger_addSlashes(value, false) + '"');
+		}
 
-        if (value instanceof String) {
-            return elm$browser$Debugger$Expando$S("'" + _Debugger_addSlashes(value, true) + "'");
-        }
+		if (value instanceof String) {
+			return elm$browser$Debugger$Expando$S("'" + _Debugger_addSlashes(value, true) + "'");
+		}
 
-        if (typeof value === 'object' && '$' in value) {
-            var tag = value.$;
+		if (typeof value === 'object' && '$' in value) {
+			var tag = value.$;
 
-            if (tag === '::' || tag === '[]') {
-                return A3(elm$browser$Debugger$Expando$Sequence, elm$browser$Debugger$Expando$ListSeq, true,
-                    A2(elm$core$List$map, _Debugger_init, value)
-                );
-            }
+			if (tag === '::' || tag === '[]') {
+				return A3(elm$browser$Debugger$Expando$Sequence, elm$browser$Debugger$Expando$ListSeq, true,
+					A2(elm$core$List$map, _Debugger_init, value)
+				);
+			}
 
-            if (tag === 'Set_elm_builtin') {
-                return A3(elm$browser$Debugger$Expando$Sequence, elm$browser$Debugger$Expando$SetSeq, true,
-                    A3(elm$core$Set$foldr, _Debugger_initCons, _List_Nil, value)
-                );
-            }
+			if (tag === 'Set_elm_builtin') {
+				return A3(elm$browser$Debugger$Expando$Sequence, elm$browser$Debugger$Expando$SetSeq, true,
+					A3(elm$core$Set$foldr, _Debugger_initCons, _List_Nil, value)
+				);
+			}
 
-            if (tag === 'RBNode_elm_builtin' || tag == 'RBEmpty_elm_builtin') {
-                return A2(elm$browser$Debugger$Expando$Dictionary, true,
-                    A3(elm$core$Dict$foldr, _Debugger_initKeyValueCons, _List_Nil, value)
-                );
-            }
+			if (tag === 'RBNode_elm_builtin' || tag == 'RBEmpty_elm_builtin') {
+				return A2(elm$browser$Debugger$Expando$Dictionary, true,
+					A3(elm$core$Dict$foldr, _Debugger_initKeyValueCons, _List_Nil, value)
+				);
+			}
 
-            if (tag === 'Array_elm_builtin') {
-                return A3(elm$browser$Debugger$Expando$Sequence, elm$browser$Debugger$Expando$ArraySeq, true,
-                    A3(elm$core$Array$foldr, _Debugger_initCons, _List_Nil, value)
-                );
-            }
+			if (tag === 'Array_elm_builtin') {
+				return A3(elm$browser$Debugger$Expando$Sequence, elm$browser$Debugger$Expando$ArraySeq, true,
+					A3(elm$core$Array$foldr, _Debugger_initCons, _List_Nil, value)
+				);
+			}
 
-            if (typeof tag === 'number') {
-                return elm$browser$Debugger$Expando$Primitive('<internals>');
-            }
+			if (typeof tag === 'number') {
+				return elm$browser$Debugger$Expando$Primitive('<internals>');
+			}
 
-            var char = tag.charCodeAt(0);
-            if (char === 35 || 65 <= char && char <= 90) {
-                var list = _List_Nil;
-                for (var i in value) {
-                    if (i === '$') continue;
-                    list = _List_Cons(_Debugger_init(value[i]), list);
-                }
-                return A3(elm$browser$Debugger$Expando$Constructor, char === 35 ? elm$core$Maybe$Nothing : elm$core$Maybe$Just(tag), true, elm$core$List$reverse(list));
-            }
+			var char = tag.charCodeAt(0);
+			if (char === 35 || 65 <= char && char <= 90) {
+				var list = _List_Nil;
+				for (var i in value) {
+					if (i === '$') continue;
+					list = _List_Cons(_Debugger_init(value[i]), list);
+				}
+				return A3(elm$browser$Debugger$Expando$Constructor, char === 35 ? elm$core$Maybe$Nothing : elm$core$Maybe$Just(tag), true, elm$core$List$reverse(list));
+			}
 
-            return elm$browser$Debugger$Expando$Primitive('<internals>');
-        }
+			return elm$browser$Debugger$Expando$Primitive('<internals>');
+		}
 
-        if (typeof value === 'object') {
-            var dict = elm$core$Dict$empty;
-            for (var i in value) {
-                dict = A3(elm$core$Dict$insert, i, _Debugger_init(value[i]), dict);
-            }
-            return A2(elm$browser$Debugger$Expando$Record, true, dict);
-        }
+		if (typeof value === 'object') {
+			var dict = elm$core$Dict$empty;
+			for (var i in value) {
+				dict = A3(elm$core$Dict$insert, i, _Debugger_init(value[i]), dict);
+			}
+			return A2(elm$browser$Debugger$Expando$Record, true, dict);
+		}
 
-        return elm$browser$Debugger$Expando$Primitive('<internals>');
-    }
+		return elm$browser$Debugger$Expando$Primitive('<internals>');
+	}
 
-    var _Debugger_initCons = F2(function initConsHelp(value, list) {
-        return _List_Cons(_Debugger_init(value), list);
-    });
+	var _Debugger_initCons = F2(function initConsHelp(value, list) {
+		return _List_Cons(_Debugger_init(value), list);
+	});
 
-    var _Debugger_initKeyValueCons = F3(function (key, value, list) {
-        return _List_Cons(
-            _Utils_Tuple2(_Debugger_init(key), _Debugger_init(value)),
-            list
-        );
-    });
+	var _Debugger_initKeyValueCons = F3(function (key, value, list) {
+		return _List_Cons(
+			_Utils_Tuple2(_Debugger_init(key), _Debugger_init(value)),
+			list
+		);
+	});
 
-    function _Debugger_addSlashes(str, isChar) {
-        var s = str
-            .replace(/\\/g, '\\\\')
-            .replace(/\n/g, '\\n')
-            .replace(/\t/g, '\\t')
-            .replace(/\r/g, '\\r')
-            .replace(/\v/g, '\\v')
-            .replace(/\0/g, '\\0');
-        if (isChar) {
-            return s.replace(/\'/g, '\\\'');
-        } else {
-            return s.replace(/\"/g, '\\"');
-        }
-    }
+	function _Debugger_addSlashes(str, isChar) {
+		var s = str
+			.replace(/\\/g, '\\\\')
+			.replace(/\n/g, '\\n')
+			.replace(/\t/g, '\\t')
+			.replace(/\r/g, '\\r')
+			.replace(/\v/g, '\\v')
+			.replace(/\0/g, '\\0');
+		if (isChar) {
+			return s.replace(/\'/g, '\\\'');
+		} else {
+			return s.replace(/\"/g, '\\"');
+		}
+	}
+
 
 
 // BLOCK EVENTS
 
 
-    function _Debugger_updateBlocker(oldBlocker, newBlocker) {
-        if (oldBlocker === newBlocker) return;
+	function _Debugger_updateBlocker(oldBlocker, newBlocker) {
+		if (oldBlocker === newBlocker) return;
 
-        var oldEvents = _Debugger_blockerToEvents(oldBlocker);
-        var newEvents = _Debugger_blockerToEvents(newBlocker);
+		var oldEvents = _Debugger_blockerToEvents(oldBlocker);
+		var newEvents = _Debugger_blockerToEvents(newBlocker);
 
-        // remove old blockers
-        for (var i = 0; i < oldEvents.length; i++) {
-            document.removeEventListener(oldEvents[i], _Debugger_blocker, true);
-        }
+		// remove old blockers
+		for (var i = 0; i < oldEvents.length; i++) {
+			document.removeEventListener(oldEvents[i], _Debugger_blocker, true);
+		}
 
-        // add new blockers
-        for (var i = 0; i < newEvents.length; i++) {
-            document.addEventListener(newEvents[i], _Debugger_blocker, true);
-        }
-    }
+		// add new blockers
+		for (var i = 0; i < newEvents.length; i++) {
+			document.addEventListener(newEvents[i], _Debugger_blocker, true);
+		}
+	}
 
 
-    function _Debugger_blocker(event) {
-        if (event.type === 'keydown' && event.metaKey && event.which === 82) {
-            return;
-        }
+	function _Debugger_blocker(event) {
+		if (event.type === 'keydown' && event.metaKey && event.which === 82) {
+			return;
+		}
 
-        var isScroll = event.type === 'scroll' || event.type === 'wheel';
-        for (var node = event.target; node; node = node.parentNode) {
-            if (isScroll ? node.id === 'elm-debugger-details' : node.id === 'elm-debugger-overlay') {
-                return;
-            }
-        }
+		var isScroll = event.type === 'scroll' || event.type === 'wheel';
+		for (var node = event.target; node; node = node.parentNode) {
+			if (isScroll ? node.id === 'elm-debugger-details' : node.id === 'elm-debugger-overlay') {
+				return;
+			}
+		}
 
-        event.stopPropagation();
-        event.preventDefault();
-    }
+		event.stopPropagation();
+		event.preventDefault();
+	}
 
-    function _Debugger_blockerToEvents(blocker) {
-        return blocker === elm$browser$Debugger$Overlay$BlockNone
-            ? []
-            : blocker === elm$browser$Debugger$Overlay$BlockMost
-                ? _Debugger_mostEvents
-                : _Debugger_allEvents;
-    }
+	function _Debugger_blockerToEvents(blocker) {
+		return blocker === elm$browser$Debugger$Overlay$BlockNone
+			? []
+			: blocker === elm$browser$Debugger$Overlay$BlockMost
+				? _Debugger_mostEvents
+				: _Debugger_allEvents;
+	}
 
-    var _Debugger_mostEvents = [
-        'click', 'dblclick', 'mousemove',
-        'mouseup', 'mousedown', 'mouseenter', 'mouseleave',
-        'touchstart', 'touchend', 'touchcancel', 'touchmove',
-        'pointerdown', 'pointerup', 'pointerover', 'pointerout',
-        'pointerenter', 'pointerleave', 'pointermove', 'pointercancel',
-        'dragstart', 'drag', 'dragend', 'dragenter', 'dragover', 'dragleave', 'drop',
-        'keyup', 'keydown', 'keypress',
-        'input', 'change',
-        'focus', 'blur'
-    ];
+	var _Debugger_mostEvents = [
+		'click', 'dblclick', 'mousemove',
+		'mouseup', 'mousedown', 'mouseenter', 'mouseleave',
+		'touchstart', 'touchend', 'touchcancel', 'touchmove',
+		'pointerdown', 'pointerup', 'pointerover', 'pointerout',
+		'pointerenter', 'pointerleave', 'pointermove', 'pointercancel',
+		'dragstart', 'drag', 'dragend', 'dragenter', 'dragover', 'dragleave', 'drop',
+		'keyup', 'keydown', 'keypress',
+		'input', 'change',
+		'focus', 'blur'
+	];
 
-    var _Debugger_allEvents = _Debugger_mostEvents.concat('wheel', 'scroll');
+	var _Debugger_allEvents = _Debugger_mostEvents.concat('wheel', 'scroll');
 
 
 
@@ -4566,15 +4574,15 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-        impl.init,
-        impl.update,
-        impl.subscriptions,
+		impl.init,
+		impl.update,
+		impl.subscriptions,
 		function(sendToApp, initialModel) {
-            var view = impl.view;
-            /**_UNUSED/
+			var view = impl.view;
+			/**_UNUSED/
 			var domNode = args['node'];
 			//*/
-            /**/
+			/**/
 			var domNode = args && args['node'] ? args['node'] : _Debug_crash(0);
 			//*/
 			var currNode = _VirtualDom_virtualize(domNode);
@@ -4602,12 +4610,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-        impl.init,
-        impl.update,
-        impl.subscriptions,
+		impl.init,
+		impl.update,
+		impl.subscriptions,
 		function(sendToApp, initialModel) {
-            var divertHrefToApp = impl.setup && impl.setup(sendToApp);
-            var view = impl.view;
+			var divertHrefToApp = impl.setup && impl.setup(sendToApp);
+			var view = impl.view;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -4615,12 +4623,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-                var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.body);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.body);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-                (title !== doc.title) && (_VirtualDom_doc.title = title = doc.title);
+				(title !== doc.title) && (_VirtualDom_doc.title = title = doc.title);
 			});
 		}
 	);
@@ -4676,12 +4684,12 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-    var onUrlChange = impl.onUrlChange;
-    var onUrlRequest = impl.onUrlRequest;
+	var onUrlChange = impl.onUrlChange;
+	var onUrlRequest = impl.onUrlRequest;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-        setup: function (sendToApp)
+		setup: function (sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4697,9 +4705,9 @@ function _Browser_application(impl)
 					var next = elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-                            && curr.protocol === next.protocol
-                            && curr.host === next.host
-                            && curr.port_.a === next.port_.a
+							&& curr.protocol === next.protocol
+							&& curr.host === next.host
+							&& curr.port_.a === next.port_.a
 						)
 							? elm$browser$Browser$Internal(next)
 							: elm$browser$Browser$External(href)
@@ -4707,12 +4715,12 @@ function _Browser_application(impl)
 				}
 			});
 		},
-        init: function (flags) {
-            return A3(impl.init, flags, _Browser_getUrl(), key);
+		init: function (flags) {
+			return A3(impl.init, flags, _Browser_getUrl(), key);
 		},
-        view: impl.view,
-        update: impl.update,
-        subscriptions: impl.subscriptions
+		view: impl.view,
+		update: impl.update,
+		subscriptions: impl.subscriptions
 	});
 }
 
@@ -4778,17 +4786,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-        ? {hidden: 'hidden', change: 'visibilitychange'}
+		? {hidden: 'hidden', change: 'visibilitychange'}
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-        ? {hidden: 'mozHidden', change: 'mozvisibilitychange'}
+		? {hidden: 'mozHidden', change: 'mozvisibilitychange'}
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-        ? {hidden: 'msHidden', change: 'msvisibilitychange'}
+		? {hidden: 'msHidden', change: 'msvisibilitychange'}
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-        ? {hidden: 'webkitHidden', change: 'webkitvisibilitychange'}
-        : {hidden: 'hidden', change: 'visibilitychange'};
+		? {hidden: 'webkitHidden', change: 'webkitvisibilitychange'}
+		: {hidden: 'hidden', change: 'visibilitychange'};
 }
 
 
@@ -4869,12 +4877,12 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-        scene: _Browser_getScene(),
-        viewport: {
-            x: _Browser_window.pageXOffset,
-            y: _Browser_window.pageYOffset,
-            width: _Browser_doc.documentElement.clientWidth,
-            height: _Browser_doc.documentElement.clientHeight
+		scene: _Browser_getScene(),
+		viewport: {
+			x: _Browser_window.pageXOffset,
+			y: _Browser_window.pageYOffset,
+			width: _Browser_doc.documentElement.clientWidth,
+			height: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4884,8 +4892,8 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-        width: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-        height: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		width: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		height: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4908,15 +4916,15 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-            scene: {
-                width: node.scrollWidth,
-                height: node.scrollHeight
+			scene: {
+				width: node.scrollWidth,
+				height: node.scrollHeight
 			},
-            viewport: {
-                x: node.scrollLeft,
-                y: node.scrollTop,
-                width: node.clientWidth,
-                height: node.clientHeight
+			viewport: {
+				x: node.scrollLeft,
+				y: node.scrollTop,
+				width: node.clientWidth,
+				height: node.clientHeight
 			}
 		};
 	});
@@ -4946,18 +4954,18 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-            scene: _Browser_getScene(),
-            viewport: {
-                x: x,
-                y: y,
-                width: _Browser_doc.documentElement.clientWidth,
-                height: _Browser_doc.documentElement.clientHeight
+			scene: _Browser_getScene(),
+			viewport: {
+				x: x,
+				y: y,
+				width: _Browser_doc.documentElement.clientWidth,
+				height: _Browser_doc.documentElement.clientHeight
 			},
-            element: {
-                x: x + rect.left,
-                y: y + rect.top,
-                width: rect.width,
-                height: rect.height
+			element: {
+				x: x + rect.left,
+				y: y + rect.top,
+				width: rect.width,
+				height: rect.height
 			}
 		};
 	});
@@ -4994,17 +5002,17 @@ function _Browser_load(url)
 }
 var author$project$Main$Csv = F2(
 	function (headers, records) {
-        return {headers: headers, records: records};
+		return {headers: headers, records: records};
 	});
-    var author$project$Main$Geolocation = {$: 'Geolocation'};
-    var author$project$Main$Location = F2(
+	var author$project$Main$Geolocation = {$: 'Geolocation'};
+	var author$project$Main$Location = F2(
 	function (lat, lng) {
-        return {lat: lat, lng: lng};
+		return {lat: lat, lng: lng};
 	});
 var author$project$Main$GotFacilitiesCsv = function (a) {
-    return {$: 'GotFacilitiesCsv', a: a};
+	return {$: 'GotFacilitiesCsv', a: a};
 };
-    var author$project$Main$targetUrl = 'http://localhost:8000/';
+	var author$project$Main$targetUrl = 'http://localhost:8000/';
 var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
 var elm$core$Array$foldr = F3(
 	function (func, baseCase, _n0) {
@@ -5012,7 +5020,7 @@ var elm$core$Array$foldr = F3(
 		var tail = _n0.d;
 		var helper = F2(
 			function (node, acc) {
-                if (node.$ === 'SubTree') {
+				if (node.$ === 'SubTree') {
 					var subTree = node.a;
 					return A3(elm$core$Elm$JsArray$foldr, helper, acc, subTree);
 				} else {
@@ -5026,18 +5034,18 @@ var elm$core$Array$foldr = F3(
 			A3(elm$core$Elm$JsArray$foldr, func, baseCase, tail),
 			tree);
 	});
-    var elm$core$Basics$EQ = {$: 'EQ'};
-    var elm$core$Basics$LT = {$: 'LT'};
+	var elm$core$Basics$EQ = {$: 'EQ'};
+	var elm$core$Basics$LT = {$: 'LT'};
 var elm$core$List$cons = _List_cons;
 var elm$core$Array$toList = function (array) {
 	return A3(elm$core$Array$foldr, elm$core$List$cons, _List_Nil, array);
 };
-    var elm$core$Basics$GT = {$: 'GT'};
+	var elm$core$Basics$GT = {$: 'GT'};
 var elm$core$Dict$foldr = F3(
 	function (func, acc, t) {
 		foldr:
 		while (true) {
-            if (t.$ === 'RBEmpty_elm_builtin') {
+			if (t.$ === 'RBEmpty_elm_builtin') {
 				return acc;
 			} else {
 				var key = t.b;
@@ -5082,32 +5090,32 @@ var elm$core$Dict$keys = function (dict) {
 		dict);
 };
 var elm$core$Set$toList = function (_n0) {
-    var dict = _n0.a;
+	var dict = _n0.a;
 	return elm$core$Dict$keys(dict);
 };
-    var elm$core$Basics$append = _Utils_append;
-    var elm$core$Result$Ok = function (a) {
-        return {$: 'Ok', a: a};
-    };
-    var elm$core$Basics$composeR = F3(
-        function (f, g, x) {
-            return g(
-                f(x));
-        });
-    var elm$core$Basics$identity = function (x) {
-        return x;
-    };
-    var elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
-    var elm$core$Dict$empty = elm$core$Dict$RBEmpty_elm_builtin;
+	var elm$core$Basics$append = _Utils_append;
+	var elm$core$Result$Ok = function (a) {
+		return {$: 'Ok', a: a};
+	};
+	var elm$core$Basics$composeR = F3(
+		function (f, g, x) {
+			return g(
+				f(x));
+		});
+	var elm$core$Basics$identity = function (x) {
+		return x;
+	};
+	var elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
+	var elm$core$Dict$empty = elm$core$Dict$RBEmpty_elm_builtin;
 var elm$core$Basics$compare = _Utils_compare;
 var elm$core$Maybe$Just = function (a) {
-    return {$: 'Just', a: a};
+	return {$: 'Just', a: a};
 };
-    var elm$core$Maybe$Nothing = {$: 'Nothing'};
+	var elm$core$Maybe$Nothing = {$: 'Nothing'};
 var elm$core$Dict$get = F2(
 	function (targetKey, dict) {
 		while (true) {
-            if (dict.$ === 'RBEmpty_elm_builtin') {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
 				return elm$core$Maybe$Nothing;
 			} else {
 				var key = dict.b;
@@ -5115,14 +5123,14 @@ var elm$core$Dict$get = F2(
 				var left = dict.d;
 				var right = dict.e;
 				var _n1 = A2(elm$core$Basics$compare, targetKey, key);
-                switch (_n1.$) {
-                    case 'LT':
+				switch (_n1.$) {
+					case 'LT':
 						var $temp$targetKey = targetKey,
 							$temp$dict = left;
 						targetKey = $temp$targetKey;
 						dict = $temp$dict;
 						continue get;
-                    case 'EQ':
+					case 'EQ':
 						return elm$core$Maybe$Just(value);
 					default:
 						var $temp$targetKey = targetKey,
@@ -5134,21 +5142,21 @@ var elm$core$Dict$get = F2(
 			}
 		}
 	});
-    var elm$core$Dict$Black = {$: 'Black'};
+	var elm$core$Dict$Black = {$: 'Black'};
 var elm$core$Dict$RBNode_elm_builtin = F5(
 	function (a, b, c, d, e) {
-        return {$: 'RBNode_elm_builtin', a: a, b: b, c: c, d: d, e: e};
+		return {$: 'RBNode_elm_builtin', a: a, b: b, c: c, d: d, e: e};
 	});
-    var elm$core$Dict$Red = {$: 'Red'};
+	var elm$core$Dict$Red = {$: 'Red'};
 var elm$core$Dict$balance = F5(
 	function (color, key, value, left, right) {
-        if ((right.$ === 'RBNode_elm_builtin') && (right.a.$ === 'Red')) {
+		if ((right.$ === 'RBNode_elm_builtin') && (right.a.$ === 'Red')) {
 			var _n1 = right.a;
 			var rK = right.b;
 			var rV = right.c;
 			var rLeft = right.d;
 			var rRight = right.e;
-            if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) {
+			if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) {
 				var _n3 = left.a;
 				var lK = left.b;
 				var lV = left.c;
@@ -5156,22 +5164,22 @@ var elm$core$Dict$balance = F5(
 				var lRight = left.e;
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Red,
+					elm$core$Dict$Red,
 					key,
 					value,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, lK, lV, lLeft, lRight),
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, rK, rV, rLeft, rRight));
 			} else {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
 					color,
 					rK,
 					rV,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, left, rLeft),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, left, rLeft),
 					rRight);
 			}
 		} else {
-            if ((((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) && (left.d.$ === 'RBNode_elm_builtin')) && (left.d.a.$ === 'Red')) {
+			if ((((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) && (left.d.$ === 'RBNode_elm_builtin')) && (left.d.a.$ === 'Red')) {
 				var _n5 = left.a;
 				var lK = left.b;
 				var lV = left.c;
@@ -5184,11 +5192,11 @@ var elm$core$Dict$balance = F5(
 				var lRight = left.e;
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Red,
+					elm$core$Dict$Red,
 					lK,
 					lV,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, llK, llV, llLeft, llRight),
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, key, value, lRight, right));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, llK, llV, llLeft, llRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, key, value, lRight, right));
 			} else {
 				return A5(elm$core$Dict$RBNode_elm_builtin, color, key, value, left, right);
 			}
@@ -5196,8 +5204,8 @@ var elm$core$Dict$balance = F5(
 	});
 var elm$core$Dict$insertHelp = F3(
 	function (key, value, dict) {
-        if (dict.$ === 'RBEmpty_elm_builtin') {
-            return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, elm$core$Dict$RBEmpty_elm_builtin, elm$core$Dict$RBEmpty_elm_builtin);
+		if (dict.$ === 'RBEmpty_elm_builtin') {
+			return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, elm$core$Dict$RBEmpty_elm_builtin, elm$core$Dict$RBEmpty_elm_builtin);
 		} else {
 			var nColor = dict.a;
 			var nKey = dict.b;
@@ -5205,8 +5213,8 @@ var elm$core$Dict$insertHelp = F3(
 			var nLeft = dict.d;
 			var nRight = dict.e;
 			var _n1 = A2(elm$core$Basics$compare, key, nKey);
-            switch (_n1.$) {
-                case 'LT':
+			switch (_n1.$) {
+				case 'LT':
 					return A5(
 						elm$core$Dict$balance,
 						nColor,
@@ -5214,7 +5222,7 @@ var elm$core$Dict$insertHelp = F3(
 						nValue,
 						A3(elm$core$Dict$insertHelp, key, value, nLeft),
 						nRight);
-                case 'EQ':
+				case 'EQ':
 					return A5(elm$core$Dict$RBNode_elm_builtin, nColor, nKey, value, nLeft, nRight);
 				default:
 					return A5(
@@ -5230,13 +5238,13 @@ var elm$core$Dict$insertHelp = F3(
 var elm$core$Dict$insert = F3(
 	function (key, value, dict) {
 		var _n0 = A3(elm$core$Dict$insertHelp, key, value, dict);
-        if ((_n0.$ === 'RBNode_elm_builtin') && (_n0.a.$ === 'Red')) {
+		if ((_n0.$ === 'RBNode_elm_builtin') && (_n0.a.$ === 'Red')) {
 			var _n1 = _n0.a;
 			var k = _n0.b;
 			var v = _n0.c;
 			var l = _n0.d;
 			var r = _n0.e;
-            return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, k, v, l, r);
+			return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, k, v, l, r);
 		} else {
 			var x = _n0;
 			return x;
@@ -5247,7 +5255,7 @@ var elm$core$Basics$lt = _Utils_lt;
 var elm$core$Dict$getMin = function (dict) {
 	getMin:
 	while (true) {
-        if ((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) {
+		if ((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) {
 			var left = dict.d;
 			var $temp$dict = left;
 			dict = $temp$dict;
@@ -5258,8 +5266,8 @@ var elm$core$Dict$getMin = function (dict) {
 	}
 };
 var elm$core$Dict$moveRedLeft = function (dict) {
-    if (((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) && (dict.e.$ === 'RBNode_elm_builtin')) {
-        if ((dict.e.d.$ === 'RBNode_elm_builtin') && (dict.e.d.a.$ === 'Red')) {
+	if (((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) && (dict.e.$ === 'RBNode_elm_builtin')) {
+		if ((dict.e.d.$ === 'RBNode_elm_builtin') && (dict.e.d.a.$ === 'Red')) {
 			var clr = dict.a;
 			var k = dict.b;
 			var v = dict.c;
@@ -5282,17 +5290,17 @@ var elm$core$Dict$moveRedLeft = function (dict) {
 			var rRight = _n2.e;
 			return A5(
 				elm$core$Dict$RBNode_elm_builtin,
-                elm$core$Dict$Red,
+				elm$core$Dict$Red,
 				rlK,
 				rlV,
 				A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Black,
+					elm$core$Dict$Black,
 					k,
 					v,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
 					rlL),
-                A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, rK, rV, rlR, rRight));
+				A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, rK, rV, rlR, rRight));
 		} else {
 			var clr = dict.a;
 			var k = dict.b;
@@ -5309,22 +5317,22 @@ var elm$core$Dict$moveRedLeft = function (dict) {
 			var rV = _n5.c;
 			var rLeft = _n5.d;
 			var rRight = _n5.e;
-            if (clr.$ === 'Black') {
+			if (clr.$ === 'Black') {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Black,
+					elm$core$Dict$Black,
 					k,
 					v,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			} else {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Black,
+					elm$core$Dict$Black,
 					k,
 					v,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			}
 		}
 	} else {
@@ -5332,8 +5340,8 @@ var elm$core$Dict$moveRedLeft = function (dict) {
 	}
 };
 var elm$core$Dict$moveRedRight = function (dict) {
-    if (((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) && (dict.e.$ === 'RBNode_elm_builtin')) {
-        if ((dict.d.d.$ === 'RBNode_elm_builtin') && (dict.d.d.a.$ === 'Red')) {
+	if (((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) && (dict.e.$ === 'RBNode_elm_builtin')) {
+		if ((dict.d.d.$ === 'RBNode_elm_builtin') && (dict.d.d.a.$ === 'Red')) {
 			var clr = dict.a;
 			var k = dict.b;
 			var v = dict.c;
@@ -5356,17 +5364,17 @@ var elm$core$Dict$moveRedRight = function (dict) {
 			var rRight = _n4.e;
 			return A5(
 				elm$core$Dict$RBNode_elm_builtin,
-                elm$core$Dict$Red,
+				elm$core$Dict$Red,
 				lK,
 				lV,
-                A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, llK, llV, llLeft, llRight),
+				A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, llK, llV, llLeft, llRight),
 				A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Black,
+					elm$core$Dict$Black,
 					k,
 					v,
 					lRight,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight)));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight)));
 		} else {
 			var clr = dict.a;
 			var k = dict.b;
@@ -5383,22 +5391,22 @@ var elm$core$Dict$moveRedRight = function (dict) {
 			var rV = _n6.c;
 			var rLeft = _n6.d;
 			var rRight = _n6.e;
-            if (clr.$ === 'Black') {
+			if (clr.$ === 'Black') {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Black,
+					elm$core$Dict$Black,
 					k,
 					v,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			} else {
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
-                    elm$core$Dict$Black,
+					elm$core$Dict$Black,
 					k,
 					v,
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
-                    A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, lK, lV, lLeft, lRight),
+					A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, rK, rV, rLeft, rRight));
 			}
 		}
 	} else {
@@ -5407,7 +5415,7 @@ var elm$core$Dict$moveRedRight = function (dict) {
 };
 var elm$core$Dict$removeHelpPrepEQGT = F7(
 	function (targetKey, dict, color, key, value, left, right) {
-        if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) {
+		if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Red')) {
 			var _n1 = left.a;
 			var lK = left.b;
 			var lV = left.c;
@@ -5419,19 +5427,19 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 				lK,
 				lV,
 				lLeft,
-                A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, lRight, right));
+				A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Red, key, value, lRight, right));
 		} else {
 			_n2$2:
 			while (true) {
-                if ((right.$ === 'RBNode_elm_builtin') && (right.a.$ === 'Black')) {
-                    if (right.d.$ === 'RBNode_elm_builtin') {
-                        if (right.d.a.$ === 'Black') {
+				if ((right.$ === 'RBNode_elm_builtin') && (right.a.$ === 'Black')) {
+					if (right.d.$ === 'RBNode_elm_builtin') {
+						if (right.d.a.$ === 'Black') {
 							var _n3 = right.a;
 							var _n4 = right.d;
 							var _n5 = _n4.a;
 							return elm$core$Dict$moveRedRight(dict);
 						} else {
-                            break;
+							break;
 						}
 					} else {
 						var _n6 = right.a;
@@ -5439,14 +5447,14 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 						return elm$core$Dict$moveRedRight(dict);
 					}
 				} else {
-                    break;
+					break;
 				}
 			}
 			return dict;
 		}
 	});
 var elm$core$Dict$removeMin = function (dict) {
-    if ((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) {
+	if ((dict.$ === 'RBNode_elm_builtin') && (dict.d.$ === 'RBNode_elm_builtin')) {
 		var color = dict.a;
 		var key = dict.b;
 		var value = dict.c;
@@ -5454,8 +5462,8 @@ var elm$core$Dict$removeMin = function (dict) {
 		var lColor = left.a;
 		var lLeft = left.d;
 		var right = dict.e;
-        if (lColor.$ === 'Black') {
-            if ((lLeft.$ === 'RBNode_elm_builtin') && (lLeft.a.$ === 'Red')) {
+		if (lColor.$ === 'Black') {
+			if ((lLeft.$ === 'RBNode_elm_builtin') && (lLeft.a.$ === 'Red')) {
 				var _n3 = lLeft.a;
 				return A5(
 					elm$core$Dict$RBNode_elm_builtin,
@@ -5466,7 +5474,7 @@ var elm$core$Dict$removeMin = function (dict) {
 					right);
 			} else {
 				var _n4 = elm$core$Dict$moveRedLeft(dict);
-                if (_n4.$ === 'RBNode_elm_builtin') {
+				if (_n4.$ === 'RBNode_elm_builtin') {
 					var nColor = _n4.a;
 					var nKey = _n4.b;
 					var nValue = _n4.c;
@@ -5498,7 +5506,7 @@ var elm$core$Dict$removeMin = function (dict) {
 };
 var elm$core$Dict$removeHelp = F2(
 	function (targetKey, dict) {
-        if (dict.$ === 'RBEmpty_elm_builtin') {
+		if (dict.$ === 'RBEmpty_elm_builtin') {
 			return elm$core$Dict$RBEmpty_elm_builtin;
 		} else {
 			var color = dict.a;
@@ -5507,10 +5515,10 @@ var elm$core$Dict$removeHelp = F2(
 			var left = dict.d;
 			var right = dict.e;
 			if (_Utils_cmp(targetKey, key) < 0) {
-                if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Black')) {
+				if ((left.$ === 'RBNode_elm_builtin') && (left.a.$ === 'Black')) {
 					var _n4 = left.a;
 					var lLeft = left.d;
-                    if ((lLeft.$ === 'RBNode_elm_builtin') && (lLeft.a.$ === 'Red')) {
+					if ((lLeft.$ === 'RBNode_elm_builtin') && (lLeft.a.$ === 'Red')) {
 						var _n6 = lLeft.a;
 						return A5(
 							elm$core$Dict$RBNode_elm_builtin,
@@ -5521,7 +5529,7 @@ var elm$core$Dict$removeHelp = F2(
 							right);
 					} else {
 						var _n7 = elm$core$Dict$moveRedLeft(dict);
-                        if (_n7.$ === 'RBNode_elm_builtin') {
+						if (_n7.$ === 'RBNode_elm_builtin') {
 							var nColor = _n7.a;
 							var nKey = _n7.b;
 							var nValue = _n7.c;
@@ -5557,7 +5565,7 @@ var elm$core$Dict$removeHelp = F2(
 	});
 var elm$core$Dict$removeHelpEQGT = F2(
 	function (targetKey, dict) {
-        if (dict.$ === 'RBNode_elm_builtin') {
+		if (dict.$ === 'RBNode_elm_builtin') {
 			var color = dict.a;
 			var key = dict.b;
 			var value = dict.c;
@@ -5565,7 +5573,7 @@ var elm$core$Dict$removeHelpEQGT = F2(
 			var right = dict.e;
 			if (_Utils_eq(targetKey, key)) {
 				var _n1 = elm$core$Dict$getMin(right);
-                if (_n1.$ === 'RBNode_elm_builtin') {
+				if (_n1.$ === 'RBNode_elm_builtin') {
 					var minKey = _n1.b;
 					var minValue = _n1.c;
 					return A5(
@@ -5594,13 +5602,13 @@ var elm$core$Dict$removeHelpEQGT = F2(
 var elm$core$Dict$remove = F2(
 	function (key, dict) {
 		var _n0 = A2(elm$core$Dict$removeHelp, key, dict);
-        if ((_n0.$ === 'RBNode_elm_builtin') && (_n0.a.$ === 'Red')) {
+		if ((_n0.$ === 'RBNode_elm_builtin') && (_n0.a.$ === 'Red')) {
 			var _n1 = _n0.a;
 			var k = _n0.b;
 			var v = _n0.c;
 			var l = _n0.d;
 			var r = _n0.e;
-            return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, k, v, l, r);
+			return A5(elm$core$Dict$RBNode_elm_builtin, elm$core$Dict$Black, k, v, l, r);
 		} else {
 			var x = _n0;
 			return x;
@@ -5610,24 +5618,24 @@ var elm$core$Dict$update = F3(
 	function (targetKey, alter, dictionary) {
 		var _n0 = alter(
 			A2(elm$core$Dict$get, targetKey, dictionary));
-        if (_n0.$ === 'Just') {
+		if (_n0.$ === 'Just') {
 			var value = _n0.a;
 			return A3(elm$core$Dict$insert, targetKey, value, dictionary);
 		} else {
 			return A2(elm$core$Dict$remove, targetKey, dictionary);
 		}
 	});
-    var elm$core$Basics$False = {$: 'False'};
-    var elm$core$Basics$True = {$: 'True'};
+	var elm$core$Basics$False = {$: 'False'};
+	var elm$core$Basics$True = {$: 'True'};
 var elm$core$Maybe$isJust = function (maybe) {
-    if (maybe.$ === 'Just') {
+	if (maybe.$ === 'Just') {
 		return true;
 	} else {
 		return false;
 	}
 };
 var elm$core$Result$isOk = function (result) {
-    if (result.$ === 'Ok') {
+	if (result.$ === 'Ok') {
 		return true;
 	} else {
 		return false;
@@ -5636,7 +5644,7 @@ var elm$core$Result$isOk = function (result) {
 var elm$core$Array$branchFactor = 32;
 var elm$core$Array$Array_elm_builtin = F4(
 	function (a, b, c, d) {
-        return {$: 'Array_elm_builtin', a: a, b: b, c: c, d: d};
+		return {$: 'Array_elm_builtin', a: a, b: b, c: c, d: d};
 	});
 var elm$core$Basics$ceiling = _Basics_ceiling;
 var elm$core$Basics$fdiv = _Basics_fdiv;
@@ -5650,10 +5658,10 @@ var elm$core$Array$shiftStep = elm$core$Basics$ceiling(
 var elm$core$Elm$JsArray$empty = _JsArray_empty;
 var elm$core$Array$empty = A4(elm$core$Array$Array_elm_builtin, 0, elm$core$Array$shiftStep, elm$core$Elm$JsArray$empty, elm$core$Elm$JsArray$empty);
 var elm$core$Array$Leaf = function (a) {
-    return {$: 'Leaf', a: a};
+	return {$: 'Leaf', a: a};
 };
 var elm$core$Array$SubTree = function (a) {
-    return {$: 'SubTree', a: a};
+	return {$: 'SubTree', a: a};
 };
 var elm$core$Elm$JsArray$initializeFromList = _JsArray_initializeFromList;
 var elm$core$List$foldl = F3(
@@ -5740,25 +5748,25 @@ var elm$core$Basics$sub = _Basics_sub;
 var elm$core$Elm$JsArray$length = _JsArray_length;
 var elm$core$Array$builderToArray = F2(
 	function (reverseNodeList, builder) {
-        if (!builder.nodeListSize) {
+		if (!builder.nodeListSize) {
 			return A4(
 				elm$core$Array$Array_elm_builtin,
-                elm$core$Elm$JsArray$length(builder.tail),
+				elm$core$Elm$JsArray$length(builder.tail),
 				elm$core$Array$shiftStep,
 				elm$core$Elm$JsArray$empty,
-                builder.tail);
+				builder.tail);
 		} else {
-            var treeLen = builder.nodeListSize * elm$core$Array$branchFactor;
+			var treeLen = builder.nodeListSize * elm$core$Array$branchFactor;
 			var depth = elm$core$Basics$floor(
 				A2(elm$core$Basics$logBase, elm$core$Array$branchFactor, treeLen - 1));
-            var correctNodeList = reverseNodeList ? elm$core$List$reverse(builder.nodeList) : builder.nodeList;
-            var tree = A2(elm$core$Array$treeFromBuilder, correctNodeList, builder.nodeListSize);
+			var correctNodeList = reverseNodeList ? elm$core$List$reverse(builder.nodeList) : builder.nodeList;
+			var tree = A2(elm$core$Array$treeFromBuilder, correctNodeList, builder.nodeListSize);
 			return A4(
 				elm$core$Array$Array_elm_builtin,
-                elm$core$Elm$JsArray$length(builder.tail) + treeLen,
+				elm$core$Elm$JsArray$length(builder.tail) + treeLen,
 				A2(elm$core$Basics$max, 5, depth * elm$core$Array$shiftStep),
 				tree,
-                builder.tail);
+				builder.tail);
 		}
 	});
 var elm$core$Basics$idiv = _Basics_idiv;
@@ -5771,7 +5779,7 @@ var elm$core$Array$initializeHelp = F5(
 				return A2(
 					elm$core$Array$builderToArray,
 					false,
-                    {nodeList: nodeList, nodeListSize: (len / elm$core$Array$branchFactor) | 0, tail: tail});
+					{nodeList: nodeList, nodeListSize: (len / elm$core$Array$branchFactor) | 0, tail: tail});
 			} else {
 				var leaf = elm$core$Array$Leaf(
 					A3(elm$core$Elm$JsArray$initialize, elm$core$Array$branchFactor, fromIndex, fn));
@@ -5803,22 +5811,22 @@ var elm$core$Array$initialize = F2(
 		}
 	});
 var elm$core$Result$Err = function (a) {
-    return {$: 'Err', a: a};
+	return {$: 'Err', a: a};
 };
 var elm$json$Json$Decode$Failure = F2(
 	function (a, b) {
-        return {$: 'Failure', a: a, b: b};
+		return {$: 'Failure', a: a, b: b};
 	});
 var elm$json$Json$Decode$Field = F2(
 	function (a, b) {
-        return {$: 'Field', a: a, b: b};
+		return {$: 'Field', a: a, b: b};
 	});
 var elm$json$Json$Decode$Index = F2(
 	function (a, b) {
-        return {$: 'Index', a: a, b: b};
+		return {$: 'Index', a: a, b: b};
 	});
 var elm$json$Json$Decode$OneOf = function (a) {
-    return {$: 'OneOf', a: a};
+	return {$: 'OneOf', a: a};
 };
 var elm$core$Basics$and = _Basics_and;
 var elm$core$Basics$or = _Basics_or;
@@ -5919,12 +5927,12 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 		errorToStringHelp:
 		while (true) {
 			switch (error.$) {
-                case 'Field':
+				case 'Field':
 					var f = error.a;
 					var err = error.b;
 					var isSimple = function () {
 						var _n1 = elm$core$String$uncons(f);
-                        if (_n1.$ === 'Nothing') {
+						if (_n1.$ === 'Nothing') {
 							return false;
 						} else {
 							var _n2 = _n1.a;
@@ -5938,8 +5946,8 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 						$temp$context = A2(elm$core$List$cons, fieldName, context);
 					error = $temp$error;
 					context = $temp$context;
-                    continue;
-                case 'Index':
+					continue;
+				case 'Index':
 					var i = error.a;
 					var err = error.b;
 					var indexName = '[' + (elm$core$String$fromInt(i) + ']');
@@ -5947,8 +5955,8 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 						$temp$context = A2(elm$core$List$cons, indexName, context);
 					error = $temp$error;
 					context = $temp$context;
-                    continue;
-                case 'OneOf':
+					continue;
+				case 'OneOf':
 					var errors = error.a;
 					if (!errors.b) {
 						return 'Ran into a Json.Decode.oneOf with no possibilities' + function () {
@@ -5968,7 +5976,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 								$temp$context = context;
 							error = $temp$error;
 							context = $temp$context;
-                            continue;
+							continue;
 						} else {
 							var starter = function () {
 								if (!context.b) {
@@ -6013,7 +6021,7 @@ var elm$core$Platform$sendToApp = _Platform_sendToApp;
 var elm$core$Platform$sendToSelf = _Platform_sendToSelf;
 var elm$core$Result$map = F2(
 	function (func, ra) {
-        if (ra.$ === 'Ok') {
+		if (ra.$ === 'Ok') {
 			var a = ra.a;
 			return elm$core$Result$Ok(
 				func(a));
@@ -6024,23 +6032,23 @@ var elm$core$Result$map = F2(
 	});
 var elm$http$Http$BadStatus_ = F2(
 	function (a, b) {
-        return {$: 'BadStatus_', a: a, b: b};
+		return {$: 'BadStatus_', a: a, b: b};
 	});
 var elm$http$Http$BadUrl_ = function (a) {
-    return {$: 'BadUrl_', a: a};
+	return {$: 'BadUrl_', a: a};
 };
 var elm$http$Http$GoodStatus_ = F2(
 	function (a, b) {
-        return {$: 'GoodStatus_', a: a, b: b};
+		return {$: 'GoodStatus_', a: a, b: b};
 	});
-    var elm$http$Http$NetworkError_ = {$: 'NetworkError_'};
+	var elm$http$Http$NetworkError_ = {$: 'NetworkError_'};
 var elm$http$Http$Receiving = function (a) {
-    return {$: 'Receiving', a: a};
+	return {$: 'Receiving', a: a};
 };
 var elm$http$Http$Sending = function (a) {
-    return {$: 'Sending', a: a};
+	return {$: 'Sending', a: a};
 };
-    var elm$http$Http$Timeout_ = {$: 'Timeout_'};
+	var elm$http$Http$Timeout_ = {$: 'Timeout_'};
 var elm$http$Http$expectStringResponse = F2(
 	function (toMsg, toResult) {
 		return A3(
@@ -6051,7 +6059,7 @@ var elm$http$Http$expectStringResponse = F2(
 	});
 var elm$core$Result$mapError = F2(
 	function (f, result) {
-        if (result.$ === 'Ok') {
+		if (result.$ === 'Ok') {
 			var v = result.a;
 			return elm$core$Result$Ok(v);
 		} else {
@@ -6061,31 +6069,31 @@ var elm$core$Result$mapError = F2(
 		}
 	});
 var elm$http$Http$BadBody = function (a) {
-    return {$: 'BadBody', a: a};
+	return {$: 'BadBody', a: a};
 };
 var elm$http$Http$BadStatus = function (a) {
-    return {$: 'BadStatus', a: a};
+	return {$: 'BadStatus', a: a};
 };
 var elm$http$Http$BadUrl = function (a) {
-    return {$: 'BadUrl', a: a};
+	return {$: 'BadUrl', a: a};
 };
-    var elm$http$Http$NetworkError = {$: 'NetworkError'};
-    var elm$http$Http$Timeout = {$: 'Timeout'};
+	var elm$http$Http$NetworkError = {$: 'NetworkError'};
+	var elm$http$Http$Timeout = {$: 'Timeout'};
 var elm$http$Http$resolve = F2(
 	function (toResult, response) {
 		switch (response.$) {
-            case 'BadUrl_':
+			case 'BadUrl_':
 				var url = response.a;
 				return elm$core$Result$Err(
 					elm$http$Http$BadUrl(url));
-            case 'Timeout_':
+			case 'Timeout_':
 				return elm$core$Result$Err(elm$http$Http$Timeout);
-            case 'NetworkError_':
+			case 'NetworkError_':
 				return elm$core$Result$Err(elm$http$Http$NetworkError);
-            case 'BadStatus_':
+			case 'BadStatus_':
 				var metadata = response.a;
 				return elm$core$Result$Err(
-                    elm$http$Http$BadStatus(metadata.statusCode));
+					elm$http$Http$BadStatus(metadata.statusCode));
 			default:
 				var body = response.b;
 				return A2(
@@ -6102,12 +6110,12 @@ var elm$http$Http$expectString = function (toMsg) {
 };
 var elm$http$Http$emptyBody = _Http_emptyBody;
 var elm$http$Http$Request = function (a) {
-    return {$: 'Request', a: a};
+	return {$: 'Request', a: a};
 };
 var elm$core$Task$succeed = _Scheduler_succeed;
 var elm$http$Http$State = F2(
 	function (reqs, subs) {
-        return {reqs: reqs, subs: subs};
+		return {reqs: reqs, subs: subs};
 	});
 var elm$http$Http$init = elm$core$Task$succeed(
 	A2(elm$http$Http$State, elm$core$Dict$empty, _List_Nil));
@@ -6123,10 +6131,10 @@ var elm$http$Http$updateReqs = F3(
 			} else {
 				var cmd = cmds.a;
 				var otherCmds = cmds.b;
-                if (cmd.$ === 'Cancel') {
+				if (cmd.$ === 'Cancel') {
 					var tracker = cmd.a;
 					var _n2 = A2(elm$core$Dict$get, tracker, reqs);
-                    if (_n2.$ === 'Nothing') {
+					if (_n2.$ === 'Nothing') {
 						var $temp$router = router,
 							$temp$cmds = otherCmds,
 							$temp$reqs = reqs;
@@ -6152,8 +6160,8 @@ var elm$http$Http$updateReqs = F3(
 					return A2(
 						elm$core$Task$andThen,
 						function (pid) {
-                            var _n4 = req.tracker;
-                            if (_n4.$ === 'Nothing') {
+							var _n4 = req.tracker;
+							if (_n4.$ === 'Nothing') {
 								return A3(elm$http$Http$updateReqs, router, otherCmds, reqs);
 							} else {
 								var tracker = _n4.a;
@@ -6182,7 +6190,7 @@ var elm$http$Http$onEffects = F4(
 				return elm$core$Task$succeed(
 					A2(elm$http$Http$State, reqs, subs));
 			},
-            A3(elm$http$Http$updateReqs, router, cmds, state.reqs));
+			A3(elm$http$Http$updateReqs, router, cmds, state.reqs));
 	});
 var elm$core$List$foldrHelper = F4(
 	function (fn, acc, ctr, ls) {
@@ -6242,7 +6250,7 @@ var elm$core$List$foldr = F3(
 var elm$core$List$maybeCons = F3(
 	function (f, mx, xs) {
 		var _n0 = f(mx);
-        if (_n0.$ === 'Just') {
+		if (_n0.$ === 'Just') {
 			var x = _n0.a;
 			return A2(elm$core$List$cons, x, xs);
 		} else {
@@ -6302,34 +6310,34 @@ var elm$http$Http$onSelfMsg = F3(
 				A2(
 					elm$core$List$filterMap,
 					A3(elm$http$Http$maybeSend, router, tracker, progress),
-                    state.subs)));
+					state.subs)));
 	});
 var elm$http$Http$Cancel = function (a) {
-    return {$: 'Cancel', a: a};
+	return {$: 'Cancel', a: a};
 };
 var elm$http$Http$cmdMap = F2(
 	function (func, cmd) {
-        if (cmd.$ === 'Cancel') {
+		if (cmd.$ === 'Cancel') {
 			var tracker = cmd.a;
 			return elm$http$Http$Cancel(tracker);
 		} else {
 			var r = cmd.a;
 			return elm$http$Http$Request(
 				{
-                    allowCookiesFromOtherDomains: r.allowCookiesFromOtherDomains,
-                    body: r.body,
-                    expect: A2(_Http_mapExpect, func, r.expect),
-                    headers: r.headers,
-                    method: r.method,
-                    timeout: r.timeout,
-                    tracker: r.tracker,
-                    url: r.url
+					allowCookiesFromOtherDomains: r.allowCookiesFromOtherDomains,
+					body: r.body,
+					expect: A2(_Http_mapExpect, func, r.expect),
+					headers: r.headers,
+					method: r.method,
+					timeout: r.timeout,
+					tracker: r.tracker,
+					url: r.url
 				});
 		}
 	});
 var elm$http$Http$MySub = F2(
 	function (a, b) {
-        return {$: 'MySub', a: a, b: b};
+		return {$: 'MySub', a: a, b: b};
 	});
 var elm$http$Http$subMap = F2(
 	function (func, _n0) {
@@ -6346,33 +6354,33 @@ var elm$http$Http$subscription = _Platform_leaf('Http');
 var elm$http$Http$request = function (r) {
 	return elm$http$Http$command(
 		elm$http$Http$Request(
-            {
-                allowCookiesFromOtherDomains: false,
-                body: r.body,
-                expect: r.expect,
-                headers: r.headers,
-                method: r.method,
-                timeout: r.timeout,
-                tracker: r.tracker,
-                url: r.url
-            }));
+			{
+				allowCookiesFromOtherDomains: false,
+				body: r.body,
+				expect: r.expect,
+				headers: r.headers,
+				method: r.method,
+				timeout: r.timeout,
+				tracker: r.tracker,
+				url: r.url
+			}));
 };
 var elm$http$Http$get = function (r) {
 	return elm$http$Http$request(
-        {
-            body: elm$http$Http$emptyBody,
-            expect: r.expect,
-            headers: _List_Nil,
-            method: 'GET',
-            timeout: elm$core$Maybe$Nothing,
-            tracker: elm$core$Maybe$Nothing,
-            url: r.url
-        });
+		{
+			body: elm$http$Http$emptyBody,
+			expect: r.expect,
+			headers: _List_Nil,
+			method: 'GET',
+			timeout: elm$core$Maybe$Nothing,
+			tracker: elm$core$Maybe$Nothing,
+			url: r.url
+		});
 };
 var author$project$Main$getFacilitiesCsv = elm$http$Http$get(
 	{
-        expect: elm$http$Http$expectString(author$project$Main$GotFacilitiesCsv),
-        url: author$project$Main$targetUrl + 'csv/Facilities.csv'
+		expect: elm$http$Http$expectString(author$project$Main$GotFacilitiesCsv),
+		url: author$project$Main$targetUrl + 'csv/Facilities.csv'
 	});
 var elm$core$Platform$Cmd$batch = _Platform_batch;
 var author$project$Main$initFunction = elm$core$Platform$Cmd$batch(
@@ -6380,7 +6388,7 @@ var author$project$Main$initFunction = elm$core$Platform$Cmd$batch(
 		[author$project$Main$getFacilitiesCsv]));
 var billstclair$elm_sortable_table$Table$State = F2(
 	function (a, b) {
-        return {$: 'State', a: a, b: b};
+		return {$: 'State', a: a, b: b};
 	});
 var billstclair$elm_sortable_table$Table$initialSort = function (header) {
 	return A2(billstclair$elm_sortable_table$Table$State, header, false);
@@ -6388,39 +6396,50 @@ var billstclair$elm_sortable_table$Table$initialSort = function (header) {
 var author$project$Main$init = function (flags) {
 	return _Utils_Tuple2(
 		{
-            address: '',
-            currentLocation: A2(author$project$Main$Location, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing),
-            facilities: _List_Nil,
-            getCsvError: '',
-            input: '',
-            location: flags,
-            memos: _List_Nil,
-            onChange: '',
-            parseCsv: A2(author$project$Main$Csv, _List_Nil, _List_Nil),
-            parseFacilitesCsv: A2(author$project$Main$Csv, _List_Nil, _List_Nil),
-            rawCsv: '',
-            resultConjunctivalMalignantLymphomaFacilities: _List_Nil,
-            resultConjunctivalMalignantMelanomaFacilities: _List_Nil,
-            resultCsv: '',
-            resultEyelidFacilities: _List_Nil,
-            resultIntraocularLymphomaFacilities: _List_Nil,
-            resultKeratoconjunctivalSquamousCellCarcinomaFacilities: _List_Nil,
-            resultLacrimalGlandCancerFacilities: _List_Nil,
-            resultOrbitalMalignantLymphomaFacilities: _List_Nil,
-            resultRetinoblastomaFacilities: _List_Nil,
-            resultSoftTissueFacilities: _List_Nil,
-            resultUvealMalignantMelanomaFacilities: _List_Nil,
-            searchMode: author$project$Main$Geolocation,
-            selectedCancerPart: '',
-            selectedCancerType: '',
-            selectedTodofuken: _List_Nil,
-            tableState: billstclair$elm_sortable_table$Table$initialSort('id'),
-            zipcode: ''
+			address: '',
+			currentLocation: A2(author$project$Main$Location, elm$core$Maybe$Nothing, elm$core$Maybe$Nothing),
+			facilities: _List_Nil,
+			getCsvError: '',
+			input: '',
+			location: flags,
+			memos: _List_Nil,
+			onChange: '',
+			originConjunctivalMalignantLymphomaFacilities: _List_Nil,
+			originConjunctivalMalignantMelanomaFacilities: _List_Nil,
+			originEyelidFacilities: _List_Nil,
+			originIntraocularLymphomaFacilities: _List_Nil,
+			originKeratoconjunctivalSquamousCellCarcinomaFacilities: _List_Nil,
+			originLacrimalGlandCancerFacilities: _List_Nil,
+			originOrbitalMalignantLymphomaFacilities: _List_Nil,
+			originRetinoblastomaFacilities: _List_Nil,
+			originSoftTissueFacilities: _List_Nil,
+			originUvealMalignantMelanomaFacilities: _List_Nil,
+			parseCsv: A2(author$project$Main$Csv, _List_Nil, _List_Nil),
+			parseFacilitesCsv: A2(author$project$Main$Csv, _List_Nil, _List_Nil),
+			rawCsv: '',
+			resultConjunctivalMalignantLymphomaFacilities: _List_Nil,
+			resultConjunctivalMalignantMelanomaFacilities: _List_Nil,
+			resultCsv: '',
+			resultEyelidFacilities: _List_Nil,
+			resultIntraocularLymphomaFacilities: _List_Nil,
+			resultKeratoconjunctivalSquamousCellCarcinomaFacilities: _List_Nil,
+			resultLacrimalGlandCancerFacilities: _List_Nil,
+			resultOrbitalMalignantLymphomaFacilities: _List_Nil,
+			resultRetinoblastomaFacilities: _List_Nil,
+			resultSoftTissueFacilities: _List_Nil,
+			resultUvealMalignantMelanomaFacilities: _List_Nil,
+			searchMode: author$project$Main$Geolocation,
+			selectedCancerPart: '',
+			selectedCancerType: '',
+			selectedTodofuken: _List_Nil,
+			tableState: billstclair$elm_sortable_table$Table$initialSort('id'),
+			temp: '',
+			zipcode: ''
 		},
 		author$project$Main$initFunction);
 };
 var author$project$Main$UpdateCurrentLocation = function (a) {
-    return {$: 'UpdateCurrentLocation', a: a};
+	return {$: 'UpdateCurrentLocation', a: a};
 };
 var elm$json$Json$Decode$andThen = _Json_andThen;
 var elm$json$Json$Decode$field = _Json_decodeField;
@@ -6438,7 +6457,7 @@ var author$project$Main$updateCurrentLocation = _Platform_incomingPort(
 				elm$json$Json$Decode$andThen,
 				function (lat) {
 					return elm$json$Json$Decode$succeed(
-                        {lat: lat, lng: lng});
+						{lat: lat, lng: lng});
 				},
 				A2(
 					elm$json$Json$Decode$field,
@@ -6462,117 +6481,208 @@ var author$project$Main$updateCurrentLocation = _Platform_incomingPort(
 var author$project$Main$subscriptions = function (model) {
 	return author$project$Main$updateCurrentLocation(author$project$Main$UpdateCurrentLocation);
 };
-    var author$project$Main$ConjunctivalMalignantLymphomaCSV = {$: 'ConjunctivalMalignantLymphomaCSV'};
-    var author$project$Main$ConjunctivalMalignantMelanomaCSV = {$: 'ConjunctivalMalignantMelanomaCSV'};
-    var author$project$Main$IntraocularLymphomaCSV = {$: 'IntraocularLymphomaCSV'};
-    var author$project$Main$KeratoconjunctivalSquamousCellCarcinomaCSV = {$: 'KeratoconjunctivalSquamousCellCarcinomaCSV'};
-    var author$project$Main$LacrimalGlandCancerCSV = {$: 'LacrimalGlandCancerCSV'};
-    var author$project$Main$OrbitalMalignantLymphomaCSV = {$: 'OrbitalMalignantLymphomaCSV'};
-    var author$project$Main$RetinoblastomaCSV = {$: 'RetinoblastomaCSV'};
-    var author$project$Main$SoftTissueCSV = {$: 'SoftTissueCSV'};
-    var author$project$Main$UvealMalignantMelanomaCSV = {$: 'UvealMalignantMelanomaCSV'};
-    var author$project$Main$Zipcode = {$: 'Zipcode'};
-    var elm$json$Json$Encode$string = _Json_wrap;
-    var author$project$Main$changeCurrentLocationFromAddress = _Platform_outgoingPort('changeCurrentLocationFromAddress', elm$json$Json$Encode$string);
-    var author$project$Main$GotConjunctivalMalignantLymphomaCSV = function (a) {
-        return {$: 'GotConjunctivalMalignantLymphomaCSV', a: a};
-    };
-    var author$project$Main$GotConjunctivalMalignantMelanomaCSV = function (a) {
-        return {$: 'GotConjunctivalMalignantMelanomaCSV', a: a};
-    };
-    var author$project$Main$GotIntraocularLymphomaCSV = function (a) {
-        return {$: 'GotIntraocularLymphomaCSV', a: a};
-    };
-    var author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV = function (a) {
-        return {$: 'GotKeratoconjunctivalSquamousCellCarcinomaCSV', a: a};
-    };
-    var author$project$Main$GotLacrimalGlandCancerCSV = function (a) {
-        return {$: 'GotLacrimalGlandCancerCSV', a: a};
-    };
-    var author$project$Main$GotOrbitalMalignantLymphomaCSV = function (a) {
-        return {$: 'GotOrbitalMalignantLymphomaCSV', a: a};
-    };
-    var author$project$Main$GotRetinoblastomaCSV = function (a) {
-        return {$: 'GotRetinoblastomaCSV', a: a};
-    };
+	var author$project$Main$ConjunctivalMalignantLymphomaCSV = {$: 'ConjunctivalMalignantLymphomaCSV'};
+	var author$project$Main$ConjunctivalMalignantMelanomaCSV = {$: 'ConjunctivalMalignantMelanomaCSV'};
+	var author$project$Main$IntraocularLymphomaCSV = {$: 'IntraocularLymphomaCSV'};
+	var author$project$Main$KeratoconjunctivalSquamousCellCarcinomaCSV = {$: 'KeratoconjunctivalSquamousCellCarcinomaCSV'};
+	var author$project$Main$LacrimalGlandCancerCSV = {$: 'LacrimalGlandCancerCSV'};
+	var author$project$Main$OrbitalMalignantLymphomaCSV = {$: 'OrbitalMalignantLymphomaCSV'};
+	var author$project$Main$RetinoblastomaCSV = {$: 'RetinoblastomaCSV'};
+	var author$project$Main$SoftTissueCSV = {$: 'SoftTissueCSV'};
+	var author$project$Main$UvealMalignantMelanomaCSV = {$: 'UvealMalignantMelanomaCSV'};
+	var author$project$Main$Zipcode = {$: 'Zipcode'};
+	var elm$core$List$filter = F2(
+		function (isGood, list) {
+			return A3(
+				elm$core$List$foldr,
+				F2(
+					function (x, xs) {
+						return isGood(x) ? A2(elm$core$List$cons, x, xs) : xs;
+					}),
+				_List_Nil,
+				list);
+		});
+	var elm$core$List$isEmpty = function (xs) {
+		if (!xs.b) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+	var elm$core$List$any = F2(
+		function (isOkay, list) {
+			any:
+				while (true) {
+					if (!list.b) {
+						return false;
+					} else {
+						var x = list.a;
+						var xs = list.b;
+						if (isOkay(x)) {
+							return true;
+						} else {
+							var $temp$isOkay = isOkay,
+								$temp$list = xs;
+							isOkay = $temp$isOkay;
+							list = $temp$list;
+
+						}
+					}
+				}
+		});
+	var elm$core$List$member = F2(
+		function (x, xs) {
+			return A2(
+				elm$core$List$any,
+				function (a) {
+					return _Utils_eq(a, x);
+				},
+				xs);
+		});
+	var elm$core$Maybe$withDefault = F2(
+		function (_default, maybe) {
+			if (maybe.$ === 'Just') {
+				var value = maybe.a;
+				return value;
+			} else {
+				return _default;
+			}
+		});
+	var author$project$Main$filterGeneralCancerFacilityPrefecture = F2(
+		function (prefectures, facilities) {
+			return elm$core$List$isEmpty(prefectures) ? facilities : A2(
+				elm$core$List$filter,
+				function (facility) {
+					return A2(
+						elm$core$List$member,
+						A2(elm$core$Maybe$withDefault, '', facility.prefecture),
+						prefectures);
+				},
+				facilities);
+		});
+	var author$project$Main$filterSoftTissueFacilityPrefecture = F2(
+		function (prefectures, facilities) {
+			return elm$core$List$isEmpty(prefectures) ? facilities : A2(
+				elm$core$List$filter,
+				function (facility) {
+					return A2(
+						elm$core$List$member,
+						A2(elm$core$Maybe$withDefault, '', facility.prefecture),
+						prefectures);
+				},
+				facilities);
+		});
+	var author$project$Main$GotConjunctivalMalignantLymphomaCSV = function (a) {
+		return {$: 'GotConjunctivalMalignantLymphomaCSV', a: a};
+	};
+	var author$project$Main$GotConjunctivalMalignantMelanomaCSV = function (a) {
+		return {$: 'GotConjunctivalMalignantMelanomaCSV', a: a};
+	};
+	var author$project$Main$GotIntraocularLymphomaCSV = function (a) {
+		return {$: 'GotIntraocularLymphomaCSV', a: a};
+	};
+	var author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV = function (a) {
+		return {$: 'GotKeratoconjunctivalSquamousCellCarcinomaCSV', a: a};
+	};
+	var author$project$Main$GotLacrimalGlandCancerCSV = function (a) {
+		return {$: 'GotLacrimalGlandCancerCSV', a: a};
+	};
+	var author$project$Main$GotOrbitalMalignantLymphomaCSV = function (a) {
+		return {$: 'GotOrbitalMalignantLymphomaCSV', a: a};
+	};
+	var author$project$Main$GotRetinoblastomaCSV = function (a) {
+		return {$: 'GotRetinoblastomaCSV', a: a};
+	};
 var author$project$Main$GotSoftTissueCsv = function (a) {
-    return {$: 'GotSoftTissueCsv', a: a};
+	return {$: 'GotSoftTissueCsv', a: a};
 };
-    var author$project$Main$GotUvealMalignantMelanomaCSV = function (a) {
-        return {$: 'GotUvealMalignantMelanomaCSV', a: a};
-    };
-    var author$project$Main$getCsv = function (csvType) {
-        switch (csvType.$) {
-            case 'SoftTissueCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotSoftTissueCsv),
-                        url: author$project$Main$targetUrl + 'csv/SoftTissue.csv'
-                    });
-            case 'RetinoblastomaCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotRetinoblastomaCSV),
-                        url: author$project$Main$targetUrl + 'csv/Intraocular.csv'
-                    });
-            case 'UvealMalignantMelanomaCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotUvealMalignantMelanomaCSV),
-                        url: author$project$Main$targetUrl + 'csv/Intraocular.csv'
-                    });
-            case 'IntraocularLymphomaCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotIntraocularLymphomaCSV),
-                        url: author$project$Main$targetUrl + 'csv/Intraocular.csv'
-                    });
-            case 'ConjunctivalMalignantLymphomaCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantLymphomaCSV),
-                        url: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
-                    });
-            case 'KeratoconjunctivalSquamousCellCarcinomaCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV),
-                        url: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
-                    });
-            case 'ConjunctivalMalignantMelanomaCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantMelanomaCSV),
-                        url: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
-                    });
-            case 'OrbitalMalignantLymphomaCSV':
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotOrbitalMalignantLymphomaCSV),
-                        url: author$project$Main$targetUrl + 'csv/Orbital.csv'
-                    });
-            default:
-                return elm$http$Http$get(
-                    {
-                        expect: elm$http$Http$expectString(author$project$Main$GotLacrimalGlandCancerCSV),
-                        url: author$project$Main$targetUrl + 'csv/Orbital.csv'
-                    });
-        }
-    };
-    var elm$core$List$map = F2(
-        function (f, xs) {
-            return A3(
-                elm$core$List$foldr,
-                F2(
-                    function (x, acc) {
-                        return A2(
-                            elm$core$List$cons,
-                            f(x),
-                            acc);
-                    }),
-                _List_Nil,
-                xs);
-        });
+	var author$project$Main$GotUvealMalignantMelanomaCSV = function (a) {
+		return {$: 'GotUvealMalignantMelanomaCSV', a: a};
+	};
+	var author$project$Main$getCsv = function (csvType) {
+		switch (csvType.$) {
+			case 'SoftTissueCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotSoftTissueCsv),
+						url: author$project$Main$targetUrl + 'csv/SoftTissue.csv'
+					});
+			case 'RetinoblastomaCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotRetinoblastomaCSV),
+						url: author$project$Main$targetUrl + 'csv/Intraocular.csv'
+					});
+			case 'UvealMalignantMelanomaCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotUvealMalignantMelanomaCSV),
+						url: author$project$Main$targetUrl + 'csv/Intraocular.csv'
+					});
+			case 'IntraocularLymphomaCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotIntraocularLymphomaCSV),
+						url: author$project$Main$targetUrl + 'csv/Intraocular.csv'
+					});
+			case 'ConjunctivalMalignantLymphomaCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantLymphomaCSV),
+						url: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
+					});
+			case 'KeratoconjunctivalSquamousCellCarcinomaCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV),
+						url: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
+					});
+			case 'ConjunctivalMalignantMelanomaCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantMelanomaCSV),
+						url: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
+					});
+			case 'OrbitalMalignantLymphomaCSV':
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotOrbitalMalignantLymphomaCSV),
+						url: author$project$Main$targetUrl + 'csv/Orbital.csv'
+					});
+			default:
+				return elm$http$Http$get(
+					{
+						expect: elm$http$Http$expectString(author$project$Main$GotLacrimalGlandCancerCSV),
+						url: author$project$Main$targetUrl + 'csv/Orbital.csv'
+					});
+		}
+	};
+	var author$project$Main$GotLocationFromZipcode = function (a) {
+		return {$: 'GotLocationFromZipcode', a: a};
+	};
+	var author$project$Main$getLocationFromZipcode = function (zipcode) {
+		return elm$http$Http$get(
+			{
+				expect: elm$http$Http$expectString(author$project$Main$GotLocationFromZipcode),
+				url: 'https://geoapi.heartrails.com/api/json?method=searchByPostal&postal=' + zipcode
+			});
+	};
+	var elm$json$Json$Encode$string = _Json_wrap;
+	var author$project$Main$openNewWindow = _Platform_outgoingPort('openNewWindow', elm$json$Json$Encode$string);
+	var elm$core$List$map = F2(
+		function (f, xs) {
+			return A3(
+				elm$core$List$foldr,
+				F2(
+					function (x, acc) {
+						return A2(
+							elm$core$List$cons,
+							f(x),
+							acc);
+					}),
+				_List_Nil,
+				xs);
+		});
 var elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -6583,15 +6693,6 @@ var elm$core$List$maximum = function (list) {
 		return elm$core$Maybe$Nothing;
 	}
 };
-    var elm$core$Maybe$withDefault = F2(
-        function (_default, maybe) {
-            if (maybe.$ === 'Just') {
-                var value = maybe.a;
-                return value;
-            } else {
-                return _default;
-            }
-        });
 var author$project$Main$helperGetDistance = F2(
 	function (facilityId, facilities) {
 		return elm$core$List$maximum(
@@ -6599,55 +6700,84 @@ var author$project$Main$helperGetDistance = F2(
 				elm$core$List$map,
 				function (facility) {
 					return _Utils_eq(
-                        A2(elm$core$Maybe$withDefault, '', facility.id),
-                        facilityId) ? A2(elm$core$Maybe$withDefault, 0, facility.distance) : 0;
+						A2(elm$core$Maybe$withDefault, '', facility.id),
+						facilityId) ? A2(elm$core$Maybe$withDefault, 0, facility.distance) : 0;
 				},
 				facilities));
 	});
-    var elm$core$Basics$neq = _Utils_notEqual;
-    var elm$core$List$filter = F2(
-        function (isGood, list) {
-            return A3(
-                elm$core$List$foldr,
-                F2(
-                    function (x, xs) {
-                        return isGood(x) ? A2(elm$core$List$cons, x, xs) : xs;
-                    }),
-                _List_Nil,
-                list);
-        });
-    var elm$core$List$head = function (list) {
-        if (list.b) {
-            var x = list.a;
-            var xs = list.b;
-            return elm$core$Maybe$Just(x);
-        } else {
-            return elm$core$Maybe$Nothing;
-        }
-    };
-    var author$project$Main$helperGetLocation = F2(
-        function (facilityId, facilities) {
-            return A2(
-                elm$core$Maybe$withDefault,
-                {lat: elm$core$Maybe$Nothing, lng: elm$core$Maybe$Nothing},
-                elm$core$List$head(
-                    A2(
-                        elm$core$List$filter,
-                        function (location) {
-                            return (!_Utils_eq(location.lat, elm$core$Maybe$Nothing)) && (!_Utils_eq(location.lng, elm$core$Maybe$Nothing));
-                        },
-                        A2(
-                            elm$core$List$map,
-                            function (facility) {
-                                return _Utils_eq(
-                                    A2(elm$core$Maybe$withDefault, '', facility.id),
-                                    facilityId) ? {
-                                    lat: facility.location.lat,
-                                    lng: facility.location.lng
-                                } : {lat: elm$core$Maybe$Nothing, lng: elm$core$Maybe$Nothing};
-                            },
-                            facilities))));
-        });
+	var elm$core$Basics$neq = _Utils_notEqual;
+	var elm$core$List$head = function (list) {
+		if (list.b) {
+			var x = list.a;
+			var xs = list.b;
+			return elm$core$Maybe$Just(x);
+		} else {
+			return elm$core$Maybe$Nothing;
+		}
+	};
+	var author$project$Main$helperGetLocation = F2(
+		function (facilityId, facilities) {
+			return A2(
+				elm$core$Maybe$withDefault,
+				{lat: elm$core$Maybe$Nothing, lng: elm$core$Maybe$Nothing},
+				elm$core$List$head(
+					A2(
+						elm$core$List$filter,
+						function (location) {
+							return (!_Utils_eq(location.lat, elm$core$Maybe$Nothing)) && (!_Utils_eq(location.lng, elm$core$Maybe$Nothing));
+						},
+						A2(
+							elm$core$List$map,
+							function (facility) {
+								return _Utils_eq(
+									A2(elm$core$Maybe$withDefault, '', facility.id),
+									facilityId) ? {
+									lat: facility.location.lat,
+									lng: facility.location.lng
+								} : {lat: elm$core$Maybe$Nothing, lng: elm$core$Maybe$Nothing};
+							},
+							facilities))));
+		});
+	var author$project$Main$helperGetPrefecture = F2(
+		function (facilityId, facilities) {
+			return A2(
+				elm$core$Maybe$withDefault,
+				elm$core$Maybe$Nothing,
+				elm$core$List$head(
+					A2(
+						elm$core$List$filter,
+						function (prefecture) {
+							return !_Utils_eq(prefecture, elm$core$Maybe$Nothing);
+						},
+						A2(
+							elm$core$List$map,
+							function (facility) {
+								return _Utils_eq(
+									A2(elm$core$Maybe$withDefault, '', facility.id),
+									facilityId) ? facility.prefecture : elm$core$Maybe$Nothing;
+							},
+							facilities))));
+		});
+	var author$project$Main$helperGetRegion = F2(
+		function (facilityId, facilities) {
+			return A2(
+				elm$core$Maybe$withDefault,
+				elm$core$Maybe$Nothing,
+				elm$core$List$head(
+					A2(
+						elm$core$List$filter,
+						function (region) {
+							return !_Utils_eq(region, elm$core$Maybe$Nothing);
+						},
+						A2(
+							elm$core$List$map,
+							function (facility) {
+								return _Utils_eq(
+									A2(elm$core$Maybe$withDefault, '', facility.id),
+									facilityId) ? facility.region : elm$core$Maybe$Nothing;
+							},
+							facilities))));
+		});
 var elm$core$Basics$negate = function (n) {
 	return -n;
 };
@@ -6659,469 +6789,522 @@ var author$project$Main$maybeStringtoInt = function (string) {
 		elm$core$String$toInt(
 			A2(elm$core$Maybe$withDefault, '-1', string)));
 };
-    var elm$core$List$drop = F2(
-        function (n, list) {
-            drop:
-                while (true) {
-                    if (n <= 0) {
-                        return list;
-                    } else {
-                        if (!list.b) {
-                            return list;
-                        } else {
-                            var x = list.a;
-                            var xs = list.b;
-                            var $temp$n = n - 1,
-                                $temp$list = xs;
-                            n = $temp$n;
-                            list = $temp$list;
+	var elm$core$List$drop = F2(
+		function (n, list) {
+			drop:
+				while (true) {
+					if (n <= 0) {
+						return list;
+					} else {
+						if (!list.b) {
+							return list;
+						} else {
+							var x = list.a;
+							var xs = list.b;
+							var $temp$n = n - 1,
+								$temp$list = xs;
+							n = $temp$n;
+							list = $temp$list;
 
-                        }
-                    }
-                }
-        });
-    var elm_community$list_extra$List$Extra$getAt = F2(
-        function (idx, xs) {
-            return (idx < 0) ? elm$core$Maybe$Nothing : elm$core$List$head(
-                A2(elm$core$List$drop, idx, xs));
-        });
-    var author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 4, list))
-            };
-        });
-    var author$project$Main$setConjunctivalMalignantLymphomaFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility(facilities),
-                csv.records);
-        });
-    var author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 10, list))
-            };
-        });
-    var author$project$Main$setConjunctivalMalignantMelanomaFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility(facilities),
-                csv.records);
-        });
-    var elm$core$String$toFloat = _String_toFloat;
-    var author$project$Main$helperConvListtoFacilityRecord = function (list) {
-        return {
-            distance: elm$core$Maybe$Nothing,
-            id: A2(elm_community$list_extra$List$Extra$getAt, 0, list),
-            location: {
-                lat: elm$core$String$toFloat(
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
-                lng: elm$core$String$toFloat(
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 2, list)))
-            },
-            name: A2(elm_community$list_extra$List$Extra$getAt, 1, list),
-            prefecture: A2(elm_community$list_extra$List$Extra$getAt, 4, list),
-            region: A2(elm_community$list_extra$List$Extra$getAt, 5, list)
-        };
-    };
-    var author$project$Main$setFacilities = function (csv) {
-        return A2(elm$core$List$map, author$project$Main$helperConvListtoFacilityRecord, csv.records);
-    };
-    var elm$core$Basics$acos = _Basics_acos;
-    var elm$core$Basics$cos = _Basics_cos;
-    var elm$core$Basics$pi = _Basics_pi;
-    var elm$core$Basics$round = _Basics_round;
-    var elm$core$Basics$sin = _Basics_sin;
-    var author$project$Distance$distance = F4(
-        function (lat1, lng1, lat2, lng2) {
-            return elm$core$Basics$round(
-                6371 * elm$core$Basics$acos(
-                ((elm$core$Basics$cos((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$cos((lat2 * elm$core$Basics$pi) / 180)) * elm$core$Basics$cos(((lng2 * elm$core$Basics$pi) / 180) - ((lng1 * elm$core$Basics$pi) / 180))) + (elm$core$Basics$sin((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$sin((lat2 * elm$core$Basics$pi) / 180))));
-        });
-    var author$project$Main$setFacilityDistance = F2(
-        function (currentLocation, facility) {
-            return _Utils_update(
-                facility,
-                {
-                    distance: elm$core$Maybe$Just(
-                        A4(
-                            author$project$Distance$distance,
-                            A2(elm$core$Maybe$withDefault, 0, facility.location.lat),
-                            A2(elm$core$Maybe$withDefault, 0, facility.location.lng),
-                            A2(elm$core$Maybe$withDefault, 0, currentLocation.lat),
-                            A2(elm$core$Maybe$withDefault, 0, currentLocation.lng)))
-                });
-        });
-    var author$project$Main$setFacilitiesDistance = F2(
-        function (currentLocation, facilities) {
-            return A2(
-                elm$core$List$map,
-                function (facility) {
-                    return A2(author$project$Main$setFacilityDistance, currentLocation, facility);
-                },
-                facilities);
-        });
-    var author$project$Main$helperConvListToIntraocularLymphomaFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 10, list))
-            };
-        });
-    var author$project$Main$setIntraocularLymphomaFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToIntraocularLymphomaFacility(facilities),
-                csv.records);
-        });
-    var author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 7, list))
-            };
-        });
-    var author$project$Main$setKeratoconjunctivalSquamousCellCarcinomaFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility(facilities),
-                csv.records);
-        });
-    var author$project$Main$helperConvListToLacrimalGlandCancerFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 7, list))
-            };
-        });
-    var author$project$Main$setLacrimalGlandCancerFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToLacrimalGlandCancerFacility(facilities),
-                csv.records);
-        });
-    var elm$core$Maybe$destruct = F3(
-        function (_default, func, maybe) {
-            if (maybe.$ === 'Just') {
-                var a = maybe.a;
-                return func(a);
-            } else {
-                return _default;
-            }
-        });
-    var elm$json$Json$Encode$float = _Json_wrap;
-    var elm$json$Json$Encode$null = _Json_encodeNull;
-    var elm$json$Json$Encode$object = function (pairs) {
-        return _Json_wrap(
-            A3(
-                elm$core$List$foldl,
-                F2(
-                    function (_n0, obj) {
-                        var k = _n0.a;
-                        var v = _n0.b;
-                        return A3(_Json_addField, k, v, obj);
-                    }),
-                _Json_emptyObject(_Utils_Tuple0),
-                pairs));
-    };
-    var author$project$Main$setMapMaker = _Platform_outgoingPort(
-        'setMapMaker',
-        function ($) {
-            return elm$json$Json$Encode$object(
-                _List_fromArray(
-                    [
-                        _Utils_Tuple2(
-                            'id',
-                            elm$json$Json$Encode$string($.id)),
-                        _Utils_Tuple2(
-                            'lat',
-                            function ($) {
-                                return A3(elm$core$Maybe$destruct, elm$json$Json$Encode$null, elm$json$Json$Encode$float, $);
-                            }($.lat)),
-                        _Utils_Tuple2(
-                            'lng',
-                            function ($) {
-                                return A3(elm$core$Maybe$destruct, elm$json$Json$Encode$null, elm$json$Json$Encode$float, $);
-                            }($.lng))
-                    ]));
-        });
-    var author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 4, list))
-            };
-        });
-    var author$project$Main$setOrbitalMalignantLymphomaFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility(facilities),
-                csv.records);
-        });
-    var author$project$Main$helperConvListToRetinoblastomaFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 4, list))
-            };
-        });
-    var author$project$Main$setRetinoblastomaFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToRetinoblastomaFacility(facilities),
-                csv.records);
-        });
-    var author$project$Main$helperConvListToSoftTissueFacility = F2(
-        function (facilities, list) {
+						}
+					}
+				}
+		});
+	var elm_community$list_extra$List$Extra$getAt = F2(
+		function (idx, xs) {
+			return (idx < 0) ? elm$core$Maybe$Nothing : elm$core$List$head(
+				A2(elm$core$List$drop, idx, xs));
+		});
+	var author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 4, list))
+			};
+		});
+	var author$project$Main$setConjunctivalMalignantLymphomaFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility(facilities),
+				csv.records);
+		});
+	var author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 10, list))
+			};
+		});
+	var author$project$Main$setConjunctivalMalignantMelanomaFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility(facilities),
+				csv.records);
+		});
+	var elm$core$String$toFloat = _String_toFloat;
+	var author$project$Main$helperConvListtoFacilityRecord = function (list) {
 		return {
-            distance: A2(
+			distance: elm$core$Maybe$Nothing,
+			id: A2(elm_community$list_extra$List$Extra$getAt, 0, list),
+			location: {
+				lat: elm$core$String$toFloat(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
+				lng: elm$core$String$toFloat(
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 2, list)))
+			},
+			name: A2(elm_community$list_extra$List$Extra$getAt, 1, list),
+			prefecture: A2(elm_community$list_extra$List$Extra$getAt, 4, list),
+			region: A2(elm_community$list_extra$List$Extra$getAt, 5, list)
+		};
+	};
+	var author$project$Main$setFacilities = function (csv) {
+		return A2(elm$core$List$map, author$project$Main$helperConvListtoFacilityRecord, csv.records);
+	};
+	var elm$core$Basics$acos = _Basics_acos;
+	var elm$core$Basics$cos = _Basics_cos;
+	var elm$core$Basics$pi = _Basics_pi;
+	var elm$core$Basics$round = _Basics_round;
+	var elm$core$Basics$sin = _Basics_sin;
+	var author$project$Distance$distance = F4(
+		function (lat1, lng1, lat2, lng2) {
+			return elm$core$Basics$round(
+				6371 * elm$core$Basics$acos(
+				((elm$core$Basics$cos((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$cos((lat2 * elm$core$Basics$pi) / 180)) * elm$core$Basics$cos(((lng2 * elm$core$Basics$pi) / 180) - ((lng1 * elm$core$Basics$pi) / 180))) + (elm$core$Basics$sin((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$sin((lat2 * elm$core$Basics$pi) / 180))));
+		});
+	var author$project$Main$setFacilityDistance = F2(
+		function (currentLocation, facility) {
+			return _Utils_update(
+				facility,
+				{
+					distance: elm$core$Maybe$Just(
+						A4(
+							author$project$Distance$distance,
+							A2(elm$core$Maybe$withDefault, 0, facility.location.lat),
+							A2(elm$core$Maybe$withDefault, 0, facility.location.lng),
+							A2(elm$core$Maybe$withDefault, 0, currentLocation.lat),
+							A2(elm$core$Maybe$withDefault, 0, currentLocation.lng)))
+				});
+		});
+	var author$project$Main$setFacilitiesDistance = F2(
+		function (currentLocation, facilities) {
+			return A2(
+				elm$core$List$map,
+				function (facility) {
+					return A2(author$project$Main$setFacilityDistance, currentLocation, facility);
+				},
+				facilities);
+		});
+	var author$project$Main$helperConvListToIntraocularLymphomaFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 10, list))
+			};
+		});
+	var author$project$Main$setIntraocularLymphomaFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToIntraocularLymphomaFacility(facilities),
+				csv.records);
+		});
+	var author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 7, list))
+			};
+		});
+	var author$project$Main$setKeratoconjunctivalSquamousCellCarcinomaFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility(facilities),
+				csv.records);
+		});
+	var author$project$Main$helperConvListToLacrimalGlandCancerFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 7, list))
+			};
+		});
+	var author$project$Main$setLacrimalGlandCancerFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToLacrimalGlandCancerFacility(facilities),
+				csv.records);
+		});
+	var author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 4, list))
+			};
+		});
+	var author$project$Main$setOrbitalMalignantLymphomaFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility(facilities),
+				csv.records);
+		});
+	var author$project$Main$helperConvListToRetinoblastomaFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 4, list))
+			};
+		});
+	var author$project$Main$setRetinoblastomaFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToRetinoblastomaFacility(facilities),
+				csv.records);
+		});
+	var author$project$Main$helperConvListToSoftTissueFacility = F2(
+		function (facilities, list) {
+		return {
+			distance: A2(
 				elm$core$Maybe$withDefault,
 				-1,
 				A2(
@@ -7131,102 +7314,124 @@ var author$project$Main$maybeStringtoInt = function (string) {
 						'0',
 						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
 					facilities)),
-            housyasen: author$project$Main$maybeStringtoInt(
+			housyasen: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 7, list)),
-            id: A2(
+			id: A2(
 				elm$core$Maybe$withDefault,
 				'00000',
 				A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-            joshi: author$project$Main$maybeStringtoInt(
+			joshi: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-            kashi: author$project$Main$maybeStringtoInt(
+			kashi: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-            location: A2(
-                author$project$Main$helperGetLocation,
-                A2(
-                    elm$core$Maybe$withDefault,
-                    '0',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                facilities),
-            name: A2(
+			location: A2(
+				author$project$Main$helperGetLocation,
+				A2(
+					elm$core$Maybe$withDefault,
+					'0',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				facilities),
+			name: A2(
 				elm$core$Maybe$withDefault,
 				'未設定',
 				A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-            ope: author$project$Main$maybeStringtoInt(
+			ope: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
-            saihatsushoshin: author$project$Main$maybeStringtoInt(
+			prefecture: A2(
+				author$project$Main$helperGetPrefecture,
+				A2(
+					elm$core$Maybe$withDefault,
+					'0',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				facilities),
+			region: A2(
+				author$project$Main$helperGetRegion,
+				A2(
+					elm$core$Maybe$withDefault,
+					'0',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				facilities),
+			saihatsushoshin: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
-            secondopinion: author$project$Main$maybeStringtoInt(
+			secondopinion: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
-            selected: false,
-            taikan: author$project$Main$maybeStringtoInt(
+			selected: false,
+			taikan: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 4, list)),
-            yakubutsu: author$project$Main$maybeStringtoInt(
+			yakubutsu: author$project$Main$maybeStringtoInt(
 				A2(elm_community$list_extra$List$Extra$getAt, 8, list))
 		};
 	});
-    var author$project$Main$setSoftTissueFacilities = F2(
-        function (csv, facilities) {
+	var author$project$Main$setSoftTissueFacilities = F2(
+		function (csv, facilities) {
 		return A2(
 			elm$core$List$map,
-            author$project$Main$helperConvListToSoftTissueFacility(facilities),
-            csv.records);
-        });
-    var author$project$Main$helperConvListToUvealMalignantMelanomaFacility = F2(
-        function (facilities, list) {
-            return {
-                count: author$project$Main$maybeStringtoInt(
-                    A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
-                diagnosis: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
-                distance: A2(
-                    elm$core$Maybe$withDefault,
-                    -1,
-                    A2(
-                        author$project$Main$helperGetDistance,
-                        A2(
-                            elm$core$Maybe$withDefault,
-                            '0',
-                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                        facilities)),
-                id: A2(
-                    elm$core$Maybe$withDefault,
-                    '00000',
-                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                location: A2(
-                    author$project$Main$helperGetLocation,
-                    A2(
-                        elm$core$Maybe$withDefault,
-                        '0',
-                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-                    facilities),
-                name: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-                treatment: A2(
-                    elm$core$Maybe$withDefault,
-                    '未設定',
-                    A2(elm_community$list_extra$List$Extra$getAt, 7, list))
-            };
-        });
-    var author$project$Main$setUvealMalignantMelanomaFacilities = F2(
-        function (csv, facilities) {
-            return A2(
-                elm$core$List$map,
-                author$project$Main$helperConvListToUvealMalignantMelanomaFacility(facilities),
-                csv.records);
-	});
-var elm$core$Basics$not = _Basics_not;
-    var author$project$Main$toggleSoftTissueFacility = F2(
-	function (id, facility) {
-        return _Utils_eq(facility.id, id) ? _Utils_update(
-			facility,
-            {selected: !facility.selected}) : facility;
+			author$project$Main$helperConvListToSoftTissueFacility(facilities),
+			csv.records);
+		});
+	var author$project$Main$helperConvListToUvealMalignantMelanomaFacility = F2(
+		function (facilities, list) {
+			return {
+				count: author$project$Main$maybeStringtoInt(
+					A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
+				diagnosis: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
+				distance: A2(
+					elm$core$Maybe$withDefault,
+					-1,
+					A2(
+						author$project$Main$helperGetDistance,
+						A2(
+							elm$core$Maybe$withDefault,
+							'0',
+							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+						facilities)),
+				id: A2(
+					elm$core$Maybe$withDefault,
+					'00000',
+					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+				location: A2(
+					author$project$Main$helperGetLocation,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				name: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+				prefecture: A2(
+					author$project$Main$helperGetPrefecture,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				region: A2(
+					author$project$Main$helperGetRegion,
+					A2(
+						elm$core$Maybe$withDefault,
+						'0',
+						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+					facilities),
+				treatment: A2(
+					elm$core$Maybe$withDefault,
+					'未設定',
+					A2(elm_community$list_extra$List$Extra$getAt, 7, list))
+			};
+		});
+	var author$project$Main$setUvealMalignantMelanomaFacilities = F2(
+		function (csv, facilities) {
+			return A2(
+				elm$core$List$map,
+				author$project$Main$helperConvListToUvealMalignantMelanomaFacility(facilities),
+				csv.records);
 	});
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
+	var elm$core$Basics$not = _Basics_not;
 var elm$core$String$isEmpty = function (string) {
 	return string === '';
 };
@@ -7336,570 +7541,639 @@ var lovasoa$elm_csv$Csv$parseWith = F2(
 			elm$core$Maybe$withDefault,
 			_List_Nil,
 			elm$core$List$head(values));
-        return {headers: headers, records: records};
+		return {headers: headers, records: records};
 	});
 var lovasoa$elm_csv$Csv$parse = lovasoa$elm_csv$Csv$parseWith(',');
 var author$project$Main$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
-            case 'ModeZipcode':
+			case 'ModeZipcode':
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-                        {searchMode: author$project$Main$Zipcode}),
+						{searchMode: author$project$Main$Zipcode}),
 					elm$core$Platform$Cmd$none);
-            case 'ModeGeolocation':
+			case 'ModeGeolocation':
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-                        {searchMode: author$project$Main$Geolocation}),
+						{searchMode: author$project$Main$Geolocation}),
 					elm$core$Platform$Cmd$none);
-            case 'SubmitZipcode':
+			case 'SubmitZipcode':
 				var string = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-                        {zipcode: string}),
+						{zipcode: string}),
 					elm$core$Platform$Cmd$none);
-            case 'ChangedCancerType':
+			case 'ChangedCancerType':
 				var cancerType = msg.a;
-                var facilitiesMaster = A2(author$project$Main$setFacilitiesDistance, model.currentLocation, model.facilities);
+				var facilitiesMaster = A2(author$project$Main$setFacilitiesDistance, model.currentLocation, model.facilities);
 				switch (cancerType) {
 					case 'SoftTissue':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-                                {facilities: facilitiesMaster, selectedCancerType: cancerType}),
-                            author$project$Main$getCsv(author$project$Main$SoftTissueCSV));
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
+							author$project$Main$getCsv(author$project$Main$SoftTissueCSV));
 					case 'Intraocular':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-                                {facilities: facilitiesMaster, selectedCancerType: cancerType}),
-                            elm$core$Platform$Cmd$none);
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
+							elm$core$Platform$Cmd$none);
 					case 'Keratoconjunctival':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-                                {facilities: facilitiesMaster, selectedCancerType: cancerType}),
-                            elm$core$Platform$Cmd$none);
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
+							elm$core$Platform$Cmd$none);
 					case 'Orbital':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-                                {facilities: facilitiesMaster, selectedCancerType: cancerType}),
-                            elm$core$Platform$Cmd$none);
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
+							elm$core$Platform$Cmd$none);
 					case 'Eyelid':
 						return _Utils_Tuple2(
 							_Utils_update(
 								model,
-                                {facilities: facilitiesMaster, selectedCancerType: cancerType}),
-                            elm$core$Platform$Cmd$none);
+								{facilities: facilitiesMaster, selectedCancerType: cancerType}),
+							elm$core$Platform$Cmd$none);
 					default:
-                        return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'ChangedCancerPart':
-                var cancerPart = msg.a;
-                switch (cancerPart) {
-                    case 'Retinoblastoma':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$RetinoblastomaCSV));
-                    case 'UvealMalignantMelanoma':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$UvealMalignantMelanomaCSV));
-                    case 'IntraocularLymphoma':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$IntraocularLymphomaCSV));
-                    case 'ConjunctivalMalignantLymphoma':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$ConjunctivalMalignantLymphomaCSV));
-                    case 'KeratoconjunctivalSquamousCellCarcinoma':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$KeratoconjunctivalSquamousCellCarcinomaCSV));
-                    case 'ConjunctivalMalignantMelanoma':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$ConjunctivalMalignantMelanomaCSV));
-                    case 'OrbitalMalignantLymphoma':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$OrbitalMalignantLymphomaCSV));
-                    case 'LacrimalGlandCancer':
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            author$project$Main$getCsv(author$project$Main$LacrimalGlandCancerCSV));
-                    default:
-                        return _Utils_Tuple2(
-                            _Utils_update(
-                                model,
-                                {selectedCancerPart: cancerPart}),
-                            elm$core$Platform$Cmd$none);
-                }
-            case 'GotCsv':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                parseCsv: lovasoa$elm_csv$Csv$parse(repo),
-                                resultCsv: repo
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotSoftTissueCsv':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                resultSoftTissueFacilities: A2(
-                                    author$project$Main$setSoftTissueFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotRetinoblastomaCSV':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                resultRetinoblastomaFacilities: A2(
-                                    author$project$Main$setRetinoblastomaFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotUvealMalignantMelanomaCSV':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                resultUvealMalignantMelanomaFacilities: A2(
-                                    author$project$Main$setUvealMalignantMelanomaFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+						return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 				}
-            case 'GotIntraocularLymphomaCSV':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                resultIntraocularLymphomaFacilities: A2(
-                                    author$project$Main$setIntraocularLymphomaFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotConjunctivalMalignantLymphomaCSV':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                resultConjunctivalMalignantLymphomaFacilities: A2(
-                                    author$project$Main$setConjunctivalMalignantLymphomaFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotKeratoconjunctivalSquamousCellCarcinomaCSV':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                resultKeratoconjunctivalSquamousCellCarcinomaFacilities: A2(
-                                    author$project$Main$setKeratoconjunctivalSquamousCellCarcinomaFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotConjunctivalMalignantMelanomaCSV':
-                if (msg.a.$ === 'Ok') {
+			case 'ChangedCancerPart':
+				var cancerPart = msg.a;
+				switch (cancerPart) {
+					case 'Retinoblastoma':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$RetinoblastomaCSV));
+					case 'UvealMalignantMelanoma':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$UvealMalignantMelanomaCSV));
+					case 'IntraocularLymphoma':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$IntraocularLymphomaCSV));
+					case 'ConjunctivalMalignantLymphoma':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$ConjunctivalMalignantLymphomaCSV));
+					case 'KeratoconjunctivalSquamousCellCarcinoma':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$KeratoconjunctivalSquamousCellCarcinomaCSV));
+					case 'ConjunctivalMalignantMelanoma':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$ConjunctivalMalignantMelanomaCSV));
+					case 'OrbitalMalignantLymphoma':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$OrbitalMalignantLymphomaCSV));
+					case 'LacrimalGlandCancer':
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							author$project$Main$getCsv(author$project$Main$LacrimalGlandCancerCSV));
+					default:
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{selectedCancerPart: cancerPart}),
+							elm$core$Platform$Cmd$none);
+				}
+			case 'GotLocationFromZipcode':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{temp: repo}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotCsv':
+				if (msg.a.$ === 'Ok') {
 					var repo = msg.a.a;
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
 							{
-                                resultConjunctivalMalignantMelanomaFacilities: A2(
-                                    author$project$Main$setConjunctivalMalignantMelanomaFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
+								parseCsv: lovasoa$elm_csv$Csv$parse(repo),
+								resultCsv: repo
 							}),
 						elm$core$Platform$Cmd$none);
 				} else {
 					var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotOrbitalMalignantLymphomaCSV':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                resultOrbitalMalignantLymphomaFacilities: A2(
-                                    author$project$Main$setOrbitalMalignantLymphomaFacilities,
-                                    lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotLacrimalGlandCancerCSV':
-                if (msg.a.$ === 'Ok') {
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotSoftTissueCsv':
+				if (msg.a.$ === 'Ok') {
 					var repo = msg.a.a;
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
 							{
-                                resultLacrimalGlandCancerFacilities: A2(
-                                    author$project$Main$setLacrimalGlandCancerFacilities,
+								originSoftTissueFacilities: A2(
+									author$project$Main$setSoftTissueFacilities,
 									lovasoa$elm_csv$Csv$parse(repo),
-                                    model.facilities)
+									model.facilities),
+								resultSoftTissueFacilities: A2(
+									author$project$Main$setSoftTissueFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
 							}),
 						elm$core$Platform$Cmd$none);
 				} else {
 					var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'GotFacilitiesCsv':
-                if (msg.a.$ === 'Ok') {
-                    var repo = msg.a.a;
-                    return _Utils_Tuple2(
-                        _Utils_update(
-                            model,
-                            {
-                                facilities: author$project$Main$setFacilities(
-                                    lovasoa$elm_csv$Csv$parse(repo)),
-                                parseFacilitesCsv: lovasoa$elm_csv$Csv$parse(repo)
-                            }),
-                        elm$core$Platform$Cmd$none);
-                } else {
-                    var error = msg.a.a;
-                    return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                }
-            case 'UpdateCurrentLocation':
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotRetinoblastomaCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originRetinoblastomaFacilities: A2(
+									author$project$Main$setRetinoblastomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultRetinoblastomaFacilities: A2(
+									author$project$Main$setRetinoblastomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotUvealMalignantMelanomaCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originUvealMalignantMelanomaFacilities: A2(
+									author$project$Main$setUvealMalignantMelanomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultUvealMalignantMelanomaFacilities: A2(
+									author$project$Main$setUvealMalignantMelanomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotIntraocularLymphomaCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originIntraocularLymphomaFacilities: A2(
+									author$project$Main$setIntraocularLymphomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultIntraocularLymphomaFacilities: A2(
+									author$project$Main$setIntraocularLymphomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotConjunctivalMalignantLymphomaCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originConjunctivalMalignantLymphomaFacilities: A2(
+									author$project$Main$setConjunctivalMalignantLymphomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultConjunctivalMalignantLymphomaFacilities: A2(
+									author$project$Main$setConjunctivalMalignantLymphomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotKeratoconjunctivalSquamousCellCarcinomaCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originKeratoconjunctivalSquamousCellCarcinomaFacilities: A2(
+									author$project$Main$setKeratoconjunctivalSquamousCellCarcinomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultKeratoconjunctivalSquamousCellCarcinomaFacilities: A2(
+									author$project$Main$setKeratoconjunctivalSquamousCellCarcinomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotConjunctivalMalignantMelanomaCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originConjunctivalMalignantMelanomaFacilities: A2(
+									author$project$Main$setConjunctivalMalignantMelanomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultConjunctivalMalignantMelanomaFacilities: A2(
+									author$project$Main$setConjunctivalMalignantMelanomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotOrbitalMalignantLymphomaCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originOrbitalMalignantLymphomaFacilities: A2(
+									author$project$Main$setOrbitalMalignantLymphomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultOrbitalMalignantLymphomaFacilities: A2(
+									author$project$Main$setOrbitalMalignantLymphomaFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotLacrimalGlandCancerCSV':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								originLacrimalGlandCancerFacilities: A2(
+									author$project$Main$setLacrimalGlandCancerFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities),
+								resultLacrimalGlandCancerFacilities: A2(
+									author$project$Main$setLacrimalGlandCancerFacilities,
+									lovasoa$elm_csv$Csv$parse(repo),
+									model.facilities)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'GotFacilitiesCsv':
+				if (msg.a.$ === 'Ok') {
+					var repo = msg.a.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								facilities: author$project$Main$setFacilities(
+									lovasoa$elm_csv$Csv$parse(repo)),
+								parseFacilitesCsv: lovasoa$elm_csv$Csv$parse(repo)
+							}),
+						elm$core$Platform$Cmd$none);
+				} else {
+					var error = msg.a.a;
+					return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+				}
+			case 'UpdateCurrentLocation':
 				var location = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-                        {currentLocation: location}),
+						{currentLocation: location}),
 					elm$core$Platform$Cmd$none);
-            case 'SetTableState':
+			case 'SetTableState':
 				var newState = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-                        {tableState: newState}),
+						{tableState: newState}),
 					elm$core$Platform$Cmd$none);
-            case 'ToggleSoftTissueSelected':
+			case 'ToggleSoftTissueSelected':
 				var id = msg.a;
-                var location = msg.b;
+				var location = msg.b;
+				return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+			case 'ToggleGenelalCancerSelected':
+				var id = msg.a;
+				var location = msg.b;
+				return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+			case 'OpenNewWindow':
+				var string = msg.a;
+				return _Utils_Tuple2(
+					model,
+					author$project$Main$openNewWindow(string));
+			case 'UpdateZipcode':
+				var zipcode = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{zipcode: zipcode}),
+					author$project$Main$getLocationFromZipcode(zipcode));
+			default:
+				var todofuken = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
-                            resultSoftTissueFacilities: A2(
-								elm$core$List$map,
-                                author$project$Main$toggleSoftTissueFacility(id),
-                                model.resultSoftTissueFacilities)
+							resultConjunctivalMalignantLymphomaFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originConjunctivalMalignantLymphomaFacilities),
+							resultConjunctivalMalignantMelanomaFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originConjunctivalMalignantMelanomaFacilities),
+							resultEyelidFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originEyelidFacilities),
+							resultIntraocularLymphomaFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originIntraocularLymphomaFacilities),
+							resultKeratoconjunctivalSquamousCellCarcinomaFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originKeratoconjunctivalSquamousCellCarcinomaFacilities),
+							resultLacrimalGlandCancerFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originLacrimalGlandCancerFacilities),
+							resultOrbitalMalignantLymphomaFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originOrbitalMalignantLymphomaFacilities),
+							resultRetinoblastomaFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originRetinoblastomaFacilities),
+							resultSoftTissueFacilities: A2(author$project$Main$filterSoftTissueFacilityPrefecture, todofuken, model.originSoftTissueFacilities),
+							resultUvealMalignantMelanomaFacilities: A2(author$project$Main$filterGeneralCancerFacilityPrefecture, todofuken, model.originUvealMalignantMelanomaFacilities),
+							selectedTodofuken: todofuken
 						}),
-                    author$project$Main$setMapMaker(
-                        {id: id, lat: location.lat, lng: location.lng}));
-            case 'ChangeCurrentLocationFromZipcode':
-                return _Utils_Tuple2(
-                    model,
-                    author$project$Main$changeCurrentLocationFromAddress(model.zipcode));
-            case 'UpdateZipcode':
-                var zipcode = msg.a;
-                return _Utils_Tuple2(
-                    _Utils_update(
-                        model,
-                        {zipcode: zipcode}),
-                    elm$core$Platform$Cmd$none);
-            default:
-                var todofuken = msg.a;
-                return _Utils_Tuple2(
-                    _Utils_update(
-                        model,
-                        {selectedTodofuken: todofuken}),
-                    elm$core$Platform$Cmd$none);
+					elm$core$Platform$Cmd$none);
 		}
 	});
-    var abadi199$elm_input_extra$MultiSelect$Option = F3(
-        function (value, text, selected) {
-            return {selected: selected, text: text, value: value};
-        });
-    var elm$json$Json$Decode$bool = _Json_decodeBool;
-    var elm$json$Json$Decode$map3 = _Json_map3;
-    var elm$json$Json$Decode$string = _Json_decodeString;
-    var abadi199$elm_input_extra$MultiSelect$optionDecoder = A4(
-        elm$json$Json$Decode$map3,
-        abadi199$elm_input_extra$MultiSelect$Option,
-        A2(elm$json$Json$Decode$field, 'value', elm$json$Json$Decode$string),
-        A2(elm$json$Json$Decode$field, 'text', elm$json$Json$Decode$string),
-        A2(elm$json$Json$Decode$field, 'selected', elm$json$Json$Decode$bool));
-    var elm$core$Maybe$map = F2(
-        function (f, maybe) {
-            if (maybe.$ === 'Just') {
-                var value = maybe.a;
-                return elm$core$Maybe$Just(
-                    f(value));
-            } else {
-                return elm$core$Maybe$Nothing;
-            }
-        });
-    var elm$json$Json$Decode$maybe = function (decoder) {
-        return elm$json$Json$Decode$oneOf(
-            _List_fromArray(
-                [
-                    A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, decoder),
-                    elm$json$Json$Decode$succeed(elm$core$Maybe$Nothing)
-                ]));
-    };
-    var abadi199$elm_input_extra$MultiSelect$optionsDecoder = function () {
-        var loop = F2(
-            function (idx, xs) {
-                return A2(
-                    elm$json$Json$Decode$andThen,
-                    A2(
-                        elm$core$Basics$composeR,
-                        elm$core$Maybe$map(
-                            function (x) {
-                                return A2(
-                                    loop,
-                                    idx + 1,
-                                    A2(elm$core$List$cons, x, xs));
-                            }),
-                        elm$core$Maybe$withDefault(
-                            elm$json$Json$Decode$succeed(xs))),
-                    elm$json$Json$Decode$maybe(
-                        A2(
-                            elm$json$Json$Decode$field,
-                            elm$core$String$fromInt(idx),
-                            abadi199$elm_input_extra$MultiSelect$optionDecoder)));
-            });
-        return A2(
-            elm$json$Json$Decode$map,
-            elm$core$List$reverse,
-            A2(
-                elm$json$Json$Decode$field,
-                'options',
-                A2(loop, 0, _List_Nil)));
-    }();
-    var abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder = function () {
-        var filterSelected = function (options) {
-            return A2(
-                elm$core$List$map,
-                function ($) {
-                    return $.value;
-                },
-                A2(
-                    elm$core$List$filter,
-                    function ($) {
-                        return $.selected;
-                    },
-                    options));
-        };
-        return A2(
-            elm$json$Json$Decode$map,
-            filterSelected,
-            A2(elm$json$Json$Decode$field, 'target', abadi199$elm_input_extra$MultiSelect$optionsDecoder));
-    }();
-    var elm$virtual_dom$VirtualDom$Normal = function (a) {
-        return {$: 'Normal', a: a};
-    };
-    var elm$json$Json$Decode$map2 = _Json_map2;
-    var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
-        switch (handler.$) {
-            case 'Normal':
-                return 0;
-            case 'MayStopPropagation':
-                return 1;
-            case 'MayPreventDefault':
-                return 2;
-            default:
-                return 3;
-        }
-    };
-    var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-    var elm$html$Html$Events$on = F2(
-        function (event, decoder) {
-            return A2(
-                elm$virtual_dom$VirtualDom$on,
-                event,
-                elm$virtual_dom$VirtualDom$Normal(decoder));
-        });
-    var abadi199$elm_input_extra$MultiSelect$onChange = function (tagger) {
-        return A2(
-            elm$html$Html$Events$on,
-            'change',
-            A2(elm$json$Json$Decode$map, tagger, abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder));
-    };
-    var elm$core$List$any = F2(
-        function (isOkay, list) {
-            any:
-                while (true) {
-                    if (!list.b) {
-                        return false;
-                    } else {
-                        var x = list.a;
-                        var xs = list.b;
-                        if (isOkay(x)) {
-                            return true;
-                        } else {
-                            var $temp$isOkay = isOkay,
-                                $temp$list = xs;
-                            isOkay = $temp$isOkay;
-                            list = $temp$list;
-
-                        }
-                    }
-                }
-        });
-    var elm$html$Html$option = _VirtualDom_node('option');
-    var elm$html$Html$select = _VirtualDom_node('select');
-    var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-    var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-    var elm$json$Json$Encode$bool = _Json_wrap;
-    var elm$html$Html$Attributes$boolProperty = F2(
-        function (key, bool) {
-            return A2(
-                _VirtualDom_property,
-                key,
-                elm$json$Json$Encode$bool(bool));
-        });
-    var elm$html$Html$Attributes$disabled = elm$html$Html$Attributes$boolProperty('disabled');
-    var elm$html$Html$Attributes$multiple = elm$html$Html$Attributes$boolProperty('multiple');
-    var elm$html$Html$Attributes$selected = elm$html$Html$Attributes$boolProperty('selected');
-    var elm$html$Html$Attributes$stringProperty = F2(
-        function (key, string) {
-            return A2(
-                _VirtualDom_property,
-                key,
-                elm$json$Json$Encode$string(string));
-        });
-    var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
-    var abadi199$elm_input_extra$MultiSelect$multiSelect = F3(
-        function (options, attributes, currentValue) {
-            var isSelected = function (value) {
-                return A2(
-                    elm$core$List$any,
-                    elm$core$Basics$eq(value),
-                    currentValue);
-            };
-            var toOption = function (_n0) {
-                var value = _n0.value;
-                var text = _n0.text;
-                var enabled = _n0.enabled;
-                return A2(
-                    elm$html$Html$option,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$Attributes$value(value),
-                            elm$html$Html$Attributes$selected(
-                                isSelected(value)),
-                            elm$html$Html$Attributes$disabled(!enabled)
-                        ]),
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text(text)
-                        ]));
-            };
-            return A2(
-                elm$html$Html$select,
-                _Utils_ap(
-                    attributes,
-                    _List_fromArray(
-                        [
-                            abadi199$elm_input_extra$MultiSelect$onChange(options.onChange),
-                            elm$html$Html$Attributes$multiple(true)
-                        ])),
-                A2(elm$core$List$map, toOption, options.items));
-        });
-    var author$project$Main$ChangeCurrentLocationFromZipcode = {$: 'ChangeCurrentLocationFromZipcode'};
+	var abadi199$elm_input_extra$MultiSelect$Option = F3(
+		function (value, text, selected) {
+			return {selected: selected, text: text, value: value};
+		});
+	var elm$json$Json$Decode$bool = _Json_decodeBool;
+	var elm$json$Json$Decode$map3 = _Json_map3;
+	var elm$json$Json$Decode$string = _Json_decodeString;
+	var abadi199$elm_input_extra$MultiSelect$optionDecoder = A4(
+		elm$json$Json$Decode$map3,
+		abadi199$elm_input_extra$MultiSelect$Option,
+		A2(elm$json$Json$Decode$field, 'value', elm$json$Json$Decode$string),
+		A2(elm$json$Json$Decode$field, 'text', elm$json$Json$Decode$string),
+		A2(elm$json$Json$Decode$field, 'selected', elm$json$Json$Decode$bool));
+	var elm$core$Maybe$map = F2(
+		function (f, maybe) {
+			if (maybe.$ === 'Just') {
+				var value = maybe.a;
+				return elm$core$Maybe$Just(
+					f(value));
+			} else {
+				return elm$core$Maybe$Nothing;
+			}
+		});
+	var elm$json$Json$Decode$maybe = function (decoder) {
+		return elm$json$Json$Decode$oneOf(
+			_List_fromArray(
+				[
+					A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, decoder),
+					elm$json$Json$Decode$succeed(elm$core$Maybe$Nothing)
+				]));
+	};
+	var abadi199$elm_input_extra$MultiSelect$optionsDecoder = function () {
+		var loop = F2(
+			function (idx, xs) {
+				return A2(
+					elm$json$Json$Decode$andThen,
+					A2(
+						elm$core$Basics$composeR,
+						elm$core$Maybe$map(
+							function (x) {
+								return A2(
+									loop,
+									idx + 1,
+									A2(elm$core$List$cons, x, xs));
+							}),
+						elm$core$Maybe$withDefault(
+							elm$json$Json$Decode$succeed(xs))),
+					elm$json$Json$Decode$maybe(
+						A2(
+							elm$json$Json$Decode$field,
+							elm$core$String$fromInt(idx),
+							abadi199$elm_input_extra$MultiSelect$optionDecoder)));
+			});
+		return A2(
+			elm$json$Json$Decode$map,
+			elm$core$List$reverse,
+			A2(
+				elm$json$Json$Decode$field,
+				'options',
+				A2(loop, 0, _List_Nil)));
+	}();
+	var abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder = function () {
+		var filterSelected = function (options) {
+			return A2(
+				elm$core$List$map,
+				function ($) {
+					return $.value;
+				},
+				A2(
+					elm$core$List$filter,
+					function ($) {
+						return $.selected;
+					},
+					options));
+		};
+		return A2(
+			elm$json$Json$Decode$map,
+			filterSelected,
+			A2(elm$json$Json$Decode$field, 'target', abadi199$elm_input_extra$MultiSelect$optionsDecoder));
+	}();
+	var elm$virtual_dom$VirtualDom$Normal = function (a) {
+		return {$: 'Normal', a: a};
+	};
+	var elm$json$Json$Decode$map2 = _Json_map2;
+	var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
+		switch (handler.$) {
+			case 'Normal':
+				return 0;
+			case 'MayStopPropagation':
+				return 1;
+			case 'MayPreventDefault':
+				return 2;
+			default:
+				return 3;
+		}
+	};
+	var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+	var elm$html$Html$Events$on = F2(
+		function (event, decoder) {
+			return A2(
+				elm$virtual_dom$VirtualDom$on,
+				event,
+				elm$virtual_dom$VirtualDom$Normal(decoder));
+		});
+	var abadi199$elm_input_extra$MultiSelect$onChange = function (tagger) {
+		return A2(
+			elm$html$Html$Events$on,
+			'change',
+			A2(elm$json$Json$Decode$map, tagger, abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder));
+	};
+	var elm$html$Html$option = _VirtualDom_node('option');
+	var elm$html$Html$select = _VirtualDom_node('select');
+	var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+	var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
+	var elm$json$Json$Encode$bool = _Json_wrap;
+	var elm$html$Html$Attributes$boolProperty = F2(
+		function (key, bool) {
+			return A2(
+				_VirtualDom_property,
+				key,
+				elm$json$Json$Encode$bool(bool));
+		});
+	var elm$html$Html$Attributes$disabled = elm$html$Html$Attributes$boolProperty('disabled');
+	var elm$html$Html$Attributes$multiple = elm$html$Html$Attributes$boolProperty('multiple');
+	var elm$html$Html$Attributes$selected = elm$html$Html$Attributes$boolProperty('selected');
+	var elm$html$Html$Attributes$stringProperty = F2(
+		function (key, string) {
+			return A2(
+				_VirtualDom_property,
+				key,
+				elm$json$Json$Encode$string(string));
+		});
+	var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
+	var abadi199$elm_input_extra$MultiSelect$multiSelect = F3(
+		function (options, attributes, currentValue) {
+			var isSelected = function (value) {
+				return A2(
+					elm$core$List$any,
+					elm$core$Basics$eq(value),
+					currentValue);
+			};
+			var toOption = function (_n0) {
+				var value = _n0.value;
+				var text = _n0.text;
+				var enabled = _n0.enabled;
+				return A2(
+					elm$html$Html$option,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$value(value),
+							elm$html$Html$Attributes$selected(
+								isSelected(value)),
+							elm$html$Html$Attributes$disabled(!enabled)
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(text)
+						]));
+			};
+			return A2(
+				elm$html$Html$select,
+				_Utils_ap(
+					attributes,
+					_List_fromArray(
+						[
+							abadi199$elm_input_extra$MultiSelect$onChange(options.onChange),
+							elm$html$Html$Attributes$multiple(true)
+						])),
+				A2(elm$core$List$map, toOption, options.items));
+		});
 var author$project$Main$ChangedCancerType = function (a) {
-    return {$: 'ChangedCancerType', a: a};
+	return {$: 'ChangedCancerType', a: a};
 };
-    var author$project$Main$ModeGeolocation = {$: 'ModeGeolocation'};
-    var author$project$Main$ModeZipcode = {$: 'ModeZipcode'};
-    var author$project$Main$UpdateZipcode = function (a) {
-        return {$: 'UpdateZipcode', a: a};
+	var author$project$Main$ModeGeolocation = {$: 'ModeGeolocation'};
+	var author$project$Main$ModeZipcode = {$: 'ModeZipcode'};
+	var author$project$Main$UpdateZipcode = function (a) {
+		return {$: 'UpdateZipcode', a: a};
 };
 var author$project$Main$SetTableState = function (a) {
-    return {$: 'SetTableState', a: a};
+	return {$: 'SetTableState', a: a};
 };
-    var billstclair$elm_sortable_table$Table$Config = function (a) {
-        return {$: 'Config', a: a};
-    };
+	var author$project$Main$ToggleGenelalCancerSelected = F2(
+		function (a, b) {
+			return {$: 'ToggleGenelalCancerSelected', a: a, b: b};
+		});
+	var elm$html$Html$Events$onClick = function (msg) {
+		return A2(
+			elm$html$Html$Events$on,
+			'click',
+			elm$json$Json$Decode$succeed(msg));
+	};
+	var author$project$Main$toRowAttrsGeneralCancer = function (facility) {
+		return _List_fromArray(
+			[
+				elm$html$Html$Events$onClick(
+					A2(author$project$Main$ToggleGenelalCancerSelected, facility.id, facility.location))
+			]);
+	};
+	var billstclair$elm_sortable_table$Table$Config = function (a) {
+		return {$: 'Config', a: a};
+	};
+	var billstclair$elm_sortable_table$Table$customConfig = function (_n0) {
+		var toId = _n0.toId;
+		var toMsg = _n0.toMsg;
+		var columns = _n0.columns;
+		var customizations = _n0.customizations;
+		return billstclair$elm_sortable_table$Table$Config(
+			{
+				columns: A2(
+					elm$core$List$map,
+					function (_n1) {
+						var cData = _n1.a;
+						return cData;
+					},
+					columns),
+				customizations: customizations,
+				toId: toId,
+				toMsg: toMsg
+			});
+	};
 var billstclair$elm_sortable_table$Table$simpleRowAttrs = function (_n0) {
 	return _List_Nil;
 };
 var billstclair$elm_sortable_table$Table$HtmlDetails = F2(
 	function (attributes, children) {
-        return {attributes: attributes, children: children};
+		return {attributes: attributes, children: children};
 	});
 var elm$core$Char$fromCode = _Char_fromCode;
 var elm$core$String$fromList = _String_fromList;
@@ -7909,8 +8183,8 @@ var billstclair$elm_sortable_table$Table$nbsp = elm$core$String$fromList(
 			elm$core$Char$fromCode(160)
 		]));
 var elm$html$Html$span = _VirtualDom_node('span');
-    var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-    var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
+	var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+	var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
 var billstclair$elm_sortable_table$Table$darkGrey = function (symbol) {
 	return A2(
 		elm$html$Html$span,
@@ -7944,12 +8218,12 @@ var billstclair$elm_sortable_table$Table$simpleTheadHelp = function (_n0) {
 	var click = _n0.c;
 	var content = function () {
 		switch (status.$) {
-            case 'Unsortable':
+			case 'Unsortable':
 				return _List_fromArray(
 					[
 						elm$html$Html$text(name)
 					]);
-            case 'Sortable':
+			case 'Sortable':
 				var selected = status.a;
 				return _List_fromArray(
 					[
@@ -7957,7 +8231,7 @@ var billstclair$elm_sortable_table$Table$simpleTheadHelp = function (_n0) {
 						selected ? billstclair$elm_sortable_table$Table$darkGrey('↓') : billstclair$elm_sortable_table$Table$lightGrey('↓')
 					]);
 			default:
-                if (status.a.$ === 'Nothing') {
+				if (status.a.$ === 'Nothing') {
 					var _n2 = status.a;
 					return _List_fromArray(
 						[
@@ -7987,37 +8261,19 @@ var billstclair$elm_sortable_table$Table$simpleThead = function (headers) {
 		_List_Nil,
 		A2(elm$core$List$map, billstclair$elm_sortable_table$Table$simpleTheadHelp, headers));
 };
-    var billstclair$elm_sortable_table$Table$defaultCustomizations = {
-        caption: elm$core$Maybe$Nothing,
-        rowAttrs: billstclair$elm_sortable_table$Table$simpleRowAttrs,
-        tableAttrs: _List_Nil,
-        tbodyAttrs: _List_Nil,
-        tfoot: elm$core$Maybe$Nothing,
-        thead: billstclair$elm_sortable_table$Table$simpleThead
-    };
-    var billstclair$elm_sortable_table$Table$config = function (_n0) {
-        var toId = _n0.toId;
-        var toMsg = _n0.toMsg;
-        var columns = _n0.columns;
-        return billstclair$elm_sortable_table$Table$Config(
-            {
-                columns: A2(
-                    elm$core$List$map,
-                    function (_n1) {
-                        var cData = _n1.a;
-                        return cData;
-                    },
-                    columns),
-                customizations: billstclair$elm_sortable_table$Table$defaultCustomizations,
-                toId: toId,
-                toMsg: toMsg
-            });
-    };
-    var billstclair$elm_sortable_table$Table$Column = function (a) {
-        return {$: 'Column', a: a};
-    };
+	var billstclair$elm_sortable_table$Table$defaultCustomizations = {
+		caption: elm$core$Maybe$Nothing,
+		rowAttrs: billstclair$elm_sortable_table$Table$simpleRowAttrs,
+		tableAttrs: _List_Nil,
+		tbodyAttrs: _List_Nil,
+		tfoot: elm$core$Maybe$Nothing,
+		thead: billstclair$elm_sortable_table$Table$simpleThead
+	};
+	var billstclair$elm_sortable_table$Table$Column = function (a) {
+		return {$: 'Column', a: a};
+	};
 var billstclair$elm_sortable_table$Table$IncOrDec = function (a) {
-    return {$: 'IncOrDec', a: a};
+	return {$: 'IncOrDec', a: a};
 };
 var elm$core$List$sortBy = _List_sortBy;
 var billstclair$elm_sortable_table$Table$increasingOrDecreasingBy = function (toComparable) {
@@ -8040,181 +8296,154 @@ var elm$core$Basics$composeL = F3(
 	});
 var billstclair$elm_sortable_table$Table$intColumn = F2(
 	function (name, toInt) {
-        return billstclair$elm_sortable_table$Table$Column(
-            {
-                name: name,
-                sorter: billstclair$elm_sortable_table$Table$increasingOrDecreasingBy(toInt),
-                viewData: A2(
-                    elm$core$Basics$composeL,
-                    A2(elm$core$Basics$composeL, billstclair$elm_sortable_table$Table$textDetails, elm$core$String$fromInt),
-                    toInt)
-            });
+		return billstclair$elm_sortable_table$Table$Column(
+			{
+				name: name,
+				sorter: billstclair$elm_sortable_table$Table$increasingOrDecreasingBy(toInt),
+				viewData: A2(
+					elm$core$Basics$composeL,
+					A2(elm$core$Basics$composeL, billstclair$elm_sortable_table$Table$textDetails, elm$core$String$fromInt),
+					toInt)
+			});
 	});
 var billstclair$elm_sortable_table$Table$stringColumn = F2(
 	function (name, toStr) {
-        return billstclair$elm_sortable_table$Table$Column(
-            {
-                name: name,
-                sorter: billstclair$elm_sortable_table$Table$increasingOrDecreasingBy(toStr),
-                viewData: A2(elm$core$Basics$composeL, billstclair$elm_sortable_table$Table$textDetails, toStr)
-            });
-    });
-    var author$project$Main$configGeneralCancer = billstclair$elm_sortable_table$Table$config(
-        {
-            columns: _List_fromArray(
-                [
-                    A2(
-                        billstclair$elm_sortable_table$Table$stringColumn,
-                        '施設名',
-                        function ($) {
-                            return $.name;
-                        }),
-                    A2(
-                        billstclair$elm_sortable_table$Table$intColumn,
-                        '距離(km)',
-                        function ($) {
-                            return $.distance;
-                        }),
-                    A2(
-                        billstclair$elm_sortable_table$Table$intColumn,
-                        '件数',
-                        function ($) {
-                            return $.count;
-                        }),
-                    A2(
-                        billstclair$elm_sortable_table$Table$stringColumn,
-                        '診断',
-                        function ($) {
-                            return $.diagnosis;
-                        }),
-                    A2(
-                        billstclair$elm_sortable_table$Table$stringColumn,
-                        '治療',
-                        function ($) {
-                            return $.treatment;
-                        })
-                ]),
-            toId: function ($) {
-                return $.id;
-            },
-            toMsg: author$project$Main$SetTableState
-        });
-    var author$project$Main$ToggleSoftTissueSelected = F2(
-        function (a, b) {
-            return {$: 'ToggleSoftTissueSelected', a: a, b: b};
-        });
-    var elm$html$Html$Events$onClick = function (msg) {
-        return A2(
-            elm$html$Html$Events$on,
-            'click',
-            elm$json$Json$Decode$succeed(msg));
-    };
-    var author$project$Main$toRowAttrs = function (facility) {
-        return _List_fromArray(
-            [
-                elm$html$Html$Events$onClick(
-                    A2(author$project$Main$ToggleSoftTissueSelected, facility.id, facility.location)),
-                A2(
-                    elm$html$Html$Attributes$style,
-                    'background',
-                    facility.selected ? '#CEFAF8' : 'white')
-            ]);
-    };
-    var billstclair$elm_sortable_table$Table$customConfig = function (_n0) {
-        var toId = _n0.toId;
-        var toMsg = _n0.toMsg;
-        var columns = _n0.columns;
-        var customizations = _n0.customizations;
-        return billstclair$elm_sortable_table$Table$Config(
-            {
-                columns: A2(
-                    elm$core$List$map,
-                    function (_n1) {
-                        var cData = _n1.a;
-                        return cData;
-                    },
-                    columns),
-                customizations: customizations,
-                toId: toId,
-                toMsg: toMsg
-            });
-    };
+		return billstclair$elm_sortable_table$Table$Column(
+			{
+				name: name,
+				sorter: billstclair$elm_sortable_table$Table$increasingOrDecreasingBy(toStr),
+				viewData: A2(elm$core$Basics$composeL, billstclair$elm_sortable_table$Table$textDetails, toStr)
+			});
+	});
+	var author$project$Main$configGeneralCancer = billstclair$elm_sortable_table$Table$customConfig(
+		{
+			columns: _List_fromArray(
+				[
+					A2(
+						billstclair$elm_sortable_table$Table$stringColumn,
+						'施設名',
+						function ($) {
+							return $.name;
+						}),
+					A2(
+						billstclair$elm_sortable_table$Table$intColumn,
+						'距離(km)',
+						function ($) {
+							return $.distance;
+						}),
+					A2(
+						billstclair$elm_sortable_table$Table$intColumn,
+						'件数',
+						function ($) {
+							return $.count;
+						}),
+					A2(
+						billstclair$elm_sortable_table$Table$stringColumn,
+						'診断',
+						function ($) {
+							return $.diagnosis;
+						}),
+					A2(
+						billstclair$elm_sortable_table$Table$stringColumn,
+						'治療',
+						function ($) {
+							return $.treatment;
+						})
+				]),
+			customizations: _Utils_update(
+				billstclair$elm_sortable_table$Table$defaultCustomizations,
+				{rowAttrs: author$project$Main$toRowAttrsGeneralCancer}),
+			toId: function ($) {
+				return $.id;
+			},
+			toMsg: author$project$Main$SetTableState
+		});
+	var author$project$Main$OpenNewWindow = function (a) {
+		return {$: 'OpenNewWindow', a: a};
+	};
+	var author$project$Main$toRowAttrsSoftTissue = function (facility) {
+		return _List_fromArray(
+			[
+				elm$html$Html$Events$onClick(
+					author$project$Main$OpenNewWindow('https://hospdb.ganjoho.jp/kyotendb.nsf/xpLeaflet.xsp?hospId=' + facility.id))
+			]);
+	};
 var author$project$Main$configSoftTissue = billstclair$elm_sortable_table$Table$customConfig(
 	{
-        columns: _List_fromArray(
+		columns: _List_fromArray(
 			[
 				A2(
 				billstclair$elm_sortable_table$Table$stringColumn,
 				'施設名',
 				function ($) {
-                    return $.name;
+					return $.name;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'距離(km)',
 				function ($) {
-                    return $.distance;
+					return $.distance;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'上肢',
 				function ($) {
-                    return $.joshi;
+					return $.joshi;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'下肢',
 				function ($) {
-                    return $.kashi;
+					return $.kashi;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'体幹',
 				function ($) {
-                    return $.taikan;
+					return $.taikan;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'再発後初診',
 				function ($) {
-                    return $.saihatsushoshin;
+					return $.saihatsushoshin;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'手術件数',
 				function ($) {
-                    return $.ope;
+					return $.ope;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'放射線治療',
 				function ($) {
-                    return $.housyasen;
+					return $.housyasen;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'薬物療法',
 				function ($) {
-                    return $.yakubutsu;
+					return $.yakubutsu;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
 				'セカンドオピニオン',
 				function ($) {
-                    return $.secondopinion;
+					return $.secondopinion;
 				})
 			]),
-        customizations: _Utils_update(
+		customizations: _Utils_update(
 			billstclair$elm_sortable_table$Table$defaultCustomizations,
-            {rowAttrs: author$project$Main$toRowAttrs}),
-        toId: function ($) {
-            return $.id;
+			{rowAttrs: author$project$Main$toRowAttrsSoftTissue}),
+		toId: function ($) {
+			return $.id;
 		},
-        toMsg: author$project$Main$SetTableState
+		toMsg: author$project$Main$SetTableState
 	});
-    var author$project$Main$ChangedCancerPart = function (a) {
-        return {$: 'ChangedCancerPart', a: a};
-    };
+	var author$project$Main$ChangedCancerPart = function (a) {
+		return {$: 'ChangedCancerPart', a: a};
+	};
 var author$project$Main$selectOption = F2(
 	function (inputValue, inputText) {
 		return A2(
@@ -8227,212 +8456,212 @@ var author$project$Main$selectOption = F2(
 				[
 					elm$html$Html$text(inputText)
 				]));
-    });
-    var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
-    var elm$json$Json$Decode$at = F2(
-        function (fields, decoder) {
-            return A3(elm$core$List$foldr, elm$json$Json$Decode$field, decoder, fields);
-        });
-    var elm$html$Html$Events$targetValue = A2(
-        elm$json$Json$Decode$at,
-        _List_fromArray(
-            ['target', 'value']),
-        elm$json$Json$Decode$string);
-    var author$project$Main$htmlSelectEyelid = A2(
-        elm$html$Html$select,
-        _List_fromArray(
-            [
-                elm$html$Html$Attributes$id('cancerpart'),
-                A2(
-                    elm$html$Html$Events$on,
-                    'change',
-                    A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-            ]),
-        _List_fromArray(
-            [
-                A2(
-                    elm$html$Html$option,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$Attributes$selected(true)
-                        ]),
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('選択してください')
-                        ])),
-                A2(author$project$Main$selectOption, 'BasalCellCarcinoma', '基底細胞がん'),
-                A2(author$project$Main$selectOption, 'SebaceousGlandCancer', '脂腺がん'),
-                A2(author$project$Main$selectOption, 'SquamousCellCarcinoma', '扁平上皮がん')
-            ]));
-    var author$project$Main$htmlSelectIntraocular = A2(
-        elm$html$Html$select,
-        _List_fromArray(
-            [
-                elm$html$Html$Attributes$id('cancerpart'),
-                A2(
-                    elm$html$Html$Events$on,
-                    'change',
-                    A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-            ]),
-        _List_fromArray(
-            [
-                A2(
-                    elm$html$Html$option,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$Attributes$selected(true)
-                        ]),
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('選択してください')
-                        ])),
-                A2(author$project$Main$selectOption, 'Retinoblastoma', '網膜芽細胞腫'),
-                A2(author$project$Main$selectOption, 'UvealMalignantMelanoma', 'ぶどう膜悪性黒色腫'),
-                A2(author$project$Main$selectOption, 'IntraocularLymphoma', '眼内リンパ腫')
-            ]));
-    var author$project$Main$htmlSelectKeratoconjunctival = A2(
-        elm$html$Html$select,
-        _List_fromArray(
-            [
-                elm$html$Html$Attributes$id('cancerpart'),
-                A2(
-                    elm$html$Html$Events$on,
-                    'change',
-                    A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-            ]),
-        _List_fromArray(
-            [
-                A2(
-                    elm$html$Html$option,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$Attributes$selected(true)
-                        ]),
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('選択してください')
-                        ])),
-                A2(author$project$Main$selectOption, 'ConjunctivalMalignantLymphoma', '結膜悪性リンパ腫'),
-                A2(author$project$Main$selectOption, 'KeratoconjunctivalSquamousCellCarcinoma', '角結膜扁平上皮癌'),
-                A2(author$project$Main$selectOption, 'ConjunctivalMalignantMelanoma', '結膜悪性黒色腫')
-            ]));
-    var author$project$Main$htmlSelectOrbital = A2(
-        elm$html$Html$select,
-        _List_fromArray(
-            [
-                elm$html$Html$Attributes$id('cancerpart'),
-                A2(
-                    elm$html$Html$Events$on,
-                    'change',
-                    A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-            ]),
-        _List_fromArray(
-            [
-                A2(
-                    elm$html$Html$option,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$Attributes$selected(true)
-                        ]),
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('選択してください')
-                        ])),
-                A2(author$project$Main$selectOption, 'OrbitalMalignantLymphoma', '眼窩悪性リンパ腫'),
-                A2(author$project$Main$selectOption, 'LacrimalGlandCancer', '涙腺がん')
-            ]));
-    var abadi199$elm_input_extra$MultiSelect$defaultOptions = function (onChangeHandler) {
-        return {items: _List_Nil, onChange: onChangeHandler};
-    };
-    var author$project$Main$ChangeTodofuken = function (a) {
-        return {$: 'ChangeTodofuken', a: a};
-    };
-    var author$project$Main$multiSelectTodofukenOptions = function () {
-        var defaultOptions = abadi199$elm_input_extra$MultiSelect$defaultOptions(author$project$Main$ChangeTodofuken);
-        return _Utils_update(
-            defaultOptions,
-            {
-                items: _List_fromArray(
-                    [
-                        {enabled: true, text: '北海道', value: '北海道'},
-                        {enabled: true, text: '青森県', value: '青森県'},
-                        {enabled: true, text: '岩手県', value: '岩手県'},
-                        {enabled: true, text: '宮城県', value: '宮城県'},
-                        {enabled: true, text: '秋田県', value: '秋田県'},
-                        {enabled: true, text: '山形県', value: '山形県'},
-                        {enabled: true, text: '福島県', value: '福島県'},
-                        {enabled: true, text: '茨城県', value: '茨城県'},
-                        {enabled: true, text: '栃木県', value: '栃木県'},
-                        {enabled: true, text: '群馬県', value: '群馬県'},
-                        {enabled: true, text: '埼玉県', value: '埼玉県'},
-                        {enabled: true, text: '千葉県', value: '千葉県'},
-                        {enabled: true, text: '東京都', value: '東京都'},
-                        {enabled: true, text: '神奈川県', value: '神奈川県'},
-                        {enabled: true, text: '新潟県', value: '新潟県'},
-                        {enabled: true, text: '富山県', value: '富山県'},
-                        {enabled: true, text: '石川県', value: '石川県'},
-                        {enabled: true, text: '福井県', value: '福井県'},
-                        {enabled: true, text: '山梨県', value: '山梨県'},
-                        {enabled: true, text: '長野県', value: '長野県'},
-                        {enabled: true, text: '岐阜県', value: '岐阜県'},
-                        {enabled: true, text: '静岡県', value: '静岡県'},
-                        {enabled: true, text: '愛知県', value: '愛知県'},
-                        {enabled: true, text: '三重県', value: '三重県'},
-                        {enabled: true, text: '滋賀県', value: '滋賀県'},
-                        {enabled: true, text: '京都府', value: '京都府'},
-                        {enabled: true, text: '大阪府', value: '大阪府'},
-                        {enabled: true, text: '兵庫県', value: '兵庫県'},
-                        {enabled: true, text: '奈良県', value: '奈良県'},
-                        {enabled: true, text: '和歌山県', value: '和歌山県'},
-                        {enabled: true, text: '鳥取県', value: '鳥取県'},
-                        {enabled: true, text: '島根県', value: '島根県'},
-                        {enabled: true, text: '岡山県', value: '岡山県'},
-                        {enabled: true, text: '広島県', value: '広島県'},
-                        {enabled: true, text: '山口県', value: '山口県'},
-                        {enabled: true, text: '徳島県', value: '徳島県'},
-                        {enabled: true, text: '香川県', value: '香川県'},
-                        {enabled: true, text: '愛媛県', value: '愛媛県'},
-                        {enabled: true, text: '高知県', value: '高知県'},
-                        {enabled: true, text: '福岡県', value: '福岡県'},
-                        {enabled: true, text: '佐賀県', value: '佐賀県'},
-                        {enabled: true, text: '長崎県', value: '長崎県'},
-                        {enabled: true, text: '熊本県', value: '熊本県'},
-                        {enabled: true, text: '大分県', value: '大分県'},
-                        {enabled: true, text: '宮崎県', value: '宮崎県'},
-                        {enabled: true, text: '鹿児島県', value: '鹿児島県'},
-                        {enabled: true, text: '沖縄県', value: '沖縄県'}
-                    ])
-            });
-    }();
-    var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
-        return _VirtualDom_keyedNode(
-            _VirtualDom_noScript(tag));
-    };
-    var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
-    var author$project$Main$unique = F2(
-        function (identifier, html) {
-            return A3(
-                elm$html$Html$Keyed$node,
-                'span',
-                _List_Nil,
-                _List_fromArray(
-                    [
-                        _Utils_Tuple2(identifier, html)
-                    ]));
-        });
+	});
+	var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
+	var elm$json$Json$Decode$at = F2(
+		function (fields, decoder) {
+			return A3(elm$core$List$foldr, elm$json$Json$Decode$field, decoder, fields);
+		});
+	var elm$html$Html$Events$targetValue = A2(
+		elm$json$Json$Decode$at,
+		_List_fromArray(
+			['target', 'value']),
+		elm$json$Json$Decode$string);
+	var author$project$Main$htmlSelectEyelid = A2(
+		elm$html$Html$select,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$id('cancerpart'),
+				A2(
+					elm$html$Html$Events$on,
+					'change',
+					A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
+			]),
+		_List_fromArray(
+			[
+				A2(
+					elm$html$Html$option,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$selected(true)
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text('選択してください')
+						])),
+				A2(author$project$Main$selectOption, 'BasalCellCarcinoma', '基底細胞がん'),
+				A2(author$project$Main$selectOption, 'SebaceousGlandCancer', '脂腺がん'),
+				A2(author$project$Main$selectOption, 'SquamousCellCarcinoma', '扁平上皮がん')
+			]));
+	var author$project$Main$htmlSelectIntraocular = A2(
+		elm$html$Html$select,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$id('cancerpart'),
+				A2(
+					elm$html$Html$Events$on,
+					'change',
+					A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
+			]),
+		_List_fromArray(
+			[
+				A2(
+					elm$html$Html$option,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$selected(true)
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text('選択してください')
+						])),
+				A2(author$project$Main$selectOption, 'Retinoblastoma', '網膜芽細胞腫'),
+				A2(author$project$Main$selectOption, 'UvealMalignantMelanoma', 'ぶどう膜悪性黒色腫'),
+				A2(author$project$Main$selectOption, 'IntraocularLymphoma', '眼内リンパ腫')
+			]));
+	var author$project$Main$htmlSelectKeratoconjunctival = A2(
+		elm$html$Html$select,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$id('cancerpart'),
+				A2(
+					elm$html$Html$Events$on,
+					'change',
+					A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
+			]),
+		_List_fromArray(
+			[
+				A2(
+					elm$html$Html$option,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$selected(true)
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text('選択してください')
+						])),
+				A2(author$project$Main$selectOption, 'ConjunctivalMalignantLymphoma', '結膜悪性リンパ腫'),
+				A2(author$project$Main$selectOption, 'KeratoconjunctivalSquamousCellCarcinoma', '角結膜扁平上皮癌'),
+				A2(author$project$Main$selectOption, 'ConjunctivalMalignantMelanoma', '結膜悪性黒色腫')
+			]));
+	var author$project$Main$htmlSelectOrbital = A2(
+		elm$html$Html$select,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$id('cancerpart'),
+				A2(
+					elm$html$Html$Events$on,
+					'change',
+					A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
+			]),
+		_List_fromArray(
+			[
+				A2(
+					elm$html$Html$option,
+					_List_fromArray(
+						[
+							elm$html$Html$Attributes$selected(true)
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text('選択してください')
+						])),
+				A2(author$project$Main$selectOption, 'OrbitalMalignantLymphoma', '眼窩悪性リンパ腫'),
+				A2(author$project$Main$selectOption, 'LacrimalGlandCancer', '涙腺がん')
+			]));
+	var abadi199$elm_input_extra$MultiSelect$defaultOptions = function (onChangeHandler) {
+		return {items: _List_Nil, onChange: onChangeHandler};
+	};
+	var author$project$Main$ChangeTodofuken = function (a) {
+		return {$: 'ChangeTodofuken', a: a};
+	};
+	var author$project$Main$multiSelectTodofukenOptions = function () {
+		var defaultOptions = abadi199$elm_input_extra$MultiSelect$defaultOptions(author$project$Main$ChangeTodofuken);
+		return _Utils_update(
+			defaultOptions,
+			{
+				items: _List_fromArray(
+					[
+						{enabled: true, text: '北海道', value: '北海道'},
+						{enabled: true, text: '青森県', value: '青森県'},
+						{enabled: true, text: '岩手県', value: '岩手県'},
+						{enabled: true, text: '宮城県', value: '宮城県'},
+						{enabled: true, text: '秋田県', value: '秋田県'},
+						{enabled: true, text: '山形県', value: '山形県'},
+						{enabled: true, text: '福島県', value: '福島県'},
+						{enabled: true, text: '茨城県', value: '茨城県'},
+						{enabled: true, text: '栃木県', value: '栃木県'},
+						{enabled: true, text: '群馬県', value: '群馬県'},
+						{enabled: true, text: '埼玉県', value: '埼玉県'},
+						{enabled: true, text: '千葉県', value: '千葉県'},
+						{enabled: true, text: '東京都', value: '東京都'},
+						{enabled: true, text: '神奈川県', value: '神奈川県'},
+						{enabled: true, text: '新潟県', value: '新潟県'},
+						{enabled: true, text: '富山県', value: '富山県'},
+						{enabled: true, text: '石川県', value: '石川県'},
+						{enabled: true, text: '福井県', value: '福井県'},
+						{enabled: true, text: '山梨県', value: '山梨県'},
+						{enabled: true, text: '長野県', value: '長野県'},
+						{enabled: true, text: '岐阜県', value: '岐阜県'},
+						{enabled: true, text: '静岡県', value: '静岡県'},
+						{enabled: true, text: '愛知県', value: '愛知県'},
+						{enabled: true, text: '三重県', value: '三重県'},
+						{enabled: true, text: '滋賀県', value: '滋賀県'},
+						{enabled: true, text: '京都府', value: '京都府'},
+						{enabled: true, text: '大阪府', value: '大阪府'},
+						{enabled: true, text: '兵庫県', value: '兵庫県'},
+						{enabled: true, text: '奈良県', value: '奈良県'},
+						{enabled: true, text: '和歌山県', value: '和歌山県'},
+						{enabled: true, text: '鳥取県', value: '鳥取県'},
+						{enabled: true, text: '島根県', value: '島根県'},
+						{enabled: true, text: '岡山県', value: '岡山県'},
+						{enabled: true, text: '広島県', value: '広島県'},
+						{enabled: true, text: '山口県', value: '山口県'},
+						{enabled: true, text: '徳島県', value: '徳島県'},
+						{enabled: true, text: '香川県', value: '香川県'},
+						{enabled: true, text: '愛媛県', value: '愛媛県'},
+						{enabled: true, text: '高知県', value: '高知県'},
+						{enabled: true, text: '福岡県', value: '福岡県'},
+						{enabled: true, text: '佐賀県', value: '佐賀県'},
+						{enabled: true, text: '長崎県', value: '長崎県'},
+						{enabled: true, text: '熊本県', value: '熊本県'},
+						{enabled: true, text: '大分県', value: '大分県'},
+						{enabled: true, text: '宮崎県', value: '宮崎県'},
+						{enabled: true, text: '鹿児島県', value: '鹿児島県'},
+						{enabled: true, text: '沖縄県', value: '沖縄県'}
+					])
+			});
+	}();
+	var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
+		return _VirtualDom_keyedNode(
+			_VirtualDom_noScript(tag));
+	};
+	var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
+	var author$project$Main$unique = F2(
+		function (identifier, html) {
+			return A3(
+				elm$html$Html$Keyed$node,
+				'span',
+				_List_Nil,
+				_List_fromArray(
+					[
+						_Utils_Tuple2(identifier, html)
+					]));
+		});
 var billstclair$elm_sortable_table$Table$applySorter = F3(
 	function (isReversed, sorter, data) {
 		switch (sorter.$) {
-            case 'None':
+			case 'None':
 				return data;
-            case 'Increasing':
+			case 'Increasing':
 				var srt = sorter.a;
 				return srt(data);
-            case 'Decreasing':
+			case 'Decreasing':
 				var srt = sorter.a;
 				return elm$core$List$reverse(
 					srt(data));
-            case 'IncOrDec':
+			case 'IncOrDec':
 				var srt = sorter.a;
 				return isReversed ? elm$core$List$reverse(
 					srt(data)) : srt(data);
@@ -8449,8 +8678,8 @@ var billstclair$elm_sortable_table$Table$findSorter = F2(
 			if (!columnData.b) {
 				return elm$core$Maybe$Nothing;
 			} else {
-                var name = columnData.a.name;
-                var sorter = columnData.a.sorter;
+				var name = columnData.a.name;
+				var sorter = columnData.a.sorter;
 				var remainingColumnData = columnData.b;
 				if (_Utils_eq(name, selectedColumn)) {
 					return elm$core$Maybe$Just(sorter);
@@ -8460,7 +8689,7 @@ var billstclair$elm_sortable_table$Table$findSorter = F2(
 					selectedColumn = $temp$selectedColumn;
 					columnData = $temp$columnData;
 
-                }
+				}
 			}
 		}
 	});
@@ -8469,7 +8698,7 @@ var billstclair$elm_sortable_table$Table$sort = F3(
 		var selectedColumn = _n0.a;
 		var isReversed = _n0.b;
 		var _n1 = A2(billstclair$elm_sortable_table$Table$findSorter, selectedColumn, columnData);
-        if (_n1.$ === 'Nothing') {
+		if (_n1.$ === 'Nothing') {
 			return data;
 		} else {
 			var sorter = _n1.a;
@@ -8478,19 +8707,19 @@ var billstclair$elm_sortable_table$Table$sort = F3(
 	});
 var billstclair$elm_sortable_table$Table$getSortedData = F3(
 	function (_n0, state, data) {
-        var toId = _n0.a.toId;
-        var toMsg = _n0.a.toMsg;
-        var columns = _n0.a.columns;
-        var customizations = _n0.a.customizations;
+		var toId = _n0.a.toId;
+		var toMsg = _n0.a.toMsg;
+		var columns = _n0.a.columns;
+		var customizations = _n0.a.customizations;
 		return A3(billstclair$elm_sortable_table$Table$sort, state, columns, data);
 	});
 var billstclair$elm_sortable_table$Table$Reversible = function (a) {
-    return {$: 'Reversible', a: a};
+	return {$: 'Reversible', a: a};
 };
 var billstclair$elm_sortable_table$Table$Sortable = function (a) {
-    return {$: 'Sortable', a: a};
+	return {$: 'Sortable', a: a};
 };
-    var billstclair$elm_sortable_table$Table$Unsortable = {$: 'Unsortable'};
+	var billstclair$elm_sortable_table$Table$Unsortable = {$: 'Unsortable'};
 var billstclair$elm_sortable_table$Table$onClick = F3(
 	function (name, isReversed, toMsg) {
 		return A2(
@@ -8509,27 +8738,27 @@ var billstclair$elm_sortable_table$Table$toHeaderInfo = F3(
 	function (_n0, toMsg, _n1) {
 		var sortName = _n0.a;
 		var isReversed = _n0.b;
-        var name = _n1.name;
-        var sorter = _n1.sorter;
+		var name = _n1.name;
+		var sorter = _n1.sorter;
 		switch (sorter.$) {
-            case 'None':
+			case 'None':
 				return _Utils_Tuple3(
 					name,
 					billstclair$elm_sortable_table$Table$Unsortable,
 					A3(billstclair$elm_sortable_table$Table$onClick, sortName, isReversed, toMsg));
-            case 'Increasing':
+			case 'Increasing':
 				return _Utils_Tuple3(
 					name,
 					billstclair$elm_sortable_table$Table$Sortable(
 						!_Utils_eq(name, sortName)),
 					A3(billstclair$elm_sortable_table$Table$onClick, name, false, toMsg));
-            case 'Decreasing':
+			case 'Decreasing':
 				return _Utils_Tuple3(
 					name,
 					billstclair$elm_sortable_table$Table$Sortable(
 						_Utils_eq(name, sortName)),
 					A3(billstclair$elm_sortable_table$Table$onClick, name, false, toMsg));
-            case 'IncOrDec':
+			case 'IncOrDec':
 				return _Utils_eq(name, sortName) ? _Utils_Tuple3(
 					name,
 					billstclair$elm_sortable_table$Table$Reversible(
@@ -8552,9 +8781,9 @@ var billstclair$elm_sortable_table$Table$toHeaderInfo = F3(
 var elm$html$Html$td = _VirtualDom_node('td');
 var billstclair$elm_sortable_table$Table$viewCell = F2(
 	function (data, _n0) {
-        var viewData = _n0.viewData;
+		var viewData = _n0.viewData;
 		var details = viewData(data);
-        return A2(elm$html$Html$td, details.attributes, details.children);
+		return A2(elm$html$Html$td, details.attributes, details.children);
 	});
 var elm$html$Html$tr = _VirtualDom_node('tr');
 var billstclair$elm_sortable_table$Table$viewRowHelp = F3(
@@ -8581,38 +8810,38 @@ var elm$html$Html$tfoot = _VirtualDom_node('tfoot');
 var elm$html$Html$thead = _VirtualDom_node('thead');
 var billstclair$elm_sortable_table$Table$view = F3(
 	function (conf, state, data) {
-        var toId = conf.a.toId;
-        var toMsg = conf.a.toMsg;
-        var columns = conf.a.columns;
-        var customizations = conf.a.customizations;
-        var theadDetails = customizations.thead(
+		var toId = conf.a.toId;
+		var toMsg = conf.a.toMsg;
+		var columns = conf.a.columns;
+		var customizations = conf.a.customizations;
+		var theadDetails = customizations.thead(
 			A2(
 				elm$core$List$map,
 				A2(billstclair$elm_sortable_table$Table$toHeaderInfo, state, toMsg),
 				columns));
 		var thead = A2(
 			elm$html$Html$thead,
-            theadDetails.attributes,
+			theadDetails.attributes,
 			_List_fromArray(
 				[
-                    A2(elm$html$Html$tr, _List_Nil, theadDetails.children)
+					A2(elm$html$Html$tr, _List_Nil, theadDetails.children)
 				]));
 		var sortedData = A3(billstclair$elm_sortable_table$Table$getSortedData, conf, state, data);
 		var tbody = A3(
 			elm$html$Html$Keyed$node,
 			'tbody',
-            customizations.tbodyAttrs,
+			customizations.tbodyAttrs,
 			A2(
 				elm$core$List$map,
-                A3(billstclair$elm_sortable_table$Table$viewRow, toId, columns, customizations.rowAttrs),
+				A3(billstclair$elm_sortable_table$Table$viewRow, toId, columns, customizations.rowAttrs),
 				sortedData));
 		var withFoot = function () {
-            var _n1 = customizations.tfoot;
-            if (_n1.$ === 'Nothing') {
+			var _n1 = customizations.tfoot;
+			if (_n1.$ === 'Nothing') {
 				return A2(elm$core$List$cons, tbody, _List_Nil);
 			} else {
-                var attributes = _n1.a.attributes;
-                var children = _n1.a.children;
+				var attributes = _n1.a.attributes;
+				var children = _n1.a.children;
 				return A2(
 					elm$core$List$cons,
 					A2(elm$html$Html$tfoot, attributes, children),
@@ -8621,14 +8850,14 @@ var billstclair$elm_sortable_table$Table$view = F3(
 		}();
 		return A2(
 			elm$html$Html$table,
-            customizations.tableAttrs,
+			customizations.tableAttrs,
 			function () {
-                var _n0 = customizations.caption;
-                if (_n0.$ === 'Nothing') {
+				var _n0 = customizations.caption;
+				if (_n0.$ === 'Nothing') {
 					return A2(elm$core$List$cons, thead, withFoot);
 				} else {
-                    var attributes = _n0.a.attributes;
-                    var children = _n0.a.children;
+					var attributes = _n0.a.attributes;
+					var children = _n0.a.children;
 					return A2(
 						elm$core$List$cons,
 						A2(elm$html$Html$caption, attributes, children),
@@ -8637,7 +8866,6 @@ var billstclair$elm_sortable_table$Table$view = F3(
 			}());
 	});
 var elm$html$Html$a = _VirtualDom_node('a');
-    var elm$html$Html$button = _VirtualDom_node('button');
 var elm$html$Html$div = _VirtualDom_node('div');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$li = _VirtualDom_node('li');
@@ -8649,7 +8877,7 @@ var elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
 var elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
-    return {$: 'MayStopPropagation', a: a};
+	return {$: 'MayStopPropagation', a: a};
 };
 var elm$html$Html$Events$stopPropagationOn = F2(
 	function (event, decoder) {
@@ -8701,7 +8929,7 @@ var author$project$Main$view = function (model) {
 										elm$html$Html$li,
 										_List_fromArray(
 											[
-                                                _Utils_eq(model.searchMode, author$project$Main$Geolocation) ? elm$html$Html$Attributes$class('is-active') : elm$html$Html$Attributes$class('none')
+												_Utils_eq(model.searchMode, author$project$Main$Geolocation) ? elm$html$Html$Attributes$class('is-active') : elm$html$Html$Attributes$class('none')
 											]),
 										_List_fromArray(
 											[
@@ -8720,7 +8948,7 @@ var author$project$Main$view = function (model) {
 										elm$html$Html$li,
 										_List_fromArray(
 											[
-                                                _Utils_eq(model.searchMode, author$project$Main$Zipcode) ? elm$html$Html$Attributes$class('is-active') : elm$html$Html$Attributes$class('none')
+												_Utils_eq(model.searchMode, author$project$Main$Zipcode) ? elm$html$Html$Attributes$class('is-active') : elm$html$Html$Attributes$class('none')
 											]),
 										_List_fromArray(
 											[
@@ -8747,38 +8975,21 @@ var author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						function () {
-                            var _n0 = model.searchMode;
-                            if (_n0.$ === 'Zipcode') {
+							var _n0 = model.searchMode;
+							if (_n0.$ === 'Zipcode') {
 							return A2(
 								elm$html$Html$input,
 								_List_fromArray(
 									[
 										elm$html$Html$Attributes$placeholder('郵便番号を7桁で入力してください'),
-                                        elm$html$Html$Events$onInput(author$project$Main$UpdateZipcode)
+										elm$html$Html$Events$onInput(author$project$Main$UpdateZipcode)
 									]),
 								_List_Nil);
 						} else {
-                                return elm$html$Html$text('');
-                            }
-                        }(),
-                        function () {
-                            var _n1 = model.searchMode;
-                            if (_n1.$ === 'Zipcode') {
-                                return A2(
-                                    elm$html$Html$button,
-                                    _List_fromArray(
-                                        [
-                                            elm$html$Html$Events$onClick(author$project$Main$ChangeCurrentLocationFromZipcode)
-                                        ]),
-                                    _List_fromArray(
-                                        [
-                                            elm$html$Html$text('決定')
-                                        ]));
-                            } else {
-                                return elm$html$Html$text('');
-                            }
-                        }(),
-                        elm$html$Html$text('がん選択:'),
+								return elm$html$Html$text('');
+							}
+						}(),
+						elm$html$Html$text('がん選択:'),
 						A2(
 						elm$html$Html$select,
 						_List_fromArray(
@@ -8805,79 +9016,79 @@ var author$project$Main$view = function (model) {
 								A2(author$project$Main$selectOption, 'Keratoconjunctival', '角結膜腫瘍'),
 								A2(author$project$Main$selectOption, 'Orbital', '眼窩腫瘍'),
 								A2(author$project$Main$selectOption, 'Eyelid', '眼瞼腫瘍')
-                            ]))
+							]))
 					])),
-                A2(
-                    author$project$Main$unique,
-                    model.selectedCancerType,
-                    function () {
-                        var _n2 = model.selectedCancerType;
-                        switch (_n2) {
-                            case 'Intraocular':
-                                return author$project$Main$htmlSelectIntraocular;
-                            case 'Keratoconjunctival':
-                                return author$project$Main$htmlSelectKeratoconjunctival;
-                            case 'Orbital':
-                                return author$project$Main$htmlSelectOrbital;
-                            case 'Eyelid':
-                                return author$project$Main$htmlSelectEyelid;
-                            default:
-                                return elm$html$Html$text('');
-                        }
-                    }()),
-                A3(abadi199$elm_input_extra$MultiSelect$multiSelect, author$project$Main$multiSelectTodofukenOptions, _List_Nil, model.selectedTodofuken),
-                function () {
-                    var _n3 = model.selectedCancerType;
-                    if (_n3 === 'SoftTissue') {
-                        return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configSoftTissue, model.tableState, model.resultSoftTissueFacilities);
-                    } else {
-                        var _n4 = model.selectedCancerPart;
-                        switch (_n4) {
-                            case 'Retinoblastoma':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultRetinoblastomaFacilities);
-                            case 'UvealMalignantMelanoma':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultUvealMalignantMelanomaFacilities);
-                            case 'IntraocularLymphoma':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultIntraocularLymphomaFacilities);
-                            case 'ConjunctivalMalignantLymphoma':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultConjunctivalMalignantLymphomaFacilities);
-                            case 'KeratoconjunctivalSquamousCellCarcinoma':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultKeratoconjunctivalSquamousCellCarcinomaFacilities);
-                            case 'ConjunctivalMalignantMelanoma':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultConjunctivalMalignantMelanomaFacilities);
-                            case 'OrbitalMalignantLymphoma':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultOrbitalMalignantLymphomaFacilities);
-                            case 'LacrimalGlandCancer':
-                                return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultLacrimalGlandCancerFacilities);
-                            default:
-                                return elm$html$Html$text('');
-                        }
-                    }
-                }()
+				A2(
+					author$project$Main$unique,
+					model.selectedCancerType,
+					function () {
+						var _n1 = model.selectedCancerType;
+						switch (_n1) {
+							case 'Intraocular':
+								return author$project$Main$htmlSelectIntraocular;
+							case 'Keratoconjunctival':
+								return author$project$Main$htmlSelectKeratoconjunctival;
+							case 'Orbital':
+								return author$project$Main$htmlSelectOrbital;
+							case 'Eyelid':
+								return author$project$Main$htmlSelectEyelid;
+							default:
+								return elm$html$Html$text('');
+						}
+					}()),
+				A3(abadi199$elm_input_extra$MultiSelect$multiSelect, author$project$Main$multiSelectTodofukenOptions, _List_Nil, model.selectedTodofuken),
+				function () {
+					var _n2 = model.selectedCancerType;
+					if (_n2 === 'SoftTissue') {
+						return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configSoftTissue, model.tableState, model.resultSoftTissueFacilities);
+					} else {
+						var _n3 = model.selectedCancerPart;
+						switch (_n3) {
+							case 'Retinoblastoma':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultRetinoblastomaFacilities);
+							case 'UvealMalignantMelanoma':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultUvealMalignantMelanomaFacilities);
+							case 'IntraocularLymphoma':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultIntraocularLymphomaFacilities);
+							case 'ConjunctivalMalignantLymphoma':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultConjunctivalMalignantLymphomaFacilities);
+							case 'KeratoconjunctivalSquamousCellCarcinoma':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultKeratoconjunctivalSquamousCellCarcinomaFacilities);
+							case 'ConjunctivalMalignantMelanoma':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultConjunctivalMalignantMelanomaFacilities);
+							case 'OrbitalMalignantLymphoma':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultOrbitalMalignantLymphomaFacilities);
+							case 'LacrimalGlandCancer':
+								return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.tableState, model.resultLacrimalGlandCancerFacilities);
+							default:
+								return elm$html$Html$text('');
+						}
+					}
+				}()
 			]));
 };
 var elm$browser$Browser$External = function (a) {
-    return {$: 'External', a: a};
+	return {$: 'External', a: a};
 };
 var elm$browser$Browser$Internal = function (a) {
-    return {$: 'Internal', a: a};
+	return {$: 'Internal', a: a};
 };
-    var elm$browser$Browser$Dom$NotFound = function (a) {
-        return {$: 'NotFound', a: a};
-    };
+	var elm$browser$Browser$Dom$NotFound = function (a) {
+		return {$: 'NotFound', a: a};
+	};
 var elm$core$Basics$never = function (_n0) {
 	never:
 	while (true) {
-        var nvr = _n0.a;
+		var nvr = _n0.a;
 		var $temp$_n0 = nvr;
 		_n0 = $temp$_n0;
 
-    }
+	}
 };
-    var elm$core$Task$Perform = function (a) {
-        return {$: 'Perform', a: a};
-    };
-    var elm$core$Task$init = elm$core$Task$succeed(_Utils_Tuple0);
+	var elm$core$Task$Perform = function (a) {
+		return {$: 'Perform', a: a};
+	};
+	var elm$core$Task$init = elm$core$Task$succeed(_Utils_Tuple0);
 var elm$core$Task$map = F2(
 	function (func, taskA) {
 		return A2(
@@ -8890,7 +9101,7 @@ var elm$core$Task$map = F2(
 	});
 var elm$core$Task$spawnCmd = F2(
 	function (router, _n0) {
-        var task = _n0.a;
+		var task = _n0.a;
 		return _Scheduler_spawn(
 			A2(
 				elm$core$Task$andThen,
@@ -8902,7 +9113,7 @@ var elm$core$Task$onEffects = F3(
 		return A2(
 			elm$core$Task$map,
 			function (_n0) {
-                return _Utils_Tuple0;
+				return _Utils_Tuple0;
 			},
 			elm$core$Task$sequence(
 				A2(
@@ -8912,3397 +9123,3404 @@ var elm$core$Task$onEffects = F3(
 	});
 var elm$core$Task$onSelfMsg = F3(
 	function (_n0, _n1, _n2) {
-        return elm$core$Task$succeed(_Utils_Tuple0);
+		return elm$core$Task$succeed(_Utils_Tuple0);
 	});
 var elm$core$Task$cmdMap = F2(
 	function (tagger, _n0) {
-        var task = _n0.a;
-        return elm$core$Task$Perform(
-            A2(elm$core$Task$map, tagger, task));
+		var task = _n0.a;
+		return elm$core$Task$Perform(
+			A2(elm$core$Task$map, tagger, task));
 	});
 _Platform_effectManagers['Task'] = _Platform_createManager(elm$core$Task$init, elm$core$Task$onEffects, elm$core$Task$onSelfMsg, elm$core$Task$cmdMap);
 var elm$core$Task$command = _Platform_leaf('Task');
 var elm$core$Task$perform = F2(
 	function (toMessage, task) {
 		return elm$core$Task$command(
-            elm$core$Task$Perform(
-                A2(elm$core$Task$map, toMessage, task)));
-    });
-    var elm$browser$Debugger$Expando$ArraySeq = {$: 'ArraySeq'};
-    var elm$browser$Debugger$Expando$Constructor = F3(
-        function (a, b, c) {
-            return {$: 'Constructor', a: a, b: b, c: c};
-        });
-    var elm$browser$Debugger$Expando$Dictionary = F2(
-        function (a, b) {
-            return {$: 'Dictionary', a: a, b: b};
-        });
-    var elm$browser$Debugger$Expando$ListSeq = {$: 'ListSeq'};
-    var elm$browser$Debugger$Expando$Primitive = function (a) {
-        return {$: 'Primitive', a: a};
-    };
-    var elm$browser$Debugger$Expando$Record = F2(
-        function (a, b) {
-            return {$: 'Record', a: a, b: b};
-        });
-    var elm$browser$Debugger$Expando$S = function (a) {
-        return {$: 'S', a: a};
-    };
-    var elm$browser$Debugger$Expando$Sequence = F3(
-        function (a, b, c) {
-            return {$: 'Sequence', a: a, b: b, c: c};
-        });
-    var elm$browser$Debugger$Expando$SetSeq = {$: 'SetSeq'};
-    var elm$browser$Debugger$Main$Down = {$: 'Down'};
-    var elm$browser$Debugger$Main$NoOp = {$: 'NoOp'};
-    var elm$browser$Debugger$Main$Up = {$: 'Up'};
-    var elm$browser$Debugger$Main$UserMsg = function (a) {
-        return {$: 'UserMsg', a: a};
-    };
-    var elm$browser$Debugger$History$size = function (history) {
-        return history.numMessages;
-    };
-    var elm$browser$Debugger$Main$Export = {$: 'Export'};
-    var elm$browser$Debugger$Main$Import = {$: 'Import'};
-    var elm$browser$Debugger$Main$Open = {$: 'Open'};
-    var elm$browser$Debugger$Main$OverlayMsg = function (a) {
-        return {$: 'OverlayMsg', a: a};
-    };
-    var elm$browser$Debugger$Main$Resume = {$: 'Resume'};
-    var elm$browser$Debugger$Main$isPaused = function (state) {
-        if (state.$ === 'Running') {
-            return false;
-        } else {
-            return true;
-        }
-    };
-    var elm$browser$Debugger$Overlay$Accept = function (a) {
-        return {$: 'Accept', a: a};
-    };
-    var elm$browser$Debugger$Overlay$Choose = F2(
-        function (a, b) {
-            return {$: 'Choose', a: a, b: b};
-        });
-    var elm$browser$Debugger$Overlay$goodNews1 = '\nThe good news is that having values like this in your message type is not\nso great in the long run. You are better off using simpler data, like\n';
-    var elm$browser$Debugger$Overlay$goodNews2 = '\nfunction can pattern match on that data and call whatever functions, JSON\ndecoders, etc. you need. This makes the code much more explicit and easy to\nfollow for other readers (or you in a few months!)\n';
-    var elm$html$Html$code = _VirtualDom_node('code');
-    var elm$browser$Debugger$Overlay$viewCode = function (name) {
-        return A2(
-            elm$html$Html$code,
-            _List_Nil,
-            _List_fromArray(
-                [
-                    elm$html$Html$text(name)
-                ]));
-    };
-    var elm$browser$Debugger$Overlay$addCommas = function (items) {
-        if (!items.b) {
-            return '';
-        } else {
-            if (!items.b.b) {
-                var item = items.a;
-                return item;
-            } else {
-                if (!items.b.b.b) {
-                    var item1 = items.a;
-                    var _n1 = items.b;
-                    var item2 = _n1.a;
-                    return item1 + (' and ' + item2);
-                } else {
-                    var lastItem = items.a;
-                    var otherItems = items.b;
-                    return A2(
-                        elm$core$String$join,
-                        ', ',
-                        _Utils_ap(
-                            otherItems,
-                            _List_fromArray(
-                                [' and ' + lastItem])));
-                }
-            }
-        }
-    };
-    var elm$browser$Debugger$Overlay$problemToString = function (problem) {
-        switch (problem.$) {
-            case 'Function':
-                return 'functions';
-            case 'Decoder':
-                return 'JSON decoders';
-            case 'Task':
-                return 'tasks';
-            case 'Process':
-                return 'processes';
-            case 'Socket':
-                return 'web sockets';
-            case 'Request':
-                return 'HTTP requests';
-            case 'Program':
-                return 'programs';
-            default:
-                return 'virtual DOM values';
-        }
-    };
-    var elm$browser$Debugger$Overlay$viewProblemType = function (_n0) {
-        var name = _n0.name;
-        var problems = _n0.problems;
-        return A2(
-            elm$html$Html$li,
-            _List_Nil,
-            _List_fromArray(
-                [
-                    elm$browser$Debugger$Overlay$viewCode(name),
-                    elm$html$Html$text(
-                        ' can contain ' + (elm$browser$Debugger$Overlay$addCommas(
-                        A2(elm$core$List$map, elm$browser$Debugger$Overlay$problemToString, problems)) + '.'))
-                ]));
-    };
-    var elm$html$Html$p = _VirtualDom_node('p');
-    var elm$html$Html$Attributes$href = function (url) {
-        return A2(
-            elm$html$Html$Attributes$stringProperty,
-            'href',
-            _VirtualDom_noJavaScriptUri(url));
-    };
-    var elm$browser$Debugger$Overlay$viewBadMetadata = function (_n0) {
-        var message = _n0.message;
-        var problems = _n0.problems;
-        return _List_fromArray(
-            [
-                A2(
-                    elm$html$Html$p,
-                    _List_Nil,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('The '),
-                            elm$browser$Debugger$Overlay$viewCode(message),
-                            elm$html$Html$text(' type of your program cannot be reliably serialized for history files.')
-                        ])),
-                A2(
-                    elm$html$Html$p,
-                    _List_Nil,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('Functions cannot be serialized, nor can values that contain functions. This is a problem in these places:')
-                        ])),
-                A2(
-                    elm$html$Html$ul,
-                    _List_Nil,
-                    A2(elm$core$List$map, elm$browser$Debugger$Overlay$viewProblemType, problems)),
-                A2(
-                    elm$html$Html$p,
-                    _List_Nil,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text(elm$browser$Debugger$Overlay$goodNews1),
-                            A2(
-                                elm$html$Html$a,
-                                _List_fromArray(
-                                    [
-                                        elm$html$Html$Attributes$href('https://guide.elm-lang.org/types/union_types.html')
-                                    ]),
-                                _List_fromArray(
-                                    [
-                                        elm$html$Html$text('union types')
-                                    ])),
-                            elm$html$Html$text(', in your messages. From there, your '),
-                            elm$browser$Debugger$Overlay$viewCode('update'),
-                            elm$html$Html$text(elm$browser$Debugger$Overlay$goodNews2)
-                        ]))
-            ]);
-    };
-    var elm$browser$Debugger$Overlay$Cancel = {$: 'Cancel'};
-    var elm$browser$Debugger$Overlay$Proceed = {$: 'Proceed'};
-    var elm$browser$Debugger$Overlay$viewButtons = function (buttons) {
-        var btn = F2(
-            function (msg, string) {
-                return A2(
-                    elm$html$Html$button,
-                    _List_fromArray(
-                        [
-                            A2(elm$html$Html$Attributes$style, 'margin-right', '20px'),
-                            elm$html$Html$Events$onClick(msg)
-                        ]),
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text(string)
-                        ]));
-            });
-        var buttonNodes = function () {
-            if (buttons.$ === 'Accept') {
-                var proceed = buttons.a;
-                return _List_fromArray(
-                    [
-                        A2(btn, elm$browser$Debugger$Overlay$Proceed, proceed)
-                    ]);
-            } else {
-                var cancel = buttons.a;
-                var proceed = buttons.b;
-                return _List_fromArray(
-                    [
-                        A2(btn, elm$browser$Debugger$Overlay$Cancel, cancel),
-                        A2(btn, elm$browser$Debugger$Overlay$Proceed, proceed)
-                    ]);
-            }
-        }();
-        return A2(
-            elm$html$Html$div,
-            _List_fromArray(
-                [
-                    A2(elm$html$Html$Attributes$style, 'height', '60px'),
-                    A2(elm$html$Html$Attributes$style, 'line-height', '60px'),
-                    A2(elm$html$Html$Attributes$style, 'text-align', 'right'),
-                    A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)')
-                ]),
-            buttonNodes);
-    };
-    var elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
-    var elm$html$Html$map = elm$virtual_dom$VirtualDom$map;
-    var elm$browser$Debugger$Overlay$viewMessage = F4(
-        function (config, title, details, buttons) {
-            return A2(
-                elm$html$Html$div,
-                _List_fromArray(
-                    [
-                        elm$html$Html$Attributes$id('elm-debugger-overlay'),
-                        A2(elm$html$Html$Attributes$style, 'position', 'fixed'),
-                        A2(elm$html$Html$Attributes$style, 'top', '0'),
-                        A2(elm$html$Html$Attributes$style, 'left', '0'),
-                        A2(elm$html$Html$Attributes$style, 'width', '100%'),
-                        A2(elm$html$Html$Attributes$style, 'height', '100%'),
-                        A2(elm$html$Html$Attributes$style, 'color', 'white'),
-                        A2(elm$html$Html$Attributes$style, 'pointer-events', 'none'),
-                        A2(elm$html$Html$Attributes$style, 'font-family', '\'Trebuchet MS\', \'Lucida Grande\', \'Bitstream Vera Sans\', \'Helvetica Neue\', sans-serif'),
-                        A2(elm$html$Html$Attributes$style, 'z-index', '2147483647')
-                    ]),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$div,
-                            _List_fromArray(
-                                [
-                                    A2(elm$html$Html$Attributes$style, 'position', 'absolute'),
-                                    A2(elm$html$Html$Attributes$style, 'width', '600px'),
-                                    A2(elm$html$Html$Attributes$style, 'height', '100%'),
-                                    A2(elm$html$Html$Attributes$style, 'padding-left', 'calc(50% - 300px)'),
-                                    A2(elm$html$Html$Attributes$style, 'padding-right', 'calc(50% - 300px)'),
-                                    A2(elm$html$Html$Attributes$style, 'background-color', 'rgba(200, 200, 200, 0.7)'),
-                                    A2(elm$html$Html$Attributes$style, 'pointer-events', 'auto')
-                                ]),
-                            _List_fromArray(
-                                [
-                                    A2(
-                                        elm$html$Html$div,
-                                        _List_fromArray(
-                                            [
-                                                A2(elm$html$Html$Attributes$style, 'font-size', '36px'),
-                                                A2(elm$html$Html$Attributes$style, 'height', '80px'),
-                                                A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)'),
-                                                A2(elm$html$Html$Attributes$style, 'padding-left', '22px'),
-                                                A2(elm$html$Html$Attributes$style, 'vertical-align', 'middle'),
-                                                A2(elm$html$Html$Attributes$style, 'line-height', '80px')
-                                            ]),
-                                        _List_fromArray(
-                                            [
-                                                elm$html$Html$text(title)
-                                            ])),
-                                    A2(
-                                        elm$html$Html$div,
-                                        _List_fromArray(
-                                            [
-                                                elm$html$Html$Attributes$id('elm-debugger-details'),
-                                                A2(elm$html$Html$Attributes$style, 'padding', ' 8px 20px'),
-                                                A2(elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
-                                                A2(elm$html$Html$Attributes$style, 'max-height', 'calc(100% - 156px)'),
-                                                A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(61, 61, 61)')
-                                            ]),
-                                        details),
-                                    A2(
-                                        elm$html$Html$map,
-                                        config.wrap,
-                                        elm$browser$Debugger$Overlay$viewButtons(buttons))
-                                ]))
-                    ]));
-        });
-    var elm$browser$Debugger$Overlay$button = F2(
-        function (msg, label) {
-            return A2(
-                elm$html$Html$span,
-                _List_fromArray(
-                    [
-                        elm$html$Html$Events$onClick(msg),
-                        A2(elm$html$Html$Attributes$style, 'cursor', 'pointer')
-                    ]),
-                _List_fromArray(
-                    [
-                        elm$html$Html$text(label)
-                    ]));
-        });
-    var elm$browser$Debugger$Overlay$viewImportExport = F3(
-        function (props, importMsg, exportMsg) {
-            return A2(
-                elm$html$Html$div,
-                props,
-                _List_fromArray(
-                    [
-                        A2(elm$browser$Debugger$Overlay$button, importMsg, 'Import'),
-                        elm$html$Html$text(' / '),
-                        A2(elm$browser$Debugger$Overlay$button, exportMsg, 'Export')
-                    ]));
-        });
-    var elm$browser$Debugger$Overlay$viewMiniControls = F2(
-        function (config, numMsgs) {
-            return A2(
-                elm$html$Html$div,
-                _List_fromArray(
-                    [
-                        A2(elm$html$Html$Attributes$style, 'position', 'fixed'),
-                        A2(elm$html$Html$Attributes$style, 'bottom', '0'),
-                        A2(elm$html$Html$Attributes$style, 'right', '6px'),
-                        A2(elm$html$Html$Attributes$style, 'border-radius', '4px'),
-                        A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(61, 61, 61)'),
-                        A2(elm$html$Html$Attributes$style, 'color', 'white'),
-                        A2(elm$html$Html$Attributes$style, 'font-family', 'monospace'),
-                        A2(elm$html$Html$Attributes$style, 'pointer-events', 'auto'),
-                        A2(elm$html$Html$Attributes$style, 'z-index', '2147483647')
-                    ]),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$div,
-                            _List_fromArray(
-                                [
-                                    A2(elm$html$Html$Attributes$style, 'padding', '6px'),
-                                    A2(elm$html$Html$Attributes$style, 'cursor', 'pointer'),
-                                    A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
-                                    A2(elm$html$Html$Attributes$style, 'min-width', '24ch'),
-                                    elm$html$Html$Events$onClick(config.open)
-                                ]),
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$text(
-                                        'Explore History (' + (elm$core$String$fromInt(numMsgs) + ')'))
-                                ])),
-                        A3(
-                            elm$browser$Debugger$Overlay$viewImportExport,
-                            _List_fromArray(
-                                [
-                                    A2(elm$html$Html$Attributes$style, 'padding', '4px 0'),
-                                    A2(elm$html$Html$Attributes$style, 'font-size', '0.8em'),
-                                    A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
-                                    A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)')
-                                ]),
-                            config.importHistory,
-                            config.exportHistory)
-                    ]));
-        });
-    var elm$browser$Debugger$Overlay$explanationBad = '\nThe messages in this history do not match the messages handled by your\nprogram. I noticed changes in the following types:\n';
-    var elm$browser$Debugger$Overlay$explanationRisky = '\nThis history seems old. It will work with this program, but some\nmessages have been added since the history was created:\n';
-    var elm$core$List$intersperse = F2(
-        function (sep, xs) {
-            if (!xs.b) {
-                return _List_Nil;
-            } else {
-                var hd = xs.a;
-                var tl = xs.b;
-                var step = F2(
-                    function (x, rest) {
-                        return A2(
-                            elm$core$List$cons,
-                            sep,
-                            A2(elm$core$List$cons, x, rest));
-                    });
-                var spersed = A3(elm$core$List$foldr, step, _List_Nil, tl);
-                return A2(elm$core$List$cons, hd, spersed);
-            }
-        });
-    var elm$browser$Debugger$Overlay$viewMention = F2(
-        function (tags, verbed) {
-            var _n0 = A2(
-                elm$core$List$map,
-                elm$browser$Debugger$Overlay$viewCode,
-                elm$core$List$reverse(tags));
-            if (!_n0.b) {
-                return elm$html$Html$text('');
-            } else {
-                if (!_n0.b.b) {
-                    var tag = _n0.a;
-                    return A2(
-                        elm$html$Html$li,
-                        _List_Nil,
-                        _List_fromArray(
-                            [
-                                elm$html$Html$text(verbed),
-                                tag,
-                                elm$html$Html$text('.')
-                            ]));
-                } else {
-                    if (!_n0.b.b.b) {
-                        var tag2 = _n0.a;
-                        var _n1 = _n0.b;
-                        var tag1 = _n1.a;
-                        return A2(
-                            elm$html$Html$li,
-                            _List_Nil,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$text(verbed),
-                                    tag1,
-                                    elm$html$Html$text(' and '),
-                                    tag2,
-                                    elm$html$Html$text('.')
-                                ]));
-                    } else {
-                        var lastTag = _n0.a;
-                        var otherTags = _n0.b;
-                        return A2(
-                            elm$html$Html$li,
-                            _List_Nil,
-                            A2(
-                                elm$core$List$cons,
-                                elm$html$Html$text(verbed),
-                                _Utils_ap(
-                                    A2(
-                                        elm$core$List$intersperse,
-                                        elm$html$Html$text(', '),
-                                        elm$core$List$reverse(otherTags)),
-                                    _List_fromArray(
-                                        [
-                                            elm$html$Html$text(', and '),
-                                            lastTag,
-                                            elm$html$Html$text('.')
-                                        ]))));
-                    }
-                }
-            }
-        });
-    var elm$browser$Debugger$Overlay$viewChange = function (change) {
-        return A2(
-            elm$html$Html$li,
-            _List_fromArray(
-                [
-                    A2(elm$html$Html$Attributes$style, 'margin', '8px 0')
-                ]),
-            function () {
-                if (change.$ === 'AliasChange') {
-                    var name = change.a;
-                    return _List_fromArray(
-                        [
-                            A2(
-                                elm$html$Html$span,
-                                _List_fromArray(
-                                    [
-                                        A2(elm$html$Html$Attributes$style, 'font-size', '1.5em')
-                                    ]),
-                                _List_fromArray(
-                                    [
-                                        elm$browser$Debugger$Overlay$viewCode(name)
-                                    ]))
-                        ]);
-                } else {
-                    var name = change.a;
-                    var removed = change.b.removed;
-                    var changed = change.b.changed;
-                    var added = change.b.added;
-                    var argsMatch = change.b.argsMatch;
-                    return _List_fromArray(
-                        [
-                            A2(
-                                elm$html$Html$span,
-                                _List_fromArray(
-                                    [
-                                        A2(elm$html$Html$Attributes$style, 'font-size', '1.5em')
-                                    ]),
-                                _List_fromArray(
-                                    [
-                                        elm$browser$Debugger$Overlay$viewCode(name)
-                                    ])),
-                            A2(
-                                elm$html$Html$ul,
-                                _List_fromArray(
-                                    [
-                                        A2(elm$html$Html$Attributes$style, 'list-style-type', 'disc'),
-                                        A2(elm$html$Html$Attributes$style, 'padding-left', '2em')
-                                    ]),
-                                _List_fromArray(
-                                    [
-                                        A2(elm$browser$Debugger$Overlay$viewMention, removed, 'Removed '),
-                                        A2(elm$browser$Debugger$Overlay$viewMention, changed, 'Changed '),
-                                        A2(elm$browser$Debugger$Overlay$viewMention, added, 'Added ')
-                                    ])),
-                            argsMatch ? elm$html$Html$text('') : elm$html$Html$text('This may be due to the fact that the type variable names changed.')
-                        ]);
-                }
-            }());
-    };
-    var elm$browser$Debugger$Overlay$viewReport = F2(
-        function (isBad, report) {
-            switch (report.$) {
-                case 'CorruptHistory':
-                    return _List_fromArray(
-                        [
-                            elm$html$Html$text('Looks like this history file is corrupt. I cannot understand it.')
-                        ]);
-                case 'VersionChanged':
-                    var old = report.a;
-                    var _new = report.b;
-                    return _List_fromArray(
-                        [
-                            elm$html$Html$text('This history was created with Elm ' + (old + (', but you are using Elm ' + (_new + ' right now.'))))
-                        ]);
-                case 'MessageChanged':
-                    var old = report.a;
-                    var _new = report.b;
-                    return _List_fromArray(
-                        [
-                            elm$html$Html$text('To import some other history, the overall message type must' + ' be the same. The old history has '),
-                            elm$browser$Debugger$Overlay$viewCode(old),
-                            elm$html$Html$text(' messages, but the new program works with '),
-                            elm$browser$Debugger$Overlay$viewCode(_new),
-                            elm$html$Html$text(' messages.')
-                        ]);
-                default:
-                    var changes = report.a;
-                    return _List_fromArray(
-                        [
-                            A2(
-                                elm$html$Html$p,
-                                _List_Nil,
-                                _List_fromArray(
-                                    [
-                                        elm$html$Html$text(
-                                            isBad ? elm$browser$Debugger$Overlay$explanationBad : elm$browser$Debugger$Overlay$explanationRisky)
-                                    ])),
-                            A2(
-                                elm$html$Html$ul,
-                                _List_fromArray(
-                                    [
-                                        A2(elm$html$Html$Attributes$style, 'list-style-type', 'none'),
-                                        A2(elm$html$Html$Attributes$style, 'padding-left', '20px')
-                                    ]),
-                                A2(elm$core$List$map, elm$browser$Debugger$Overlay$viewChange, changes))
-                        ]);
-            }
-        });
-    var elm$browser$Debugger$Overlay$view = F5(
-        function (config, isPaused, isOpen, numMsgs, state) {
-            switch (state.$) {
-                case 'None':
-                    return isOpen ? elm$html$Html$text('') : (isPaused ? A2(
-                        elm$html$Html$div,
-                        _List_fromArray(
-                            [
-                                A2(elm$html$Html$Attributes$style, 'width', '100%'),
-                                A2(elm$html$Html$Attributes$style, 'height', '100%'),
-                                A2(elm$html$Html$Attributes$style, 'cursor', 'pointer'),
-                                A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
-                                A2(elm$html$Html$Attributes$style, 'pointer-events', 'auto'),
-                                A2(elm$html$Html$Attributes$style, 'background-color', 'rgba(200, 200, 200, 0.7)'),
-                                A2(elm$html$Html$Attributes$style, 'color', 'white'),
-                                A2(elm$html$Html$Attributes$style, 'font-family', '\'Trebuchet MS\', \'Lucida Grande\', \'Bitstream Vera Sans\', \'Helvetica Neue\', sans-serif'),
-                                A2(elm$html$Html$Attributes$style, 'z-index', '2147483646'),
-                                elm$html$Html$Events$onClick(config.resume)
-                            ]),
-                        _List_fromArray(
-                            [
-                                A2(
-                                    elm$html$Html$div,
-                                    _List_fromArray(
-                                        [
-                                            A2(elm$html$Html$Attributes$style, 'position', 'absolute'),
-                                            A2(elm$html$Html$Attributes$style, 'top', 'calc(50% - 40px)'),
-                                            A2(elm$html$Html$Attributes$style, 'font-size', '80px'),
-                                            A2(elm$html$Html$Attributes$style, 'line-height', '80px'),
-                                            A2(elm$html$Html$Attributes$style, 'height', '80px'),
-                                            A2(elm$html$Html$Attributes$style, 'width', '100%')
-                                        ]),
-                                    _List_fromArray(
-                                        [
-                                            elm$html$Html$text('Click to Resume')
-                                        ])),
-                                A2(elm$browser$Debugger$Overlay$viewMiniControls, config, numMsgs)
-                            ])) : A2(elm$browser$Debugger$Overlay$viewMiniControls, config, numMsgs));
-                case 'BadMetadata':
-                    var badMetadata_ = state.a;
-                    return A4(
-                        elm$browser$Debugger$Overlay$viewMessage,
-                        config,
-                        'Cannot use Import or Export',
-                        elm$browser$Debugger$Overlay$viewBadMetadata(badMetadata_),
-                        elm$browser$Debugger$Overlay$Accept('Ok'));
-                case 'BadImport':
-                    var report = state.a;
-                    return A4(
-                        elm$browser$Debugger$Overlay$viewMessage,
-                        config,
-                        'Cannot Import History',
-                        A2(elm$browser$Debugger$Overlay$viewReport, true, report),
-                        elm$browser$Debugger$Overlay$Accept('Ok'));
-                default:
-                    var report = state.a;
-                    return A4(
-                        elm$browser$Debugger$Overlay$viewMessage,
-                        config,
-                        'Warning',
-                        A2(elm$browser$Debugger$Overlay$viewReport, false, report),
-                        A2(elm$browser$Debugger$Overlay$Choose, 'Cancel', 'Import Anyway'));
-            }
-        });
-    var elm$browser$Debugger$Main$cornerView = function (model) {
-        return A5(
-            elm$browser$Debugger$Overlay$view,
-            {
-                exportHistory: elm$browser$Debugger$Main$Export,
-                importHistory: elm$browser$Debugger$Main$Import,
-                open: elm$browser$Debugger$Main$Open,
-                resume: elm$browser$Debugger$Main$Resume,
-                wrap: elm$browser$Debugger$Main$OverlayMsg
-            },
-            elm$browser$Debugger$Main$isPaused(model.state),
-            _Debugger_isOpen(model.popout),
-            elm$browser$Debugger$History$size(model.history),
-            model.overlay);
-    };
-    var elm$browser$Debugger$Main$getCurrentModel = function (state) {
-        if (state.$ === 'Running') {
-            var model = state.a;
-            return model;
-        } else {
-            var model = state.b;
-            return model;
-        }
-    };
-    var elm$browser$Debugger$Main$getUserModel = function (model) {
-        return elm$browser$Debugger$Main$getCurrentModel(model.state);
-    };
-    var elm$browser$Debugger$Expando$Field = F2(
-        function (a, b) {
-            return {$: 'Field', a: a, b: b};
-        });
-    var elm$browser$Debugger$Expando$Index = F3(
-        function (a, b, c) {
-            return {$: 'Index', a: a, b: b, c: c};
-        });
-    var elm$browser$Debugger$Expando$Key = {$: 'Key'};
-    var elm$browser$Debugger$Expando$None = {$: 'None'};
-    var elm$browser$Debugger$Expando$Toggle = {$: 'Toggle'};
-    var elm$browser$Debugger$Expando$Value = {$: 'Value'};
-    var elm$browser$Debugger$Expando$blue = A2(elm$html$Html$Attributes$style, 'color', 'rgb(28, 0, 207)');
-    var elm$browser$Debugger$Expando$leftPad = function (maybeKey) {
-        if (maybeKey.$ === 'Nothing') {
-            return _List_Nil;
-        } else {
-            return _List_fromArray(
-                [
-                    A2(elm$html$Html$Attributes$style, 'padding-left', '4ch')
-                ]);
-        }
-    };
-    var elm$browser$Debugger$Expando$makeArrow = function (arrow) {
-        return A2(
-            elm$html$Html$span,
-            _List_fromArray(
-                [
-                    A2(elm$html$Html$Attributes$style, 'color', '#777'),
-                    A2(elm$html$Html$Attributes$style, 'padding-left', '2ch'),
-                    A2(elm$html$Html$Attributes$style, 'width', '2ch'),
-                    A2(elm$html$Html$Attributes$style, 'display', 'inline-block')
-                ]),
-            _List_fromArray(
-                [
-                    elm$html$Html$text(arrow)
-                ]));
-    };
-    var elm$browser$Debugger$Expando$purple = A2(elm$html$Html$Attributes$style, 'color', 'rgb(136, 19, 145)');
-    var elm$browser$Debugger$Expando$lineStarter = F3(
-        function (maybeKey, maybeIsClosed, description) {
-            var arrow = function () {
-                if (maybeIsClosed.$ === 'Nothing') {
-                    return elm$browser$Debugger$Expando$makeArrow('');
-                } else {
-                    if (maybeIsClosed.a) {
-                        return elm$browser$Debugger$Expando$makeArrow('▸');
-                    } else {
-                        return elm$browser$Debugger$Expando$makeArrow('▾');
-                    }
-                }
-            }();
-            if (maybeKey.$ === 'Nothing') {
-                return A2(elm$core$List$cons, arrow, description);
-            } else {
-                var key = maybeKey.a;
-                return A2(
-                    elm$core$List$cons,
-                    arrow,
-                    A2(
-                        elm$core$List$cons,
-                        A2(
-                            elm$html$Html$span,
-                            _List_fromArray(
-                                [elm$browser$Debugger$Expando$purple]),
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$text(key)
-                                ])),
-                        A2(
-                            elm$core$List$cons,
-                            elm$html$Html$text(' = '),
-                            description)));
-            }
-        });
-    var elm$browser$Debugger$Expando$red = A2(elm$html$Html$Attributes$style, 'color', 'rgb(196, 26, 22)');
-    var elm$browser$Debugger$Expando$seqTypeToString = F2(
-        function (n, seqType) {
-            switch (seqType.$) {
-                case 'ListSeq':
-                    return 'List(' + (elm$core$String$fromInt(n) + ')');
-                case 'SetSeq':
-                    return 'Set(' + (elm$core$String$fromInt(n) + ')');
-                default:
-                    return 'Array(' + (elm$core$String$fromInt(n) + ')');
-            }
-        });
+			elm$core$Task$Perform(
+				A2(elm$core$Task$map, toMessage, task)));
+	});
+	var elm$browser$Debugger$Expando$ArraySeq = {$: 'ArraySeq'};
+	var elm$browser$Debugger$Expando$Constructor = F3(
+		function (a, b, c) {
+			return {$: 'Constructor', a: a, b: b, c: c};
+		});
+	var elm$browser$Debugger$Expando$Dictionary = F2(
+		function (a, b) {
+			return {$: 'Dictionary', a: a, b: b};
+		});
+	var elm$browser$Debugger$Expando$ListSeq = {$: 'ListSeq'};
+	var elm$browser$Debugger$Expando$Primitive = function (a) {
+		return {$: 'Primitive', a: a};
+	};
+	var elm$browser$Debugger$Expando$Record = F2(
+		function (a, b) {
+			return {$: 'Record', a: a, b: b};
+		});
+	var elm$browser$Debugger$Expando$S = function (a) {
+		return {$: 'S', a: a};
+	};
+	var elm$browser$Debugger$Expando$Sequence = F3(
+		function (a, b, c) {
+			return {$: 'Sequence', a: a, b: b, c: c};
+		});
+	var elm$browser$Debugger$Expando$SetSeq = {$: 'SetSeq'};
+	var elm$browser$Debugger$Main$Down = {$: 'Down'};
+	var elm$browser$Debugger$Main$NoOp = {$: 'NoOp'};
+	var elm$browser$Debugger$Main$Up = {$: 'Up'};
+	var elm$browser$Debugger$Main$UserMsg = function (a) {
+		return {$: 'UserMsg', a: a};
+	};
+	var elm$browser$Debugger$History$size = function (history) {
+		return history.numMessages;
+	};
+	var elm$browser$Debugger$Main$Export = {$: 'Export'};
+	var elm$browser$Debugger$Main$Import = {$: 'Import'};
+	var elm$browser$Debugger$Main$Open = {$: 'Open'};
+	var elm$browser$Debugger$Main$OverlayMsg = function (a) {
+		return {$: 'OverlayMsg', a: a};
+	};
+	var elm$browser$Debugger$Main$Resume = {$: 'Resume'};
+	var elm$browser$Debugger$Main$isPaused = function (state) {
+		if (state.$ === 'Running') {
+			return false;
+		} else {
+			return true;
+		}
+	};
+	var elm$browser$Debugger$Overlay$Accept = function (a) {
+		return {$: 'Accept', a: a};
+	};
+	var elm$browser$Debugger$Overlay$Choose = F2(
+		function (a, b) {
+			return {$: 'Choose', a: a, b: b};
+		});
+	var elm$browser$Debugger$Overlay$goodNews1 = '\nThe good news is that having values like this in your message type is not\nso great in the long run. You are better off using simpler data, like\n';
+	var elm$browser$Debugger$Overlay$goodNews2 = '\nfunction can pattern match on that data and call whatever functions, JSON\ndecoders, etc. you need. This makes the code much more explicit and easy to\nfollow for other readers (or you in a few months!)\n';
+	var elm$html$Html$code = _VirtualDom_node('code');
+	var elm$browser$Debugger$Overlay$viewCode = function (name) {
+		return A2(
+			elm$html$Html$code,
+			_List_Nil,
+			_List_fromArray(
+				[
+					elm$html$Html$text(name)
+				]));
+	};
+	var elm$browser$Debugger$Overlay$addCommas = function (items) {
+		if (!items.b) {
+			return '';
+		} else {
+			if (!items.b.b) {
+				var item = items.a;
+				return item;
+			} else {
+				if (!items.b.b.b) {
+					var item1 = items.a;
+					var _n1 = items.b;
+					var item2 = _n1.a;
+					return item1 + (' and ' + item2);
+				} else {
+					var lastItem = items.a;
+					var otherItems = items.b;
+					return A2(
+						elm$core$String$join,
+						', ',
+						_Utils_ap(
+							otherItems,
+							_List_fromArray(
+								[' and ' + lastItem])));
+				}
+			}
+		}
+	};
+	var elm$browser$Debugger$Overlay$problemToString = function (problem) {
+		switch (problem.$) {
+			case 'Function':
+				return 'functions';
+			case 'Decoder':
+				return 'JSON decoders';
+			case 'Task':
+				return 'tasks';
+			case 'Process':
+				return 'processes';
+			case 'Socket':
+				return 'web sockets';
+			case 'Request':
+				return 'HTTP requests';
+			case 'Program':
+				return 'programs';
+			default:
+				return 'virtual DOM values';
+		}
+	};
+	var elm$browser$Debugger$Overlay$viewProblemType = function (_n0) {
+		var name = _n0.name;
+		var problems = _n0.problems;
+		return A2(
+			elm$html$Html$li,
+			_List_Nil,
+			_List_fromArray(
+				[
+					elm$browser$Debugger$Overlay$viewCode(name),
+					elm$html$Html$text(
+						' can contain ' + (elm$browser$Debugger$Overlay$addCommas(
+						A2(elm$core$List$map, elm$browser$Debugger$Overlay$problemToString, problems)) + '.'))
+				]));
+	};
+	var elm$html$Html$p = _VirtualDom_node('p');
+	var elm$html$Html$Attributes$href = function (url) {
+		return A2(
+			elm$html$Html$Attributes$stringProperty,
+			'href',
+			_VirtualDom_noJavaScriptUri(url));
+	};
+	var elm$browser$Debugger$Overlay$viewBadMetadata = function (_n0) {
+		var message = _n0.message;
+		var problems = _n0.problems;
+		return _List_fromArray(
+			[
+				A2(
+					elm$html$Html$p,
+					_List_Nil,
+					_List_fromArray(
+						[
+							elm$html$Html$text('The '),
+							elm$browser$Debugger$Overlay$viewCode(message),
+							elm$html$Html$text(' type of your program cannot be reliably serialized for history files.')
+						])),
+				A2(
+					elm$html$Html$p,
+					_List_Nil,
+					_List_fromArray(
+						[
+							elm$html$Html$text('Functions cannot be serialized, nor can values that contain functions. This is a problem in these places:')
+						])),
+				A2(
+					elm$html$Html$ul,
+					_List_Nil,
+					A2(elm$core$List$map, elm$browser$Debugger$Overlay$viewProblemType, problems)),
+				A2(
+					elm$html$Html$p,
+					_List_Nil,
+					_List_fromArray(
+						[
+							elm$html$Html$text(elm$browser$Debugger$Overlay$goodNews1),
+							A2(
+								elm$html$Html$a,
+								_List_fromArray(
+									[
+										elm$html$Html$Attributes$href('https://guide.elm-lang.org/types/union_types.html')
+									]),
+								_List_fromArray(
+									[
+										elm$html$Html$text('union types')
+									])),
+							elm$html$Html$text(', in your messages. From there, your '),
+							elm$browser$Debugger$Overlay$viewCode('update'),
+							elm$html$Html$text(elm$browser$Debugger$Overlay$goodNews2)
+						]))
+			]);
+	};
+	var elm$browser$Debugger$Overlay$Cancel = {$: 'Cancel'};
+	var elm$browser$Debugger$Overlay$Proceed = {$: 'Proceed'};
+	var elm$html$Html$button = _VirtualDom_node('button');
+	var elm$browser$Debugger$Overlay$viewButtons = function (buttons) {
+		var btn = F2(
+			function (msg, string) {
+				return A2(
+					elm$html$Html$button,
+					_List_fromArray(
+						[
+							A2(elm$html$Html$Attributes$style, 'margin-right', '20px'),
+							elm$html$Html$Events$onClick(msg)
+						]),
+					_List_fromArray(
+						[
+							elm$html$Html$text(string)
+						]));
+			});
+		var buttonNodes = function () {
+			if (buttons.$ === 'Accept') {
+				var proceed = buttons.a;
+				return _List_fromArray(
+					[
+						A2(btn, elm$browser$Debugger$Overlay$Proceed, proceed)
+					]);
+			} else {
+				var cancel = buttons.a;
+				var proceed = buttons.b;
+				return _List_fromArray(
+					[
+						A2(btn, elm$browser$Debugger$Overlay$Cancel, cancel),
+						A2(btn, elm$browser$Debugger$Overlay$Proceed, proceed)
+					]);
+			}
+		}();
+		return A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2(elm$html$Html$Attributes$style, 'height', '60px'),
+					A2(elm$html$Html$Attributes$style, 'line-height', '60px'),
+					A2(elm$html$Html$Attributes$style, 'text-align', 'right'),
+					A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)')
+				]),
+			buttonNodes);
+	};
+	var elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
+	var elm$html$Html$map = elm$virtual_dom$VirtualDom$map;
+	var elm$browser$Debugger$Overlay$viewMessage = F4(
+		function (config, title, details, buttons) {
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$id('elm-debugger-overlay'),
+						A2(elm$html$Html$Attributes$style, 'position', 'fixed'),
+						A2(elm$html$Html$Attributes$style, 'top', '0'),
+						A2(elm$html$Html$Attributes$style, 'left', '0'),
+						A2(elm$html$Html$Attributes$style, 'width', '100%'),
+						A2(elm$html$Html$Attributes$style, 'height', '100%'),
+						A2(elm$html$Html$Attributes$style, 'color', 'white'),
+						A2(elm$html$Html$Attributes$style, 'pointer-events', 'none'),
+						A2(elm$html$Html$Attributes$style, 'font-family', '\'Trebuchet MS\', \'Lucida Grande\', \'Bitstream Vera Sans\', \'Helvetica Neue\', sans-serif'),
+						A2(elm$html$Html$Attributes$style, 'z-index', '2147483647')
+					]),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									A2(elm$html$Html$Attributes$style, 'position', 'absolute'),
+									A2(elm$html$Html$Attributes$style, 'width', '600px'),
+									A2(elm$html$Html$Attributes$style, 'height', '100%'),
+									A2(elm$html$Html$Attributes$style, 'padding-left', 'calc(50% - 300px)'),
+									A2(elm$html$Html$Attributes$style, 'padding-right', 'calc(50% - 300px)'),
+									A2(elm$html$Html$Attributes$style, 'background-color', 'rgba(200, 200, 200, 0.7)'),
+									A2(elm$html$Html$Attributes$style, 'pointer-events', 'auto')
+								]),
+							_List_fromArray(
+								[
+									A2(
+										elm$html$Html$div,
+										_List_fromArray(
+											[
+												A2(elm$html$Html$Attributes$style, 'font-size', '36px'),
+												A2(elm$html$Html$Attributes$style, 'height', '80px'),
+												A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)'),
+												A2(elm$html$Html$Attributes$style, 'padding-left', '22px'),
+												A2(elm$html$Html$Attributes$style, 'vertical-align', 'middle'),
+												A2(elm$html$Html$Attributes$style, 'line-height', '80px')
+											]),
+										_List_fromArray(
+											[
+												elm$html$Html$text(title)
+											])),
+									A2(
+										elm$html$Html$div,
+										_List_fromArray(
+											[
+												elm$html$Html$Attributes$id('elm-debugger-details'),
+												A2(elm$html$Html$Attributes$style, 'padding', ' 8px 20px'),
+												A2(elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
+												A2(elm$html$Html$Attributes$style, 'max-height', 'calc(100% - 156px)'),
+												A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(61, 61, 61)')
+											]),
+										details),
+									A2(
+										elm$html$Html$map,
+										config.wrap,
+										elm$browser$Debugger$Overlay$viewButtons(buttons))
+								]))
+					]));
+		});
+	var elm$browser$Debugger$Overlay$button = F2(
+		function (msg, label) {
+			return A2(
+				elm$html$Html$span,
+				_List_fromArray(
+					[
+						elm$html$Html$Events$onClick(msg),
+						A2(elm$html$Html$Attributes$style, 'cursor', 'pointer')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text(label)
+					]));
+		});
+	var elm$browser$Debugger$Overlay$viewImportExport = F3(
+		function (props, importMsg, exportMsg) {
+			return A2(
+				elm$html$Html$div,
+				props,
+				_List_fromArray(
+					[
+						A2(elm$browser$Debugger$Overlay$button, importMsg, 'Import'),
+						elm$html$Html$text(' / '),
+						A2(elm$browser$Debugger$Overlay$button, exportMsg, 'Export')
+					]));
+		});
+	var elm$browser$Debugger$Overlay$viewMiniControls = F2(
+		function (config, numMsgs) {
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						A2(elm$html$Html$Attributes$style, 'position', 'fixed'),
+						A2(elm$html$Html$Attributes$style, 'bottom', '0'),
+						A2(elm$html$Html$Attributes$style, 'right', '6px'),
+						A2(elm$html$Html$Attributes$style, 'border-radius', '4px'),
+						A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(61, 61, 61)'),
+						A2(elm$html$Html$Attributes$style, 'color', 'white'),
+						A2(elm$html$Html$Attributes$style, 'font-family', 'monospace'),
+						A2(elm$html$Html$Attributes$style, 'pointer-events', 'auto'),
+						A2(elm$html$Html$Attributes$style, 'z-index', '2147483647')
+					]),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									A2(elm$html$Html$Attributes$style, 'padding', '6px'),
+									A2(elm$html$Html$Attributes$style, 'cursor', 'pointer'),
+									A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
+									A2(elm$html$Html$Attributes$style, 'min-width', '24ch'),
+									elm$html$Html$Events$onClick(config.open)
+								]),
+							_List_fromArray(
+								[
+									elm$html$Html$text(
+										'Explore History (' + (elm$core$String$fromInt(numMsgs) + ')'))
+								])),
+						A3(
+							elm$browser$Debugger$Overlay$viewImportExport,
+							_List_fromArray(
+								[
+									A2(elm$html$Html$Attributes$style, 'padding', '4px 0'),
+									A2(elm$html$Html$Attributes$style, 'font-size', '0.8em'),
+									A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
+									A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)')
+								]),
+							config.importHistory,
+							config.exportHistory)
+					]));
+		});
+	var elm$browser$Debugger$Overlay$explanationBad = '\nThe messages in this history do not match the messages handled by your\nprogram. I noticed changes in the following types:\n';
+	var elm$browser$Debugger$Overlay$explanationRisky = '\nThis history seems old. It will work with this program, but some\nmessages have been added since the history was created:\n';
+	var elm$core$List$intersperse = F2(
+		function (sep, xs) {
+			if (!xs.b) {
+				return _List_Nil;
+			} else {
+				var hd = xs.a;
+				var tl = xs.b;
+				var step = F2(
+					function (x, rest) {
+						return A2(
+							elm$core$List$cons,
+							sep,
+							A2(elm$core$List$cons, x, rest));
+					});
+				var spersed = A3(elm$core$List$foldr, step, _List_Nil, tl);
+				return A2(elm$core$List$cons, hd, spersed);
+			}
+		});
+	var elm$browser$Debugger$Overlay$viewMention = F2(
+		function (tags, verbed) {
+			var _n0 = A2(
+				elm$core$List$map,
+				elm$browser$Debugger$Overlay$viewCode,
+				elm$core$List$reverse(tags));
+			if (!_n0.b) {
+				return elm$html$Html$text('');
+			} else {
+				if (!_n0.b.b) {
+					var tag = _n0.a;
+					return A2(
+						elm$html$Html$li,
+						_List_Nil,
+						_List_fromArray(
+							[
+								elm$html$Html$text(verbed),
+								tag,
+								elm$html$Html$text('.')
+							]));
+				} else {
+					if (!_n0.b.b.b) {
+						var tag2 = _n0.a;
+						var _n1 = _n0.b;
+						var tag1 = _n1.a;
+						return A2(
+							elm$html$Html$li,
+							_List_Nil,
+							_List_fromArray(
+								[
+									elm$html$Html$text(verbed),
+									tag1,
+									elm$html$Html$text(' and '),
+									tag2,
+									elm$html$Html$text('.')
+								]));
+					} else {
+						var lastTag = _n0.a;
+						var otherTags = _n0.b;
+						return A2(
+							elm$html$Html$li,
+							_List_Nil,
+							A2(
+								elm$core$List$cons,
+								elm$html$Html$text(verbed),
+								_Utils_ap(
+									A2(
+										elm$core$List$intersperse,
+										elm$html$Html$text(', '),
+										elm$core$List$reverse(otherTags)),
+									_List_fromArray(
+										[
+											elm$html$Html$text(', and '),
+											lastTag,
+											elm$html$Html$text('.')
+										]))));
+					}
+				}
+			}
+		});
+	var elm$browser$Debugger$Overlay$viewChange = function (change) {
+		return A2(
+			elm$html$Html$li,
+			_List_fromArray(
+				[
+					A2(elm$html$Html$Attributes$style, 'margin', '8px 0')
+				]),
+			function () {
+				if (change.$ === 'AliasChange') {
+					var name = change.a;
+					return _List_fromArray(
+						[
+							A2(
+								elm$html$Html$span,
+								_List_fromArray(
+									[
+										A2(elm$html$Html$Attributes$style, 'font-size', '1.5em')
+									]),
+								_List_fromArray(
+									[
+										elm$browser$Debugger$Overlay$viewCode(name)
+									]))
+						]);
+				} else {
+					var name = change.a;
+					var removed = change.b.removed;
+					var changed = change.b.changed;
+					var added = change.b.added;
+					var argsMatch = change.b.argsMatch;
+					return _List_fromArray(
+						[
+							A2(
+								elm$html$Html$span,
+								_List_fromArray(
+									[
+										A2(elm$html$Html$Attributes$style, 'font-size', '1.5em')
+									]),
+								_List_fromArray(
+									[
+										elm$browser$Debugger$Overlay$viewCode(name)
+									])),
+							A2(
+								elm$html$Html$ul,
+								_List_fromArray(
+									[
+										A2(elm$html$Html$Attributes$style, 'list-style-type', 'disc'),
+										A2(elm$html$Html$Attributes$style, 'padding-left', '2em')
+									]),
+								_List_fromArray(
+									[
+										A2(elm$browser$Debugger$Overlay$viewMention, removed, 'Removed '),
+										A2(elm$browser$Debugger$Overlay$viewMention, changed, 'Changed '),
+										A2(elm$browser$Debugger$Overlay$viewMention, added, 'Added ')
+									])),
+							argsMatch ? elm$html$Html$text('') : elm$html$Html$text('This may be due to the fact that the type variable names changed.')
+						]);
+				}
+			}());
+	};
+	var elm$browser$Debugger$Overlay$viewReport = F2(
+		function (isBad, report) {
+			switch (report.$) {
+				case 'CorruptHistory':
+					return _List_fromArray(
+						[
+							elm$html$Html$text('Looks like this history file is corrupt. I cannot understand it.')
+						]);
+				case 'VersionChanged':
+					var old = report.a;
+					var _new = report.b;
+					return _List_fromArray(
+						[
+							elm$html$Html$text('This history was created with Elm ' + (old + (', but you are using Elm ' + (_new + ' right now.'))))
+						]);
+				case 'MessageChanged':
+					var old = report.a;
+					var _new = report.b;
+					return _List_fromArray(
+						[
+							elm$html$Html$text('To import some other history, the overall message type must' + ' be the same. The old history has '),
+							elm$browser$Debugger$Overlay$viewCode(old),
+							elm$html$Html$text(' messages, but the new program works with '),
+							elm$browser$Debugger$Overlay$viewCode(_new),
+							elm$html$Html$text(' messages.')
+						]);
+				default:
+					var changes = report.a;
+					return _List_fromArray(
+						[
+							A2(
+								elm$html$Html$p,
+								_List_Nil,
+								_List_fromArray(
+									[
+										elm$html$Html$text(
+											isBad ? elm$browser$Debugger$Overlay$explanationBad : elm$browser$Debugger$Overlay$explanationRisky)
+									])),
+							A2(
+								elm$html$Html$ul,
+								_List_fromArray(
+									[
+										A2(elm$html$Html$Attributes$style, 'list-style-type', 'none'),
+										A2(elm$html$Html$Attributes$style, 'padding-left', '20px')
+									]),
+								A2(elm$core$List$map, elm$browser$Debugger$Overlay$viewChange, changes))
+						]);
+			}
+		});
+	var elm$browser$Debugger$Overlay$view = F5(
+		function (config, isPaused, isOpen, numMsgs, state) {
+			switch (state.$) {
+				case 'None':
+					return isOpen ? elm$html$Html$text('') : (isPaused ? A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								A2(elm$html$Html$Attributes$style, 'width', '100%'),
+								A2(elm$html$Html$Attributes$style, 'height', '100%'),
+								A2(elm$html$Html$Attributes$style, 'cursor', 'pointer'),
+								A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
+								A2(elm$html$Html$Attributes$style, 'pointer-events', 'auto'),
+								A2(elm$html$Html$Attributes$style, 'background-color', 'rgba(200, 200, 200, 0.7)'),
+								A2(elm$html$Html$Attributes$style, 'color', 'white'),
+								A2(elm$html$Html$Attributes$style, 'font-family', '\'Trebuchet MS\', \'Lucida Grande\', \'Bitstream Vera Sans\', \'Helvetica Neue\', sans-serif'),
+								A2(elm$html$Html$Attributes$style, 'z-index', '2147483646'),
+								elm$html$Html$Events$onClick(config.resume)
+							]),
+						_List_fromArray(
+							[
+								A2(
+									elm$html$Html$div,
+									_List_fromArray(
+										[
+											A2(elm$html$Html$Attributes$style, 'position', 'absolute'),
+											A2(elm$html$Html$Attributes$style, 'top', 'calc(50% - 40px)'),
+											A2(elm$html$Html$Attributes$style, 'font-size', '80px'),
+											A2(elm$html$Html$Attributes$style, 'line-height', '80px'),
+											A2(elm$html$Html$Attributes$style, 'height', '80px'),
+											A2(elm$html$Html$Attributes$style, 'width', '100%')
+										]),
+									_List_fromArray(
+										[
+											elm$html$Html$text('Click to Resume')
+										])),
+								A2(elm$browser$Debugger$Overlay$viewMiniControls, config, numMsgs)
+							])) : A2(elm$browser$Debugger$Overlay$viewMiniControls, config, numMsgs));
+				case 'BadMetadata':
+					var badMetadata_ = state.a;
+					return A4(
+						elm$browser$Debugger$Overlay$viewMessage,
+						config,
+						'Cannot use Import or Export',
+						elm$browser$Debugger$Overlay$viewBadMetadata(badMetadata_),
+						elm$browser$Debugger$Overlay$Accept('Ok'));
+				case 'BadImport':
+					var report = state.a;
+					return A4(
+						elm$browser$Debugger$Overlay$viewMessage,
+						config,
+						'Cannot Import History',
+						A2(elm$browser$Debugger$Overlay$viewReport, true, report),
+						elm$browser$Debugger$Overlay$Accept('Ok'));
+				default:
+					var report = state.a;
+					return A4(
+						elm$browser$Debugger$Overlay$viewMessage,
+						config,
+						'Warning',
+						A2(elm$browser$Debugger$Overlay$viewReport, false, report),
+						A2(elm$browser$Debugger$Overlay$Choose, 'Cancel', 'Import Anyway'));
+			}
+		});
+	var elm$browser$Debugger$Main$cornerView = function (model) {
+		return A5(
+			elm$browser$Debugger$Overlay$view,
+			{
+				exportHistory: elm$browser$Debugger$Main$Export,
+				importHistory: elm$browser$Debugger$Main$Import,
+				open: elm$browser$Debugger$Main$Open,
+				resume: elm$browser$Debugger$Main$Resume,
+				wrap: elm$browser$Debugger$Main$OverlayMsg
+			},
+			elm$browser$Debugger$Main$isPaused(model.state),
+			_Debugger_isOpen(model.popout),
+			elm$browser$Debugger$History$size(model.history),
+			model.overlay);
+	};
+	var elm$browser$Debugger$Main$getCurrentModel = function (state) {
+		if (state.$ === 'Running') {
+			var model = state.a;
+			return model;
+		} else {
+			var model = state.b;
+			return model;
+		}
+	};
+	var elm$browser$Debugger$Main$getUserModel = function (model) {
+		return elm$browser$Debugger$Main$getCurrentModel(model.state);
+	};
+	var elm$browser$Debugger$Expando$Field = F2(
+		function (a, b) {
+			return {$: 'Field', a: a, b: b};
+		});
+	var elm$browser$Debugger$Expando$Index = F3(
+		function (a, b, c) {
+			return {$: 'Index', a: a, b: b, c: c};
+		});
+	var elm$browser$Debugger$Expando$Key = {$: 'Key'};
+	var elm$browser$Debugger$Expando$None = {$: 'None'};
+	var elm$browser$Debugger$Expando$Toggle = {$: 'Toggle'};
+	var elm$browser$Debugger$Expando$Value = {$: 'Value'};
+	var elm$browser$Debugger$Expando$blue = A2(elm$html$Html$Attributes$style, 'color', 'rgb(28, 0, 207)');
+	var elm$browser$Debugger$Expando$leftPad = function (maybeKey) {
+		if (maybeKey.$ === 'Nothing') {
+			return _List_Nil;
+		} else {
+			return _List_fromArray(
+				[
+					A2(elm$html$Html$Attributes$style, 'padding-left', '4ch')
+				]);
+		}
+	};
+	var elm$browser$Debugger$Expando$makeArrow = function (arrow) {
+		return A2(
+			elm$html$Html$span,
+			_List_fromArray(
+				[
+					A2(elm$html$Html$Attributes$style, 'color', '#777'),
+					A2(elm$html$Html$Attributes$style, 'padding-left', '2ch'),
+					A2(elm$html$Html$Attributes$style, 'width', '2ch'),
+					A2(elm$html$Html$Attributes$style, 'display', 'inline-block')
+				]),
+			_List_fromArray(
+				[
+					elm$html$Html$text(arrow)
+				]));
+	};
+	var elm$browser$Debugger$Expando$purple = A2(elm$html$Html$Attributes$style, 'color', 'rgb(136, 19, 145)');
+	var elm$browser$Debugger$Expando$lineStarter = F3(
+		function (maybeKey, maybeIsClosed, description) {
+			var arrow = function () {
+				if (maybeIsClosed.$ === 'Nothing') {
+					return elm$browser$Debugger$Expando$makeArrow('');
+				} else {
+					if (maybeIsClosed.a) {
+						return elm$browser$Debugger$Expando$makeArrow('▸');
+					} else {
+						return elm$browser$Debugger$Expando$makeArrow('▾');
+					}
+				}
+			}();
+			if (maybeKey.$ === 'Nothing') {
+				return A2(elm$core$List$cons, arrow, description);
+			} else {
+				var key = maybeKey.a;
+				return A2(
+					elm$core$List$cons,
+					arrow,
+					A2(
+						elm$core$List$cons,
+						A2(
+							elm$html$Html$span,
+							_List_fromArray(
+								[elm$browser$Debugger$Expando$purple]),
+							_List_fromArray(
+								[
+									elm$html$Html$text(key)
+								])),
+						A2(
+							elm$core$List$cons,
+							elm$html$Html$text(' = '),
+							description)));
+			}
+		});
+	var elm$browser$Debugger$Expando$red = A2(elm$html$Html$Attributes$style, 'color', 'rgb(196, 26, 22)');
+	var elm$browser$Debugger$Expando$seqTypeToString = F2(
+		function (n, seqType) {
+			switch (seqType.$) {
+				case 'ListSeq':
+					return 'List(' + (elm$core$String$fromInt(n) + ')');
+				case 'SetSeq':
+					return 'Set(' + (elm$core$String$fromInt(n) + ')');
+				default:
+					return 'Array(' + (elm$core$String$fromInt(n) + ')');
+			}
+		});
 var elm$core$String$left = F2(
 	function (n, string) {
 		return (n < 1) ? '' : A3(elm$core$String$slice, 0, n, string);
 	});
-    var elm$core$String$right = F2(
-        function (n, string) {
-            return (n < 1) ? '' : A3(
-                elm$core$String$slice,
-                -n,
-                elm$core$String$length(string),
-                string);
-        });
-    var elm$browser$Debugger$Expando$elideMiddle = function (str) {
-        return (elm$core$String$length(str) <= 18) ? str : (A2(elm$core$String$left, 8, str) + ('...' + A2(elm$core$String$right, 8, str)));
-    };
-    var elm$browser$Debugger$Expando$viewExtraTinyRecord = F3(
-        function (length, starter, entries) {
-            if (!entries.b) {
-                return _Utils_Tuple2(
-                    length + 1,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('}')
-                        ]));
-            } else {
-                var field = entries.a;
-                var rest = entries.b;
-                var nextLength = (length + elm$core$String$length(field)) + 1;
-                if (nextLength > 18) {
-                    return _Utils_Tuple2(
-                        length + 2,
-                        _List_fromArray(
-                            [
-                                elm$html$Html$text('…}')
-                            ]));
-                } else {
-                    var _n1 = A3(elm$browser$Debugger$Expando$viewExtraTinyRecord, nextLength, ',', rest);
-                    var finalLength = _n1.a;
-                    var otherHtmls = _n1.b;
-                    return _Utils_Tuple2(
-                        finalLength,
-                        A2(
-                            elm$core$List$cons,
-                            elm$html$Html$text(starter),
-                            A2(
-                                elm$core$List$cons,
-                                A2(
-                                    elm$html$Html$span,
-                                    _List_fromArray(
-                                        [elm$browser$Debugger$Expando$purple]),
-                                    _List_fromArray(
-                                        [
-                                            elm$html$Html$text(field)
-                                        ])),
-                                otherHtmls)));
-                }
-            }
-        });
-    var elm$browser$Debugger$Expando$viewTinyHelp = function (str) {
-        return _Utils_Tuple2(
-            elm$core$String$length(str),
-            _List_fromArray(
-                [
-                    elm$html$Html$text(str)
-                ]));
-    };
-    var elm$core$Dict$isEmpty = function (dict) {
-        if (dict.$ === 'RBEmpty_elm_builtin') {
-            return true;
-        } else {
-            return false;
-        }
-    };
-    var elm$browser$Debugger$Expando$viewExtraTiny = function (value) {
-        if (value.$ === 'Record') {
-            var record = value.b;
-            return A3(
-                elm$browser$Debugger$Expando$viewExtraTinyRecord,
-                0,
-                '{',
-                elm$core$Dict$keys(record));
-        } else {
-            return elm$browser$Debugger$Expando$viewTiny(value);
-        }
-    };
-    var elm$browser$Debugger$Expando$viewTiny = function (value) {
-        switch (value.$) {
-            case 'S':
-                var stringRep = value.a;
-                var str = elm$browser$Debugger$Expando$elideMiddle(stringRep);
-                return _Utils_Tuple2(
-                    elm$core$String$length(str),
-                    _List_fromArray(
-                        [
-                            A2(
-                                elm$html$Html$span,
-                                _List_fromArray(
-                                    [elm$browser$Debugger$Expando$red]),
-                                _List_fromArray(
-                                    [
-                                        elm$html$Html$text(str)
-                                    ]))
-                        ]));
-            case 'Primitive':
-                var stringRep = value.a;
-                return _Utils_Tuple2(
-                    elm$core$String$length(stringRep),
-                    _List_fromArray(
-                        [
-                            A2(
-                                elm$html$Html$span,
-                                _List_fromArray(
-                                    [elm$browser$Debugger$Expando$blue]),
-                                _List_fromArray(
-                                    [
-                                        elm$html$Html$text(stringRep)
-                                    ]))
-                        ]));
-            case 'Sequence':
-                var seqType = value.a;
-                var valueList = value.c;
-                return elm$browser$Debugger$Expando$viewTinyHelp(
-                    A2(
-                        elm$browser$Debugger$Expando$seqTypeToString,
-                        elm$core$List$length(valueList),
-                        seqType));
-            case 'Dictionary':
-                var keyValuePairs = value.b;
-                return elm$browser$Debugger$Expando$viewTinyHelp(
-                    'Dict(' + (elm$core$String$fromInt(
-                    elm$core$List$length(keyValuePairs)) + ')'));
-            case 'Record':
-                var record = value.b;
-                return elm$browser$Debugger$Expando$viewTinyRecord(record);
-            default:
-                if (!value.c.b) {
-                    var maybeName = value.a;
-                    return elm$browser$Debugger$Expando$viewTinyHelp(
-                        A2(elm$core$Maybe$withDefault, 'Unit', maybeName));
-                } else {
-                    var maybeName = value.a;
-                    var valueList = value.c;
-                    return elm$browser$Debugger$Expando$viewTinyHelp(
-                        function () {
-                            if (maybeName.$ === 'Nothing') {
-                                return 'Tuple(' + (elm$core$String$fromInt(
-                                    elm$core$List$length(valueList)) + ')');
-                            } else {
-                                var name = maybeName.a;
-                                return name + ' …';
-                            }
-                        }());
-                }
-        }
-    };
-    var elm$browser$Debugger$Expando$viewTinyRecord = function (record) {
-        return elm$core$Dict$isEmpty(record) ? _Utils_Tuple2(
-            2,
-            _List_fromArray(
-                [
-                    elm$html$Html$text('{}')
-                ])) : A3(
-            elm$browser$Debugger$Expando$viewTinyRecordHelp,
-            0,
-            '{ ',
-            elm$core$Dict$toList(record));
-    };
-    var elm$browser$Debugger$Expando$viewTinyRecordHelp = F3(
-        function (length, starter, entries) {
-            if (!entries.b) {
-                return _Utils_Tuple2(
-                    length + 2,
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text(' }')
-                        ]));
-            } else {
-                var _n1 = entries.a;
-                var field = _n1.a;
-                var value = _n1.b;
-                var rest = entries.b;
-                var fieldLen = elm$core$String$length(field);
-                var _n2 = elm$browser$Debugger$Expando$viewExtraTiny(value);
-                var valueLen = _n2.a;
-                var valueHtmls = _n2.b;
-                var newLength = ((length + fieldLen) + valueLen) + 5;
-                if (newLength > 60) {
-                    return _Utils_Tuple2(
-                        length + 4,
-                        _List_fromArray(
-                            [
-                                elm$html$Html$text(', … }')
-                            ]));
-                } else {
-                    var _n3 = A3(elm$browser$Debugger$Expando$viewTinyRecordHelp, newLength, ', ', rest);
-                    var finalLength = _n3.a;
-                    var otherHtmls = _n3.b;
-                    return _Utils_Tuple2(
-                        finalLength,
-                        A2(
-                            elm$core$List$cons,
-                            elm$html$Html$text(starter),
-                            A2(
-                                elm$core$List$cons,
-                                A2(
-                                    elm$html$Html$span,
-                                    _List_fromArray(
-                                        [elm$browser$Debugger$Expando$purple]),
-                                    _List_fromArray(
-                                        [
-                                            elm$html$Html$text(field)
-                                        ])),
-                                A2(
-                                    elm$core$List$cons,
-                                    elm$html$Html$text(' = '),
-                                    A2(
-                                        elm$core$List$cons,
-                                        A2(elm$html$Html$span, _List_Nil, valueHtmls),
-                                        otherHtmls)))));
-                }
-            }
-        });
-    var elm$core$Tuple$second = function (_n0) {
-        var y = _n0.b;
-        return y;
-    };
-    var elm$browser$Debugger$Expando$view = F2(
-        function (maybeKey, expando) {
-            switch (expando.$) {
-                case 'S':
-                    var stringRep = expando.a;
-                    return A2(
-                        elm$html$Html$div,
-                        elm$browser$Debugger$Expando$leftPad(maybeKey),
-                        A3(
-                            elm$browser$Debugger$Expando$lineStarter,
-                            maybeKey,
-                            elm$core$Maybe$Nothing,
-                            _List_fromArray(
-                                [
-                                    A2(
-                                        elm$html$Html$span,
-                                        _List_fromArray(
-                                            [elm$browser$Debugger$Expando$red]),
-                                        _List_fromArray(
-                                            [
-                                                elm$html$Html$text(stringRep)
-                                            ]))
-                                ])));
-                case 'Primitive':
-                    var stringRep = expando.a;
-                    return A2(
-                        elm$html$Html$div,
-                        elm$browser$Debugger$Expando$leftPad(maybeKey),
-                        A3(
-                            elm$browser$Debugger$Expando$lineStarter,
-                            maybeKey,
-                            elm$core$Maybe$Nothing,
-                            _List_fromArray(
-                                [
-                                    A2(
-                                        elm$html$Html$span,
-                                        _List_fromArray(
-                                            [elm$browser$Debugger$Expando$blue]),
-                                        _List_fromArray(
-                                            [
-                                                elm$html$Html$text(stringRep)
-                                            ]))
-                                ])));
-                case 'Sequence':
-                    var seqType = expando.a;
-                    var isClosed = expando.b;
-                    var valueList = expando.c;
-                    return A4(elm$browser$Debugger$Expando$viewSequence, maybeKey, seqType, isClosed, valueList);
-                case 'Dictionary':
-                    var isClosed = expando.a;
-                    var keyValuePairs = expando.b;
-                    return A3(elm$browser$Debugger$Expando$viewDictionary, maybeKey, isClosed, keyValuePairs);
-                case 'Record':
-                    var isClosed = expando.a;
-                    var valueDict = expando.b;
-                    return A3(elm$browser$Debugger$Expando$viewRecord, maybeKey, isClosed, valueDict);
-                default:
-                    var maybeName = expando.a;
-                    var isClosed = expando.b;
-                    var valueList = expando.c;
-                    return A4(elm$browser$Debugger$Expando$viewConstructor, maybeKey, maybeName, isClosed, valueList);
-            }
-        });
-    var elm$browser$Debugger$Expando$viewConstructor = F4(
-        function (maybeKey, maybeName, isClosed, valueList) {
-            var tinyArgs = A2(
-                elm$core$List$map,
-                A2(elm$core$Basics$composeL, elm$core$Tuple$second, elm$browser$Debugger$Expando$viewExtraTiny),
-                valueList);
-            var description = function () {
-                var _n7 = _Utils_Tuple2(maybeName, tinyArgs);
-                if (_n7.a.$ === 'Nothing') {
-                    if (!_n7.b.b) {
-                        var _n8 = _n7.a;
-                        return _List_fromArray(
-                            [
-                                elm$html$Html$text('()')
-                            ]);
-                    } else {
-                        var _n9 = _n7.a;
-                        var _n10 = _n7.b;
-                        var x = _n10.a;
-                        var xs = _n10.b;
-                        return A2(
-                            elm$core$List$cons,
-                            elm$html$Html$text('( '),
-                            A2(
-                                elm$core$List$cons,
-                                A2(elm$html$Html$span, _List_Nil, x),
-                                A3(
-                                    elm$core$List$foldr,
-                                    F2(
-                                        function (args, rest) {
-                                            return A2(
-                                                elm$core$List$cons,
-                                                elm$html$Html$text(', '),
-                                                A2(
-                                                    elm$core$List$cons,
-                                                    A2(elm$html$Html$span, _List_Nil, args),
-                                                    rest));
-                                        }),
-                                    _List_fromArray(
-                                        [
-                                            elm$html$Html$text(' )')
-                                        ]),
-                                    xs)));
-                    }
-                } else {
-                    if (!_n7.b.b) {
-                        var name = _n7.a.a;
-                        return _List_fromArray(
-                            [
-                                elm$html$Html$text(name)
-                            ]);
-                    } else {
-                        var name = _n7.a.a;
-                        var _n11 = _n7.b;
-                        var x = _n11.a;
-                        var xs = _n11.b;
-                        return A2(
-                            elm$core$List$cons,
-                            elm$html$Html$text(name + ' '),
-                            A2(
-                                elm$core$List$cons,
-                                A2(elm$html$Html$span, _List_Nil, x),
-                                A3(
-                                    elm$core$List$foldr,
-                                    F2(
-                                        function (args, rest) {
-                                            return A2(
-                                                elm$core$List$cons,
-                                                elm$html$Html$text(' '),
-                                                A2(
-                                                    elm$core$List$cons,
-                                                    A2(elm$html$Html$span, _List_Nil, args),
-                                                    rest));
-                                        }),
-                                    _List_Nil,
-                                    xs)));
-                    }
-                }
-            }();
-            var _n4 = function () {
-                if (!valueList.b) {
-                    return _Utils_Tuple2(
-                        elm$core$Maybe$Nothing,
-                        A2(elm$html$Html$div, _List_Nil, _List_Nil));
-                } else {
-                    if (!valueList.b.b) {
-                        var entry = valueList.a;
-                        switch (entry.$) {
-                            case 'S':
-                                return _Utils_Tuple2(
-                                    elm$core$Maybe$Nothing,
-                                    A2(elm$html$Html$div, _List_Nil, _List_Nil));
-                            case 'Primitive':
-                                return _Utils_Tuple2(
-                                    elm$core$Maybe$Nothing,
-                                    A2(elm$html$Html$div, _List_Nil, _List_Nil));
-                            case 'Sequence':
-                                var subValueList = entry.c;
-                                return _Utils_Tuple2(
-                                    elm$core$Maybe$Just(isClosed),
-                                    isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
-                                        elm$html$Html$map,
-                                        A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
-                                        elm$browser$Debugger$Expando$viewSequenceOpen(subValueList)));
-                            case 'Dictionary':
-                                var keyValuePairs = entry.b;
-                                return _Utils_Tuple2(
-                                    elm$core$Maybe$Just(isClosed),
-                                    isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
-                                        elm$html$Html$map,
-                                        A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
-                                        elm$browser$Debugger$Expando$viewDictionaryOpen(keyValuePairs)));
-                            case 'Record':
-                                var record = entry.b;
-                                return _Utils_Tuple2(
-                                    elm$core$Maybe$Just(isClosed),
-                                    isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
-                                        elm$html$Html$map,
-                                        A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
-                                        elm$browser$Debugger$Expando$viewRecordOpen(record)));
-                            default:
-                                var subValueList = entry.c;
-                                return _Utils_Tuple2(
-                                    elm$core$Maybe$Just(isClosed),
-                                    isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
-                                        elm$html$Html$map,
-                                        A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
-                                        elm$browser$Debugger$Expando$viewConstructorOpen(subValueList)));
-                        }
-                    } else {
-                        return _Utils_Tuple2(
-                            elm$core$Maybe$Just(isClosed),
-                            isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : elm$browser$Debugger$Expando$viewConstructorOpen(valueList));
-                    }
-                }
-            }();
-            var maybeIsClosed = _n4.a;
-            var openHtml = _n4.b;
-            return A2(
-                elm$html$Html$div,
-                elm$browser$Debugger$Expando$leftPad(maybeKey),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$div,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
-                                ]),
-                            A3(elm$browser$Debugger$Expando$lineStarter, maybeKey, maybeIsClosed, description)),
-                        openHtml
-                    ]));
-        });
-    var elm$browser$Debugger$Expando$viewConstructorEntry = F2(
-        function (index, value) {
-            return A2(
-                elm$html$Html$map,
-                A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, index),
-                A2(
-                    elm$browser$Debugger$Expando$view,
-                    elm$core$Maybe$Just(
-                        elm$core$String$fromInt(index)),
-                    value));
-        });
-    var elm$browser$Debugger$Expando$viewConstructorOpen = function (valueList) {
-        return A2(
-            elm$html$Html$div,
-            _List_Nil,
-            A2(elm$core$List$indexedMap, elm$browser$Debugger$Expando$viewConstructorEntry, valueList));
-    };
-    var elm$browser$Debugger$Expando$viewDictionary = F3(
-        function (maybeKey, isClosed, keyValuePairs) {
-            var starter = 'Dict(' + (elm$core$String$fromInt(
-                elm$core$List$length(keyValuePairs)) + ')');
-            return A2(
-                elm$html$Html$div,
-                elm$browser$Debugger$Expando$leftPad(maybeKey),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$div,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
-                                ]),
-                            A3(
-                                elm$browser$Debugger$Expando$lineStarter,
-                                maybeKey,
-                                elm$core$Maybe$Just(isClosed),
-                                _List_fromArray(
-                                    [
-                                        elm$html$Html$text(starter)
-                                    ]))),
-                        isClosed ? elm$html$Html$text('') : elm$browser$Debugger$Expando$viewDictionaryOpen(keyValuePairs)
-                    ]));
-        });
-    var elm$browser$Debugger$Expando$viewDictionaryEntry = F2(
-        function (index, _n2) {
-            var key = _n2.a;
-            var value = _n2.b;
-            switch (key.$) {
-                case 'S':
-                    var stringRep = key.a;
-                    return A2(
-                        elm$html$Html$map,
-                        A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Value, index),
-                        A2(
-                            elm$browser$Debugger$Expando$view,
-                            elm$core$Maybe$Just(stringRep),
-                            value));
-                case 'Primitive':
-                    var stringRep = key.a;
-                    return A2(
-                        elm$html$Html$map,
-                        A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Value, index),
-                        A2(
-                            elm$browser$Debugger$Expando$view,
-                            elm$core$Maybe$Just(stringRep),
-                            value));
-                default:
-                    return A2(
-                        elm$html$Html$div,
-                        _List_Nil,
-                        _List_fromArray(
-                            [
-                                A2(
-                                    elm$html$Html$map,
-                                    A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Key, index),
-                                    A2(
-                                        elm$browser$Debugger$Expando$view,
-                                        elm$core$Maybe$Just('key'),
-                                        key)),
-                                A2(
-                                    elm$html$Html$map,
-                                    A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Value, index),
-                                    A2(
-                                        elm$browser$Debugger$Expando$view,
-                                        elm$core$Maybe$Just('value'),
-                                        value))
-                            ]));
-            }
-        });
-    var elm$browser$Debugger$Expando$viewDictionaryOpen = function (keyValuePairs) {
-        return A2(
-            elm$html$Html$div,
-            _List_Nil,
-            A2(elm$core$List$indexedMap, elm$browser$Debugger$Expando$viewDictionaryEntry, keyValuePairs));
-    };
-    var elm$browser$Debugger$Expando$viewRecord = F3(
-        function (maybeKey, isClosed, record) {
-            var _n1 = isClosed ? _Utils_Tuple3(
-                elm$browser$Debugger$Expando$viewTinyRecord(record).b,
-                elm$html$Html$text(''),
-                elm$html$Html$text('')) : _Utils_Tuple3(
-                _List_fromArray(
-                    [
-                        elm$html$Html$text('{')
-                    ]),
-                elm$browser$Debugger$Expando$viewRecordOpen(record),
-                A2(
-                    elm$html$Html$div,
-                    elm$browser$Debugger$Expando$leftPad(
-                        elm$core$Maybe$Just(_Utils_Tuple0)),
-                    _List_fromArray(
-                        [
-                            elm$html$Html$text('}')
-                        ])));
-            var start = _n1.a;
-            var middle = _n1.b;
-            var end = _n1.c;
-            return A2(
-                elm$html$Html$div,
-                elm$browser$Debugger$Expando$leftPad(maybeKey),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$div,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
-                                ]),
-                            A3(
-                                elm$browser$Debugger$Expando$lineStarter,
-                                maybeKey,
-                                elm$core$Maybe$Just(isClosed),
-                                start)),
-                        middle,
-                        end
-                    ]));
-        });
-    var elm$browser$Debugger$Expando$viewRecordEntry = function (_n0) {
-        var field = _n0.a;
-        var value = _n0.b;
-        return A2(
-            elm$html$Html$map,
-            elm$browser$Debugger$Expando$Field(field),
-            A2(
-                elm$browser$Debugger$Expando$view,
-                elm$core$Maybe$Just(field),
-                value));
-    };
-    var elm$browser$Debugger$Expando$viewRecordOpen = function (record) {
-        return A2(
-            elm$html$Html$div,
-            _List_Nil,
-            A2(
-                elm$core$List$map,
-                elm$browser$Debugger$Expando$viewRecordEntry,
-                elm$core$Dict$toList(record)));
-    };
-    var elm$browser$Debugger$Expando$viewSequence = F4(
-        function (maybeKey, seqType, isClosed, valueList) {
-            var starter = A2(
-                elm$browser$Debugger$Expando$seqTypeToString,
-                elm$core$List$length(valueList),
-                seqType);
-            return A2(
-                elm$html$Html$div,
-                elm$browser$Debugger$Expando$leftPad(maybeKey),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$div,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
-                                ]),
-                            A3(
-                                elm$browser$Debugger$Expando$lineStarter,
-                                maybeKey,
-                                elm$core$Maybe$Just(isClosed),
-                                _List_fromArray(
-                                    [
-                                        elm$html$Html$text(starter)
-                                    ]))),
-                        isClosed ? elm$html$Html$text('') : elm$browser$Debugger$Expando$viewSequenceOpen(valueList)
-                    ]));
-        });
-    var elm$browser$Debugger$Expando$viewSequenceOpen = function (values) {
-        return A2(
-            elm$html$Html$div,
-            _List_Nil,
-            A2(elm$core$List$indexedMap, elm$browser$Debugger$Expando$viewConstructorEntry, values));
-    };
-    var elm$browser$Debugger$Main$ExpandoMsg = function (a) {
-        return {$: 'ExpandoMsg', a: a};
-    };
-    var elm$html$Html$Attributes$title = elm$html$Html$Attributes$stringProperty('title');
-    var elm$browser$Debugger$History$viewMessage = F3(
-        function (currentIndex, index, msg) {
-            var messageName = _Debugger_messageToString(msg);
-            var className = _Utils_eq(currentIndex, index) ? 'elm-debugger-entry elm-debugger-entry-selected' : 'elm-debugger-entry';
-            return A2(
-                elm$html$Html$div,
-                _List_fromArray(
-                    [
-                        elm$html$Html$Attributes$class(className),
-                        elm$html$Html$Events$onClick(index)
-                    ]),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$span,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$Attributes$title(messageName),
-                                    elm$html$Html$Attributes$class('elm-debugger-entry-content')
-                                ]),
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$text(messageName)
-                                ])),
-                        A2(
-                            elm$html$Html$span,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$Attributes$class('elm-debugger-entry-index')
-                                ]),
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$text(
-                                        elm$core$String$fromInt(index))
-                                ]))
-                    ]));
-        });
-    var elm$browser$Debugger$History$consMsg = F3(
-        function (currentIndex, msg, _n0) {
-            var index = _n0.a;
-            var rest = _n0.b;
-            return _Utils_Tuple2(
-                index - 1,
-                A2(
-                    elm$core$List$cons,
-                    A4(elm$html$Html$Lazy$lazy3, elm$browser$Debugger$History$viewMessage, currentIndex, index, msg),
-                    rest));
-        });
-    var elm$virtual_dom$VirtualDom$node = function (tag) {
-        return _VirtualDom_node(
-            _VirtualDom_noScript(tag));
-    };
-    var elm$html$Html$node = elm$virtual_dom$VirtualDom$node;
-    var elm$browser$Debugger$History$styles = A3(
-        elm$html$Html$node,
-        'style',
-        _List_Nil,
-        _List_fromArray(
-            [
-                elm$html$Html$text('\n\n.elm-debugger-entry {\n  cursor: pointer;\n  width: 100%;\n}\n\n.elm-debugger-entry:hover {\n  background-color: rgb(41, 41, 41);\n}\n\n.elm-debugger-entry-selected, .elm-debugger-entry-selected:hover {\n  background-color: rgb(10, 10, 10);\n}\n\n.elm-debugger-entry-content {\n  width: calc(100% - 7ch);\n  padding-top: 4px;\n  padding-bottom: 4px;\n  padding-left: 1ch;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n}\n\n.elm-debugger-entry-index {\n  color: #666;\n  width: 5ch;\n  padding-top: 4px;\n  padding-bottom: 4px;\n  padding-right: 1ch;\n  text-align: right;\n  display: block;\n  float: right;\n}\n\n')
-            ]));
-    var elm$browser$Debugger$History$maxSnapshotSize = 64;
-    var elm$core$Elm$JsArray$foldl = _JsArray_foldl;
-    var elm$core$Array$foldl = F3(
-        function (func, baseCase, _n0) {
-            var tree = _n0.c;
-            var tail = _n0.d;
-            var helper = F2(
-                function (node, acc) {
-                    if (node.$ === 'SubTree') {
-                        var subTree = node.a;
-                        return A3(elm$core$Elm$JsArray$foldl, helper, acc, subTree);
-                    } else {
-                        var values = node.a;
-                        return A3(elm$core$Elm$JsArray$foldl, func, acc, values);
-                    }
-                });
-            return A3(
-                elm$core$Elm$JsArray$foldl,
-                func,
-                A3(elm$core$Elm$JsArray$foldl, helper, baseCase, tree),
-                tail);
-        });
-    var elm$browser$Debugger$History$viewSnapshot = F3(
-        function (currentIndex, index, _n0) {
-            var messages = _n0.messages;
-            return A2(
-                elm$html$Html$div,
-                _List_Nil,
-                A3(
-                    elm$core$Array$foldl,
-                    elm$browser$Debugger$History$consMsg(currentIndex),
-                    _Utils_Tuple2(index - 1, _List_Nil),
-                    messages).b);
-        });
-    var elm$browser$Debugger$History$consSnapshot = F3(
-        function (currentIndex, snapshot, _n0) {
-            var index = _n0.a;
-            var rest = _n0.b;
-            var nextIndex = index - elm$browser$Debugger$History$maxSnapshotSize;
-            var currentIndexHelp = ((_Utils_cmp(nextIndex, currentIndex) < 1) && (_Utils_cmp(currentIndex, index) < 0)) ? currentIndex : (-1);
-            return _Utils_Tuple2(
-                index - elm$browser$Debugger$History$maxSnapshotSize,
-                A2(
-                    elm$core$List$cons,
-                    A4(elm$html$Html$Lazy$lazy3, elm$browser$Debugger$History$viewSnapshot, currentIndexHelp, index, snapshot),
-                    rest));
-        });
-    var elm$core$Array$length = function (_n0) {
-        var len = _n0.a;
-        return len;
-    };
-    var elm$browser$Debugger$History$viewSnapshots = F2(
-        function (currentIndex, snapshots) {
-            var highIndex = elm$browser$Debugger$History$maxSnapshotSize * elm$core$Array$length(snapshots);
-            return A2(
-                elm$html$Html$div,
-                _List_Nil,
-                A3(
-                    elm$core$Array$foldr,
-                    elm$browser$Debugger$History$consSnapshot(currentIndex),
-                    _Utils_Tuple2(highIndex, _List_Nil),
-                    snapshots).b);
-        });
-    var elm$virtual_dom$VirtualDom$lazy2 = _VirtualDom_lazy2;
-    var elm$html$Html$Lazy$lazy2 = elm$virtual_dom$VirtualDom$lazy2;
-    var elm$browser$Debugger$History$view = F2(
-        function (maybeIndex, _n0) {
-            var snapshots = _n0.snapshots;
-            var recent = _n0.recent;
-            var numMessages = _n0.numMessages;
-            var _n1 = function () {
-                if (maybeIndex.$ === 'Nothing') {
-                    return _Utils_Tuple2(-1, 'calc(100% - 24px)');
-                } else {
-                    var i = maybeIndex.a;
-                    return _Utils_Tuple2(i, 'calc(100% - 54px)');
-                }
-            }();
-            var index = _n1.a;
-            var height = _n1.b;
-            var newStuff = A3(
-                elm$core$List$foldl,
-                elm$browser$Debugger$History$consMsg(index),
-                _Utils_Tuple2(numMessages - 1, _List_Nil),
-                recent.messages).b;
-            var oldStuff = A3(elm$html$Html$Lazy$lazy2, elm$browser$Debugger$History$viewSnapshots, index, snapshots);
-            return A2(
-                elm$html$Html$div,
-                _List_fromArray(
-                    [
-                        elm$html$Html$Attributes$id('elm-debugger-sidebar'),
-                        A2(elm$html$Html$Attributes$style, 'width', '100%'),
-                        A2(elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
-                        A2(elm$html$Html$Attributes$style, 'height', height)
-                    ]),
-                A2(
-                    elm$core$List$cons,
-                    elm$browser$Debugger$History$styles,
-                    A2(elm$core$List$cons, oldStuff, newStuff)));
-        });
-    var elm$browser$Debugger$Main$Jump = function (a) {
-        return {$: 'Jump', a: a};
-    };
-    var elm$browser$Debugger$Main$resumeStyle = '\n\n.elm-debugger-resume {\n  width: 100%;\n  height: 30px;\n  line-height: 30px;\n  cursor: pointer;\n}\n\n.elm-debugger-resume:hover {\n  background-color: rgb(41, 41, 41);\n}\n\n';
-    var elm$browser$Debugger$Main$viewResumeButton = function (maybeIndex) {
-        if (maybeIndex.$ === 'Nothing') {
-            return elm$html$Html$text('');
-        } else {
-            return A2(
-                elm$html$Html$div,
-                _List_fromArray(
-                    [
-                        elm$html$Html$Events$onClick(elm$browser$Debugger$Main$Resume),
-                        elm$html$Html$Attributes$class('elm-debugger-resume')
-                    ]),
-                _List_fromArray(
-                    [
-                        elm$html$Html$text('Resume'),
-                        A3(
-                            elm$html$Html$node,
-                            'style',
-                            _List_Nil,
-                            _List_fromArray(
-                                [
-                                    elm$html$Html$text(elm$browser$Debugger$Main$resumeStyle)
-                                ]))
-                    ]));
-        }
-    };
-    var elm$browser$Debugger$Main$viewTextButton = F2(
-        function (msg, label) {
-            return A2(
-                elm$html$Html$span,
-                _List_fromArray(
-                    [
-                        elm$html$Html$Events$onClick(msg),
-                        A2(elm$html$Html$Attributes$style, 'cursor', 'pointer')
-                    ]),
-                _List_fromArray(
-                    [
-                        elm$html$Html$text(label)
-                    ]));
-        });
-    var elm$browser$Debugger$Main$playButton = function (maybeIndex) {
-        return A2(
-            elm$html$Html$div,
-            _List_fromArray(
-                [
-                    A2(elm$html$Html$Attributes$style, 'width', '100%'),
-                    A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
-                    A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)')
-                ]),
-            _List_fromArray(
-                [
-                    elm$browser$Debugger$Main$viewResumeButton(maybeIndex),
-                    A2(
-                        elm$html$Html$div,
-                        _List_fromArray(
-                            [
-                                A2(elm$html$Html$Attributes$style, 'width', '100%'),
-                                A2(elm$html$Html$Attributes$style, 'height', '24px'),
-                                A2(elm$html$Html$Attributes$style, 'line-height', '24px'),
-                                A2(elm$html$Html$Attributes$style, 'font-size', '12px')
-                            ]),
-                        _List_fromArray(
-                            [
-                                A2(elm$browser$Debugger$Main$viewTextButton, elm$browser$Debugger$Main$Import, 'Import'),
-                                elm$html$Html$text(' / '),
-                                A2(elm$browser$Debugger$Main$viewTextButton, elm$browser$Debugger$Main$Export, 'Export')
-                            ]))
-                ]));
-    };
-    var elm$browser$Debugger$Main$viewSidebar = F2(
-        function (state, history) {
-            var maybeIndex = function () {
-                if (state.$ === 'Running') {
-                    return elm$core$Maybe$Nothing;
-                } else {
-                    var index = state.a;
-                    return elm$core$Maybe$Just(index);
-                }
-            }();
-            return A2(
-                elm$html$Html$div,
-                _List_fromArray(
-                    [
-                        A2(elm$html$Html$Attributes$style, 'display', 'block'),
-                        A2(elm$html$Html$Attributes$style, 'float', 'left'),
-                        A2(elm$html$Html$Attributes$style, 'width', '30ch'),
-                        A2(elm$html$Html$Attributes$style, 'height', '100%'),
-                        A2(elm$html$Html$Attributes$style, 'color', 'white'),
-                        A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(61, 61, 61)')
-                    ]),
-                _List_fromArray(
-                    [
-                        A2(
-                            elm$html$Html$map,
-                            elm$browser$Debugger$Main$Jump,
-                            A2(elm$browser$Debugger$History$view, maybeIndex, history)),
-                        elm$browser$Debugger$Main$playButton(maybeIndex)
-                    ]));
-        });
-    var elm$browser$Debugger$Main$popoutView = function (_n0) {
-        var history = _n0.history;
-        var state = _n0.state;
-        var expando = _n0.expando;
-        return A3(
-            elm$html$Html$node,
-            'body',
-            _List_fromArray(
-                [
-                    A2(elm$html$Html$Attributes$style, 'margin', '0'),
-                    A2(elm$html$Html$Attributes$style, 'padding', '0'),
-                    A2(elm$html$Html$Attributes$style, 'width', '100%'),
-                    A2(elm$html$Html$Attributes$style, 'height', '100%'),
-                    A2(elm$html$Html$Attributes$style, 'font-family', 'monospace'),
-                    A2(elm$html$Html$Attributes$style, 'overflow', 'auto')
-                ]),
-            _List_fromArray(
-                [
-                    A2(elm$browser$Debugger$Main$viewSidebar, state, history),
-                    A2(
-                        elm$html$Html$map,
-                        elm$browser$Debugger$Main$ExpandoMsg,
-                        A2(
-                            elm$html$Html$div,
-                            _List_fromArray(
-                                [
-                                    A2(elm$html$Html$Attributes$style, 'display', 'block'),
-                                    A2(elm$html$Html$Attributes$style, 'float', 'left'),
-                                    A2(elm$html$Html$Attributes$style, 'height', '100%'),
-                                    A2(elm$html$Html$Attributes$style, 'width', 'calc(100% - 30ch)'),
-                                    A2(elm$html$Html$Attributes$style, 'margin', '0'),
-                                    A2(elm$html$Html$Attributes$style, 'overflow', 'auto'),
-                                    A2(elm$html$Html$Attributes$style, 'cursor', 'default')
-                                ]),
-                            _List_fromArray(
-                                [
-                                    A2(elm$browser$Debugger$Expando$view, elm$core$Maybe$Nothing, expando)
-                                ])))
-                ]));
-    };
-    var elm$browser$Debugger$Overlay$BlockAll = {$: 'BlockAll'};
-    var elm$browser$Debugger$Overlay$BlockMost = {$: 'BlockMost'};
-    var elm$browser$Debugger$Overlay$BlockNone = {$: 'BlockNone'};
-    var elm$browser$Debugger$Overlay$toBlockerType = F2(
-        function (isPaused, state) {
-            switch (state.$) {
-                case 'None':
-                    return isPaused ? elm$browser$Debugger$Overlay$BlockAll : elm$browser$Debugger$Overlay$BlockNone;
-                case 'BadMetadata':
-                    return elm$browser$Debugger$Overlay$BlockMost;
-                case 'BadImport':
-                    return elm$browser$Debugger$Overlay$BlockMost;
-                default:
-                    return elm$browser$Debugger$Overlay$BlockMost;
-            }
-        });
-    var elm$browser$Debugger$Main$toBlockerType = function (model) {
-        return A2(
-            elm$browser$Debugger$Overlay$toBlockerType,
-            elm$browser$Debugger$Main$isPaused(model.state),
-            model.overlay);
-    };
-    var elm$core$Dict$map = F2(
-        function (func, dict) {
-            if (dict.$ === 'RBEmpty_elm_builtin') {
-                return elm$core$Dict$RBEmpty_elm_builtin;
-            } else {
-                var color = dict.a;
-                var key = dict.b;
-                var value = dict.c;
-                var left = dict.d;
-                var right = dict.e;
-                return A5(
-                    elm$core$Dict$RBNode_elm_builtin,
-                    color,
-                    key,
-                    A2(func, key, value),
-                    A2(elm$core$Dict$map, func, left),
-                    A2(elm$core$Dict$map, func, right));
-            }
-        });
-    var elm$core$Dict$sizeHelp = F2(
-        function (n, dict) {
-            sizeHelp:
-                while (true) {
-                    if (dict.$ === 'RBEmpty_elm_builtin') {
-                        return n;
-                    } else {
-                        var left = dict.d;
-                        var right = dict.e;
-                        var $temp$n = A2(elm$core$Dict$sizeHelp, n + 1, right),
-                            $temp$dict = left;
-                        n = $temp$n;
-                        dict = $temp$dict;
+	var elm$core$String$right = F2(
+		function (n, string) {
+			return (n < 1) ? '' : A3(
+				elm$core$String$slice,
+				-n,
+				elm$core$String$length(string),
+				string);
+		});
+	var elm$browser$Debugger$Expando$elideMiddle = function (str) {
+		return (elm$core$String$length(str) <= 18) ? str : (A2(elm$core$String$left, 8, str) + ('...' + A2(elm$core$String$right, 8, str)));
+	};
+	var elm$browser$Debugger$Expando$viewExtraTinyRecord = F3(
+		function (length, starter, entries) {
+			if (!entries.b) {
+				return _Utils_Tuple2(
+					length + 1,
+					_List_fromArray(
+						[
+							elm$html$Html$text('}')
+						]));
+			} else {
+				var field = entries.a;
+				var rest = entries.b;
+				var nextLength = (length + elm$core$String$length(field)) + 1;
+				if (nextLength > 18) {
+					return _Utils_Tuple2(
+						length + 2,
+						_List_fromArray(
+							[
+								elm$html$Html$text('…}')
+							]));
+				} else {
+					var _n1 = A3(elm$browser$Debugger$Expando$viewExtraTinyRecord, nextLength, ',', rest);
+					var finalLength = _n1.a;
+					var otherHtmls = _n1.b;
+					return _Utils_Tuple2(
+						finalLength,
+						A2(
+							elm$core$List$cons,
+							elm$html$Html$text(starter),
+							A2(
+								elm$core$List$cons,
+								A2(
+									elm$html$Html$span,
+									_List_fromArray(
+										[elm$browser$Debugger$Expando$purple]),
+									_List_fromArray(
+										[
+											elm$html$Html$text(field)
+										])),
+								otherHtmls)));
+				}
+			}
+		});
+	var elm$browser$Debugger$Expando$viewTinyHelp = function (str) {
+		return _Utils_Tuple2(
+			elm$core$String$length(str),
+			_List_fromArray(
+				[
+					elm$html$Html$text(str)
+				]));
+	};
+	var elm$core$Dict$isEmpty = function (dict) {
+		if (dict.$ === 'RBEmpty_elm_builtin') {
+			return true;
+		} else {
+			return false;
+		}
+	};
+	var elm$browser$Debugger$Expando$viewExtraTiny = function (value) {
+		if (value.$ === 'Record') {
+			var record = value.b;
+			return A3(
+				elm$browser$Debugger$Expando$viewExtraTinyRecord,
+				0,
+				'{',
+				elm$core$Dict$keys(record));
+		} else {
+			return elm$browser$Debugger$Expando$viewTiny(value);
+		}
+	};
+	var elm$browser$Debugger$Expando$viewTiny = function (value) {
+		switch (value.$) {
+			case 'S':
+				var stringRep = value.a;
+				var str = elm$browser$Debugger$Expando$elideMiddle(stringRep);
+				return _Utils_Tuple2(
+					elm$core$String$length(str),
+					_List_fromArray(
+						[
+							A2(
+								elm$html$Html$span,
+								_List_fromArray(
+									[elm$browser$Debugger$Expando$red]),
+								_List_fromArray(
+									[
+										elm$html$Html$text(str)
+									]))
+						]));
+			case 'Primitive':
+				var stringRep = value.a;
+				return _Utils_Tuple2(
+					elm$core$String$length(stringRep),
+					_List_fromArray(
+						[
+							A2(
+								elm$html$Html$span,
+								_List_fromArray(
+									[elm$browser$Debugger$Expando$blue]),
+								_List_fromArray(
+									[
+										elm$html$Html$text(stringRep)
+									]))
+						]));
+			case 'Sequence':
+				var seqType = value.a;
+				var valueList = value.c;
+				return elm$browser$Debugger$Expando$viewTinyHelp(
+					A2(
+						elm$browser$Debugger$Expando$seqTypeToString,
+						elm$core$List$length(valueList),
+						seqType));
+			case 'Dictionary':
+				var keyValuePairs = value.b;
+				return elm$browser$Debugger$Expando$viewTinyHelp(
+					'Dict(' + (elm$core$String$fromInt(
+					elm$core$List$length(keyValuePairs)) + ')'));
+			case 'Record':
+				var record = value.b;
+				return elm$browser$Debugger$Expando$viewTinyRecord(record);
+			default:
+				if (!value.c.b) {
+					var maybeName = value.a;
+					return elm$browser$Debugger$Expando$viewTinyHelp(
+						A2(elm$core$Maybe$withDefault, 'Unit', maybeName));
+				} else {
+					var maybeName = value.a;
+					var valueList = value.c;
+					return elm$browser$Debugger$Expando$viewTinyHelp(
+						function () {
+							if (maybeName.$ === 'Nothing') {
+								return 'Tuple(' + (elm$core$String$fromInt(
+									elm$core$List$length(valueList)) + ')');
+							} else {
+								var name = maybeName.a;
+								return name + ' …';
+							}
+						}());
+				}
+		}
+	};
+	var elm$browser$Debugger$Expando$viewTinyRecord = function (record) {
+		return elm$core$Dict$isEmpty(record) ? _Utils_Tuple2(
+			2,
+			_List_fromArray(
+				[
+					elm$html$Html$text('{}')
+				])) : A3(
+			elm$browser$Debugger$Expando$viewTinyRecordHelp,
+			0,
+			'{ ',
+			elm$core$Dict$toList(record));
+	};
+	var elm$browser$Debugger$Expando$viewTinyRecordHelp = F3(
+		function (length, starter, entries) {
+			if (!entries.b) {
+				return _Utils_Tuple2(
+					length + 2,
+					_List_fromArray(
+						[
+							elm$html$Html$text(' }')
+						]));
+			} else {
+				var _n1 = entries.a;
+				var field = _n1.a;
+				var value = _n1.b;
+				var rest = entries.b;
+				var fieldLen = elm$core$String$length(field);
+				var _n2 = elm$browser$Debugger$Expando$viewExtraTiny(value);
+				var valueLen = _n2.a;
+				var valueHtmls = _n2.b;
+				var newLength = ((length + fieldLen) + valueLen) + 5;
+				if (newLength > 60) {
+					return _Utils_Tuple2(
+						length + 4,
+						_List_fromArray(
+							[
+								elm$html$Html$text(', … }')
+							]));
+				} else {
+					var _n3 = A3(elm$browser$Debugger$Expando$viewTinyRecordHelp, newLength, ', ', rest);
+					var finalLength = _n3.a;
+					var otherHtmls = _n3.b;
+					return _Utils_Tuple2(
+						finalLength,
+						A2(
+							elm$core$List$cons,
+							elm$html$Html$text(starter),
+							A2(
+								elm$core$List$cons,
+								A2(
+									elm$html$Html$span,
+									_List_fromArray(
+										[elm$browser$Debugger$Expando$purple]),
+									_List_fromArray(
+										[
+											elm$html$Html$text(field)
+										])),
+								A2(
+									elm$core$List$cons,
+									elm$html$Html$text(' = '),
+									A2(
+										elm$core$List$cons,
+										A2(elm$html$Html$span, _List_Nil, valueHtmls),
+										otherHtmls)))));
+				}
+			}
+		});
+	var elm$core$Tuple$second = function (_n0) {
+		var y = _n0.b;
+		return y;
+	};
+	var elm$browser$Debugger$Expando$view = F2(
+		function (maybeKey, expando) {
+			switch (expando.$) {
+				case 'S':
+					var stringRep = expando.a;
+					return A2(
+						elm$html$Html$div,
+						elm$browser$Debugger$Expando$leftPad(maybeKey),
+						A3(
+							elm$browser$Debugger$Expando$lineStarter,
+							maybeKey,
+							elm$core$Maybe$Nothing,
+							_List_fromArray(
+								[
+									A2(
+										elm$html$Html$span,
+										_List_fromArray(
+											[elm$browser$Debugger$Expando$red]),
+										_List_fromArray(
+											[
+												elm$html$Html$text(stringRep)
+											]))
+								])));
+				case 'Primitive':
+					var stringRep = expando.a;
+					return A2(
+						elm$html$Html$div,
+						elm$browser$Debugger$Expando$leftPad(maybeKey),
+						A3(
+							elm$browser$Debugger$Expando$lineStarter,
+							maybeKey,
+							elm$core$Maybe$Nothing,
+							_List_fromArray(
+								[
+									A2(
+										elm$html$Html$span,
+										_List_fromArray(
+											[elm$browser$Debugger$Expando$blue]),
+										_List_fromArray(
+											[
+												elm$html$Html$text(stringRep)
+											]))
+								])));
+				case 'Sequence':
+					var seqType = expando.a;
+					var isClosed = expando.b;
+					var valueList = expando.c;
+					return A4(elm$browser$Debugger$Expando$viewSequence, maybeKey, seqType, isClosed, valueList);
+				case 'Dictionary':
+					var isClosed = expando.a;
+					var keyValuePairs = expando.b;
+					return A3(elm$browser$Debugger$Expando$viewDictionary, maybeKey, isClosed, keyValuePairs);
+				case 'Record':
+					var isClosed = expando.a;
+					var valueDict = expando.b;
+					return A3(elm$browser$Debugger$Expando$viewRecord, maybeKey, isClosed, valueDict);
+				default:
+					var maybeName = expando.a;
+					var isClosed = expando.b;
+					var valueList = expando.c;
+					return A4(elm$browser$Debugger$Expando$viewConstructor, maybeKey, maybeName, isClosed, valueList);
+			}
+		});
+	var elm$browser$Debugger$Expando$viewConstructor = F4(
+		function (maybeKey, maybeName, isClosed, valueList) {
+			var tinyArgs = A2(
+				elm$core$List$map,
+				A2(elm$core$Basics$composeL, elm$core$Tuple$second, elm$browser$Debugger$Expando$viewExtraTiny),
+				valueList);
+			var description = function () {
+				var _n7 = _Utils_Tuple2(maybeName, tinyArgs);
+				if (_n7.a.$ === 'Nothing') {
+					if (!_n7.b.b) {
+						var _n8 = _n7.a;
+						return _List_fromArray(
+							[
+								elm$html$Html$text('()')
+							]);
+					} else {
+						var _n9 = _n7.a;
+						var _n10 = _n7.b;
+						var x = _n10.a;
+						var xs = _n10.b;
+						return A2(
+							elm$core$List$cons,
+							elm$html$Html$text('( '),
+							A2(
+								elm$core$List$cons,
+								A2(elm$html$Html$span, _List_Nil, x),
+								A3(
+									elm$core$List$foldr,
+									F2(
+										function (args, rest) {
+											return A2(
+												elm$core$List$cons,
+												elm$html$Html$text(', '),
+												A2(
+													elm$core$List$cons,
+													A2(elm$html$Html$span, _List_Nil, args),
+													rest));
+										}),
+									_List_fromArray(
+										[
+											elm$html$Html$text(' )')
+										]),
+									xs)));
+					}
+				} else {
+					if (!_n7.b.b) {
+						var name = _n7.a.a;
+						return _List_fromArray(
+							[
+								elm$html$Html$text(name)
+							]);
+					} else {
+						var name = _n7.a.a;
+						var _n11 = _n7.b;
+						var x = _n11.a;
+						var xs = _n11.b;
+						return A2(
+							elm$core$List$cons,
+							elm$html$Html$text(name + ' '),
+							A2(
+								elm$core$List$cons,
+								A2(elm$html$Html$span, _List_Nil, x),
+								A3(
+									elm$core$List$foldr,
+									F2(
+										function (args, rest) {
+											return A2(
+												elm$core$List$cons,
+												elm$html$Html$text(' '),
+												A2(
+													elm$core$List$cons,
+													A2(elm$html$Html$span, _List_Nil, args),
+													rest));
+										}),
+									_List_Nil,
+									xs)));
+					}
+				}
+			}();
+			var _n4 = function () {
+				if (!valueList.b) {
+					return _Utils_Tuple2(
+						elm$core$Maybe$Nothing,
+						A2(elm$html$Html$div, _List_Nil, _List_Nil));
+				} else {
+					if (!valueList.b.b) {
+						var entry = valueList.a;
+						switch (entry.$) {
+							case 'S':
+								return _Utils_Tuple2(
+									elm$core$Maybe$Nothing,
+									A2(elm$html$Html$div, _List_Nil, _List_Nil));
+							case 'Primitive':
+								return _Utils_Tuple2(
+									elm$core$Maybe$Nothing,
+									A2(elm$html$Html$div, _List_Nil, _List_Nil));
+							case 'Sequence':
+								var subValueList = entry.c;
+								return _Utils_Tuple2(
+									elm$core$Maybe$Just(isClosed),
+									isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
+										elm$html$Html$map,
+										A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
+										elm$browser$Debugger$Expando$viewSequenceOpen(subValueList)));
+							case 'Dictionary':
+								var keyValuePairs = entry.b;
+								return _Utils_Tuple2(
+									elm$core$Maybe$Just(isClosed),
+									isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
+										elm$html$Html$map,
+										A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
+										elm$browser$Debugger$Expando$viewDictionaryOpen(keyValuePairs)));
+							case 'Record':
+								var record = entry.b;
+								return _Utils_Tuple2(
+									elm$core$Maybe$Just(isClosed),
+									isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
+										elm$html$Html$map,
+										A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
+										elm$browser$Debugger$Expando$viewRecordOpen(record)));
+							default:
+								var subValueList = entry.c;
+								return _Utils_Tuple2(
+									elm$core$Maybe$Just(isClosed),
+									isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : A2(
+										elm$html$Html$map,
+										A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, 0),
+										elm$browser$Debugger$Expando$viewConstructorOpen(subValueList)));
+						}
+					} else {
+						return _Utils_Tuple2(
+							elm$core$Maybe$Just(isClosed),
+							isClosed ? A2(elm$html$Html$div, _List_Nil, _List_Nil) : elm$browser$Debugger$Expando$viewConstructorOpen(valueList));
+					}
+				}
+			}();
+			var maybeIsClosed = _n4.a;
+			var openHtml = _n4.b;
+			return A2(
+				elm$html$Html$div,
+				elm$browser$Debugger$Expando$leftPad(maybeKey),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
+								]),
+							A3(elm$browser$Debugger$Expando$lineStarter, maybeKey, maybeIsClosed, description)),
+						openHtml
+					]));
+		});
+	var elm$browser$Debugger$Expando$viewConstructorEntry = F2(
+		function (index, value) {
+			return A2(
+				elm$html$Html$map,
+				A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$None, index),
+				A2(
+					elm$browser$Debugger$Expando$view,
+					elm$core$Maybe$Just(
+						elm$core$String$fromInt(index)),
+					value));
+		});
+	var elm$browser$Debugger$Expando$viewConstructorOpen = function (valueList) {
+		return A2(
+			elm$html$Html$div,
+			_List_Nil,
+			A2(elm$core$List$indexedMap, elm$browser$Debugger$Expando$viewConstructorEntry, valueList));
+	};
+	var elm$browser$Debugger$Expando$viewDictionary = F3(
+		function (maybeKey, isClosed, keyValuePairs) {
+			var starter = 'Dict(' + (elm$core$String$fromInt(
+				elm$core$List$length(keyValuePairs)) + ')');
+			return A2(
+				elm$html$Html$div,
+				elm$browser$Debugger$Expando$leftPad(maybeKey),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
+								]),
+							A3(
+								elm$browser$Debugger$Expando$lineStarter,
+								maybeKey,
+								elm$core$Maybe$Just(isClosed),
+								_List_fromArray(
+									[
+										elm$html$Html$text(starter)
+									]))),
+						isClosed ? elm$html$Html$text('') : elm$browser$Debugger$Expando$viewDictionaryOpen(keyValuePairs)
+					]));
+		});
+	var elm$browser$Debugger$Expando$viewDictionaryEntry = F2(
+		function (index, _n2) {
+			var key = _n2.a;
+			var value = _n2.b;
+			switch (key.$) {
+				case 'S':
+					var stringRep = key.a;
+					return A2(
+						elm$html$Html$map,
+						A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Value, index),
+						A2(
+							elm$browser$Debugger$Expando$view,
+							elm$core$Maybe$Just(stringRep),
+							value));
+				case 'Primitive':
+					var stringRep = key.a;
+					return A2(
+						elm$html$Html$map,
+						A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Value, index),
+						A2(
+							elm$browser$Debugger$Expando$view,
+							elm$core$Maybe$Just(stringRep),
+							value));
+				default:
+					return A2(
+						elm$html$Html$div,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+									elm$html$Html$map,
+									A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Key, index),
+									A2(
+										elm$browser$Debugger$Expando$view,
+										elm$core$Maybe$Just('key'),
+										key)),
+								A2(
+									elm$html$Html$map,
+									A2(elm$browser$Debugger$Expando$Index, elm$browser$Debugger$Expando$Value, index),
+									A2(
+										elm$browser$Debugger$Expando$view,
+										elm$core$Maybe$Just('value'),
+										value))
+							]));
+			}
+		});
+	var elm$browser$Debugger$Expando$viewDictionaryOpen = function (keyValuePairs) {
+		return A2(
+			elm$html$Html$div,
+			_List_Nil,
+			A2(elm$core$List$indexedMap, elm$browser$Debugger$Expando$viewDictionaryEntry, keyValuePairs));
+	};
+	var elm$browser$Debugger$Expando$viewRecord = F3(
+		function (maybeKey, isClosed, record) {
+			var _n1 = isClosed ? _Utils_Tuple3(
+				elm$browser$Debugger$Expando$viewTinyRecord(record).b,
+				elm$html$Html$text(''),
+				elm$html$Html$text('')) : _Utils_Tuple3(
+				_List_fromArray(
+					[
+						elm$html$Html$text('{')
+					]),
+				elm$browser$Debugger$Expando$viewRecordOpen(record),
+				A2(
+					elm$html$Html$div,
+					elm$browser$Debugger$Expando$leftPad(
+						elm$core$Maybe$Just(_Utils_Tuple0)),
+					_List_fromArray(
+						[
+							elm$html$Html$text('}')
+						])));
+			var start = _n1.a;
+			var middle = _n1.b;
+			var end = _n1.c;
+			return A2(
+				elm$html$Html$div,
+				elm$browser$Debugger$Expando$leftPad(maybeKey),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
+								]),
+							A3(
+								elm$browser$Debugger$Expando$lineStarter,
+								maybeKey,
+								elm$core$Maybe$Just(isClosed),
+								start)),
+						middle,
+						end
+					]));
+		});
+	var elm$browser$Debugger$Expando$viewRecordEntry = function (_n0) {
+		var field = _n0.a;
+		var value = _n0.b;
+		return A2(
+			elm$html$Html$map,
+			elm$browser$Debugger$Expando$Field(field),
+			A2(
+				elm$browser$Debugger$Expando$view,
+				elm$core$Maybe$Just(field),
+				value));
+	};
+	var elm$browser$Debugger$Expando$viewRecordOpen = function (record) {
+		return A2(
+			elm$html$Html$div,
+			_List_Nil,
+			A2(
+				elm$core$List$map,
+				elm$browser$Debugger$Expando$viewRecordEntry,
+				elm$core$Dict$toList(record)));
+	};
+	var elm$browser$Debugger$Expando$viewSequence = F4(
+		function (maybeKey, seqType, isClosed, valueList) {
+			var starter = A2(
+				elm$browser$Debugger$Expando$seqTypeToString,
+				elm$core$List$length(valueList),
+				seqType);
+			return A2(
+				elm$html$Html$div,
+				elm$browser$Debugger$Expando$leftPad(maybeKey),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									elm$html$Html$Events$onClick(elm$browser$Debugger$Expando$Toggle)
+								]),
+							A3(
+								elm$browser$Debugger$Expando$lineStarter,
+								maybeKey,
+								elm$core$Maybe$Just(isClosed),
+								_List_fromArray(
+									[
+										elm$html$Html$text(starter)
+									]))),
+						isClosed ? elm$html$Html$text('') : elm$browser$Debugger$Expando$viewSequenceOpen(valueList)
+					]));
+		});
+	var elm$browser$Debugger$Expando$viewSequenceOpen = function (values) {
+		return A2(
+			elm$html$Html$div,
+			_List_Nil,
+			A2(elm$core$List$indexedMap, elm$browser$Debugger$Expando$viewConstructorEntry, values));
+	};
+	var elm$browser$Debugger$Main$ExpandoMsg = function (a) {
+		return {$: 'ExpandoMsg', a: a};
+	};
+	var elm$html$Html$Attributes$title = elm$html$Html$Attributes$stringProperty('title');
+	var elm$browser$Debugger$History$viewMessage = F3(
+		function (currentIndex, index, msg) {
+			var messageName = _Debugger_messageToString(msg);
+			var className = _Utils_eq(currentIndex, index) ? 'elm-debugger-entry elm-debugger-entry-selected' : 'elm-debugger-entry';
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$class(className),
+						elm$html$Html$Events$onClick(index)
+					]),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$span,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$title(messageName),
+									elm$html$Html$Attributes$class('elm-debugger-entry-content')
+								]),
+							_List_fromArray(
+								[
+									elm$html$Html$text(messageName)
+								])),
+						A2(
+							elm$html$Html$span,
+							_List_fromArray(
+								[
+									elm$html$Html$Attributes$class('elm-debugger-entry-index')
+								]),
+							_List_fromArray(
+								[
+									elm$html$Html$text(
+										elm$core$String$fromInt(index))
+								]))
+					]));
+		});
+	var elm$browser$Debugger$History$consMsg = F3(
+		function (currentIndex, msg, _n0) {
+			var index = _n0.a;
+			var rest = _n0.b;
+			return _Utils_Tuple2(
+				index - 1,
+				A2(
+					elm$core$List$cons,
+					A4(elm$html$Html$Lazy$lazy3, elm$browser$Debugger$History$viewMessage, currentIndex, index, msg),
+					rest));
+		});
+	var elm$virtual_dom$VirtualDom$node = function (tag) {
+		return _VirtualDom_node(
+			_VirtualDom_noScript(tag));
+	};
+	var elm$html$Html$node = elm$virtual_dom$VirtualDom$node;
+	var elm$browser$Debugger$History$styles = A3(
+		elm$html$Html$node,
+		'style',
+		_List_Nil,
+		_List_fromArray(
+			[
+				elm$html$Html$text('\n\n.elm-debugger-entry {\n  cursor: pointer;\n  width: 100%;\n}\n\n.elm-debugger-entry:hover {\n  background-color: rgb(41, 41, 41);\n}\n\n.elm-debugger-entry-selected, .elm-debugger-entry-selected:hover {\n  background-color: rgb(10, 10, 10);\n}\n\n.elm-debugger-entry-content {\n  width: calc(100% - 7ch);\n  padding-top: 4px;\n  padding-bottom: 4px;\n  padding-left: 1ch;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  overflow: hidden;\n  display: inline-block;\n}\n\n.elm-debugger-entry-index {\n  color: #666;\n  width: 5ch;\n  padding-top: 4px;\n  padding-bottom: 4px;\n  padding-right: 1ch;\n  text-align: right;\n  display: block;\n  float: right;\n}\n\n')
+			]));
+	var elm$browser$Debugger$History$maxSnapshotSize = 64;
+	var elm$core$Elm$JsArray$foldl = _JsArray_foldl;
+	var elm$core$Array$foldl = F3(
+		function (func, baseCase, _n0) {
+			var tree = _n0.c;
+			var tail = _n0.d;
+			var helper = F2(
+				function (node, acc) {
+					if (node.$ === 'SubTree') {
+						var subTree = node.a;
+						return A3(elm$core$Elm$JsArray$foldl, helper, acc, subTree);
+					} else {
+						var values = node.a;
+						return A3(elm$core$Elm$JsArray$foldl, func, acc, values);
+					}
+				});
+			return A3(
+				elm$core$Elm$JsArray$foldl,
+				func,
+				A3(elm$core$Elm$JsArray$foldl, helper, baseCase, tree),
+				tail);
+		});
+	var elm$browser$Debugger$History$viewSnapshot = F3(
+		function (currentIndex, index, _n0) {
+			var messages = _n0.messages;
+			return A2(
+				elm$html$Html$div,
+				_List_Nil,
+				A3(
+					elm$core$Array$foldl,
+					elm$browser$Debugger$History$consMsg(currentIndex),
+					_Utils_Tuple2(index - 1, _List_Nil),
+					messages).b);
+		});
+	var elm$browser$Debugger$History$consSnapshot = F3(
+		function (currentIndex, snapshot, _n0) {
+			var index = _n0.a;
+			var rest = _n0.b;
+			var nextIndex = index - elm$browser$Debugger$History$maxSnapshotSize;
+			var currentIndexHelp = ((_Utils_cmp(nextIndex, currentIndex) < 1) && (_Utils_cmp(currentIndex, index) < 0)) ? currentIndex : (-1);
+			return _Utils_Tuple2(
+				index - elm$browser$Debugger$History$maxSnapshotSize,
+				A2(
+					elm$core$List$cons,
+					A4(elm$html$Html$Lazy$lazy3, elm$browser$Debugger$History$viewSnapshot, currentIndexHelp, index, snapshot),
+					rest));
+		});
+	var elm$core$Array$length = function (_n0) {
+		var len = _n0.a;
+		return len;
+	};
+	var elm$browser$Debugger$History$viewSnapshots = F2(
+		function (currentIndex, snapshots) {
+			var highIndex = elm$browser$Debugger$History$maxSnapshotSize * elm$core$Array$length(snapshots);
+			return A2(
+				elm$html$Html$div,
+				_List_Nil,
+				A3(
+					elm$core$Array$foldr,
+					elm$browser$Debugger$History$consSnapshot(currentIndex),
+					_Utils_Tuple2(highIndex, _List_Nil),
+					snapshots).b);
+		});
+	var elm$virtual_dom$VirtualDom$lazy2 = _VirtualDom_lazy2;
+	var elm$html$Html$Lazy$lazy2 = elm$virtual_dom$VirtualDom$lazy2;
+	var elm$browser$Debugger$History$view = F2(
+		function (maybeIndex, _n0) {
+			var snapshots = _n0.snapshots;
+			var recent = _n0.recent;
+			var numMessages = _n0.numMessages;
+			var _n1 = function () {
+				if (maybeIndex.$ === 'Nothing') {
+					return _Utils_Tuple2(-1, 'calc(100% - 24px)');
+				} else {
+					var i = maybeIndex.a;
+					return _Utils_Tuple2(i, 'calc(100% - 54px)');
+				}
+			}();
+			var index = _n1.a;
+			var height = _n1.b;
+			var newStuff = A3(
+				elm$core$List$foldl,
+				elm$browser$Debugger$History$consMsg(index),
+				_Utils_Tuple2(numMessages - 1, _List_Nil),
+				recent.messages).b;
+			var oldStuff = A3(elm$html$Html$Lazy$lazy2, elm$browser$Debugger$History$viewSnapshots, index, snapshots);
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Attributes$id('elm-debugger-sidebar'),
+						A2(elm$html$Html$Attributes$style, 'width', '100%'),
+						A2(elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
+						A2(elm$html$Html$Attributes$style, 'height', height)
+					]),
+				A2(
+					elm$core$List$cons,
+					elm$browser$Debugger$History$styles,
+					A2(elm$core$List$cons, oldStuff, newStuff)));
+		});
+	var elm$browser$Debugger$Main$Jump = function (a) {
+		return {$: 'Jump', a: a};
+	};
+	var elm$browser$Debugger$Main$resumeStyle = '\n\n.elm-debugger-resume {\n  width: 100%;\n  height: 30px;\n  line-height: 30px;\n  cursor: pointer;\n}\n\n.elm-debugger-resume:hover {\n  background-color: rgb(41, 41, 41);\n}\n\n';
+	var elm$browser$Debugger$Main$viewResumeButton = function (maybeIndex) {
+		if (maybeIndex.$ === 'Nothing') {
+			return elm$html$Html$text('');
+		} else {
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						elm$html$Html$Events$onClick(elm$browser$Debugger$Main$Resume),
+						elm$html$Html$Attributes$class('elm-debugger-resume')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text('Resume'),
+						A3(
+							elm$html$Html$node,
+							'style',
+							_List_Nil,
+							_List_fromArray(
+								[
+									elm$html$Html$text(elm$browser$Debugger$Main$resumeStyle)
+								]))
+					]));
+		}
+	};
+	var elm$browser$Debugger$Main$viewTextButton = F2(
+		function (msg, label) {
+			return A2(
+				elm$html$Html$span,
+				_List_fromArray(
+					[
+						elm$html$Html$Events$onClick(msg),
+						A2(elm$html$Html$Attributes$style, 'cursor', 'pointer')
+					]),
+				_List_fromArray(
+					[
+						elm$html$Html$text(label)
+					]));
+		});
+	var elm$browser$Debugger$Main$playButton = function (maybeIndex) {
+		return A2(
+			elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2(elm$html$Html$Attributes$style, 'width', '100%'),
+					A2(elm$html$Html$Attributes$style, 'text-align', 'center'),
+					A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(50, 50, 50)')
+				]),
+			_List_fromArray(
+				[
+					elm$browser$Debugger$Main$viewResumeButton(maybeIndex),
+					A2(
+						elm$html$Html$div,
+						_List_fromArray(
+							[
+								A2(elm$html$Html$Attributes$style, 'width', '100%'),
+								A2(elm$html$Html$Attributes$style, 'height', '24px'),
+								A2(elm$html$Html$Attributes$style, 'line-height', '24px'),
+								A2(elm$html$Html$Attributes$style, 'font-size', '12px')
+							]),
+						_List_fromArray(
+							[
+								A2(elm$browser$Debugger$Main$viewTextButton, elm$browser$Debugger$Main$Import, 'Import'),
+								elm$html$Html$text(' / '),
+								A2(elm$browser$Debugger$Main$viewTextButton, elm$browser$Debugger$Main$Export, 'Export')
+							]))
+				]));
+	};
+	var elm$browser$Debugger$Main$viewSidebar = F2(
+		function (state, history) {
+			var maybeIndex = function () {
+				if (state.$ === 'Running') {
+					return elm$core$Maybe$Nothing;
+				} else {
+					var index = state.a;
+					return elm$core$Maybe$Just(index);
+				}
+			}();
+			return A2(
+				elm$html$Html$div,
+				_List_fromArray(
+					[
+						A2(elm$html$Html$Attributes$style, 'display', 'block'),
+						A2(elm$html$Html$Attributes$style, 'float', 'left'),
+						A2(elm$html$Html$Attributes$style, 'width', '30ch'),
+						A2(elm$html$Html$Attributes$style, 'height', '100%'),
+						A2(elm$html$Html$Attributes$style, 'color', 'white'),
+						A2(elm$html$Html$Attributes$style, 'background-color', 'rgb(61, 61, 61)')
+					]),
+				_List_fromArray(
+					[
+						A2(
+							elm$html$Html$map,
+							elm$browser$Debugger$Main$Jump,
+							A2(elm$browser$Debugger$History$view, maybeIndex, history)),
+						elm$browser$Debugger$Main$playButton(maybeIndex)
+					]));
+		});
+	var elm$browser$Debugger$Main$popoutView = function (_n0) {
+		var history = _n0.history;
+		var state = _n0.state;
+		var expando = _n0.expando;
+		return A3(
+			elm$html$Html$node,
+			'body',
+			_List_fromArray(
+				[
+					A2(elm$html$Html$Attributes$style, 'margin', '0'),
+					A2(elm$html$Html$Attributes$style, 'padding', '0'),
+					A2(elm$html$Html$Attributes$style, 'width', '100%'),
+					A2(elm$html$Html$Attributes$style, 'height', '100%'),
+					A2(elm$html$Html$Attributes$style, 'font-family', 'monospace'),
+					A2(elm$html$Html$Attributes$style, 'overflow', 'auto')
+				]),
+			_List_fromArray(
+				[
+					A2(elm$browser$Debugger$Main$viewSidebar, state, history),
+					A2(
+						elm$html$Html$map,
+						elm$browser$Debugger$Main$ExpandoMsg,
+						A2(
+							elm$html$Html$div,
+							_List_fromArray(
+								[
+									A2(elm$html$Html$Attributes$style, 'display', 'block'),
+									A2(elm$html$Html$Attributes$style, 'float', 'left'),
+									A2(elm$html$Html$Attributes$style, 'height', '100%'),
+									A2(elm$html$Html$Attributes$style, 'width', 'calc(100% - 30ch)'),
+									A2(elm$html$Html$Attributes$style, 'margin', '0'),
+									A2(elm$html$Html$Attributes$style, 'overflow', 'auto'),
+									A2(elm$html$Html$Attributes$style, 'cursor', 'default')
+								]),
+							_List_fromArray(
+								[
+									A2(elm$browser$Debugger$Expando$view, elm$core$Maybe$Nothing, expando)
+								])))
+				]));
+	};
+	var elm$browser$Debugger$Overlay$BlockAll = {$: 'BlockAll'};
+	var elm$browser$Debugger$Overlay$BlockMost = {$: 'BlockMost'};
+	var elm$browser$Debugger$Overlay$BlockNone = {$: 'BlockNone'};
+	var elm$browser$Debugger$Overlay$toBlockerType = F2(
+		function (isPaused, state) {
+			switch (state.$) {
+				case 'None':
+					return isPaused ? elm$browser$Debugger$Overlay$BlockAll : elm$browser$Debugger$Overlay$BlockNone;
+				case 'BadMetadata':
+					return elm$browser$Debugger$Overlay$BlockMost;
+				case 'BadImport':
+					return elm$browser$Debugger$Overlay$BlockMost;
+				default:
+					return elm$browser$Debugger$Overlay$BlockMost;
+			}
+		});
+	var elm$browser$Debugger$Main$toBlockerType = function (model) {
+		return A2(
+			elm$browser$Debugger$Overlay$toBlockerType,
+			elm$browser$Debugger$Main$isPaused(model.state),
+			model.overlay);
+	};
+	var elm$core$Dict$map = F2(
+		function (func, dict) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
+				return elm$core$Dict$RBEmpty_elm_builtin;
+			} else {
+				var color = dict.a;
+				var key = dict.b;
+				var value = dict.c;
+				var left = dict.d;
+				var right = dict.e;
+				return A5(
+					elm$core$Dict$RBNode_elm_builtin,
+					color,
+					key,
+					A2(func, key, value),
+					A2(elm$core$Dict$map, func, left),
+					A2(elm$core$Dict$map, func, right));
+			}
+		});
+	var elm$core$Dict$sizeHelp = F2(
+		function (n, dict) {
+			sizeHelp:
+				while (true) {
+					if (dict.$ === 'RBEmpty_elm_builtin') {
+						return n;
+					} else {
+						var left = dict.d;
+						var right = dict.e;
+						var $temp$n = A2(elm$core$Dict$sizeHelp, n + 1, right),
+							$temp$dict = left;
+						n = $temp$n;
+						dict = $temp$dict;
 
-                    }
-                }
-        });
-    var elm$core$Dict$size = function (dict) {
-        return A2(elm$core$Dict$sizeHelp, 0, dict);
-    };
-    var elm$browser$Debugger$Expando$initHelp = F2(
-        function (isOuter, expando) {
-            switch (expando.$) {
-                case 'S':
-                    return expando;
-                case 'Primitive':
-                    return expando;
-                case 'Sequence':
-                    var seqType = expando.a;
-                    var isClosed = expando.b;
-                    var items = expando.c;
-                    return isOuter ? A3(
-                        elm$browser$Debugger$Expando$Sequence,
-                        seqType,
-                        false,
-                        A2(
-                            elm$core$List$map,
-                            elm$browser$Debugger$Expando$initHelp(false),
-                            items)) : ((elm$core$List$length(items) <= 8) ? A3(elm$browser$Debugger$Expando$Sequence, seqType, false, items) : expando);
-                case 'Dictionary':
-                    var isClosed = expando.a;
-                    var keyValuePairs = expando.b;
-                    return isOuter ? A2(
-                        elm$browser$Debugger$Expando$Dictionary,
-                        false,
-                        A2(
-                            elm$core$List$map,
-                            function (_n1) {
-                                var k = _n1.a;
-                                var v = _n1.b;
-                                return _Utils_Tuple2(
-                                    k,
-                                    A2(elm$browser$Debugger$Expando$initHelp, false, v));
-                            },
-                            keyValuePairs)) : ((elm$core$List$length(keyValuePairs) <= 8) ? A2(elm$browser$Debugger$Expando$Dictionary, false, keyValuePairs) : expando);
-                case 'Record':
-                    var isClosed = expando.a;
-                    var entries = expando.b;
-                    return isOuter ? A2(
-                        elm$browser$Debugger$Expando$Record,
-                        false,
-                        A2(
-                            elm$core$Dict$map,
-                            F2(
-                                function (_n2, v) {
-                                    return A2(elm$browser$Debugger$Expando$initHelp, false, v);
-                                }),
-                            entries)) : ((elm$core$Dict$size(entries) <= 4) ? A2(elm$browser$Debugger$Expando$Record, false, entries) : expando);
-                default:
-                    var maybeName = expando.a;
-                    var isClosed = expando.b;
-                    var args = expando.c;
-                    return isOuter ? A3(
-                        elm$browser$Debugger$Expando$Constructor,
-                        maybeName,
-                        false,
-                        A2(
-                            elm$core$List$map,
-                            elm$browser$Debugger$Expando$initHelp(false),
-                            args)) : ((elm$core$List$length(args) <= 4) ? A3(elm$browser$Debugger$Expando$Constructor, maybeName, false, args) : expando);
-            }
-        });
-    var elm$browser$Debugger$Expando$init = function (value) {
-        return A2(
-            elm$browser$Debugger$Expando$initHelp,
-            true,
-            _Debugger_init(value));
-    };
-    var elm$browser$Debugger$History$History = F3(
-        function (snapshots, recent, numMessages) {
-            return {numMessages: numMessages, recent: recent, snapshots: snapshots};
-        });
-    var elm$browser$Debugger$History$RecentHistory = F3(
-        function (model, messages, numMessages) {
-            return {messages: messages, model: model, numMessages: numMessages};
-        });
-    var elm$browser$Debugger$History$empty = function (model) {
-        return A3(
-            elm$browser$Debugger$History$History,
-            elm$core$Array$empty,
-            A3(elm$browser$Debugger$History$RecentHistory, model, _List_Nil, 0),
-            0);
-    };
-    var elm$browser$Debugger$Main$Running = function (a) {
-        return {$: 'Running', a: a};
-    };
-    var elm$browser$Debugger$Metadata$Error = F2(
-        function (message, problems) {
-            return {message: message, problems: problems};
-        });
-    var elm$browser$Debugger$Metadata$Metadata = F2(
-        function (versions, types) {
-            return {types: types, versions: versions};
-        });
-    var elm$browser$Debugger$Metadata$Types = F3(
-        function (message, aliases, unions) {
-            return {aliases: aliases, message: message, unions: unions};
-        });
-    var elm$browser$Debugger$Metadata$Alias = F2(
-        function (args, tipe) {
-            return {args: args, tipe: tipe};
-        });
-    var elm$json$Json$Decode$list = _Json_decodeList;
-    var elm$browser$Debugger$Metadata$decodeAlias = A3(
-        elm$json$Json$Decode$map2,
-        elm$browser$Debugger$Metadata$Alias,
-        A2(
-            elm$json$Json$Decode$field,
-            'args',
-            elm$json$Json$Decode$list(elm$json$Json$Decode$string)),
-        A2(elm$json$Json$Decode$field, 'type', elm$json$Json$Decode$string));
-    var elm$browser$Debugger$Metadata$Union = F2(
-        function (args, tags) {
-            return {args: args, tags: tags};
-        });
-    var elm$core$Dict$fromList = function (assocs) {
-        return A3(
-            elm$core$List$foldl,
-            F2(
-                function (_n0, dict) {
-                    var key = _n0.a;
-                    var value = _n0.b;
-                    return A3(elm$core$Dict$insert, key, value, dict);
-                }),
-            elm$core$Dict$empty,
-            assocs);
-    };
-    var elm$json$Json$Decode$keyValuePairs = _Json_decodeKeyValuePairs;
-    var elm$json$Json$Decode$dict = function (decoder) {
-        return A2(
-            elm$json$Json$Decode$map,
-            elm$core$Dict$fromList,
-            elm$json$Json$Decode$keyValuePairs(decoder));
-    };
-    var elm$browser$Debugger$Metadata$decodeUnion = A3(
-        elm$json$Json$Decode$map2,
-        elm$browser$Debugger$Metadata$Union,
-        A2(
-            elm$json$Json$Decode$field,
-            'args',
-            elm$json$Json$Decode$list(elm$json$Json$Decode$string)),
-        A2(
-            elm$json$Json$Decode$field,
-            'tags',
-            elm$json$Json$Decode$dict(
-                elm$json$Json$Decode$list(elm$json$Json$Decode$string))));
-    var elm$browser$Debugger$Metadata$decodeTypes = A4(
-        elm$json$Json$Decode$map3,
-        elm$browser$Debugger$Metadata$Types,
-        A2(elm$json$Json$Decode$field, 'message', elm$json$Json$Decode$string),
-        A2(
-            elm$json$Json$Decode$field,
-            'aliases',
-            elm$json$Json$Decode$dict(elm$browser$Debugger$Metadata$decodeAlias)),
-        A2(
-            elm$json$Json$Decode$field,
-            'unions',
-            elm$json$Json$Decode$dict(elm$browser$Debugger$Metadata$decodeUnion)));
-    var elm$browser$Debugger$Metadata$Versions = function (elm) {
-        return {elm: elm};
-    };
-    var elm$browser$Debugger$Metadata$decodeVersions = A2(
-        elm$json$Json$Decode$map,
-        elm$browser$Debugger$Metadata$Versions,
-        A2(elm$json$Json$Decode$field, 'elm', elm$json$Json$Decode$string));
-    var elm$browser$Debugger$Metadata$decoder = A3(
-        elm$json$Json$Decode$map2,
-        elm$browser$Debugger$Metadata$Metadata,
-        A2(elm$json$Json$Decode$field, 'versions', elm$browser$Debugger$Metadata$decodeVersions),
-        A2(elm$json$Json$Decode$field, 'types', elm$browser$Debugger$Metadata$decodeTypes));
-    var elm$browser$Debugger$Metadata$ProblemType = F2(
-        function (name, problems) {
-            return {name: name, problems: problems};
-        });
+					}
+				}
+		});
+	var elm$core$Dict$size = function (dict) {
+		return A2(elm$core$Dict$sizeHelp, 0, dict);
+	};
+	var elm$browser$Debugger$Expando$initHelp = F2(
+		function (isOuter, expando) {
+			switch (expando.$) {
+				case 'S':
+					return expando;
+				case 'Primitive':
+					return expando;
+				case 'Sequence':
+					var seqType = expando.a;
+					var isClosed = expando.b;
+					var items = expando.c;
+					return isOuter ? A3(
+						elm$browser$Debugger$Expando$Sequence,
+						seqType,
+						false,
+						A2(
+							elm$core$List$map,
+							elm$browser$Debugger$Expando$initHelp(false),
+							items)) : ((elm$core$List$length(items) <= 8) ? A3(elm$browser$Debugger$Expando$Sequence, seqType, false, items) : expando);
+				case 'Dictionary':
+					var isClosed = expando.a;
+					var keyValuePairs = expando.b;
+					return isOuter ? A2(
+						elm$browser$Debugger$Expando$Dictionary,
+						false,
+						A2(
+							elm$core$List$map,
+							function (_n1) {
+								var k = _n1.a;
+								var v = _n1.b;
+								return _Utils_Tuple2(
+									k,
+									A2(elm$browser$Debugger$Expando$initHelp, false, v));
+							},
+							keyValuePairs)) : ((elm$core$List$length(keyValuePairs) <= 8) ? A2(elm$browser$Debugger$Expando$Dictionary, false, keyValuePairs) : expando);
+				case 'Record':
+					var isClosed = expando.a;
+					var entries = expando.b;
+					return isOuter ? A2(
+						elm$browser$Debugger$Expando$Record,
+						false,
+						A2(
+							elm$core$Dict$map,
+							F2(
+								function (_n2, v) {
+									return A2(elm$browser$Debugger$Expando$initHelp, false, v);
+								}),
+							entries)) : ((elm$core$Dict$size(entries) <= 4) ? A2(elm$browser$Debugger$Expando$Record, false, entries) : expando);
+				default:
+					var maybeName = expando.a;
+					var isClosed = expando.b;
+					var args = expando.c;
+					return isOuter ? A3(
+						elm$browser$Debugger$Expando$Constructor,
+						maybeName,
+						false,
+						A2(
+							elm$core$List$map,
+							elm$browser$Debugger$Expando$initHelp(false),
+							args)) : ((elm$core$List$length(args) <= 4) ? A3(elm$browser$Debugger$Expando$Constructor, maybeName, false, args) : expando);
+			}
+		});
+	var elm$browser$Debugger$Expando$init = function (value) {
+		return A2(
+			elm$browser$Debugger$Expando$initHelp,
+			true,
+			_Debugger_init(value));
+	};
+	var elm$browser$Debugger$History$History = F3(
+		function (snapshots, recent, numMessages) {
+			return {numMessages: numMessages, recent: recent, snapshots: snapshots};
+		});
+	var elm$browser$Debugger$History$RecentHistory = F3(
+		function (model, messages, numMessages) {
+			return {messages: messages, model: model, numMessages: numMessages};
+		});
+	var elm$browser$Debugger$History$empty = function (model) {
+		return A3(
+			elm$browser$Debugger$History$History,
+			elm$core$Array$empty,
+			A3(elm$browser$Debugger$History$RecentHistory, model, _List_Nil, 0),
+			0);
+	};
+	var elm$browser$Debugger$Main$Running = function (a) {
+		return {$: 'Running', a: a};
+	};
+	var elm$browser$Debugger$Metadata$Error = F2(
+		function (message, problems) {
+			return {message: message, problems: problems};
+		});
+	var elm$browser$Debugger$Metadata$Metadata = F2(
+		function (versions, types) {
+			return {types: types, versions: versions};
+		});
+	var elm$browser$Debugger$Metadata$Types = F3(
+		function (message, aliases, unions) {
+			return {aliases: aliases, message: message, unions: unions};
+		});
+	var elm$browser$Debugger$Metadata$Alias = F2(
+		function (args, tipe) {
+			return {args: args, tipe: tipe};
+		});
+	var elm$json$Json$Decode$list = _Json_decodeList;
+	var elm$browser$Debugger$Metadata$decodeAlias = A3(
+		elm$json$Json$Decode$map2,
+		elm$browser$Debugger$Metadata$Alias,
+		A2(
+			elm$json$Json$Decode$field,
+			'args',
+			elm$json$Json$Decode$list(elm$json$Json$Decode$string)),
+		A2(elm$json$Json$Decode$field, 'type', elm$json$Json$Decode$string));
+	var elm$browser$Debugger$Metadata$Union = F2(
+		function (args, tags) {
+			return {args: args, tags: tags};
+		});
+	var elm$core$Dict$fromList = function (assocs) {
+		return A3(
+			elm$core$List$foldl,
+			F2(
+				function (_n0, dict) {
+					var key = _n0.a;
+					var value = _n0.b;
+					return A3(elm$core$Dict$insert, key, value, dict);
+				}),
+			elm$core$Dict$empty,
+			assocs);
+	};
+	var elm$json$Json$Decode$keyValuePairs = _Json_decodeKeyValuePairs;
+	var elm$json$Json$Decode$dict = function (decoder) {
+		return A2(
+			elm$json$Json$Decode$map,
+			elm$core$Dict$fromList,
+			elm$json$Json$Decode$keyValuePairs(decoder));
+	};
+	var elm$browser$Debugger$Metadata$decodeUnion = A3(
+		elm$json$Json$Decode$map2,
+		elm$browser$Debugger$Metadata$Union,
+		A2(
+			elm$json$Json$Decode$field,
+			'args',
+			elm$json$Json$Decode$list(elm$json$Json$Decode$string)),
+		A2(
+			elm$json$Json$Decode$field,
+			'tags',
+			elm$json$Json$Decode$dict(
+				elm$json$Json$Decode$list(elm$json$Json$Decode$string))));
+	var elm$browser$Debugger$Metadata$decodeTypes = A4(
+		elm$json$Json$Decode$map3,
+		elm$browser$Debugger$Metadata$Types,
+		A2(elm$json$Json$Decode$field, 'message', elm$json$Json$Decode$string),
+		A2(
+			elm$json$Json$Decode$field,
+			'aliases',
+			elm$json$Json$Decode$dict(elm$browser$Debugger$Metadata$decodeAlias)),
+		A2(
+			elm$json$Json$Decode$field,
+			'unions',
+			elm$json$Json$Decode$dict(elm$browser$Debugger$Metadata$decodeUnion)));
+	var elm$browser$Debugger$Metadata$Versions = function (elm) {
+		return {elm: elm};
+	};
+	var elm$browser$Debugger$Metadata$decodeVersions = A2(
+		elm$json$Json$Decode$map,
+		elm$browser$Debugger$Metadata$Versions,
+		A2(elm$json$Json$Decode$field, 'elm', elm$json$Json$Decode$string));
+	var elm$browser$Debugger$Metadata$decoder = A3(
+		elm$json$Json$Decode$map2,
+		elm$browser$Debugger$Metadata$Metadata,
+		A2(elm$json$Json$Decode$field, 'versions', elm$browser$Debugger$Metadata$decodeVersions),
+		A2(elm$json$Json$Decode$field, 'types', elm$browser$Debugger$Metadata$decodeTypes));
+	var elm$browser$Debugger$Metadata$ProblemType = F2(
+		function (name, problems) {
+			return {name: name, problems: problems};
+		});
 var elm$core$String$contains = _String_contains;
-    var elm$browser$Debugger$Metadata$hasProblem = F2(
-        function (tipe, _n0) {
-            var problem = _n0.a;
-            var token = _n0.b;
-            return A2(elm$core$String$contains, token, tipe) ? elm$core$Maybe$Just(problem) : elm$core$Maybe$Nothing;
-        });
-    var elm$browser$Debugger$Metadata$Decoder = {$: 'Decoder'};
-    var elm$browser$Debugger$Metadata$Function = {$: 'Function'};
-    var elm$browser$Debugger$Metadata$Process = {$: 'Process'};
-    var elm$browser$Debugger$Metadata$Program = {$: 'Program'};
-    var elm$browser$Debugger$Metadata$Request = {$: 'Request'};
-    var elm$browser$Debugger$Metadata$Socket = {$: 'Socket'};
-    var elm$browser$Debugger$Metadata$Task = {$: 'Task'};
-    var elm$browser$Debugger$Metadata$VirtualDom = {$: 'VirtualDom'};
-    var elm$browser$Debugger$Metadata$problemTable = _List_fromArray(
-        [
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$Function, '->'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$Decoder, 'Json.Decode.Decoder'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$Task, 'Task.Task'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$Process, 'Process.Id'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$Socket, 'WebSocket.LowLevel.WebSocket'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$Request, 'Http.Request'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$Program, 'Platform.Program'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$VirtualDom, 'VirtualDom.Node'),
-            _Utils_Tuple2(elm$browser$Debugger$Metadata$VirtualDom, 'VirtualDom.Attribute')
-        ]);
-    var elm$browser$Debugger$Metadata$findProblems = function (tipe) {
-        return A2(
-            elm$core$List$filterMap,
-            elm$browser$Debugger$Metadata$hasProblem(tipe),
-            elm$browser$Debugger$Metadata$problemTable);
-    };
-    var elm$browser$Debugger$Metadata$collectBadAliases = F3(
-        function (name, _n0, list) {
-            var tipe = _n0.tipe;
-            var _n1 = elm$browser$Debugger$Metadata$findProblems(tipe);
-            if (!_n1.b) {
-                return list;
-            } else {
-                var problems = _n1;
-                return A2(
-                    elm$core$List$cons,
-                    A2(elm$browser$Debugger$Metadata$ProblemType, name, problems),
-                    list);
-            }
-        });
-    var elm$core$Dict$values = function (dict) {
-        return A3(
-            elm$core$Dict$foldr,
-            F3(
-                function (key, value, valueList) {
-                    return A2(elm$core$List$cons, value, valueList);
-                }),
-            _List_Nil,
-            dict);
-    };
-    var elm$core$List$append = F2(
-        function (xs, ys) {
-            if (!ys.b) {
-                return xs;
-            } else {
-                return A3(elm$core$List$foldr, elm$core$List$cons, ys, xs);
-            }
-        });
-    var elm$core$List$concat = function (lists) {
-        return A3(elm$core$List$foldr, elm$core$List$append, _List_Nil, lists);
-    };
-    var elm$core$List$concatMap = F2(
-        function (f, list) {
-            return elm$core$List$concat(
-                A2(elm$core$List$map, f, list));
-        });
-    var elm$browser$Debugger$Metadata$collectBadUnions = F3(
-        function (name, _n0, list) {
-            var tags = _n0.tags;
-            var _n1 = A2(
-                elm$core$List$concatMap,
-                elm$browser$Debugger$Metadata$findProblems,
-                elm$core$List$concat(
-                    elm$core$Dict$values(tags)));
-            if (!_n1.b) {
-                return list;
-            } else {
-                var problems = _n1;
-                return A2(
-                    elm$core$List$cons,
-                    A2(elm$browser$Debugger$Metadata$ProblemType, name, problems),
-                    list);
-            }
-        });
-    var elm$core$Dict$foldl = F3(
-        function (func, acc, dict) {
-            foldl:
-                while (true) {
-                    if (dict.$ === 'RBEmpty_elm_builtin') {
-                        return acc;
-                    } else {
-                        var key = dict.b;
-                        var value = dict.c;
-                        var left = dict.d;
-                        var right = dict.e;
-                        var $temp$func = func,
-                            $temp$acc = A3(
-                                func,
-                                key,
-                                value,
-                                A3(elm$core$Dict$foldl, func, acc, left)),
-                            $temp$dict = right;
-                        func = $temp$func;
-                        acc = $temp$acc;
-                        dict = $temp$dict;
+	var elm$browser$Debugger$Metadata$hasProblem = F2(
+		function (tipe, _n0) {
+			var problem = _n0.a;
+			var token = _n0.b;
+			return A2(elm$core$String$contains, token, tipe) ? elm$core$Maybe$Just(problem) : elm$core$Maybe$Nothing;
+		});
+	var elm$browser$Debugger$Metadata$Decoder = {$: 'Decoder'};
+	var elm$browser$Debugger$Metadata$Function = {$: 'Function'};
+	var elm$browser$Debugger$Metadata$Process = {$: 'Process'};
+	var elm$browser$Debugger$Metadata$Program = {$: 'Program'};
+	var elm$browser$Debugger$Metadata$Request = {$: 'Request'};
+	var elm$browser$Debugger$Metadata$Socket = {$: 'Socket'};
+	var elm$browser$Debugger$Metadata$Task = {$: 'Task'};
+	var elm$browser$Debugger$Metadata$VirtualDom = {$: 'VirtualDom'};
+	var elm$browser$Debugger$Metadata$problemTable = _List_fromArray(
+		[
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$Function, '->'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$Decoder, 'Json.Decode.Decoder'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$Task, 'Task.Task'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$Process, 'Process.Id'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$Socket, 'WebSocket.LowLevel.WebSocket'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$Request, 'Http.Request'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$Program, 'Platform.Program'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$VirtualDom, 'VirtualDom.Node'),
+			_Utils_Tuple2(elm$browser$Debugger$Metadata$VirtualDom, 'VirtualDom.Attribute')
+		]);
+	var elm$browser$Debugger$Metadata$findProblems = function (tipe) {
+		return A2(
+			elm$core$List$filterMap,
+			elm$browser$Debugger$Metadata$hasProblem(tipe),
+			elm$browser$Debugger$Metadata$problemTable);
+	};
+	var elm$browser$Debugger$Metadata$collectBadAliases = F3(
+		function (name, _n0, list) {
+			var tipe = _n0.tipe;
+			var _n1 = elm$browser$Debugger$Metadata$findProblems(tipe);
+			if (!_n1.b) {
+				return list;
+			} else {
+				var problems = _n1;
+				return A2(
+					elm$core$List$cons,
+					A2(elm$browser$Debugger$Metadata$ProblemType, name, problems),
+					list);
+			}
+		});
+	var elm$core$Dict$values = function (dict) {
+		return A3(
+			elm$core$Dict$foldr,
+			F3(
+				function (key, value, valueList) {
+					return A2(elm$core$List$cons, value, valueList);
+				}),
+			_List_Nil,
+			dict);
+	};
+	var elm$core$List$append = F2(
+		function (xs, ys) {
+			if (!ys.b) {
+				return xs;
+			} else {
+				return A3(elm$core$List$foldr, elm$core$List$cons, ys, xs);
+			}
+		});
+	var elm$core$List$concat = function (lists) {
+		return A3(elm$core$List$foldr, elm$core$List$append, _List_Nil, lists);
+	};
+	var elm$core$List$concatMap = F2(
+		function (f, list) {
+			return elm$core$List$concat(
+				A2(elm$core$List$map, f, list));
+		});
+	var elm$browser$Debugger$Metadata$collectBadUnions = F3(
+		function (name, _n0, list) {
+			var tags = _n0.tags;
+			var _n1 = A2(
+				elm$core$List$concatMap,
+				elm$browser$Debugger$Metadata$findProblems,
+				elm$core$List$concat(
+					elm$core$Dict$values(tags)));
+			if (!_n1.b) {
+				return list;
+			} else {
+				var problems = _n1;
+				return A2(
+					elm$core$List$cons,
+					A2(elm$browser$Debugger$Metadata$ProblemType, name, problems),
+					list);
+			}
+		});
+	var elm$core$Dict$foldl = F3(
+		function (func, acc, dict) {
+			foldl:
+				while (true) {
+					if (dict.$ === 'RBEmpty_elm_builtin') {
+						return acc;
+					} else {
+						var key = dict.b;
+						var value = dict.c;
+						var left = dict.d;
+						var right = dict.e;
+						var $temp$func = func,
+							$temp$acc = A3(
+								func,
+								key,
+								value,
+								A3(elm$core$Dict$foldl, func, acc, left)),
+							$temp$dict = right;
+						func = $temp$func;
+						acc = $temp$acc;
+						dict = $temp$dict;
 
-                    }
-                }
-        });
-    var elm$browser$Debugger$Metadata$isPortable = function (_n0) {
-        var types = _n0.types;
-        var badAliases = A3(elm$core$Dict$foldl, elm$browser$Debugger$Metadata$collectBadAliases, _List_Nil, types.aliases);
-        var _n1 = A3(elm$core$Dict$foldl, elm$browser$Debugger$Metadata$collectBadUnions, badAliases, types.unions);
-        if (!_n1.b) {
-            return elm$core$Maybe$Nothing;
-        } else {
-            var problems = _n1;
-            return elm$core$Maybe$Just(
-                A2(elm$browser$Debugger$Metadata$Error, types.message, problems));
-        }
-    };
-    var elm$json$Json$Decode$decodeValue = _Json_run;
-    var elm$browser$Debugger$Metadata$decode = function (value) {
-        var _n0 = A2(elm$json$Json$Decode$decodeValue, elm$browser$Debugger$Metadata$decoder, value);
-        if (_n0.$ === 'Err') {
-            return elm$core$Result$Err(
-                A2(elm$browser$Debugger$Metadata$Error, 'The compiler is generating bad metadata. This is a compiler bug!', _List_Nil));
-        } else {
-            var metadata = _n0.a;
-            var _n1 = elm$browser$Debugger$Metadata$isPortable(metadata);
-            if (_n1.$ === 'Nothing') {
-                return elm$core$Result$Ok(metadata);
-            } else {
-                var error = _n1.a;
-                return elm$core$Result$Err(error);
-            }
-        }
-    };
-    var elm$browser$Debugger$Overlay$None = {$: 'None'};
-    var elm$browser$Debugger$Overlay$none = elm$browser$Debugger$Overlay$None;
-    var elm$core$Platform$Cmd$map = _Platform_map;
-    var elm$browser$Debugger$Main$wrapInit = F4(
-        function (metadata, popout, init, flags) {
-            var _n0 = init(flags);
-            var userModel = _n0.a;
-            var userCommands = _n0.b;
-            return _Utils_Tuple2(
-                {
-                    expando: elm$browser$Debugger$Expando$init(userModel),
-                    history: elm$browser$Debugger$History$empty(userModel),
-                    metadata: elm$browser$Debugger$Metadata$decode(metadata),
-                    overlay: elm$browser$Debugger$Overlay$none,
-                    popout: popout,
-                    state: elm$browser$Debugger$Main$Running(userModel)
-                },
-                A2(elm$core$Platform$Cmd$map, elm$browser$Debugger$Main$UserMsg, userCommands));
-        });
-    var elm$browser$Debugger$Main$getLatestModel = function (state) {
-        if (state.$ === 'Running') {
-            var model = state.a;
-            return model;
-        } else {
-            var model = state.c;
-            return model;
-        }
-    };
-    var elm$core$Platform$Sub$map = _Platform_map;
-    var elm$browser$Debugger$Main$wrapSubs = F2(
-        function (subscriptions, model) {
-            return A2(
-                elm$core$Platform$Sub$map,
-                elm$browser$Debugger$Main$UserMsg,
-                subscriptions(
-                    elm$browser$Debugger$Main$getLatestModel(model.state)));
-        });
-    var elm$browser$Debugger$Expando$mergeDictHelp = F3(
-        function (oldDict, key, value) {
-            var _n12 = A2(elm$core$Dict$get, key, oldDict);
-            if (_n12.$ === 'Nothing') {
-                return value;
-            } else {
-                var oldValue = _n12.a;
-                return A2(elm$browser$Debugger$Expando$mergeHelp, oldValue, value);
-            }
-        });
-    var elm$browser$Debugger$Expando$mergeHelp = F2(
-        function (old, _new) {
-            var _n3 = _Utils_Tuple2(old, _new);
-            _n3$6:
-                while (true) {
-                    switch (_n3.b.$) {
-                        case 'S':
-                            return _new;
-                        case 'Primitive':
-                            return _new;
-                        case 'Sequence':
-                            if (_n3.a.$ === 'Sequence') {
-                                var _n4 = _n3.a;
-                                var isClosed = _n4.b;
-                                var oldValues = _n4.c;
-                                var _n5 = _n3.b;
-                                var seqType = _n5.a;
-                                var newValues = _n5.c;
-                                return A3(
-                                    elm$browser$Debugger$Expando$Sequence,
-                                    seqType,
-                                    isClosed,
-                                    A2(elm$browser$Debugger$Expando$mergeListHelp, oldValues, newValues));
-                            } else {
-                                break _n3$6;
-                            }
-                        case 'Dictionary':
-                            if (_n3.a.$ === 'Dictionary') {
-                                var _n6 = _n3.a;
-                                var isClosed = _n6.a;
-                                var _n7 = _n3.b;
-                                var keyValuePairs = _n7.b;
-                                return A2(elm$browser$Debugger$Expando$Dictionary, isClosed, keyValuePairs);
-                            } else {
-                                break _n3$6;
-                            }
-                        case 'Record':
-                            if (_n3.a.$ === 'Record') {
-                                var _n8 = _n3.a;
-                                var isClosed = _n8.a;
-                                var oldDict = _n8.b;
-                                var _n9 = _n3.b;
-                                var newDict = _n9.b;
-                                return A2(
-                                    elm$browser$Debugger$Expando$Record,
-                                    isClosed,
-                                    A2(
-                                        elm$core$Dict$map,
-                                        elm$browser$Debugger$Expando$mergeDictHelp(oldDict),
-                                        newDict));
-                            } else {
-                                break _n3$6;
-                            }
-                        default:
-                            if (_n3.a.$ === 'Constructor') {
-                                var _n10 = _n3.a;
-                                var isClosed = _n10.b;
-                                var oldValues = _n10.c;
-                                var _n11 = _n3.b;
-                                var maybeName = _n11.a;
-                                var newValues = _n11.c;
-                                return A3(
-                                    elm$browser$Debugger$Expando$Constructor,
-                                    maybeName,
-                                    isClosed,
-                                    A2(elm$browser$Debugger$Expando$mergeListHelp, oldValues, newValues));
-                            } else {
-                                break _n3$6;
-                            }
-                    }
-                }
-            return _new;
-        });
-    var elm$browser$Debugger$Expando$mergeListHelp = F2(
-        function (olds, news) {
-            var _n0 = _Utils_Tuple2(olds, news);
-            if (!_n0.a.b) {
-                return news;
-            } else {
-                if (!_n0.b.b) {
-                    return news;
-                } else {
-                    var _n1 = _n0.a;
-                    var x = _n1.a;
-                    var xs = _n1.b;
-                    var _n2 = _n0.b;
-                    var y = _n2.a;
-                    var ys = _n2.b;
-                    return A2(
-                        elm$core$List$cons,
-                        A2(elm$browser$Debugger$Expando$mergeHelp, x, y),
-                        A2(elm$browser$Debugger$Expando$mergeListHelp, xs, ys));
-                }
-            }
-        });
-    var elm$browser$Debugger$Expando$merge = F2(
-        function (value, expando) {
-            return A2(
-                elm$browser$Debugger$Expando$mergeHelp,
-                expando,
-                _Debugger_init(value));
-        });
-    var elm$browser$Debugger$Expando$updateIndex = F3(
-        function (n, func, list) {
-            if (!list.b) {
-                return _List_Nil;
-            } else {
-                var x = list.a;
-                var xs = list.b;
-                return (n <= 0) ? A2(
-                    elm$core$List$cons,
-                    func(x),
-                    xs) : A2(
-                    elm$core$List$cons,
-                    x,
-                    A3(elm$browser$Debugger$Expando$updateIndex, n - 1, func, xs));
-            }
-        });
-    var elm$browser$Debugger$Expando$update = F2(
-        function (msg, value) {
-            switch (value.$) {
-                case 'S':
-                    return value;
-                case 'Primitive':
-                    return value;
-                case 'Sequence':
-                    var seqType = value.a;
-                    var isClosed = value.b;
-                    var valueList = value.c;
-                    switch (msg.$) {
-                        case 'Toggle':
-                            return A3(elm$browser$Debugger$Expando$Sequence, seqType, !isClosed, valueList);
-                        case 'Index':
-                            if (msg.a.$ === 'None') {
-                                var _n3 = msg.a;
-                                var index = msg.b;
-                                var subMsg = msg.c;
-                                return A3(
-                                    elm$browser$Debugger$Expando$Sequence,
-                                    seqType,
-                                    isClosed,
-                                    A3(
-                                        elm$browser$Debugger$Expando$updateIndex,
-                                        index,
-                                        elm$browser$Debugger$Expando$update(subMsg),
-                                        valueList));
-                            } else {
-                                return value;
-                            }
-                        default:
-                            return value;
-                    }
-                case 'Dictionary':
-                    var isClosed = value.a;
-                    var keyValuePairs = value.b;
-                    switch (msg.$) {
-                        case 'Toggle':
-                            return A2(elm$browser$Debugger$Expando$Dictionary, !isClosed, keyValuePairs);
-                        case 'Index':
-                            var redirect = msg.a;
-                            var index = msg.b;
-                            var subMsg = msg.c;
-                            switch (redirect.$) {
-                                case 'None':
-                                    return value;
-                                case 'Key':
-                                    return A2(
-                                        elm$browser$Debugger$Expando$Dictionary,
-                                        isClosed,
-                                        A3(
-                                            elm$browser$Debugger$Expando$updateIndex,
-                                            index,
-                                            function (_n6) {
-                                                var k = _n6.a;
-                                                var v = _n6.b;
-                                                return _Utils_Tuple2(
-                                                    A2(elm$browser$Debugger$Expando$update, subMsg, k),
-                                                    v);
-                                            },
-                                            keyValuePairs));
-                                default:
-                                    return A2(
-                                        elm$browser$Debugger$Expando$Dictionary,
-                                        isClosed,
-                                        A3(
-                                            elm$browser$Debugger$Expando$updateIndex,
-                                            index,
-                                            function (_n7) {
-                                                var k = _n7.a;
-                                                var v = _n7.b;
-                                                return _Utils_Tuple2(
-                                                    k,
-                                                    A2(elm$browser$Debugger$Expando$update, subMsg, v));
-                                            },
-                                            keyValuePairs));
-                            }
-                        default:
-                            return value;
-                    }
-                case 'Record':
-                    var isClosed = value.a;
-                    var valueDict = value.b;
-                    switch (msg.$) {
-                        case 'Toggle':
-                            return A2(elm$browser$Debugger$Expando$Record, !isClosed, valueDict);
-                        case 'Index':
-                            return value;
-                        default:
-                            var field = msg.a;
-                            var subMsg = msg.b;
-                            return A2(
-                                elm$browser$Debugger$Expando$Record,
-                                isClosed,
-                                A3(
-                                    elm$core$Dict$update,
-                                    field,
-                                    elm$browser$Debugger$Expando$updateField(subMsg),
-                                    valueDict));
-                    }
-                default:
-                    var maybeName = value.a;
-                    var isClosed = value.b;
-                    var valueList = value.c;
-                    switch (msg.$) {
-                        case 'Toggle':
-                            return A3(elm$browser$Debugger$Expando$Constructor, maybeName, !isClosed, valueList);
-                        case 'Index':
-                            if (msg.a.$ === 'None') {
-                                var _n10 = msg.a;
-                                var index = msg.b;
-                                var subMsg = msg.c;
-                                return A3(
-                                    elm$browser$Debugger$Expando$Constructor,
-                                    maybeName,
-                                    isClosed,
-                                    A3(
-                                        elm$browser$Debugger$Expando$updateIndex,
-                                        index,
-                                        elm$browser$Debugger$Expando$update(subMsg),
-                                        valueList));
-                            } else {
-                                return value;
-                            }
-                        default:
-                            return value;
-                    }
-            }
-        });
-    var elm$browser$Debugger$Expando$updateField = F2(
-        function (msg, maybeExpando) {
-            if (maybeExpando.$ === 'Nothing') {
-                return maybeExpando;
-            } else {
-                var expando = maybeExpando.a;
-                return elm$core$Maybe$Just(
-                    A2(elm$browser$Debugger$Expando$update, msg, expando));
-            }
-        });
-    var elm$browser$Debugger$History$Snapshot = F2(
-        function (model, messages) {
-            return {messages: messages, model: model};
-        });
-    var elm$core$Array$fromListHelp = F3(
-        function (list, nodeList, nodeListSize) {
-            fromListHelp:
-                while (true) {
-                    var _n0 = A2(elm$core$Elm$JsArray$initializeFromList, elm$core$Array$branchFactor, list);
-                    var jsArray = _n0.a;
-                    var remainingItems = _n0.b;
-                    if (_Utils_cmp(
-                        elm$core$Elm$JsArray$length(jsArray),
-                        elm$core$Array$branchFactor) < 0) {
-                        return A2(
-                            elm$core$Array$builderToArray,
-                            true,
-                            {nodeList: nodeList, nodeListSize: nodeListSize, tail: jsArray});
-                    } else {
-                        var $temp$list = remainingItems,
-                            $temp$nodeList = A2(
-                                elm$core$List$cons,
-                                elm$core$Array$Leaf(jsArray),
-                                nodeList),
-                            $temp$nodeListSize = nodeListSize + 1;
-                        list = $temp$list;
-                        nodeList = $temp$nodeList;
-                        nodeListSize = $temp$nodeListSize;
+					}
+				}
+		});
+	var elm$browser$Debugger$Metadata$isPortable = function (_n0) {
+		var types = _n0.types;
+		var badAliases = A3(elm$core$Dict$foldl, elm$browser$Debugger$Metadata$collectBadAliases, _List_Nil, types.aliases);
+		var _n1 = A3(elm$core$Dict$foldl, elm$browser$Debugger$Metadata$collectBadUnions, badAliases, types.unions);
+		if (!_n1.b) {
+			return elm$core$Maybe$Nothing;
+		} else {
+			var problems = _n1;
+			return elm$core$Maybe$Just(
+				A2(elm$browser$Debugger$Metadata$Error, types.message, problems));
+		}
+	};
+	var elm$json$Json$Decode$decodeValue = _Json_run;
+	var elm$browser$Debugger$Metadata$decode = function (value) {
+		var _n0 = A2(elm$json$Json$Decode$decodeValue, elm$browser$Debugger$Metadata$decoder, value);
+		if (_n0.$ === 'Err') {
+			return elm$core$Result$Err(
+				A2(elm$browser$Debugger$Metadata$Error, 'The compiler is generating bad metadata. This is a compiler bug!', _List_Nil));
+		} else {
+			var metadata = _n0.a;
+			var _n1 = elm$browser$Debugger$Metadata$isPortable(metadata);
+			if (_n1.$ === 'Nothing') {
+				return elm$core$Result$Ok(metadata);
+			} else {
+				var error = _n1.a;
+				return elm$core$Result$Err(error);
+			}
+		}
+	};
+	var elm$browser$Debugger$Overlay$None = {$: 'None'};
+	var elm$browser$Debugger$Overlay$none = elm$browser$Debugger$Overlay$None;
+	var elm$core$Platform$Cmd$map = _Platform_map;
+	var elm$browser$Debugger$Main$wrapInit = F4(
+		function (metadata, popout, init, flags) {
+			var _n0 = init(flags);
+			var userModel = _n0.a;
+			var userCommands = _n0.b;
+			return _Utils_Tuple2(
+				{
+					expando: elm$browser$Debugger$Expando$init(userModel),
+					history: elm$browser$Debugger$History$empty(userModel),
+					metadata: elm$browser$Debugger$Metadata$decode(metadata),
+					overlay: elm$browser$Debugger$Overlay$none,
+					popout: popout,
+					state: elm$browser$Debugger$Main$Running(userModel)
+				},
+				A2(elm$core$Platform$Cmd$map, elm$browser$Debugger$Main$UserMsg, userCommands));
+		});
+	var elm$browser$Debugger$Main$getLatestModel = function (state) {
+		if (state.$ === 'Running') {
+			var model = state.a;
+			return model;
+		} else {
+			var model = state.c;
+			return model;
+		}
+	};
+	var elm$core$Platform$Sub$map = _Platform_map;
+	var elm$browser$Debugger$Main$wrapSubs = F2(
+		function (subscriptions, model) {
+			return A2(
+				elm$core$Platform$Sub$map,
+				elm$browser$Debugger$Main$UserMsg,
+				subscriptions(
+					elm$browser$Debugger$Main$getLatestModel(model.state)));
+		});
+	var elm$browser$Debugger$Expando$mergeDictHelp = F3(
+		function (oldDict, key, value) {
+			var _n12 = A2(elm$core$Dict$get, key, oldDict);
+			if (_n12.$ === 'Nothing') {
+				return value;
+			} else {
+				var oldValue = _n12.a;
+				return A2(elm$browser$Debugger$Expando$mergeHelp, oldValue, value);
+			}
+		});
+	var elm$browser$Debugger$Expando$mergeHelp = F2(
+		function (old, _new) {
+			var _n3 = _Utils_Tuple2(old, _new);
+			_n3$6:
+				while (true) {
+					switch (_n3.b.$) {
+						case 'S':
+							return _new;
+						case 'Primitive':
+							return _new;
+						case 'Sequence':
+							if (_n3.a.$ === 'Sequence') {
+								var _n4 = _n3.a;
+								var isClosed = _n4.b;
+								var oldValues = _n4.c;
+								var _n5 = _n3.b;
+								var seqType = _n5.a;
+								var newValues = _n5.c;
+								return A3(
+									elm$browser$Debugger$Expando$Sequence,
+									seqType,
+									isClosed,
+									A2(elm$browser$Debugger$Expando$mergeListHelp, oldValues, newValues));
+							} else {
+								break _n3$6;
+							}
+						case 'Dictionary':
+							if (_n3.a.$ === 'Dictionary') {
+								var _n6 = _n3.a;
+								var isClosed = _n6.a;
+								var _n7 = _n3.b;
+								var keyValuePairs = _n7.b;
+								return A2(elm$browser$Debugger$Expando$Dictionary, isClosed, keyValuePairs);
+							} else {
+								break _n3$6;
+							}
+						case 'Record':
+							if (_n3.a.$ === 'Record') {
+								var _n8 = _n3.a;
+								var isClosed = _n8.a;
+								var oldDict = _n8.b;
+								var _n9 = _n3.b;
+								var newDict = _n9.b;
+								return A2(
+									elm$browser$Debugger$Expando$Record,
+									isClosed,
+									A2(
+										elm$core$Dict$map,
+										elm$browser$Debugger$Expando$mergeDictHelp(oldDict),
+										newDict));
+							} else {
+								break _n3$6;
+							}
+						default:
+							if (_n3.a.$ === 'Constructor') {
+								var _n10 = _n3.a;
+								var isClosed = _n10.b;
+								var oldValues = _n10.c;
+								var _n11 = _n3.b;
+								var maybeName = _n11.a;
+								var newValues = _n11.c;
+								return A3(
+									elm$browser$Debugger$Expando$Constructor,
+									maybeName,
+									isClosed,
+									A2(elm$browser$Debugger$Expando$mergeListHelp, oldValues, newValues));
+							} else {
+								break _n3$6;
+							}
+					}
+				}
+			return _new;
+		});
+	var elm$browser$Debugger$Expando$mergeListHelp = F2(
+		function (olds, news) {
+			var _n0 = _Utils_Tuple2(olds, news);
+			if (!_n0.a.b) {
+				return news;
+			} else {
+				if (!_n0.b.b) {
+					return news;
+				} else {
+					var _n1 = _n0.a;
+					var x = _n1.a;
+					var xs = _n1.b;
+					var _n2 = _n0.b;
+					var y = _n2.a;
+					var ys = _n2.b;
+					return A2(
+						elm$core$List$cons,
+						A2(elm$browser$Debugger$Expando$mergeHelp, x, y),
+						A2(elm$browser$Debugger$Expando$mergeListHelp, xs, ys));
+				}
+			}
+		});
+	var elm$browser$Debugger$Expando$merge = F2(
+		function (value, expando) {
+			return A2(
+				elm$browser$Debugger$Expando$mergeHelp,
+				expando,
+				_Debugger_init(value));
+		});
+	var elm$browser$Debugger$Expando$updateIndex = F3(
+		function (n, func, list) {
+			if (!list.b) {
+				return _List_Nil;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				return (n <= 0) ? A2(
+					elm$core$List$cons,
+					func(x),
+					xs) : A2(
+					elm$core$List$cons,
+					x,
+					A3(elm$browser$Debugger$Expando$updateIndex, n - 1, func, xs));
+			}
+		});
+	var elm$browser$Debugger$Expando$update = F2(
+		function (msg, value) {
+			switch (value.$) {
+				case 'S':
+					return value;
+				case 'Primitive':
+					return value;
+				case 'Sequence':
+					var seqType = value.a;
+					var isClosed = value.b;
+					var valueList = value.c;
+					switch (msg.$) {
+						case 'Toggle':
+							return A3(elm$browser$Debugger$Expando$Sequence, seqType, !isClosed, valueList);
+						case 'Index':
+							if (msg.a.$ === 'None') {
+								var _n3 = msg.a;
+								var index = msg.b;
+								var subMsg = msg.c;
+								return A3(
+									elm$browser$Debugger$Expando$Sequence,
+									seqType,
+									isClosed,
+									A3(
+										elm$browser$Debugger$Expando$updateIndex,
+										index,
+										elm$browser$Debugger$Expando$update(subMsg),
+										valueList));
+							} else {
+								return value;
+							}
+						default:
+							return value;
+					}
+				case 'Dictionary':
+					var isClosed = value.a;
+					var keyValuePairs = value.b;
+					switch (msg.$) {
+						case 'Toggle':
+							return A2(elm$browser$Debugger$Expando$Dictionary, !isClosed, keyValuePairs);
+						case 'Index':
+							var redirect = msg.a;
+							var index = msg.b;
+							var subMsg = msg.c;
+							switch (redirect.$) {
+								case 'None':
+									return value;
+								case 'Key':
+									return A2(
+										elm$browser$Debugger$Expando$Dictionary,
+										isClosed,
+										A3(
+											elm$browser$Debugger$Expando$updateIndex,
+											index,
+											function (_n6) {
+												var k = _n6.a;
+												var v = _n6.b;
+												return _Utils_Tuple2(
+													A2(elm$browser$Debugger$Expando$update, subMsg, k),
+													v);
+											},
+											keyValuePairs));
+								default:
+									return A2(
+										elm$browser$Debugger$Expando$Dictionary,
+										isClosed,
+										A3(
+											elm$browser$Debugger$Expando$updateIndex,
+											index,
+											function (_n7) {
+												var k = _n7.a;
+												var v = _n7.b;
+												return _Utils_Tuple2(
+													k,
+													A2(elm$browser$Debugger$Expando$update, subMsg, v));
+											},
+											keyValuePairs));
+							}
+						default:
+							return value;
+					}
+				case 'Record':
+					var isClosed = value.a;
+					var valueDict = value.b;
+					switch (msg.$) {
+						case 'Toggle':
+							return A2(elm$browser$Debugger$Expando$Record, !isClosed, valueDict);
+						case 'Index':
+							return value;
+						default:
+							var field = msg.a;
+							var subMsg = msg.b;
+							return A2(
+								elm$browser$Debugger$Expando$Record,
+								isClosed,
+								A3(
+									elm$core$Dict$update,
+									field,
+									elm$browser$Debugger$Expando$updateField(subMsg),
+									valueDict));
+					}
+				default:
+					var maybeName = value.a;
+					var isClosed = value.b;
+					var valueList = value.c;
+					switch (msg.$) {
+						case 'Toggle':
+							return A3(elm$browser$Debugger$Expando$Constructor, maybeName, !isClosed, valueList);
+						case 'Index':
+							if (msg.a.$ === 'None') {
+								var _n10 = msg.a;
+								var index = msg.b;
+								var subMsg = msg.c;
+								return A3(
+									elm$browser$Debugger$Expando$Constructor,
+									maybeName,
+									isClosed,
+									A3(
+										elm$browser$Debugger$Expando$updateIndex,
+										index,
+										elm$browser$Debugger$Expando$update(subMsg),
+										valueList));
+							} else {
+								return value;
+							}
+						default:
+							return value;
+					}
+			}
+		});
+	var elm$browser$Debugger$Expando$updateField = F2(
+		function (msg, maybeExpando) {
+			if (maybeExpando.$ === 'Nothing') {
+				return maybeExpando;
+			} else {
+				var expando = maybeExpando.a;
+				return elm$core$Maybe$Just(
+					A2(elm$browser$Debugger$Expando$update, msg, expando));
+			}
+		});
+	var elm$browser$Debugger$History$Snapshot = F2(
+		function (model, messages) {
+			return {messages: messages, model: model};
+		});
+	var elm$core$Array$fromListHelp = F3(
+		function (list, nodeList, nodeListSize) {
+			fromListHelp:
+				while (true) {
+					var _n0 = A2(elm$core$Elm$JsArray$initializeFromList, elm$core$Array$branchFactor, list);
+					var jsArray = _n0.a;
+					var remainingItems = _n0.b;
+					if (_Utils_cmp(
+						elm$core$Elm$JsArray$length(jsArray),
+						elm$core$Array$branchFactor) < 0) {
+						return A2(
+							elm$core$Array$builderToArray,
+							true,
+							{nodeList: nodeList, nodeListSize: nodeListSize, tail: jsArray});
+					} else {
+						var $temp$list = remainingItems,
+							$temp$nodeList = A2(
+								elm$core$List$cons,
+								elm$core$Array$Leaf(jsArray),
+								nodeList),
+							$temp$nodeListSize = nodeListSize + 1;
+						list = $temp$list;
+						nodeList = $temp$nodeList;
+						nodeListSize = $temp$nodeListSize;
 
-                    }
-                }
-        });
-    var elm$core$Array$fromList = function (list) {
-        if (!list.b) {
-            return elm$core$Array$empty;
-        } else {
-            return A3(elm$core$Array$fromListHelp, list, _List_Nil, 0);
-        }
-    };
-    var elm$browser$Debugger$History$addRecent = F3(
-        function (msg, newModel, _n0) {
-            var model = _n0.model;
-            var messages = _n0.messages;
-            var numMessages = _n0.numMessages;
-            return _Utils_eq(numMessages, elm$browser$Debugger$History$maxSnapshotSize) ? _Utils_Tuple2(
-                elm$core$Maybe$Just(
-                    A2(
-                        elm$browser$Debugger$History$Snapshot,
-                        model,
-                        elm$core$Array$fromList(messages))),
-                A3(
-                    elm$browser$Debugger$History$RecentHistory,
-                    newModel,
-                    _List_fromArray(
-                        [msg]),
-                    1)) : _Utils_Tuple2(
-                elm$core$Maybe$Nothing,
-                A3(
-                    elm$browser$Debugger$History$RecentHistory,
-                    model,
-                    A2(elm$core$List$cons, msg, messages),
-                    numMessages + 1));
-        });
-    var elm$core$Bitwise$shiftRightZfBy = _Bitwise_shiftRightZfBy;
-    var elm$core$Array$bitMask = 4294967295 >>> (32 - elm$core$Array$shiftStep);
-    var elm$core$Basics$ge = _Utils_ge;
-    var elm$core$Bitwise$and = _Bitwise_and;
-    var elm$core$Elm$JsArray$push = _JsArray_push;
-    var elm$core$Elm$JsArray$singleton = _JsArray_singleton;
-    var elm$core$Elm$JsArray$unsafeGet = _JsArray_unsafeGet;
-    var elm$core$Elm$JsArray$unsafeSet = _JsArray_unsafeSet;
-    var elm$core$Array$insertTailInTree = F4(
-        function (shift, index, tail, tree) {
-            var pos = elm$core$Array$bitMask & (index >>> shift);
-            if (_Utils_cmp(
-                pos,
-                elm$core$Elm$JsArray$length(tree)) > -1) {
-                if (shift === 5) {
-                    return A2(
-                        elm$core$Elm$JsArray$push,
-                        elm$core$Array$Leaf(tail),
-                        tree);
-                } else {
-                    var newSub = elm$core$Array$SubTree(
-                        A4(elm$core$Array$insertTailInTree, shift - elm$core$Array$shiftStep, index, tail, elm$core$Elm$JsArray$empty));
-                    return A2(elm$core$Elm$JsArray$push, newSub, tree);
-                }
-            } else {
-                var value = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
-                if (value.$ === 'SubTree') {
-                    var subTree = value.a;
-                    var newSub = elm$core$Array$SubTree(
-                        A4(elm$core$Array$insertTailInTree, shift - elm$core$Array$shiftStep, index, tail, subTree));
-                    return A3(elm$core$Elm$JsArray$unsafeSet, pos, newSub, tree);
-                } else {
-                    var newSub = elm$core$Array$SubTree(
-                        A4(
-                            elm$core$Array$insertTailInTree,
-                            shift - elm$core$Array$shiftStep,
-                            index,
-                            tail,
-                            elm$core$Elm$JsArray$singleton(value)));
-                    return A3(elm$core$Elm$JsArray$unsafeSet, pos, newSub, tree);
-                }
-            }
-        });
-    var elm$core$Bitwise$shiftLeftBy = _Bitwise_shiftLeftBy;
-    var elm$core$Array$unsafeReplaceTail = F2(
-        function (newTail, _n0) {
-            var len = _n0.a;
-            var startShift = _n0.b;
-            var tree = _n0.c;
-            var tail = _n0.d;
-            var originalTailLen = elm$core$Elm$JsArray$length(tail);
-            var newTailLen = elm$core$Elm$JsArray$length(newTail);
-            var newArrayLen = len + (newTailLen - originalTailLen);
-            if (_Utils_eq(newTailLen, elm$core$Array$branchFactor)) {
-                var overflow = _Utils_cmp(newArrayLen >>> elm$core$Array$shiftStep, 1 << startShift) > 0;
-                if (overflow) {
-                    var newShift = startShift + elm$core$Array$shiftStep;
-                    var newTree = A4(
-                        elm$core$Array$insertTailInTree,
-                        newShift,
-                        len,
-                        newTail,
-                        elm$core$Elm$JsArray$singleton(
-                            elm$core$Array$SubTree(tree)));
-                    return A4(elm$core$Array$Array_elm_builtin, newArrayLen, newShift, newTree, elm$core$Elm$JsArray$empty);
-                } else {
-                    return A4(
-                        elm$core$Array$Array_elm_builtin,
-                        newArrayLen,
-                        startShift,
-                        A4(elm$core$Array$insertTailInTree, startShift, len, newTail, tree),
-                        elm$core$Elm$JsArray$empty);
-                }
-            } else {
-                return A4(elm$core$Array$Array_elm_builtin, newArrayLen, startShift, tree, newTail);
-            }
-        });
-    var elm$core$Array$push = F2(
-        function (a, array) {
-            var tail = array.d;
-            return A2(
-                elm$core$Array$unsafeReplaceTail,
-                A2(elm$core$Elm$JsArray$push, a, tail),
-                array);
-        });
-    var elm$browser$Debugger$History$add = F3(
-        function (msg, model, _n0) {
-            var snapshots = _n0.snapshots;
-            var recent = _n0.recent;
-            var numMessages = _n0.numMessages;
-            var _n1 = A3(elm$browser$Debugger$History$addRecent, msg, model, recent);
-            if (_n1.a.$ === 'Just') {
-                var snapshot = _n1.a.a;
-                var newRecent = _n1.b;
-                return A3(
-                    elm$browser$Debugger$History$History,
-                    A2(elm$core$Array$push, snapshot, snapshots),
-                    newRecent,
-                    numMessages + 1);
-            } else {
-                var _n2 = _n1.a;
-                var newRecent = _n1.b;
-                return A3(elm$browser$Debugger$History$History, snapshots, newRecent, numMessages + 1);
-            }
-        });
-    var elm$browser$Debugger$History$Stepping = F2(
-        function (a, b) {
-            return {$: 'Stepping', a: a, b: b};
-        });
-    var elm$browser$Debugger$History$Done = F2(
-        function (a, b) {
-            return {$: 'Done', a: a, b: b};
-        });
-    var elm$browser$Debugger$History$getHelp = F3(
-        function (update, msg, getResult) {
-            if (getResult.$ === 'Done') {
-                return getResult;
-            } else {
-                var n = getResult.a;
-                var model = getResult.b;
-                return (!n) ? A2(
-                    elm$browser$Debugger$History$Done,
-                    msg,
-                    A2(update, msg, model).a) : A2(
-                    elm$browser$Debugger$History$Stepping,
-                    n - 1,
-                    A2(update, msg, model).a);
-            }
-        });
-    var elm$browser$Debugger$History$undone = function (getResult) {
-        undone:
-            while (true) {
-                if (getResult.$ === 'Done') {
-                    var msg = getResult.a;
-                    var model = getResult.b;
-                    return _Utils_Tuple2(model, msg);
-                } else {
-                    var $temp$getResult = getResult;
-                    getResult = $temp$getResult;
+					}
+				}
+		});
+	var elm$core$Array$fromList = function (list) {
+		if (!list.b) {
+			return elm$core$Array$empty;
+		} else {
+			return A3(elm$core$Array$fromListHelp, list, _List_Nil, 0);
+		}
+	};
+	var elm$browser$Debugger$History$addRecent = F3(
+		function (msg, newModel, _n0) {
+			var model = _n0.model;
+			var messages = _n0.messages;
+			var numMessages = _n0.numMessages;
+			return _Utils_eq(numMessages, elm$browser$Debugger$History$maxSnapshotSize) ? _Utils_Tuple2(
+				elm$core$Maybe$Just(
+					A2(
+						elm$browser$Debugger$History$Snapshot,
+						model,
+						elm$core$Array$fromList(messages))),
+				A3(
+					elm$browser$Debugger$History$RecentHistory,
+					newModel,
+					_List_fromArray(
+						[msg]),
+					1)) : _Utils_Tuple2(
+				elm$core$Maybe$Nothing,
+				A3(
+					elm$browser$Debugger$History$RecentHistory,
+					model,
+					A2(elm$core$List$cons, msg, messages),
+					numMessages + 1));
+		});
+	var elm$core$Bitwise$shiftRightZfBy = _Bitwise_shiftRightZfBy;
+	var elm$core$Array$bitMask = 4294967295 >>> (32 - elm$core$Array$shiftStep);
+	var elm$core$Basics$ge = _Utils_ge;
+	var elm$core$Bitwise$and = _Bitwise_and;
+	var elm$core$Elm$JsArray$push = _JsArray_push;
+	var elm$core$Elm$JsArray$singleton = _JsArray_singleton;
+	var elm$core$Elm$JsArray$unsafeGet = _JsArray_unsafeGet;
+	var elm$core$Elm$JsArray$unsafeSet = _JsArray_unsafeSet;
+	var elm$core$Array$insertTailInTree = F4(
+		function (shift, index, tail, tree) {
+			var pos = elm$core$Array$bitMask & (index >>> shift);
+			if (_Utils_cmp(
+				pos,
+				elm$core$Elm$JsArray$length(tree)) > -1) {
+				if (shift === 5) {
+					return A2(
+						elm$core$Elm$JsArray$push,
+						elm$core$Array$Leaf(tail),
+						tree);
+				} else {
+					var newSub = elm$core$Array$SubTree(
+						A4(elm$core$Array$insertTailInTree, shift - elm$core$Array$shiftStep, index, tail, elm$core$Elm$JsArray$empty));
+					return A2(elm$core$Elm$JsArray$push, newSub, tree);
+				}
+			} else {
+				var value = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
+				if (value.$ === 'SubTree') {
+					var subTree = value.a;
+					var newSub = elm$core$Array$SubTree(
+						A4(elm$core$Array$insertTailInTree, shift - elm$core$Array$shiftStep, index, tail, subTree));
+					return A3(elm$core$Elm$JsArray$unsafeSet, pos, newSub, tree);
+				} else {
+					var newSub = elm$core$Array$SubTree(
+						A4(
+							elm$core$Array$insertTailInTree,
+							shift - elm$core$Array$shiftStep,
+							index,
+							tail,
+							elm$core$Elm$JsArray$singleton(value)));
+					return A3(elm$core$Elm$JsArray$unsafeSet, pos, newSub, tree);
+				}
+			}
+		});
+	var elm$core$Bitwise$shiftLeftBy = _Bitwise_shiftLeftBy;
+	var elm$core$Array$unsafeReplaceTail = F2(
+		function (newTail, _n0) {
+			var len = _n0.a;
+			var startShift = _n0.b;
+			var tree = _n0.c;
+			var tail = _n0.d;
+			var originalTailLen = elm$core$Elm$JsArray$length(tail);
+			var newTailLen = elm$core$Elm$JsArray$length(newTail);
+			var newArrayLen = len + (newTailLen - originalTailLen);
+			if (_Utils_eq(newTailLen, elm$core$Array$branchFactor)) {
+				var overflow = _Utils_cmp(newArrayLen >>> elm$core$Array$shiftStep, 1 << startShift) > 0;
+				if (overflow) {
+					var newShift = startShift + elm$core$Array$shiftStep;
+					var newTree = A4(
+						elm$core$Array$insertTailInTree,
+						newShift,
+						len,
+						newTail,
+						elm$core$Elm$JsArray$singleton(
+							elm$core$Array$SubTree(tree)));
+					return A4(elm$core$Array$Array_elm_builtin, newArrayLen, newShift, newTree, elm$core$Elm$JsArray$empty);
+				} else {
+					return A4(
+						elm$core$Array$Array_elm_builtin,
+						newArrayLen,
+						startShift,
+						A4(elm$core$Array$insertTailInTree, startShift, len, newTail, tree),
+						elm$core$Elm$JsArray$empty);
+				}
+			} else {
+				return A4(elm$core$Array$Array_elm_builtin, newArrayLen, startShift, tree, newTail);
+			}
+		});
+	var elm$core$Array$push = F2(
+		function (a, array) {
+			var tail = array.d;
+			return A2(
+				elm$core$Array$unsafeReplaceTail,
+				A2(elm$core$Elm$JsArray$push, a, tail),
+				array);
+		});
+	var elm$browser$Debugger$History$add = F3(
+		function (msg, model, _n0) {
+			var snapshots = _n0.snapshots;
+			var recent = _n0.recent;
+			var numMessages = _n0.numMessages;
+			var _n1 = A3(elm$browser$Debugger$History$addRecent, msg, model, recent);
+			if (_n1.a.$ === 'Just') {
+				var snapshot = _n1.a.a;
+				var newRecent = _n1.b;
+				return A3(
+					elm$browser$Debugger$History$History,
+					A2(elm$core$Array$push, snapshot, snapshots),
+					newRecent,
+					numMessages + 1);
+			} else {
+				var _n2 = _n1.a;
+				var newRecent = _n1.b;
+				return A3(elm$browser$Debugger$History$History, snapshots, newRecent, numMessages + 1);
+			}
+		});
+	var elm$browser$Debugger$History$Stepping = F2(
+		function (a, b) {
+			return {$: 'Stepping', a: a, b: b};
+		});
+	var elm$browser$Debugger$History$Done = F2(
+		function (a, b) {
+			return {$: 'Done', a: a, b: b};
+		});
+	var elm$browser$Debugger$History$getHelp = F3(
+		function (update, msg, getResult) {
+			if (getResult.$ === 'Done') {
+				return getResult;
+			} else {
+				var n = getResult.a;
+				var model = getResult.b;
+				return (!n) ? A2(
+					elm$browser$Debugger$History$Done,
+					msg,
+					A2(update, msg, model).a) : A2(
+					elm$browser$Debugger$History$Stepping,
+					n - 1,
+					A2(update, msg, model).a);
+			}
+		});
+	var elm$browser$Debugger$History$undone = function (getResult) {
+		undone:
+			while (true) {
+				if (getResult.$ === 'Done') {
+					var msg = getResult.a;
+					var model = getResult.b;
+					return _Utils_Tuple2(model, msg);
+				} else {
+					var $temp$getResult = getResult;
+					getResult = $temp$getResult;
 
-                }
-            }
-    };
-    var elm$core$Array$getHelp = F3(
-        function (shift, index, tree) {
-            getHelp:
-                while (true) {
-                    var pos = elm$core$Array$bitMask & (index >>> shift);
-                    var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
-                    if (_n0.$ === 'SubTree') {
-                        var subTree = _n0.a;
-                        var $temp$shift = shift - elm$core$Array$shiftStep,
-                            $temp$index = index,
-                            $temp$tree = subTree;
-                        shift = $temp$shift;
-                        index = $temp$index;
-                        tree = $temp$tree;
+				}
+			}
+	};
+	var elm$core$Array$getHelp = F3(
+		function (shift, index, tree) {
+			getHelp:
+				while (true) {
+					var pos = elm$core$Array$bitMask & (index >>> shift);
+					var _n0 = A2(elm$core$Elm$JsArray$unsafeGet, pos, tree);
+					if (_n0.$ === 'SubTree') {
+						var subTree = _n0.a;
+						var $temp$shift = shift - elm$core$Array$shiftStep,
+							$temp$index = index,
+							$temp$tree = subTree;
+						shift = $temp$shift;
+						index = $temp$index;
+						tree = $temp$tree;
 
-                    } else {
-                        var values = _n0.a;
-                        return A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, values);
-                    }
-                }
-        });
-    var elm$core$Array$tailIndex = function (len) {
-        return (len >>> 5) << 5;
-    };
-    var elm$core$Array$get = F2(
-        function (index, _n0) {
-            var len = _n0.a;
-            var startShift = _n0.b;
-            var tree = _n0.c;
-            var tail = _n0.d;
-            return ((index < 0) || (_Utils_cmp(index, len) > -1)) ? elm$core$Maybe$Nothing : ((_Utils_cmp(
-                index,
-                elm$core$Array$tailIndex(len)) > -1) ? elm$core$Maybe$Just(
-                A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, tail)) : elm$core$Maybe$Just(
-                A3(elm$core$Array$getHelp, startShift, index, tree)));
-        });
-    var elm$browser$Debugger$History$get = F3(
-        function (update, index, history) {
-            while (true) {
-                var recent = history.recent;
-                var snapshotMax = history.numMessages - recent.numMessages;
-                if (_Utils_cmp(index, snapshotMax) > -1) {
-                    return elm$browser$Debugger$History$undone(
-                        A3(
-                            elm$core$List$foldr,
-                            elm$browser$Debugger$History$getHelp(update),
-                            A2(elm$browser$Debugger$History$Stepping, index - snapshotMax, recent.model),
-                            recent.messages));
-                } else {
-                    var _n0 = A2(elm$core$Array$get, (index / elm$browser$Debugger$History$maxSnapshotSize) | 0, history.snapshots);
-                    if (_n0.$ === 'Nothing') {
-                        var $temp$update = update,
-                            $temp$index = index,
-                            $temp$history = history;
-                        update = $temp$update;
-                        index = $temp$index;
-                        history = $temp$history;
+					} else {
+						var values = _n0.a;
+						return A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, values);
+					}
+				}
+		});
+	var elm$core$Array$tailIndex = function (len) {
+		return (len >>> 5) << 5;
+	};
+	var elm$core$Array$get = F2(
+		function (index, _n0) {
+			var len = _n0.a;
+			var startShift = _n0.b;
+			var tree = _n0.c;
+			var tail = _n0.d;
+			return ((index < 0) || (_Utils_cmp(index, len) > -1)) ? elm$core$Maybe$Nothing : ((_Utils_cmp(
+				index,
+				elm$core$Array$tailIndex(len)) > -1) ? elm$core$Maybe$Just(
+				A2(elm$core$Elm$JsArray$unsafeGet, elm$core$Array$bitMask & index, tail)) : elm$core$Maybe$Just(
+				A3(elm$core$Array$getHelp, startShift, index, tree)));
+		});
+	var elm$browser$Debugger$History$get = F3(
+		function (update, index, history) {
+			while (true) {
+				var recent = history.recent;
+				var snapshotMax = history.numMessages - recent.numMessages;
+				if (_Utils_cmp(index, snapshotMax) > -1) {
+					return elm$browser$Debugger$History$undone(
+						A3(
+							elm$core$List$foldr,
+							elm$browser$Debugger$History$getHelp(update),
+							A2(elm$browser$Debugger$History$Stepping, index - snapshotMax, recent.model),
+							recent.messages));
+				} else {
+					var _n0 = A2(elm$core$Array$get, (index / elm$browser$Debugger$History$maxSnapshotSize) | 0, history.snapshots);
+					if (_n0.$ === 'Nothing') {
+						var $temp$update = update,
+							$temp$index = index,
+							$temp$history = history;
+						update = $temp$update;
+						index = $temp$index;
+						history = $temp$history;
 
-                    } else {
-                        var model = _n0.a.model;
-                        var messages = _n0.a.messages;
-                        return elm$browser$Debugger$History$undone(
-                            A3(
-                                elm$core$Array$foldr,
-                                elm$browser$Debugger$History$getHelp(update),
-                                A2(elm$browser$Debugger$History$Stepping, index % elm$browser$Debugger$History$maxSnapshotSize, model),
-                                messages));
-                    }
-                }
-            }
-        });
-    var elm$browser$Debugger$Main$Paused = F3(
-        function (a, b, c) {
-            return {$: 'Paused', a: a, b: b, c: c};
-        });
-    var elm$browser$Debugger$History$elmToJs = _Debugger_unsafeCoerce;
-    var elm$browser$Debugger$History$encodeHelp = F2(
-        function (snapshot, allMessages) {
-            return A3(elm$core$Array$foldl, elm$core$List$cons, allMessages, snapshot.messages);
-        });
-    var elm$json$Json$Encode$list = F2(
-        function (func, entries) {
-            return _Json_wrap(
-                A3(
-                    elm$core$List$foldl,
-                    _Json_addEntry(func),
-                    _Json_emptyArray(_Utils_Tuple0),
-                    entries));
-        });
-    var elm$browser$Debugger$History$encode = function (_n0) {
-        var snapshots = _n0.snapshots;
-        var recent = _n0.recent;
-        return A2(
-            elm$json$Json$Encode$list,
-            elm$browser$Debugger$History$elmToJs,
-            A3(
-                elm$core$Array$foldr,
-                elm$browser$Debugger$History$encodeHelp,
-                elm$core$List$reverse(recent.messages),
-                snapshots));
-    };
-    var elm$browser$Debugger$Metadata$encodeAlias = function (_n0) {
-        var args = _n0.args;
-        var tipe = _n0.tipe;
-        return elm$json$Json$Encode$object(
-            _List_fromArray(
-                [
-                    _Utils_Tuple2(
-                        'args',
-                        A2(elm$json$Json$Encode$list, elm$json$Json$Encode$string, args)),
-                    _Utils_Tuple2(
-                        'type',
-                        elm$json$Json$Encode$string(tipe))
-                ]));
-    };
-    var elm$browser$Debugger$Metadata$encodeDict = F2(
-        function (f, dict) {
-            return elm$json$Json$Encode$object(
-                elm$core$Dict$toList(
-                    A2(
-                        elm$core$Dict$map,
-                        F2(
-                            function (key, value) {
-                                return f(value);
-                            }),
-                        dict)));
-        });
-    var elm$browser$Debugger$Metadata$encodeUnion = function (_n0) {
-        var args = _n0.args;
-        var tags = _n0.tags;
-        return elm$json$Json$Encode$object(
-            _List_fromArray(
-                [
-                    _Utils_Tuple2(
-                        'args',
-                        A2(elm$json$Json$Encode$list, elm$json$Json$Encode$string, args)),
-                    _Utils_Tuple2(
-                        'tags',
-                        A2(
-                            elm$browser$Debugger$Metadata$encodeDict,
-                            elm$json$Json$Encode$list(elm$json$Json$Encode$string),
-                            tags))
-                ]));
-    };
-    var elm$browser$Debugger$Metadata$encodeTypes = function (_n0) {
-        var message = _n0.message;
-        var unions = _n0.unions;
-        var aliases = _n0.aliases;
-        return elm$json$Json$Encode$object(
-            _List_fromArray(
-                [
-                    _Utils_Tuple2(
-                        'message',
-                        elm$json$Json$Encode$string(message)),
-                    _Utils_Tuple2(
-                        'aliases',
-                        A2(elm$browser$Debugger$Metadata$encodeDict, elm$browser$Debugger$Metadata$encodeAlias, aliases)),
-                    _Utils_Tuple2(
-                        'unions',
-                        A2(elm$browser$Debugger$Metadata$encodeDict, elm$browser$Debugger$Metadata$encodeUnion, unions))
-                ]));
-    };
-    var elm$browser$Debugger$Metadata$encodeVersions = function (_n0) {
-        var elm = _n0.elm;
-        return elm$json$Json$Encode$object(
-            _List_fromArray(
-                [
-                    _Utils_Tuple2(
-                        'elm',
-                        elm$json$Json$Encode$string(elm))
-                ]));
-    };
-    var elm$browser$Debugger$Metadata$encode = function (_n0) {
-        var versions = _n0.versions;
-        var types = _n0.types;
-        return elm$json$Json$Encode$object(
-            _List_fromArray(
-                [
-                    _Utils_Tuple2(
-                        'versions',
-                        elm$browser$Debugger$Metadata$encodeVersions(versions)),
-                    _Utils_Tuple2(
-                        'types',
-                        elm$browser$Debugger$Metadata$encodeTypes(types))
-                ]));
-    };
-    var elm$browser$Debugger$Main$download = F2(
-        function (metadata, history) {
-            var json = elm$json$Json$Encode$object(
-                _List_fromArray(
-                    [
-                        _Utils_Tuple2(
-                            'metadata',
-                            elm$browser$Debugger$Metadata$encode(metadata)),
-                        _Utils_Tuple2(
-                            'history',
-                            elm$browser$Debugger$History$encode(history))
-                    ]));
-            var historyLength = elm$browser$Debugger$History$size(history);
-            return A2(
-                elm$core$Task$perform,
-                function (_n0) {
-                    return elm$browser$Debugger$Main$NoOp;
-                },
-                A2(_Debugger_download, historyLength, json));
-        });
-    var elm$browser$Debugger$History$jsToElm = _Debugger_unsafeCoerce;
-    var elm$json$Json$Decode$value = _Json_decodeValue;
-    var elm$browser$Debugger$History$decoder = F2(
-        function (initialModel, update) {
-            var addMessage = F2(
-                function (rawMsg, _n0) {
-                    var model = _n0.a;
-                    var history = _n0.b;
-                    var msg = elm$browser$Debugger$History$jsToElm(rawMsg);
-                    return _Utils_Tuple2(
-                        A2(update, msg, model),
-                        A3(elm$browser$Debugger$History$add, msg, model, history));
-                });
-            var updateModel = function (rawMsgs) {
-                return A3(
-                    elm$core$List$foldl,
-                    addMessage,
-                    _Utils_Tuple2(
-                        initialModel,
-                        elm$browser$Debugger$History$empty(initialModel)),
-                    rawMsgs);
-            };
-            return A2(
-                elm$json$Json$Decode$map,
-                updateModel,
-                elm$json$Json$Decode$list(elm$json$Json$Decode$value));
-        });
-    var elm$browser$Debugger$History$getInitialModel = function (_n0) {
-        var snapshots = _n0.snapshots;
-        var recent = _n0.recent;
-        var _n1 = A2(elm$core$Array$get, 0, snapshots);
-        if (_n1.$ === 'Just') {
-            var model = _n1.a.model;
-            return model;
-        } else {
-            return recent.model;
-        }
-    };
-    var elm$browser$Debugger$Overlay$BadImport = function (a) {
-        return {$: 'BadImport', a: a};
-    };
-    var elm$browser$Debugger$Report$CorruptHistory = {$: 'CorruptHistory'};
-    var elm$browser$Debugger$Overlay$corruptImport = elm$browser$Debugger$Overlay$BadImport(elm$browser$Debugger$Report$CorruptHistory);
-    var elm$browser$Debugger$Main$loadNewHistory = F3(
-        function (rawHistory, update, model) {
-            var pureUserUpdate = F2(
-                function (msg, userModel) {
-                    return A2(update, msg, userModel).a;
-                });
-            var initialUserModel = elm$browser$Debugger$History$getInitialModel(model.history);
-            var decoder = A2(elm$browser$Debugger$History$decoder, initialUserModel, pureUserUpdate);
-            var _n0 = A2(elm$json$Json$Decode$decodeValue, decoder, rawHistory);
-            if (_n0.$ === 'Err') {
-                return _Utils_Tuple2(
-                    _Utils_update(
-                        model,
-                        {overlay: elm$browser$Debugger$Overlay$corruptImport}),
-                    elm$core$Platform$Cmd$none);
-            } else {
-                var _n1 = _n0.a;
-                var latestUserModel = _n1.a;
-                var newHistory = _n1.b;
-                return _Utils_Tuple2(
-                    _Utils_update(
-                        model,
-                        {
-                            expando: elm$browser$Debugger$Expando$init(latestUserModel),
-                            history: newHistory,
-                            overlay: elm$browser$Debugger$Overlay$none,
-                            state: elm$browser$Debugger$Main$Running(latestUserModel)
-                        }),
-                    elm$core$Platform$Cmd$none);
-            }
-        });
-    var elm$core$Basics$always = F2(
-        function (a, _n0) {
-            return a;
-        });
-    var elm$browser$Debugger$Main$scroll = function (popout) {
-        return A2(
-            elm$core$Task$perform,
-            elm$core$Basics$always(elm$browser$Debugger$Main$NoOp),
-            _Debugger_scroll(popout));
-    };
-    var elm$browser$Debugger$Main$Upload = function (a) {
-        return {$: 'Upload', a: a};
-    };
-    var elm$browser$Debugger$Main$upload = A2(
-        elm$core$Task$perform,
-        elm$browser$Debugger$Main$Upload,
-        _Debugger_upload(_Utils_Tuple0));
-    var elm$browser$Debugger$Overlay$BadMetadata = function (a) {
-        return {$: 'BadMetadata', a: a};
-    };
-    var elm$browser$Debugger$Overlay$badMetadata = elm$browser$Debugger$Overlay$BadMetadata;
-    var elm$browser$Debugger$Main$withGoodMetadata = F2(
-        function (model, func) {
-            var _n0 = model.metadata;
-            if (_n0.$ === 'Ok') {
-                var metadata = _n0.a;
-                return func(metadata);
-            } else {
-                var error = _n0.a;
-                return _Utils_Tuple2(
-                    _Utils_update(
-                        model,
-                        {
-                            overlay: elm$browser$Debugger$Overlay$badMetadata(error)
-                        }),
-                    elm$core$Platform$Cmd$none);
-            }
-        });
-    var elm$browser$Debugger$Report$AliasChange = function (a) {
-        return {$: 'AliasChange', a: a};
-    };
-    var elm$browser$Debugger$Metadata$checkAlias = F4(
-        function (name, old, _new, changes) {
-            return (_Utils_eq(old.tipe, _new.tipe) && _Utils_eq(old.args, _new.args)) ? changes : A2(
-                elm$core$List$cons,
-                elm$browser$Debugger$Report$AliasChange(name),
-                changes);
-        });
-    var elm$browser$Debugger$Metadata$addTag = F3(
-        function (tag, _n0, changes) {
-            return _Utils_update(
-                changes,
-                {
-                    added: A2(elm$core$List$cons, tag, changes.added)
-                });
-        });
-    var elm$browser$Debugger$Metadata$checkTag = F4(
-        function (tag, old, _new, changes) {
-            return _Utils_eq(old, _new) ? changes : _Utils_update(
-                changes,
-                {
-                    changed: A2(elm$core$List$cons, tag, changes.changed)
-                });
-        });
-    var elm$browser$Debugger$Metadata$removeTag = F3(
-        function (tag, _n0, changes) {
-            return _Utils_update(
-                changes,
-                {
-                    removed: A2(elm$core$List$cons, tag, changes.removed)
-                });
-        });
-    var elm$browser$Debugger$Report$UnionChange = F2(
-        function (a, b) {
-            return {$: 'UnionChange', a: a, b: b};
-        });
-    var elm$browser$Debugger$Report$TagChanges = F4(
-        function (removed, changed, added, argsMatch) {
-            return {added: added, argsMatch: argsMatch, changed: changed, removed: removed};
-        });
-    var elm$browser$Debugger$Report$emptyTagChanges = function (argsMatch) {
-        return A4(elm$browser$Debugger$Report$TagChanges, _List_Nil, _List_Nil, _List_Nil, argsMatch);
-    };
-    var elm$browser$Debugger$Report$hasTagChanges = function (tagChanges) {
-        return _Utils_eq(
-            tagChanges,
-            A4(elm$browser$Debugger$Report$TagChanges, _List_Nil, _List_Nil, _List_Nil, true));
-    };
-    var elm$core$Dict$merge = F6(
-        function (leftStep, bothStep, rightStep, leftDict, rightDict, initialResult) {
-            var stepState = F3(
-                function (rKey, rValue, _n0) {
-                    stepState:
-                        while (true) {
-                            var list = _n0.a;
-                            var result = _n0.b;
-                            if (!list.b) {
-                                return _Utils_Tuple2(
-                                    list,
-                                    A3(rightStep, rKey, rValue, result));
-                            } else {
-                                var _n2 = list.a;
-                                var lKey = _n2.a;
-                                var lValue = _n2.b;
-                                var rest = list.b;
-                                if (_Utils_cmp(lKey, rKey) < 0) {
-                                    var $temp$rKey = rKey,
-                                        $temp$rValue = rValue,
-                                        $temp$_n0 = _Utils_Tuple2(
-                                            rest,
-                                            A3(leftStep, lKey, lValue, result));
-                                    rKey = $temp$rKey;
-                                    rValue = $temp$rValue;
-                                    _n0 = $temp$_n0;
+					} else {
+						var model = _n0.a.model;
+						var messages = _n0.a.messages;
+						return elm$browser$Debugger$History$undone(
+							A3(
+								elm$core$Array$foldr,
+								elm$browser$Debugger$History$getHelp(update),
+								A2(elm$browser$Debugger$History$Stepping, index % elm$browser$Debugger$History$maxSnapshotSize, model),
+								messages));
+					}
+				}
+			}
+		});
+	var elm$browser$Debugger$Main$Paused = F3(
+		function (a, b, c) {
+			return {$: 'Paused', a: a, b: b, c: c};
+		});
+	var elm$browser$Debugger$History$elmToJs = _Debugger_unsafeCoerce;
+	var elm$browser$Debugger$History$encodeHelp = F2(
+		function (snapshot, allMessages) {
+			return A3(elm$core$Array$foldl, elm$core$List$cons, allMessages, snapshot.messages);
+		});
+	var elm$json$Json$Encode$list = F2(
+		function (func, entries) {
+			return _Json_wrap(
+				A3(
+					elm$core$List$foldl,
+					_Json_addEntry(func),
+					_Json_emptyArray(_Utils_Tuple0),
+					entries));
+		});
+	var elm$browser$Debugger$History$encode = function (_n0) {
+		var snapshots = _n0.snapshots;
+		var recent = _n0.recent;
+		return A2(
+			elm$json$Json$Encode$list,
+			elm$browser$Debugger$History$elmToJs,
+			A3(
+				elm$core$Array$foldr,
+				elm$browser$Debugger$History$encodeHelp,
+				elm$core$List$reverse(recent.messages),
+				snapshots));
+	};
+	var elm$json$Json$Encode$object = function (pairs) {
+		return _Json_wrap(
+			A3(
+				elm$core$List$foldl,
+				F2(
+					function (_n0, obj) {
+						var k = _n0.a;
+						var v = _n0.b;
+						return A3(_Json_addField, k, v, obj);
+					}),
+				_Json_emptyObject(_Utils_Tuple0),
+				pairs));
+	};
+	var elm$browser$Debugger$Metadata$encodeAlias = function (_n0) {
+		var args = _n0.args;
+		var tipe = _n0.tipe;
+		return elm$json$Json$Encode$object(
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+						'args',
+						A2(elm$json$Json$Encode$list, elm$json$Json$Encode$string, args)),
+					_Utils_Tuple2(
+						'type',
+						elm$json$Json$Encode$string(tipe))
+				]));
+	};
+	var elm$browser$Debugger$Metadata$encodeDict = F2(
+		function (f, dict) {
+			return elm$json$Json$Encode$object(
+				elm$core$Dict$toList(
+					A2(
+						elm$core$Dict$map,
+						F2(
+							function (key, value) {
+								return f(value);
+							}),
+						dict)));
+		});
+	var elm$browser$Debugger$Metadata$encodeUnion = function (_n0) {
+		var args = _n0.args;
+		var tags = _n0.tags;
+		return elm$json$Json$Encode$object(
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+						'args',
+						A2(elm$json$Json$Encode$list, elm$json$Json$Encode$string, args)),
+					_Utils_Tuple2(
+						'tags',
+						A2(
+							elm$browser$Debugger$Metadata$encodeDict,
+							elm$json$Json$Encode$list(elm$json$Json$Encode$string),
+							tags))
+				]));
+	};
+	var elm$browser$Debugger$Metadata$encodeTypes = function (_n0) {
+		var message = _n0.message;
+		var unions = _n0.unions;
+		var aliases = _n0.aliases;
+		return elm$json$Json$Encode$object(
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+						'message',
+						elm$json$Json$Encode$string(message)),
+					_Utils_Tuple2(
+						'aliases',
+						A2(elm$browser$Debugger$Metadata$encodeDict, elm$browser$Debugger$Metadata$encodeAlias, aliases)),
+					_Utils_Tuple2(
+						'unions',
+						A2(elm$browser$Debugger$Metadata$encodeDict, elm$browser$Debugger$Metadata$encodeUnion, unions))
+				]));
+	};
+	var elm$browser$Debugger$Metadata$encodeVersions = function (_n0) {
+		var elm = _n0.elm;
+		return elm$json$Json$Encode$object(
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+						'elm',
+						elm$json$Json$Encode$string(elm))
+				]));
+	};
+	var elm$browser$Debugger$Metadata$encode = function (_n0) {
+		var versions = _n0.versions;
+		var types = _n0.types;
+		return elm$json$Json$Encode$object(
+			_List_fromArray(
+				[
+					_Utils_Tuple2(
+						'versions',
+						elm$browser$Debugger$Metadata$encodeVersions(versions)),
+					_Utils_Tuple2(
+						'types',
+						elm$browser$Debugger$Metadata$encodeTypes(types))
+				]));
+	};
+	var elm$browser$Debugger$Main$download = F2(
+		function (metadata, history) {
+			var json = elm$json$Json$Encode$object(
+				_List_fromArray(
+					[
+						_Utils_Tuple2(
+							'metadata',
+							elm$browser$Debugger$Metadata$encode(metadata)),
+						_Utils_Tuple2(
+							'history',
+							elm$browser$Debugger$History$encode(history))
+					]));
+			var historyLength = elm$browser$Debugger$History$size(history);
+			return A2(
+				elm$core$Task$perform,
+				function (_n0) {
+					return elm$browser$Debugger$Main$NoOp;
+				},
+				A2(_Debugger_download, historyLength, json));
+		});
+	var elm$browser$Debugger$History$jsToElm = _Debugger_unsafeCoerce;
+	var elm$json$Json$Decode$value = _Json_decodeValue;
+	var elm$browser$Debugger$History$decoder = F2(
+		function (initialModel, update) {
+			var addMessage = F2(
+				function (rawMsg, _n0) {
+					var model = _n0.a;
+					var history = _n0.b;
+					var msg = elm$browser$Debugger$History$jsToElm(rawMsg);
+					return _Utils_Tuple2(
+						A2(update, msg, model),
+						A3(elm$browser$Debugger$History$add, msg, model, history));
+				});
+			var updateModel = function (rawMsgs) {
+				return A3(
+					elm$core$List$foldl,
+					addMessage,
+					_Utils_Tuple2(
+						initialModel,
+						elm$browser$Debugger$History$empty(initialModel)),
+					rawMsgs);
+			};
+			return A2(
+				elm$json$Json$Decode$map,
+				updateModel,
+				elm$json$Json$Decode$list(elm$json$Json$Decode$value));
+		});
+	var elm$browser$Debugger$History$getInitialModel = function (_n0) {
+		var snapshots = _n0.snapshots;
+		var recent = _n0.recent;
+		var _n1 = A2(elm$core$Array$get, 0, snapshots);
+		if (_n1.$ === 'Just') {
+			var model = _n1.a.model;
+			return model;
+		} else {
+			return recent.model;
+		}
+	};
+	var elm$browser$Debugger$Overlay$BadImport = function (a) {
+		return {$: 'BadImport', a: a};
+	};
+	var elm$browser$Debugger$Report$CorruptHistory = {$: 'CorruptHistory'};
+	var elm$browser$Debugger$Overlay$corruptImport = elm$browser$Debugger$Overlay$BadImport(elm$browser$Debugger$Report$CorruptHistory);
+	var elm$browser$Debugger$Main$loadNewHistory = F3(
+		function (rawHistory, update, model) {
+			var pureUserUpdate = F2(
+				function (msg, userModel) {
+					return A2(update, msg, userModel).a;
+				});
+			var initialUserModel = elm$browser$Debugger$History$getInitialModel(model.history);
+			var decoder = A2(elm$browser$Debugger$History$decoder, initialUserModel, pureUserUpdate);
+			var _n0 = A2(elm$json$Json$Decode$decodeValue, decoder, rawHistory);
+			if (_n0.$ === 'Err') {
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{overlay: elm$browser$Debugger$Overlay$corruptImport}),
+					elm$core$Platform$Cmd$none);
+			} else {
+				var _n1 = _n0.a;
+				var latestUserModel = _n1.a;
+				var newHistory = _n1.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							expando: elm$browser$Debugger$Expando$init(latestUserModel),
+							history: newHistory,
+							overlay: elm$browser$Debugger$Overlay$none,
+							state: elm$browser$Debugger$Main$Running(latestUserModel)
+						}),
+					elm$core$Platform$Cmd$none);
+			}
+		});
+	var elm$core$Basics$always = F2(
+		function (a, _n0) {
+			return a;
+		});
+	var elm$browser$Debugger$Main$scroll = function (popout) {
+		return A2(
+			elm$core$Task$perform,
+			elm$core$Basics$always(elm$browser$Debugger$Main$NoOp),
+			_Debugger_scroll(popout));
+	};
+	var elm$browser$Debugger$Main$Upload = function (a) {
+		return {$: 'Upload', a: a};
+	};
+	var elm$browser$Debugger$Main$upload = A2(
+		elm$core$Task$perform,
+		elm$browser$Debugger$Main$Upload,
+		_Debugger_upload(_Utils_Tuple0));
+	var elm$browser$Debugger$Overlay$BadMetadata = function (a) {
+		return {$: 'BadMetadata', a: a};
+	};
+	var elm$browser$Debugger$Overlay$badMetadata = elm$browser$Debugger$Overlay$BadMetadata;
+	var elm$browser$Debugger$Main$withGoodMetadata = F2(
+		function (model, func) {
+			var _n0 = model.metadata;
+			if (_n0.$ === 'Ok') {
+				var metadata = _n0.a;
+				return func(metadata);
+			} else {
+				var error = _n0.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							overlay: elm$browser$Debugger$Overlay$badMetadata(error)
+						}),
+					elm$core$Platform$Cmd$none);
+			}
+		});
+	var elm$browser$Debugger$Report$AliasChange = function (a) {
+		return {$: 'AliasChange', a: a};
+	};
+	var elm$browser$Debugger$Metadata$checkAlias = F4(
+		function (name, old, _new, changes) {
+			return (_Utils_eq(old.tipe, _new.tipe) && _Utils_eq(old.args, _new.args)) ? changes : A2(
+				elm$core$List$cons,
+				elm$browser$Debugger$Report$AliasChange(name),
+				changes);
+		});
+	var elm$browser$Debugger$Metadata$addTag = F3(
+		function (tag, _n0, changes) {
+			return _Utils_update(
+				changes,
+				{
+					added: A2(elm$core$List$cons, tag, changes.added)
+				});
+		});
+	var elm$browser$Debugger$Metadata$checkTag = F4(
+		function (tag, old, _new, changes) {
+			return _Utils_eq(old, _new) ? changes : _Utils_update(
+				changes,
+				{
+					changed: A2(elm$core$List$cons, tag, changes.changed)
+				});
+		});
+	var elm$browser$Debugger$Metadata$removeTag = F3(
+		function (tag, _n0, changes) {
+			return _Utils_update(
+				changes,
+				{
+					removed: A2(elm$core$List$cons, tag, changes.removed)
+				});
+		});
+	var elm$browser$Debugger$Report$UnionChange = F2(
+		function (a, b) {
+			return {$: 'UnionChange', a: a, b: b};
+		});
+	var elm$browser$Debugger$Report$TagChanges = F4(
+		function (removed, changed, added, argsMatch) {
+			return {added: added, argsMatch: argsMatch, changed: changed, removed: removed};
+		});
+	var elm$browser$Debugger$Report$emptyTagChanges = function (argsMatch) {
+		return A4(elm$browser$Debugger$Report$TagChanges, _List_Nil, _List_Nil, _List_Nil, argsMatch);
+	};
+	var elm$browser$Debugger$Report$hasTagChanges = function (tagChanges) {
+		return _Utils_eq(
+			tagChanges,
+			A4(elm$browser$Debugger$Report$TagChanges, _List_Nil, _List_Nil, _List_Nil, true));
+	};
+	var elm$core$Dict$merge = F6(
+		function (leftStep, bothStep, rightStep, leftDict, rightDict, initialResult) {
+			var stepState = F3(
+				function (rKey, rValue, _n0) {
+					stepState:
+						while (true) {
+							var list = _n0.a;
+							var result = _n0.b;
+							if (!list.b) {
+								return _Utils_Tuple2(
+									list,
+									A3(rightStep, rKey, rValue, result));
+							} else {
+								var _n2 = list.a;
+								var lKey = _n2.a;
+								var lValue = _n2.b;
+								var rest = list.b;
+								if (_Utils_cmp(lKey, rKey) < 0) {
+									var $temp$rKey = rKey,
+										$temp$rValue = rValue,
+										$temp$_n0 = _Utils_Tuple2(
+											rest,
+											A3(leftStep, lKey, lValue, result));
+									rKey = $temp$rKey;
+									rValue = $temp$rValue;
+									_n0 = $temp$_n0;
 
-                                } else {
-                                    if (_Utils_cmp(lKey, rKey) > 0) {
-                                        return _Utils_Tuple2(
-                                            list,
-                                            A3(rightStep, rKey, rValue, result));
-                                    } else {
-                                        return _Utils_Tuple2(
-                                            rest,
-                                            A4(bothStep, lKey, lValue, rValue, result));
-                                    }
-                                }
-                            }
-                        }
-                });
-            var _n3 = A3(
-                elm$core$Dict$foldl,
-                stepState,
-                _Utils_Tuple2(
-                    elm$core$Dict$toList(leftDict),
-                    initialResult),
-                rightDict);
-            var leftovers = _n3.a;
-            var intermediateResult = _n3.b;
-            return A3(
-                elm$core$List$foldl,
-                F2(
-                    function (_n4, result) {
-                        var k = _n4.a;
-                        var v = _n4.b;
-                        return A3(leftStep, k, v, result);
-                    }),
-                intermediateResult,
-                leftovers);
-        });
-    var elm$browser$Debugger$Metadata$checkUnion = F4(
-        function (name, old, _new, changes) {
-            var tagChanges = A6(
-                elm$core$Dict$merge,
-                elm$browser$Debugger$Metadata$removeTag,
-                elm$browser$Debugger$Metadata$checkTag,
-                elm$browser$Debugger$Metadata$addTag,
-                old.tags,
-                _new.tags,
-                elm$browser$Debugger$Report$emptyTagChanges(
-                    _Utils_eq(old.args, _new.args)));
-            return elm$browser$Debugger$Report$hasTagChanges(tagChanges) ? changes : A2(
-                elm$core$List$cons,
-                A2(elm$browser$Debugger$Report$UnionChange, name, tagChanges),
-                changes);
-        });
-    var elm$browser$Debugger$Metadata$ignore = F3(
-        function (key, value, report) {
-            return report;
-        });
-    var elm$browser$Debugger$Report$MessageChanged = F2(
-        function (a, b) {
-            return {$: 'MessageChanged', a: a, b: b};
-        });
-    var elm$browser$Debugger$Report$SomethingChanged = function (a) {
-        return {$: 'SomethingChanged', a: a};
-    };
-    var elm$browser$Debugger$Metadata$checkTypes = F2(
-        function (old, _new) {
-            return (!_Utils_eq(old.message, _new.message)) ? A2(elm$browser$Debugger$Report$MessageChanged, old.message, _new.message) : elm$browser$Debugger$Report$SomethingChanged(
-                A6(
-                    elm$core$Dict$merge,
-                    elm$browser$Debugger$Metadata$ignore,
-                    elm$browser$Debugger$Metadata$checkUnion,
-                    elm$browser$Debugger$Metadata$ignore,
-                    old.unions,
-                    _new.unions,
-                    A6(elm$core$Dict$merge, elm$browser$Debugger$Metadata$ignore, elm$browser$Debugger$Metadata$checkAlias, elm$browser$Debugger$Metadata$ignore, old.aliases, _new.aliases, _List_Nil)));
-        });
-    var elm$browser$Debugger$Report$VersionChanged = F2(
-        function (a, b) {
-            return {$: 'VersionChanged', a: a, b: b};
-        });
-    var elm$browser$Debugger$Metadata$check = F2(
-        function (old, _new) {
-            return (!_Utils_eq(old.versions.elm, _new.versions.elm)) ? A2(elm$browser$Debugger$Report$VersionChanged, old.versions.elm, _new.versions.elm) : A2(elm$browser$Debugger$Metadata$checkTypes, old.types, _new.types);
-        });
-    var elm$browser$Debugger$Overlay$RiskyImport = F2(
-        function (a, b) {
-            return {$: 'RiskyImport', a: a, b: b};
-        });
-    var elm$browser$Debugger$Overlay$uploadDecoder = A3(
-        elm$json$Json$Decode$map2,
-        F2(
-            function (x, y) {
-                return _Utils_Tuple2(x, y);
-            }),
-        A2(elm$json$Json$Decode$field, 'metadata', elm$browser$Debugger$Metadata$decoder),
-        A2(elm$json$Json$Decode$field, 'history', elm$json$Json$Decode$value));
-    var elm$browser$Debugger$Report$Fine = {$: 'Fine'};
-    var elm$browser$Debugger$Report$Impossible = {$: 'Impossible'};
-    var elm$browser$Debugger$Report$Risky = {$: 'Risky'};
-    var elm$core$List$isEmpty = function (xs) {
-        if (!xs.b) {
-            return true;
-        } else {
-            return false;
-        }
-    };
-    var elm$browser$Debugger$Report$some = function (list) {
-        return !elm$core$List$isEmpty(list);
-    };
-    var elm$browser$Debugger$Report$evaluateChange = function (change) {
-        if (change.$ === 'AliasChange') {
-            return elm$browser$Debugger$Report$Impossible;
-        } else {
-            var removed = change.b.removed;
-            var changed = change.b.changed;
-            var added = change.b.added;
-            var argsMatch = change.b.argsMatch;
-            return ((!argsMatch) || (elm$browser$Debugger$Report$some(changed) || elm$browser$Debugger$Report$some(removed))) ? elm$browser$Debugger$Report$Impossible : (elm$browser$Debugger$Report$some(added) ? elm$browser$Debugger$Report$Risky : elm$browser$Debugger$Report$Fine);
-        }
-    };
-    var elm$browser$Debugger$Report$worstCase = F2(
-        function (status, statusList) {
-            worstCase:
-                while (true) {
-                    if (!statusList.b) {
-                        return status;
-                    } else {
-                        switch (statusList.a.$) {
-                            case 'Impossible':
-                                var _n1 = statusList.a;
-                                return elm$browser$Debugger$Report$Impossible;
-                            case 'Risky':
-                                var _n2 = statusList.a;
-                                var rest = statusList.b;
-                                var $temp$status = elm$browser$Debugger$Report$Risky,
-                                    $temp$statusList = rest;
-                                status = $temp$status;
-                                statusList = $temp$statusList;
-                                continue;
-                            default:
-                                var _n3 = statusList.a;
-                                var rest = statusList.b;
-                                var $temp$status = status,
-                                    $temp$statusList = rest;
-                                status = $temp$status;
-                                statusList = $temp$statusList;
+								} else {
+									if (_Utils_cmp(lKey, rKey) > 0) {
+										return _Utils_Tuple2(
+											list,
+											A3(rightStep, rKey, rValue, result));
+									} else {
+										return _Utils_Tuple2(
+											rest,
+											A4(bothStep, lKey, lValue, rValue, result));
+									}
+								}
+							}
+						}
+				});
+			var _n3 = A3(
+				elm$core$Dict$foldl,
+				stepState,
+				_Utils_Tuple2(
+					elm$core$Dict$toList(leftDict),
+					initialResult),
+				rightDict);
+			var leftovers = _n3.a;
+			var intermediateResult = _n3.b;
+			return A3(
+				elm$core$List$foldl,
+				F2(
+					function (_n4, result) {
+						var k = _n4.a;
+						var v = _n4.b;
+						return A3(leftStep, k, v, result);
+					}),
+				intermediateResult,
+				leftovers);
+		});
+	var elm$browser$Debugger$Metadata$checkUnion = F4(
+		function (name, old, _new, changes) {
+			var tagChanges = A6(
+				elm$core$Dict$merge,
+				elm$browser$Debugger$Metadata$removeTag,
+				elm$browser$Debugger$Metadata$checkTag,
+				elm$browser$Debugger$Metadata$addTag,
+				old.tags,
+				_new.tags,
+				elm$browser$Debugger$Report$emptyTagChanges(
+					_Utils_eq(old.args, _new.args)));
+			return elm$browser$Debugger$Report$hasTagChanges(tagChanges) ? changes : A2(
+				elm$core$List$cons,
+				A2(elm$browser$Debugger$Report$UnionChange, name, tagChanges),
+				changes);
+		});
+	var elm$browser$Debugger$Metadata$ignore = F3(
+		function (key, value, report) {
+			return report;
+		});
+	var elm$browser$Debugger$Report$MessageChanged = F2(
+		function (a, b) {
+			return {$: 'MessageChanged', a: a, b: b};
+		});
+	var elm$browser$Debugger$Report$SomethingChanged = function (a) {
+		return {$: 'SomethingChanged', a: a};
+	};
+	var elm$browser$Debugger$Metadata$checkTypes = F2(
+		function (old, _new) {
+			return (!_Utils_eq(old.message, _new.message)) ? A2(elm$browser$Debugger$Report$MessageChanged, old.message, _new.message) : elm$browser$Debugger$Report$SomethingChanged(
+				A6(
+					elm$core$Dict$merge,
+					elm$browser$Debugger$Metadata$ignore,
+					elm$browser$Debugger$Metadata$checkUnion,
+					elm$browser$Debugger$Metadata$ignore,
+					old.unions,
+					_new.unions,
+					A6(elm$core$Dict$merge, elm$browser$Debugger$Metadata$ignore, elm$browser$Debugger$Metadata$checkAlias, elm$browser$Debugger$Metadata$ignore, old.aliases, _new.aliases, _List_Nil)));
+		});
+	var elm$browser$Debugger$Report$VersionChanged = F2(
+		function (a, b) {
+			return {$: 'VersionChanged', a: a, b: b};
+		});
+	var elm$browser$Debugger$Metadata$check = F2(
+		function (old, _new) {
+			return (!_Utils_eq(old.versions.elm, _new.versions.elm)) ? A2(elm$browser$Debugger$Report$VersionChanged, old.versions.elm, _new.versions.elm) : A2(elm$browser$Debugger$Metadata$checkTypes, old.types, _new.types);
+		});
+	var elm$browser$Debugger$Overlay$RiskyImport = F2(
+		function (a, b) {
+			return {$: 'RiskyImport', a: a, b: b};
+		});
+	var elm$browser$Debugger$Overlay$uploadDecoder = A3(
+		elm$json$Json$Decode$map2,
+		F2(
+			function (x, y) {
+				return _Utils_Tuple2(x, y);
+			}),
+		A2(elm$json$Json$Decode$field, 'metadata', elm$browser$Debugger$Metadata$decoder),
+		A2(elm$json$Json$Decode$field, 'history', elm$json$Json$Decode$value));
+	var elm$browser$Debugger$Report$Fine = {$: 'Fine'};
+	var elm$browser$Debugger$Report$Impossible = {$: 'Impossible'};
+	var elm$browser$Debugger$Report$Risky = {$: 'Risky'};
+	var elm$browser$Debugger$Report$some = function (list) {
+		return !elm$core$List$isEmpty(list);
+	};
+	var elm$browser$Debugger$Report$evaluateChange = function (change) {
+		if (change.$ === 'AliasChange') {
+			return elm$browser$Debugger$Report$Impossible;
+		} else {
+			var removed = change.b.removed;
+			var changed = change.b.changed;
+			var added = change.b.added;
+			var argsMatch = change.b.argsMatch;
+			return ((!argsMatch) || (elm$browser$Debugger$Report$some(changed) || elm$browser$Debugger$Report$some(removed))) ? elm$browser$Debugger$Report$Impossible : (elm$browser$Debugger$Report$some(added) ? elm$browser$Debugger$Report$Risky : elm$browser$Debugger$Report$Fine);
+		}
+	};
+	var elm$browser$Debugger$Report$worstCase = F2(
+		function (status, statusList) {
+			worstCase:
+				while (true) {
+					if (!statusList.b) {
+						return status;
+					} else {
+						switch (statusList.a.$) {
+							case 'Impossible':
+								var _n1 = statusList.a;
+								return elm$browser$Debugger$Report$Impossible;
+							case 'Risky':
+								var _n2 = statusList.a;
+								var rest = statusList.b;
+								var $temp$status = elm$browser$Debugger$Report$Risky,
+									$temp$statusList = rest;
+								status = $temp$status;
+								statusList = $temp$statusList;
+								continue;
+							default:
+								var _n3 = statusList.a;
+								var rest = statusList.b;
+								var $temp$status = status,
+									$temp$statusList = rest;
+								status = $temp$status;
+								statusList = $temp$statusList;
 
-                        }
-                    }
-                }
-        });
-    var elm$browser$Debugger$Report$evaluate = function (report) {
-        switch (report.$) {
-            case 'CorruptHistory':
-                return elm$browser$Debugger$Report$Impossible;
-            case 'VersionChanged':
-                return elm$browser$Debugger$Report$Impossible;
-            case 'MessageChanged':
-                return elm$browser$Debugger$Report$Impossible;
-            default:
-                var changes = report.a;
-                return A2(
-                    elm$browser$Debugger$Report$worstCase,
-                    elm$browser$Debugger$Report$Fine,
-                    A2(elm$core$List$map, elm$browser$Debugger$Report$evaluateChange, changes));
-        }
-    };
-    var elm$json$Json$Decode$decodeString = _Json_runOnString;
-    var elm$browser$Debugger$Overlay$assessImport = F2(
-        function (metadata, jsonString) {
-            var _n0 = A2(elm$json$Json$Decode$decodeString, elm$browser$Debugger$Overlay$uploadDecoder, jsonString);
-            if (_n0.$ === 'Err') {
-                return elm$core$Result$Err(elm$browser$Debugger$Overlay$corruptImport);
-            } else {
-                var _n1 = _n0.a;
-                var foreignMetadata = _n1.a;
-                var rawHistory = _n1.b;
-                var report = A2(elm$browser$Debugger$Metadata$check, foreignMetadata, metadata);
-                var _n2 = elm$browser$Debugger$Report$evaluate(report);
-                switch (_n2.$) {
-                    case 'Impossible':
-                        return elm$core$Result$Err(
-                            elm$browser$Debugger$Overlay$BadImport(report));
-                    case 'Risky':
-                        return elm$core$Result$Err(
-                            A2(elm$browser$Debugger$Overlay$RiskyImport, report, rawHistory));
-                    default:
-                        return elm$core$Result$Ok(rawHistory);
-                }
-            }
-        });
-    var elm$browser$Debugger$Overlay$close = F2(
-        function (msg, state) {
-            switch (state.$) {
-                case 'None':
-                    return elm$core$Maybe$Nothing;
-                case 'BadMetadata':
-                    return elm$core$Maybe$Nothing;
-                case 'BadImport':
-                    return elm$core$Maybe$Nothing;
-                default:
-                    var rawHistory = state.b;
-                    if (msg.$ === 'Cancel') {
-                        return elm$core$Maybe$Nothing;
-                    } else {
-                        return elm$core$Maybe$Just(rawHistory);
-                    }
-            }
-        });
-    var elm$browser$Debugger$Main$wrapUpdate = F3(
-        function (update, msg, model) {
-            wrapUpdate:
-                while (true) {
-                    switch (msg.$) {
-                        case 'NoOp':
-                            return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                        case 'UserMsg':
-                            var userMsg = msg.a;
-                            var userModel = elm$browser$Debugger$Main$getLatestModel(model.state);
-                            var newHistory = A3(elm$browser$Debugger$History$add, userMsg, userModel, model.history);
-                            var _n1 = A2(update, userMsg, userModel);
-                            var newUserModel = _n1.a;
-                            var userCmds = _n1.b;
-                            var commands = A2(elm$core$Platform$Cmd$map, elm$browser$Debugger$Main$UserMsg, userCmds);
-                            var _n2 = model.state;
-                            if (_n2.$ === 'Running') {
-                                return _Utils_Tuple2(
-                                    _Utils_update(
-                                        model,
-                                        {
-                                            expando: A2(elm$browser$Debugger$Expando$merge, newUserModel, model.expando),
-                                            history: newHistory,
-                                            state: elm$browser$Debugger$Main$Running(newUserModel)
-                                        }),
-                                    elm$core$Platform$Cmd$batch(
-                                        _List_fromArray(
-                                            [
-                                                commands,
-                                                elm$browser$Debugger$Main$scroll(model.popout)
-                                            ])));
-                            } else {
-                                var index = _n2.a;
-                                var indexModel = _n2.b;
-                                return _Utils_Tuple2(
-                                    _Utils_update(
-                                        model,
-                                        {
-                                            history: newHistory,
-                                            state: A3(elm$browser$Debugger$Main$Paused, index, indexModel, newUserModel)
-                                        }),
-                                    commands);
-                            }
-                        case 'ExpandoMsg':
-                            var eMsg = msg.a;
-                            return _Utils_Tuple2(
-                                _Utils_update(
-                                    model,
-                                    {
-                                        expando: A2(elm$browser$Debugger$Expando$update, eMsg, model.expando)
-                                    }),
-                                elm$core$Platform$Cmd$none);
-                        case 'Resume':
-                            var _n3 = model.state;
-                            if (_n3.$ === 'Running') {
-                                return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                            } else {
-                                var userModel = _n3.c;
-                                return _Utils_Tuple2(
-                                    _Utils_update(
-                                        model,
-                                        {
-                                            expando: A2(elm$browser$Debugger$Expando$merge, userModel, model.expando),
-                                            state: elm$browser$Debugger$Main$Running(userModel)
-                                        }),
-                                    elm$browser$Debugger$Main$scroll(model.popout));
-                            }
-                        case 'Jump':
-                            var index = msg.a;
-                            var _n4 = A3(elm$browser$Debugger$History$get, update, index, model.history);
-                            var indexModel = _n4.a;
-                            var indexMsg = _n4.b;
-                            return _Utils_Tuple2(
-                                _Utils_update(
-                                    model,
-                                    {
-                                        expando: A2(elm$browser$Debugger$Expando$merge, indexModel, model.expando),
-                                        state: A3(
-                                            elm$browser$Debugger$Main$Paused,
-                                            index,
-                                            indexModel,
-                                            elm$browser$Debugger$Main$getLatestModel(model.state))
-                                    }),
-                                elm$core$Platform$Cmd$none);
-                        case 'Open':
-                            return _Utils_Tuple2(
-                                model,
-                                A2(
-                                    elm$core$Task$perform,
-                                    function (_n5) {
-                                        return elm$browser$Debugger$Main$NoOp;
-                                    },
-                                    _Debugger_open(model.popout)));
-                        case 'Up':
-                            var index = function () {
-                                var _n6 = model.state;
-                                if (_n6.$ === 'Paused') {
-                                    var i = _n6.a;
-                                    return i;
-                                } else {
-                                    return elm$browser$Debugger$History$size(model.history);
-                                }
-                            }();
-                            if (index > 0) {
-                                var $temp$update = update,
-                                    $temp$msg = elm$browser$Debugger$Main$Jump(index - 1),
-                                    $temp$model = model;
-                                update = $temp$update;
-                                msg = $temp$msg;
-                                model = $temp$model;
-                                continue;
-                            } else {
-                                return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                            }
-                        case 'Down':
-                            var _n7 = model.state;
-                            if (_n7.$ === 'Running') {
-                                return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
-                            } else {
-                                var index = _n7.a;
-                                var userModel = _n7.c;
-                                if (_Utils_eq(
-                                    index,
-                                    elm$browser$Debugger$History$size(model.history) - 1)) {
-                                    var $temp$update = update,
-                                        $temp$msg = elm$browser$Debugger$Main$Resume,
-                                        $temp$model = model;
-                                    update = $temp$update;
-                                    msg = $temp$msg;
-                                    model = $temp$model;
-                                    continue;
-                                } else {
-                                    var $temp$update = update,
-                                        $temp$msg = elm$browser$Debugger$Main$Jump(index + 1),
-                                        $temp$model = model;
-                                    update = $temp$update;
-                                    msg = $temp$msg;
-                                    model = $temp$model;
-                                    continue;
-                                }
-                            }
-                        case 'Import':
-                            return A2(
-                                elm$browser$Debugger$Main$withGoodMetadata,
-                                model,
-                                function (_n8) {
-                                    return _Utils_Tuple2(model, elm$browser$Debugger$Main$upload);
-                                });
-                        case 'Export':
-                            return A2(
-                                elm$browser$Debugger$Main$withGoodMetadata,
-                                model,
-                                function (metadata) {
-                                    return _Utils_Tuple2(
-                                        model,
-                                        A2(elm$browser$Debugger$Main$download, metadata, model.history));
-                                });
-                        case 'Upload':
-                            var jsonString = msg.a;
-                            return A2(
-                                elm$browser$Debugger$Main$withGoodMetadata,
-                                model,
-                                function (metadata) {
-                                    var _n9 = A2(elm$browser$Debugger$Overlay$assessImport, metadata, jsonString);
-                                    if (_n9.$ === 'Err') {
-                                        var newOverlay = _n9.a;
-                                        return _Utils_Tuple2(
-                                            _Utils_update(
-                                                model,
-                                                {overlay: newOverlay}),
-                                            elm$core$Platform$Cmd$none);
-                                    } else {
-                                        var rawHistory = _n9.a;
-                                        return A3(elm$browser$Debugger$Main$loadNewHistory, rawHistory, update, model);
-                                    }
-                                });
-                        default:
-                            var overlayMsg = msg.a;
-                            var _n10 = A2(elm$browser$Debugger$Overlay$close, overlayMsg, model.overlay);
-                            if (_n10.$ === 'Nothing') {
-                                return _Utils_Tuple2(
-                                    _Utils_update(
-                                        model,
-                                        {overlay: elm$browser$Debugger$Overlay$none}),
-                                    elm$core$Platform$Cmd$none);
-                            } else {
-                                var rawHistory = _n10.a;
-                                return A3(elm$browser$Debugger$Main$loadNewHistory, rawHistory, update, model);
-                            }
-                    }
-                }
-        });
-    var elm$core$Set$foldr = F3(
-        function (func, initialState, _n0) {
-            var dict = _n0.a;
-            return A3(
-                elm$core$Dict$foldr,
-                F3(
-                    function (key, _n1, state) {
-                        return A2(func, key, state);
-                    }),
-                initialState,
-                dict);
-        });
-    var elm$url$Url$Http = {$: 'Http'};
-    var elm$url$Url$Https = {$: 'Https'};
-    var elm$core$String$indexes = _String_indexes;
+						}
+					}
+				}
+		});
+	var elm$browser$Debugger$Report$evaluate = function (report) {
+		switch (report.$) {
+			case 'CorruptHistory':
+				return elm$browser$Debugger$Report$Impossible;
+			case 'VersionChanged':
+				return elm$browser$Debugger$Report$Impossible;
+			case 'MessageChanged':
+				return elm$browser$Debugger$Report$Impossible;
+			default:
+				var changes = report.a;
+				return A2(
+					elm$browser$Debugger$Report$worstCase,
+					elm$browser$Debugger$Report$Fine,
+					A2(elm$core$List$map, elm$browser$Debugger$Report$evaluateChange, changes));
+		}
+	};
+	var elm$json$Json$Decode$decodeString = _Json_runOnString;
+	var elm$browser$Debugger$Overlay$assessImport = F2(
+		function (metadata, jsonString) {
+			var _n0 = A2(elm$json$Json$Decode$decodeString, elm$browser$Debugger$Overlay$uploadDecoder, jsonString);
+			if (_n0.$ === 'Err') {
+				return elm$core$Result$Err(elm$browser$Debugger$Overlay$corruptImport);
+			} else {
+				var _n1 = _n0.a;
+				var foreignMetadata = _n1.a;
+				var rawHistory = _n1.b;
+				var report = A2(elm$browser$Debugger$Metadata$check, foreignMetadata, metadata);
+				var _n2 = elm$browser$Debugger$Report$evaluate(report);
+				switch (_n2.$) {
+					case 'Impossible':
+						return elm$core$Result$Err(
+							elm$browser$Debugger$Overlay$BadImport(report));
+					case 'Risky':
+						return elm$core$Result$Err(
+							A2(elm$browser$Debugger$Overlay$RiskyImport, report, rawHistory));
+					default:
+						return elm$core$Result$Ok(rawHistory);
+				}
+			}
+		});
+	var elm$browser$Debugger$Overlay$close = F2(
+		function (msg, state) {
+			switch (state.$) {
+				case 'None':
+					return elm$core$Maybe$Nothing;
+				case 'BadMetadata':
+					return elm$core$Maybe$Nothing;
+				case 'BadImport':
+					return elm$core$Maybe$Nothing;
+				default:
+					var rawHistory = state.b;
+					if (msg.$ === 'Cancel') {
+						return elm$core$Maybe$Nothing;
+					} else {
+						return elm$core$Maybe$Just(rawHistory);
+					}
+			}
+		});
+	var elm$browser$Debugger$Main$wrapUpdate = F3(
+		function (update, msg, model) {
+			wrapUpdate:
+				while (true) {
+					switch (msg.$) {
+						case 'NoOp':
+							return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+						case 'UserMsg':
+							var userMsg = msg.a;
+							var userModel = elm$browser$Debugger$Main$getLatestModel(model.state);
+							var newHistory = A3(elm$browser$Debugger$History$add, userMsg, userModel, model.history);
+							var _n1 = A2(update, userMsg, userModel);
+							var newUserModel = _n1.a;
+							var userCmds = _n1.b;
+							var commands = A2(elm$core$Platform$Cmd$map, elm$browser$Debugger$Main$UserMsg, userCmds);
+							var _n2 = model.state;
+							if (_n2.$ === 'Running') {
+								return _Utils_Tuple2(
+									_Utils_update(
+										model,
+										{
+											expando: A2(elm$browser$Debugger$Expando$merge, newUserModel, model.expando),
+											history: newHistory,
+											state: elm$browser$Debugger$Main$Running(newUserModel)
+										}),
+									elm$core$Platform$Cmd$batch(
+										_List_fromArray(
+											[
+												commands,
+												elm$browser$Debugger$Main$scroll(model.popout)
+											])));
+							} else {
+								var index = _n2.a;
+								var indexModel = _n2.b;
+								return _Utils_Tuple2(
+									_Utils_update(
+										model,
+										{
+											history: newHistory,
+											state: A3(elm$browser$Debugger$Main$Paused, index, indexModel, newUserModel)
+										}),
+									commands);
+							}
+						case 'ExpandoMsg':
+							var eMsg = msg.a;
+							return _Utils_Tuple2(
+								_Utils_update(
+									model,
+									{
+										expando: A2(elm$browser$Debugger$Expando$update, eMsg, model.expando)
+									}),
+								elm$core$Platform$Cmd$none);
+						case 'Resume':
+							var _n3 = model.state;
+							if (_n3.$ === 'Running') {
+								return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+							} else {
+								var userModel = _n3.c;
+								return _Utils_Tuple2(
+									_Utils_update(
+										model,
+										{
+											expando: A2(elm$browser$Debugger$Expando$merge, userModel, model.expando),
+											state: elm$browser$Debugger$Main$Running(userModel)
+										}),
+									elm$browser$Debugger$Main$scroll(model.popout));
+							}
+						case 'Jump':
+							var index = msg.a;
+							var _n4 = A3(elm$browser$Debugger$History$get, update, index, model.history);
+							var indexModel = _n4.a;
+							var indexMsg = _n4.b;
+							return _Utils_Tuple2(
+								_Utils_update(
+									model,
+									{
+										expando: A2(elm$browser$Debugger$Expando$merge, indexModel, model.expando),
+										state: A3(
+											elm$browser$Debugger$Main$Paused,
+											index,
+											indexModel,
+											elm$browser$Debugger$Main$getLatestModel(model.state))
+									}),
+								elm$core$Platform$Cmd$none);
+						case 'Open':
+							return _Utils_Tuple2(
+								model,
+								A2(
+									elm$core$Task$perform,
+									function (_n5) {
+										return elm$browser$Debugger$Main$NoOp;
+									},
+									_Debugger_open(model.popout)));
+						case 'Up':
+							var index = function () {
+								var _n6 = model.state;
+								if (_n6.$ === 'Paused') {
+									var i = _n6.a;
+									return i;
+								} else {
+									return elm$browser$Debugger$History$size(model.history);
+								}
+							}();
+							if (index > 0) {
+								var $temp$update = update,
+									$temp$msg = elm$browser$Debugger$Main$Jump(index - 1),
+									$temp$model = model;
+								update = $temp$update;
+								msg = $temp$msg;
+								model = $temp$model;
+								continue;
+							} else {
+								return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+							}
+						case 'Down':
+							var _n7 = model.state;
+							if (_n7.$ === 'Running') {
+								return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
+							} else {
+								var index = _n7.a;
+								var userModel = _n7.c;
+								if (_Utils_eq(
+									index,
+									elm$browser$Debugger$History$size(model.history) - 1)) {
+									var $temp$update = update,
+										$temp$msg = elm$browser$Debugger$Main$Resume,
+										$temp$model = model;
+									update = $temp$update;
+									msg = $temp$msg;
+									model = $temp$model;
+									continue;
+								} else {
+									var $temp$update = update,
+										$temp$msg = elm$browser$Debugger$Main$Jump(index + 1),
+										$temp$model = model;
+									update = $temp$update;
+									msg = $temp$msg;
+									model = $temp$model;
+									continue;
+								}
+							}
+						case 'Import':
+							return A2(
+								elm$browser$Debugger$Main$withGoodMetadata,
+								model,
+								function (_n8) {
+									return _Utils_Tuple2(model, elm$browser$Debugger$Main$upload);
+								});
+						case 'Export':
+							return A2(
+								elm$browser$Debugger$Main$withGoodMetadata,
+								model,
+								function (metadata) {
+									return _Utils_Tuple2(
+										model,
+										A2(elm$browser$Debugger$Main$download, metadata, model.history));
+								});
+						case 'Upload':
+							var jsonString = msg.a;
+							return A2(
+								elm$browser$Debugger$Main$withGoodMetadata,
+								model,
+								function (metadata) {
+									var _n9 = A2(elm$browser$Debugger$Overlay$assessImport, metadata, jsonString);
+									if (_n9.$ === 'Err') {
+										var newOverlay = _n9.a;
+										return _Utils_Tuple2(
+											_Utils_update(
+												model,
+												{overlay: newOverlay}),
+											elm$core$Platform$Cmd$none);
+									} else {
+										var rawHistory = _n9.a;
+										return A3(elm$browser$Debugger$Main$loadNewHistory, rawHistory, update, model);
+									}
+								});
+						default:
+							var overlayMsg = msg.a;
+							var _n10 = A2(elm$browser$Debugger$Overlay$close, overlayMsg, model.overlay);
+							if (_n10.$ === 'Nothing') {
+								return _Utils_Tuple2(
+									_Utils_update(
+										model,
+										{overlay: elm$browser$Debugger$Overlay$none}),
+									elm$core$Platform$Cmd$none);
+							} else {
+								var rawHistory = _n10.a;
+								return A3(elm$browser$Debugger$Main$loadNewHistory, rawHistory, update, model);
+							}
+					}
+				}
+		});
+	var elm$core$Set$foldr = F3(
+		function (func, initialState, _n0) {
+			var dict = _n0.a;
+			return A3(
+				elm$core$Dict$foldr,
+				F3(
+					function (key, _n1, state) {
+						return A2(func, key, state);
+					}),
+				initialState,
+				dict);
+		});
+	var elm$url$Url$Http = {$: 'Http'};
+	var elm$url$Url$Https = {$: 'Https'};
+	var elm$core$String$indexes = _String_indexes;
 var elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-        return {fragment: fragment, host: host, path: path, port_: port_, protocol: protocol, query: query};
+		return {fragment: fragment, host: host, path: path, port_: port_, protocol: protocol, query: query};
 	});
 var elm$url$Url$chompBeforePath = F5(
 	function (protocol, path, params, frag, str) {
@@ -12318,7 +12536,7 @@ var elm$url$Url$chompBeforePath = F5(
 					var i = _n0.a;
 					var _n1 = elm$core$String$toInt(
 						A2(elm$core$String$dropLeft, i + 1, str));
-                    if (_n1.$ === 'Nothing') {
+					if (_n1.$ === 'Nothing') {
 						return elm$core$Maybe$Nothing;
 					} else {
 						var port_ = _n1;
@@ -12400,20 +12618,20 @@ var elm$url$Url$chompAfterProtocol = F2(
 var elm$url$Url$fromString = function (str) {
 	return A2(elm$core$String$startsWith, 'http://', str) ? A2(
 		elm$url$Url$chompAfterProtocol,
-        elm$url$Url$Http,
+		elm$url$Url$Http,
 		A2(elm$core$String$dropLeft, 7, str)) : (A2(elm$core$String$startsWith, 'https://', str) ? A2(
 		elm$url$Url$chompAfterProtocol,
-        elm$url$Url$Https,
+		elm$url$Url$Https,
 		A2(elm$core$String$dropLeft, 8, str)) : elm$core$Maybe$Nothing);
 };
 var elm$browser$Browser$element = _Browser_element;
 var author$project$Main$main = elm$browser$Browser$element(
-    {
-        init: author$project$Main$init,
-        subscriptions: author$project$Main$subscriptions,
-        update: author$project$Main$update,
-        view: author$project$Main$view
-    });
+	{
+		init: author$project$Main$init,
+		subscriptions: author$project$Main$subscriptions,
+		update: author$project$Main$update,
+		view: author$project$Main$view
+	});
 _Platform_export({'Main':{'init':author$project$Main$main(
 	A2(
 		elm$json$Json$Decode$andThen,
@@ -12422,7 +12640,7 @@ _Platform_export({'Main':{'init':author$project$Main$main(
 				elm$json$Json$Decode$andThen,
 				function (lat) {
 					return elm$json$Json$Decode$succeed(
-                        {lat: lat, lng: lng});
+						{lat: lat, lng: lng});
 				},
 				A2(
 					elm$json$Json$Decode$field,
@@ -12442,63 +12660,65 @@ _Platform_export({'Main':{'init':author$project$Main$main(
 					[
 						elm$json$Json$Decode$null(elm$core$Maybe$Nothing),
 						A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, elm$json$Json$Decode$float)
-                    ])))))({
-            "versions": {"elm": "0.19.0"}, "types": {
-                "message": "Main.Msg",
-                "aliases": {
-                    "Main.Location": {
-                        "args": [],
-                        "type": "{ lat : Maybe.Maybe Basics.Float, lng : Maybe.Maybe Basics.Float }"
-                    }
-                },
-                "unions": {
-                    "Main.Msg": {
-                        "args": [], "tags": {
-                            "ModeGeolocation": [],
-                            "ModeZipcode": [],
-                            "SubmitZipcode": ["String.String"],
-                            "ChangedCancerType": ["String.String"],
-                            "ChangedCancerPart": ["String.String"],
-                            "GotCsv": ["Result.Result Http.Error String.String"],
-                            "GotFacilitiesCsv": ["Result.Result Http.Error String.String"],
-                            "GotSoftTissueCsv": ["Result.Result Http.Error String.String"],
-                            "GotRetinoblastomaCSV": ["Result.Result Http.Error String.String"],
-                            "GotUvealMalignantMelanomaCSV": ["Result.Result Http.Error String.String"],
-                            "GotIntraocularLymphomaCSV": ["Result.Result Http.Error String.String"],
-                            "GotConjunctivalMalignantLymphomaCSV": ["Result.Result Http.Error String.String"],
-                            "GotKeratoconjunctivalSquamousCellCarcinomaCSV": ["Result.Result Http.Error String.String"],
-                            "GotConjunctivalMalignantMelanomaCSV": ["Result.Result Http.Error String.String"],
-                            "GotOrbitalMalignantLymphomaCSV": ["Result.Result Http.Error String.String"],
-                            "GotLacrimalGlandCancerCSV": ["Result.Result Http.Error String.String"],
-                            "UpdateCurrentLocation": ["Main.Location"],
-                            "SetTableState": ["Table.State"],
-                            "ToggleSoftTissueSelected": ["String.String", "Main.Location"],
-                            "ChangeCurrentLocationFromZipcode": [],
-                            "UpdateZipcode": ["String.String"],
-                            "ChangeTodofuken": ["List.List String.String"]
-                        }
-                    },
-                    "Table.State": {"args": [], "tags": {"State": ["String.String", "Basics.Bool"]}},
-                    "Basics.Float": {"args": [], "tags": {"Float": []}},
-                    "List.List": {"args": ["a"], "tags": {}},
-                    "Maybe.Maybe": {"args": ["a"], "tags": {"Just": ["a"], "Nothing": []}},
-                    "Result.Result": {"args": ["error", "value"], "tags": {"Ok": ["value"], "Err": ["error"]}},
-                    "String.String": {"args": [], "tags": {"String": []}},
-                    "Http.Error": {
-                        "args": [],
-                        "tags": {
-                            "BadUrl": ["String.String"],
-                            "Timeout": [],
-                            "NetworkError": [],
-                            "BadStatus": ["Basics.Int"],
-                            "BadBody": ["String.String"]
-                        }
-                    },
-                    "Basics.Bool": {"args": [], "tags": {"True": [], "False": []}},
-                    "Basics.Int": {"args": [], "tags": {"Int": []}}
-                }
-            }
-        })
-    }
+					])))))({
+			"versions": {"elm": "0.19.0"}, "types": {
+				"message": "Main.Msg",
+				"aliases": {
+					"Main.Location": {
+						"args": [],
+						"type": "{ lat : Maybe.Maybe Basics.Float, lng : Maybe.Maybe Basics.Float }"
+					}
+				},
+				"unions": {
+					"Main.Msg": {
+						"args": [], "tags": {
+							"ModeGeolocation": [],
+							"ModeZipcode": [],
+							"SubmitZipcode": ["String.String"],
+							"ChangedCancerType": ["String.String"],
+							"ChangedCancerPart": ["String.String"],
+							"GotLocationFromZipcode": ["Result.Result Http.Error String.String"],
+							"GotCsv": ["Result.Result Http.Error String.String"],
+							"GotFacilitiesCsv": ["Result.Result Http.Error String.String"],
+							"GotSoftTissueCsv": ["Result.Result Http.Error String.String"],
+							"GotRetinoblastomaCSV": ["Result.Result Http.Error String.String"],
+							"GotUvealMalignantMelanomaCSV": ["Result.Result Http.Error String.String"],
+							"GotIntraocularLymphomaCSV": ["Result.Result Http.Error String.String"],
+							"GotConjunctivalMalignantLymphomaCSV": ["Result.Result Http.Error String.String"],
+							"GotKeratoconjunctivalSquamousCellCarcinomaCSV": ["Result.Result Http.Error String.String"],
+							"GotConjunctivalMalignantMelanomaCSV": ["Result.Result Http.Error String.String"],
+							"GotOrbitalMalignantLymphomaCSV": ["Result.Result Http.Error String.String"],
+							"GotLacrimalGlandCancerCSV": ["Result.Result Http.Error String.String"],
+							"UpdateCurrentLocation": ["Main.Location"],
+							"SetTableState": ["Table.State"],
+							"ToggleSoftTissueSelected": ["String.String", "Main.Location"],
+							"ToggleGenelalCancerSelected": ["String.String", "Main.Location"],
+							"OpenNewWindow": ["String.String"],
+							"UpdateZipcode": ["String.String"],
+							"ChangeTodofuken": ["List.List String.String"]
+						}
+					},
+					"Table.State": {"args": [], "tags": {"State": ["String.String", "Basics.Bool"]}},
+					"Basics.Float": {"args": [], "tags": {"Float": []}},
+					"List.List": {"args": ["a"], "tags": {}},
+					"Maybe.Maybe": {"args": ["a"], "tags": {"Just": ["a"], "Nothing": []}},
+					"Result.Result": {"args": ["error", "value"], "tags": {"Ok": ["value"], "Err": ["error"]}},
+					"String.String": {"args": [], "tags": {"String": []}},
+					"Http.Error": {
+						"args": [],
+						"tags": {
+							"BadUrl": ["String.String"],
+							"Timeout": [],
+							"NetworkError": [],
+							"BadStatus": ["Basics.Int"],
+							"BadBody": ["String.String"]
+						}
+					},
+					"Basics.Bool": {"args": [], "tags": {"True": [], "False": []}},
+					"Basics.Int": {"args": [], "tags": {"Int": []}}
+				}
+			}
+		})
+	}
 });
 }(this));

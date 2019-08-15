@@ -28,6 +28,9 @@ port updateCurrentLocation : (Location -> msg) -> Sub msg
 port setMapMaker : ToJsLocation -> Cmd msg
 
 
+port openNewWindow : String -> Cmd msg
+
+
 port changeCurrentLocationFromAddress : String -> Cmd msg
 
 
@@ -186,10 +189,21 @@ helperConvListtoFacilityRecord list =
 
 
 {--
-    
-parse済みのcsvをresultに挿入する関数
+
+都道府県によるフィルターをかける関数
 
 --}
+
+
+filterSoftTissueFacilityPrefecture : List String -> List SoftTissueFacility -> List SoftTissueFacility
+filterSoftTissueFacilityPrefecture prefectures facilities =
+    if List.isEmpty prefectures then
+        facilities
+
+    else
+        facilities
+            |> List.filter
+                (\facility -> List.member (facility.prefecture |> Maybe.withDefault "") prefectures)
 
 
 filterGeneralCancerFacilityPrefecture : List String -> List GeneralCancerFacility -> List GeneralCancerFacility
@@ -201,6 +215,14 @@ filterGeneralCancerFacilityPrefecture prefectures facilities =
         facilities
             |> List.filter
                 (\facility -> List.member (facility.prefecture |> Maybe.withDefault "") prefectures)
+
+
+
+{--
+
+parse済みのcsvをresultに挿入する関数
+
+--}
 
 
 setSoftTissueFacilities : Csv -> Facilities -> SoftTissueFacilities
@@ -511,13 +533,13 @@ configSoftTissue =
             , Table.intColumn "セカンドオピニオン" .secondopinion
             ]
         , customizations =
-            { defaultCustomizations | rowAttrs = toRowAttrs }
+            { defaultCustomizations | rowAttrs = toRowAttrsSoftTissue }
         }
 
 
 configGeneralCancer : Table.Config GeneralCancerFacility Msg
 configGeneralCancer =
-    Table.config
+    Table.customConfig
         { toId = .id
         , toMsg = SetTableState
         , columns =
@@ -527,19 +549,20 @@ configGeneralCancer =
             , Table.stringColumn "診断" .diagnosis
             , Table.stringColumn "治療" .treatment
             ]
+        , customizations =
+            { defaultCustomizations | rowAttrs = toRowAttrsGeneralCancer }
         }
 
 
-toRowAttrs : SoftTissueFacility -> List (Attribute Msg)
-toRowAttrs facility =
-    [ onClick (ToggleSoftTissueSelected facility.id facility.location)
-    , style "background"
-        (if facility.selected then
-            "#CEFAF8"
+toRowAttrsSoftTissue : SoftTissueFacility -> List (Attribute Msg)
+toRowAttrsSoftTissue facility =
+    [ onClick (OpenNewWindow ("https://hospdb.ganjoho.jp/kyotendb.nsf/xpLeaflet.xsp?hospId=" ++ facility.id))
+    ]
 
-         else
-            "white"
-        )
+
+toRowAttrsGeneralCancer : GeneralCancerFacility -> List (Attribute Msg)
+toRowAttrsGeneralCancer facility =
+    [ onClick (ToggleGenelalCancerSelected facility.id facility.location)
     ]
 
 
@@ -601,7 +624,15 @@ type CsvType
 
 targetUrl : String
 targetUrl =
-    "https://www.ossia.co.jp/forimake/"
+    "http://localhost:8000/"
+
+
+getLocationFromZipcode : String -> Cmd Msg
+getLocationFromZipcode zipcode =
+    Http.get
+        { url = "https://geoapi.heartrails.com/api/json?method=searchByPostal&postal=" ++ zipcode
+        , expect = Http.expectString GotLocationFromZipcode
+        }
 
 
 getCsv : CsvType -> Cmd Msg
@@ -847,6 +878,7 @@ type alias Model =
     , tableState : Table.State
     , getCsvError : String
     , selectedTodofuken : List String
+    , temp : String
     }
 
 
@@ -890,6 +922,7 @@ init flags =
       , tableState = Table.initialSort "id"
       , getCsvError = ""
       , selectedTodofuken = []
+      , temp = ""
       }
     , initFunction
     )
@@ -910,6 +943,7 @@ type Msg
     | SubmitZipcode String
     | ChangedCancerType String
     | ChangedCancerPart String
+    | GotLocationFromZipcode (Result Http.Error String)
     | GotCsv (Result Http.Error String)
     | GotFacilitiesCsv (Result Http.Error String)
     | GotSoftTissueCsv (Result Http.Error String)
@@ -924,7 +958,8 @@ type Msg
     | UpdateCurrentLocation Location
     | SetTableState Table.State
     | ToggleSoftTissueSelected String Location
-    | ChangeCurrentLocationFromZipcode
+    | ToggleGenelalCancerSelected String Location
+    | OpenNewWindow String
     | UpdateZipcode String
     | ChangeTodofuken (List String)
 
@@ -1020,6 +1055,12 @@ update msg model =
 
                 _ ->
                     ( { model | selectedCancerPart = cancerPart }, Cmd.none )
+
+        GotLocationFromZipcode (Ok repo) ->
+            ( { model | temp = repo }, Cmd.none )
+
+        GotLocationFromZipcode (Err error) ->
+            ( model, Cmd.none )
 
         GotCsv (Ok repo) ->
             ( { model | resultCsv = repo, parseCsv = Csv.parse repo }, Cmd.none )
@@ -1147,24 +1188,27 @@ update msg model =
             )
 
         ToggleSoftTissueSelected id location ->
-            ( { model
-                | resultSoftTissueFacilities =
-                    List.map (toggleSoftTissueFacility id) model.resultSoftTissueFacilities
-                , originSoftTissueFacilities =
-                    List.map (toggleSoftTissueFacility id) model.resultSoftTissueFacilities
-              }
-            , setMapMaker { id = id, lat = location.lat, lng = location.lng }
+            ( model
+            , Cmd.none
             )
 
-        ChangeCurrentLocationFromZipcode ->
-            ( model, changeCurrentLocationFromAddress model.zipcode )
+        ToggleGenelalCancerSelected id location ->
+            ( model
+            , Cmd.none
+            )
+
+        OpenNewWindow string ->
+            ( model
+            , openNewWindow string
+            )
 
         UpdateZipcode zipcode ->
-            ( { model | zipcode = zipcode }, Cmd.none )
+            ( { model | zipcode = zipcode }, getLocationFromZipcode zipcode )
 
         ChangeTodofuken todofuken ->
             ( { model
                 | selectedTodofuken = todofuken
+                , resultSoftTissueFacilities = model.originSoftTissueFacilities |> filterSoftTissueFacilityPrefecture todofuken
                 , resultRetinoblastomaFacilities = model.originRetinoblastomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
                 , resultUvealMalignantMelanomaFacilities = model.originUvealMalignantMelanomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
                 , resultIntraocularLymphomaFacilities = model.originIntraocularLymphomaFacilities |> filterGeneralCancerFacilityPrefecture todofuken
@@ -1225,12 +1269,6 @@ view model =
             [ case model.searchMode of
                 Zipcode ->
                     input [ placeholder "郵便番号を7桁で入力してください", onInput UpdateZipcode ] []
-
-                _ ->
-                    text ""
-            , case model.searchMode of
-                Zipcode ->
-                    button [ onClick ChangeCurrentLocationFromZipcode ] [ text "決定" ]
 
                 _ ->
                     text ""

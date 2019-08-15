@@ -36,7 +36,7 @@ var center = {
     lat: 34.7019399, // 緯度
     lng: 135.51002519999997 // 経度
 };
-
+initMap();
 // 地図表示
 function initMap() {
     // 現在地を取得
@@ -45,10 +45,10 @@ function initMap() {
         function (position) {
             currentLat = position.coords.latitude;
             currentLng = position.coords.longitude;
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: currentLat, lng: currentLng},
-                zoom: 10
-            });
+            // map = new google.maps.Map(document.getElementById('map'), {
+            //     center: {lat: currentLat, lng: currentLng},
+            //     zoom: 10
+            // });
 
             // var marker = new google.maps.Marker({ // マーカーの追加
             //     position: {lat: currentLat, lng: currentLng}, // マーカーを立てる位置を指定
@@ -78,6 +78,11 @@ function initMap() {
         }
     );
 }
+
+
+app.ports.openNewWindow.subscribe(function (data) {
+    window.open(data)
+});
 
 
 app.ports.changeCurrentLocationFromAddress.subscribe(function (data) {
