@@ -1238,8 +1238,8 @@ toggleSoftTissueFacility id facility =
 
 view : Model -> Html Msg
 view model =
-    div [ id "container" ]
-        [ section [ class "section" ]
+    div [ id "elmcontent" ]
+        [ section [ class "section first_section" ]
             [ div [ class "tabs" ]
                 [ ul []
                     [ li
@@ -1265,73 +1265,89 @@ view model =
                     ]
                 ]
             ]
-        , div [ id "inputField" ]
-            [ case model.searchMode of
+        , section [ class "section" ]
+            [ h2 [] [ text "がん情報を選ぶ" ]
+            , case model.searchMode of
                 Zipcode ->
                     input [ placeholder "郵便番号を7桁で入力してください", onInput UpdateZipcode ] []
 
                 _ ->
                     text ""
-            , text "がん選択:"
-            , select [ on "change" (Json.map ChangedCancerType targetValue) ]
-                [ option [ selected True ] [ text "選択してください" ]
-                , selectOption "SoftTissue" "四肢軟部肉腫"
-                , selectOption "Intraocular" "眼内腫瘍"
-                , selectOption "Keratoconjunctival" "角結膜腫瘍"
-                , selectOption "Orbital" "眼窩腫瘍"
-                , selectOption "Eyelid" "眼瞼腫瘍"
+            , div [ class "section_box" ]
+                [ div [ class "select is-medium" ]
+                    [ select [ on "change" (Json.map ChangedCancerType targetValue) ]
+                        [ option [ selected True ] [ text "選択してください" ]
+                        , selectOption "SoftTissue" "四肢軟部肉腫"
+                        , selectOption "Intraocular" "眼内腫瘍"
+                        , selectOption "Keratoconjunctival" "角結膜腫瘍"
+                        , selectOption "Orbital" "眼窩腫瘍"
+                        , selectOption "Eyelid" "眼瞼腫瘍"
+                        ]
+                    , unique model.selectedCancerType <|
+                        case model.selectedCancerType of
+                            "Intraocular" ->
+                                htmlSelectIntraocular
+
+                            "Keratoconjunctival" ->
+                                htmlSelectKeratoconjunctival
+
+                            "Orbital" ->
+                                htmlSelectOrbital
+
+                            "Eyelid" ->
+                                htmlSelectEyelid
+
+                            _ ->
+                                text ""
+                    ]
                 ]
             ]
-        , unique model.selectedCancerType <|
-            case model.selectedCancerType of
-                "Intraocular" ->
-                    htmlSelectIntraocular
-
-                "Keratoconjunctival" ->
-                    htmlSelectKeratoconjunctival
-
-                "Orbital" ->
-                    htmlSelectOrbital
-
-                "Eyelid" ->
-                    htmlSelectEyelid
-
-                _ ->
-                    text ""
-        , MultiSelect.multiSelect
-            multiSelectTodofukenOptions
-            []
-            model.selectedTodofuken
-        , case model.selectedCancerType of
-            "SoftTissue" ->
-                Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities
-
-            _ ->
-                case model.selectedCancerPart of
-                    "Retinoblastoma" ->
-                        Table.view configGeneralCancer model.tableState model.resultRetinoblastomaFacilities
-
-                    "UvealMalignantMelanoma" ->
-                        Table.view configGeneralCancer model.tableState model.resultUvealMalignantMelanomaFacilities
-
-                    "IntraocularLymphoma" ->
-                        Table.view configGeneralCancer model.tableState model.resultIntraocularLymphomaFacilities
-
-                    "ConjunctivalMalignantLymphoma" ->
-                        Table.view configGeneralCancer model.tableState model.resultConjunctivalMalignantLymphomaFacilities
-
-                    "KeratoconjunctivalSquamousCellCarcinoma" ->
-                        Table.view configGeneralCancer model.tableState model.resultKeratoconjunctivalSquamousCellCarcinomaFacilities
-
-                    "ConjunctivalMalignantMelanoma" ->
-                        Table.view configGeneralCancer model.tableState model.resultConjunctivalMalignantMelanomaFacilities
-
-                    "OrbitalMalignantLymphoma" ->
-                        Table.view configGeneralCancer model.tableState model.resultOrbitalMalignantLymphomaFacilities
-
-                    "LacrimalGlandCancer" ->
-                        Table.view configGeneralCancer model.tableState model.resultLacrimalGlandCancerFacilities
+        , section [ class "section" ]
+            [ h2 [] [ text "地域を選ぶ" ]
+            , div [ class "section_box" ]
+                [ div [ class "select is-medium" ]
+                    [ MultiSelect.multiSelect
+                        multiSelectTodofukenOptions
+                        []
+                        model.selectedTodofuken
+                    ]
+                ]
+            ]
+        , section [ class "section" ]
+            [ h2 [] [ text "検索結果" ]
+            , div [ class "search_box box" ]
+                [ case model.selectedCancerType of
+                    "SoftTissue" ->
+                        Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities
 
                     _ ->
-                        text ""
+                        case model.selectedCancerPart of
+                            "Retinoblastoma" ->
+                                Table.view configGeneralCancer model.tableState model.resultRetinoblastomaFacilities
+
+                            "UvealMalignantMelanoma" ->
+                                Table.view configGeneralCancer model.tableState model.resultUvealMalignantMelanomaFacilities
+
+                            "IntraocularLymphoma" ->
+                                Table.view configGeneralCancer model.tableState model.resultIntraocularLymphomaFacilities
+
+                            "ConjunctivalMalignantLymphoma" ->
+                                Table.view configGeneralCancer model.tableState model.resultConjunctivalMalignantLymphomaFacilities
+
+                            "KeratoconjunctivalSquamousCellCarcinoma" ->
+                                Table.view configGeneralCancer model.tableState model.resultKeratoconjunctivalSquamousCellCarcinomaFacilities
+
+                            "ConjunctivalMalignantMelanoma" ->
+                                Table.view configGeneralCancer model.tableState model.resultConjunctivalMalignantMelanomaFacilities
+
+                            "OrbitalMalignantLymphoma" ->
+                                Table.view configGeneralCancer model.tableState model.resultOrbitalMalignantLymphomaFacilities
+
+                            "LacrimalGlandCancer" ->
+                                Table.view configGeneralCancer model.tableState model.resultLacrimalGlandCancerFacilities
+
+                            _ ->
+                                text ""
+                ]
+            ]
         ]

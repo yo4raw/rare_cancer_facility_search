@@ -5,14 +5,200 @@
   <title>希少癌施治療設検索</title>
   <link rel="stylesheet" href="css/bulma.min.css">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link rel="stylesheet" href="css/all.css">
   <script src="main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
   <meta charset="utf-8">
 </head>
 
 <body class="rare_cancer_facilitiy_box">
+<header>
+  <div id="view:_id1:pnlPageHeader" class="PageHeader pc_header">
+    <div id="header" style="padding-top:10px;">
+      <a id="view:_id1:_id6:_id7" href="https://ganjoho.jp/public/index.html" class="xspLink" target="_blank">
+        <img id="view:_id1:_id6:_id8" src="img/logoGanjoho.gif" alt="がん情報サービス　ganjoho.jp" class="logoGanjoho">
+      </a>
+      <a id="view:_id1:_id6:lnkTopLogo" href="/kyotendb.nsf/xpTopPage.xsp" class="xspLink">
+        <img id="view:_id1:_id6:_id9" src="img/logoHosp.gif" alt="病院を探す" class="xspImage">
+      </a>
+      <div class="searchForm">
+        <a id="view:_id1:_id6:link1" href="javascript:OpenGuide('/public/hosp/guide02.html');" class="xspLink">
+          <img id="view:_id1:_id6:_id11" src="img/hmGuide.gif" alt="「病院を探す」の使い方" class="xspImage">
+        </a>
+        <a href="https://ganjoho.jp/contact.html">
+          <img id="view:_id1:_id6:_id13" src="img/hmContact.gif" alt="お問い合わせ" class="xspImage">
+        </a>
+      </div>
+    </div>
+    <div id="view:_id1:_id6:pnlNavigation" class="navigationBar clearfix">
+      <ul class="navigationButtonList" id="gNavi">
+        <li class="gNavi1 navigationButton">
+          <a id="view:_id1:_id6:lnkNavKyoten" href="/kyotendb.nsf/xpKyotenSearchTop.xsp"><strong>がん診療連携拠点</strong>病院</a>
+          <ul>
+            <li>
+              <a id="view:_id1:_id6:_id20" href="/kyotendb.nsf/xpCancerMTInfo.xsp" class="xspLink">がん診療の実績から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id22" href="/kyotendb.nsf/xpKyotenSearchCancer.xsp" class="xspLink">がんの種類から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id24" href="/kyotendb.nsf/xpKyotenSearchTop.xsp#keywordSearch" class="xspLink">病院名から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id26" href="/kyotendb.nsf/xpKyotenSearchTreatment.xsp" class="xspLink">対応状況から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id28" href="/kyotendb.nsf/xpKyotenSearchLicense.xsp" class="xspLink">専門医療職から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id30" href="/kyotendb.nsf/xpLymphSearchTop.xsp" class="xspLink">リンパ浮腫外来を探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id32" href="/kyotendb.nsf/xpKyotenSearchTop.xsp#mapSearch"
+                 class="xspLink">地図から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id34" href="/kyotendb.nsf/xpKyotenSearchTop.xsp#chiiki"
+                 class="xspLink">全国の一覧をみる</a>
+            </li>
+          </ul>
+        </li>
+        <li class="gNavi2 navigationButton">
+          <a id="view:_id1:_id6:lnkNavSoudan" href="/kyotendb.nsf/xpConsultantSearchTop.xsp"><strong>がん相談支援</strong>センター</a>
+          <ul>
+            <li>
+              <a id="view:_id1:_id6:_id41" href="/kyotendb.nsf/xpConsultantSearchTop.xsp#keywordSearch" class="xspLink">病院名から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id43" href="/kyotendb.nsf/xpConsultantSearchTop.xsp#mapSearch" class="xspLink">地図から探す</a>
+            </li>
+          </ul>
+        </li>
+        <li class="gNavi3 navigationButton">
+          <a id="view:_id1:_id6:lnkNavChild" href="/kyotendb.nsf/xpChildSearchTop.xsp"><strong>小児がん</strong>拠点病院</a>
+          <ul>
+            <li>
+              <a id="view:_id1:_id6:_id50" href="/kyotendb.nsf/xpChildSearchTop.xsp#keywordSearch" class="xspLink">病院名から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id52" href="/kyotendb.nsf/xpChildSearchTop.xsp#mapSearch"
+                 class="xspLink">地図から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id54" href="/kyotendb.nsf/xpChildSearchCancer.xsp" class="xspLink">がんの種類から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id56" href="/kyotendb.nsf/xpChildSearchTop.xsp#chiiki" class="xspLink">全国の一覧をみる</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id58" href="/kyotendb.nsf/xpChildConsultantResult.xsp" class="xspLink">相談支援センターの一覧をみる</a>
+            </li>
+          </ul>
+        </li>
+        <li class="gNavi4 navigationButton">
+          <a id="view:_id1:_id6:lnkNavKanwa" href="/kyotendb.nsf/xpPalliativeSearchTop.xsp"><strong>緩和ケア病棟</strong>のある病院</a>
+          <ul>
+            <li>
+              <a id="view:_id1:_id6:_id65" href="/kyotendb.nsf/xpPalliativeSearchTop.xsp#keywordSearch" class="xspLink">病院名から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id67" href="/kyotendb.nsf/xpPalliativeSearchTop.xsp#mapSearch" class="xspLink">地図から探す</a>
+            </li>
+            <li>
+              <a id="view:_id1:_id6:_id69" href="/kyotendb.nsf/xpPalliativeSearchTop.xsp#chiiki" class="xspLink">全国の一覧をみる</a>
+            </li>
+          </ul>
+        </li>
+        <li class="gNavi5 navigationButton">
+          <a id="view:_id1:_id6:lnkNavKisyo" href="/kyotendb.nsf/xpRareSearchCancer.xsp"
+             class="navigationButtonCurrent"><strong>希少がん</strong>情報公開専門病院</a>
+        </li>
+      </ul>
+    </div>
+    <script language="JavaScript" src="/js/ntpagetag.js"></script>
+    <noscript>
+      <img border="0" height="1" hspace="0" src="/image/ntpagetag.gif?js=0" vspace="0" width="1">
+    </noscript>
+  </div>
+
+  <div class="sp_header_box">
+    <div class="sp_header">
+      <div class="sp_header_logo">
+        <a id="view:_id1:_id6:_id7" href="https://ganjoho.jp/public/index.html" class="xspLink" target="_blank">
+          <img id="view:_id1:_id6:_id8" src="img/logoGanjoho.gif" alt="がん情報サービス　ganjoho.jp" class="logoGanjoho">
+        </a>
+        <a id="view:_id1:_id6:lnkTopLogo" href="/kyotendb.nsf/xpTopPage.xsp" class="xspLink">
+          <img id="view:_id1:_id6:_id9" src="img/logoHosp.gif" alt="病院を探す" class="xspImage">
+        </a>
+      </div>
+      <div class="sp_menu icon-hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <nav class="menu-container">
+      <ul class="menu">
+        <li class="menu-item"><a href="https://hospdb.ganjoho.jp/public/index.html"><p>サイトTOP</p><i
+                class="fas fa-chevron-right"></i></a></li>
+        <li class="menu-item"><a href="https://hospdb.ganjoho.jp/kyotendb.nsf/xpKyotenSearchTop.xsp"><p>
+          がん診療連携拠点<span>病院</span></p><i class="fas fa-chevron-right"></i></a></li>
+        <li class="menu-item"><a href="https://hospdb.ganjoho.jp/kyotendb.nsf/xpConsultantSearchTop.xsp"><p>がん相談支援<span>センター</span>
+        </p><i class="fas fa-chevron-right"></i></a></li>
+        <li class="menu-item"><a href="https://hospdb.ganjoho.jp/kyotendb.nsf/xpChildSearchTop.xsp"><p>
+          小児がん<span>拠点病院</span></p><i class="fas fa-chevron-right"></i></a></li>
+        <li class="menu-item"><a href="https://hospdb.ganjoho.jp/kyotendb.nsf/xpPalliativeSearchTop.xsp"><p>緩和ケア病棟<span>のある病院</span>
+        </p><i class="fas fa-chevron-right"></i></a></li>
+        <li class="menu-item"><a href="https://hospdb.ganjoho.jp/kyotendb.nsf/xpRareSearchCancer.xsp"><p>希少がん<span>情報公開専門病院</span>
+        </p><i class="fas fa-chevron-right"></i></a></li>
+        <li class="menu-item contact-item"><a href="#"><p>お問い合わせ</p><i class="fas fa-chevron-right"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 <div id="elm-node"></div>
+
+<div class="floatWordsBox">
+  <a id="view:_id1:_id169:_id170:link1" href="javascript:OpenWin5('https://ganjoho.jp/words.html');" class="xspLink"
+     title="用語集">
+    <img id="view:_id1:_id169:_id170:image1" src="https://ganjoho.jp/com_imgs/btnFloatWords.gif" alt=""
+         class="xspImage">
+  </a>
+</div>
+
+<footer>
+  <div id="footer" class="pc_footer">
+    <div id="footer_menu">
+      <a class="footer_lk" href="https://ganjoho.jp/sitemap.html" target="_blank">がん情報サービス　サイトマップ</a>
+      <span style="margin-left:10px; margin-right:10px;">|</span>
+      <a class="footer_lk" href="https://ganjoho.jp/aboutus.html" target="_blank">
+        このサイトについて</a>
+      <span style="margin-left:10px; margin-right:10px;">|</span>
+      <a class="footer_lk" href="https://ganjoho.jp/copyright.html" target="_blank">リンク・著作物使用手続き・著作権など</a>
+    </div>
+    <div id="copyright">
+      <img alt="(c) 国立研究開発法人国立がん研究センターがん対策情報センター" border="0" src="https://ganjoho.jp/com_imgs/copyright.gif">
+    </div>
+    <br class="clr">
+  </div>
+  </div>
+  <div class="sp_footer">
+    <ul class="sp_menu">
+      <li><a href="https://ganjoho.jp/sitemap.html" target="_blank">がん情報サービス サイトマップ</a></li>
+      <li><a href="https://ganjoho.jp/aboutus.html" target="_blank">このサイトについて</a></li>
+      <li><a href="https://ganjoho.jp/copyright.html" target="_blank">リンク・著作物使用手続き・著作権など</a></li>
+    </ul>
+    <small>© 国立研究開発法人国立がん研究センターがん対策情報センター</small>
+  </div>
+</footer>
+
 <script src="./js/map.js"></script>
+<script>
+  jQuery('.icon-hamburger').on('click', function () {
+    if (jQuery('.menu-container .menu').css('display') === 'block') {
+      jQuery('.menu-container .menu').slideUp('1500');
+    } else {
+      jQuery('.menu-container .menu').slideDown('1500');
+    }
+  });
+</script>
 </body>
 </html>
