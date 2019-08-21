@@ -568,7 +568,7 @@ toRowAttrsSoftTissue facility =
 
 toRowAttrsGeneralCancer : GeneralCancerFacility -> List (Attribute Msg)
 toRowAttrsGeneralCancer facility =
-    [ onClick (ToggleGenelalCancerSelected facility.id facility.location)
+    [ onClick (OpenNewWindow ("https://hospdb.ganjoho.jp/kyotendb.nsf/xpLeaflet.xsp?hospId=" ++ facility.id))
     ]
 
 
