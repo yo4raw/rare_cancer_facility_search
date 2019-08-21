@@ -197,7 +197,7 @@ helperConvListtoFacilityRecord list =
 
 filterSoftTissueFacilityPrefecture : List String -> List SoftTissueFacility -> List SoftTissueFacility
 filterSoftTissueFacilityPrefecture prefectures facilities =
-    if List.isEmpty prefectures then
+    if List.member "全国" prefectures then
         facilities
 
     else
@@ -208,7 +208,7 @@ filterSoftTissueFacilityPrefecture prefectures facilities =
 
 filterGeneralCancerFacilityPrefecture : List String -> List GeneralCancerFacility -> List GeneralCancerFacility
 filterGeneralCancerFacilityPrefecture prefectures facilities =
-    if List.isEmpty prefectures then
+    if List.member "全国" prefectures then
         facilities
 
     else
@@ -523,9 +523,9 @@ configSoftTissue =
         , columns =
             [ Table.stringColumn "施設名" .name
             , Table.intColumn "距離(km)" .distance
-            , Table.intColumn "上肢" .joshi
-            , Table.intColumn "下肢" .kashi
-            , Table.intColumn "体幹" .taikan
+            , Table.intColumn "初回治療開始件数:上肢" .joshi
+            , Table.intColumn "初回治療開始件数:下肢" .kashi
+            , Table.intColumn "初回治療開始件数:体幹(非内臓)" .taikan
             , Table.intColumn "再発後初診" .saihatsushoshin
             , Table.intColumn "手術件数" .ope
             , Table.intColumn "放射線治療" .housyasen
@@ -620,6 +620,7 @@ type CsvType
     | ConjunctivalMalignantMelanomaCSV
     | OrbitalMalignantLymphomaCSV
     | LacrimalGlandCancerCSV
+    | EyelidCSV
 
 
 targetUrl : String
@@ -690,6 +691,12 @@ getCsv csvType =
             Http.get
                 { url = targetUrl ++ "csv/Orbital.csv"
                 , expect = Http.expectString GotLacrimalGlandCancerCSV
+                }
+
+        EyelidCSV ->
+            Http.get
+                { url = targetUrl ++ "csv/Eyelid.csv"
+                , expect = Http.expectString GotEyelidCSV
                 }
 
 
@@ -773,7 +780,8 @@ multiSelectTodofukenOptions =
     in
     { defaultOptions
         | items =
-            [ { value = "北海道", text = "北海道", enabled = True }
+            [ { value = "全国", text = "全国", enabled = True }
+            , { value = "北海道", text = "北海道", enabled = True }
             , { value = "青森県", text = "青森県", enabled = True }
             , { value = "岩手県", text = "岩手県", enabled = True }
             , { value = "宮城県", text = "宮城県", enabled = True }
@@ -826,7 +834,7 @@ multiSelectTodofukenOptions =
 
 unique : String -> Html msg -> Html msg
 unique identifier html =
-    Keyed.node "span" [] [ ( identifier, html ) ]
+    Keyed.node "div" [] [ ( identifier, html ) ]
 
 
 type alias Csv =
@@ -955,6 +963,7 @@ type Msg
     | GotConjunctivalMalignantMelanomaCSV (Result Http.Error String)
     | GotOrbitalMalignantLymphomaCSV (Result Http.Error String)
     | GotLacrimalGlandCancerCSV (Result Http.Error String)
+    | GotEyelidCSV (Result Http.Error String)
     | UpdateCurrentLocation Location
     | SetTableState Table.State
     | ToggleSoftTissueSelected String Location
@@ -1020,7 +1029,7 @@ update msg model =
                         | selectedCancerType = cancerType
                         , facilities = facilitiesMaster
                       }
-                    , Cmd.none
+                    , getCsv EyelidCSV
                     )
 
                 _ ->
@@ -1070,7 +1079,9 @@ update msg model =
 
         GotSoftTissueCsv (Ok repo) ->
             ( { model
-                | resultSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.facilities
+                | resultSoftTissueFacilities =
+                    setSoftTissueFacilities (Csv.parse repo) model.facilities
+                        |> filterSoftTissueFacilityPrefecture model.selectedTodofuken
                 , originSoftTissueFacilities = setSoftTissueFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1081,7 +1092,9 @@ update msg model =
 
         GotRetinoblastomaCSV (Ok repo) ->
             ( { model
-                | resultRetinoblastomaFacilities = setRetinoblastomaFacilities (Csv.parse repo) model.facilities
+                | resultRetinoblastomaFacilities =
+                    setRetinoblastomaFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originRetinoblastomaFacilities = setRetinoblastomaFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1092,7 +1105,9 @@ update msg model =
 
         GotUvealMalignantMelanomaCSV (Ok repo) ->
             ( { model
-                | resultUvealMalignantMelanomaFacilities = setUvealMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+                | resultUvealMalignantMelanomaFacilities =
+                    setUvealMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originUvealMalignantMelanomaFacilities = setUvealMalignantMelanomaFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1103,7 +1118,9 @@ update msg model =
 
         GotIntraocularLymphomaCSV (Ok repo) ->
             ( { model
-                | resultIntraocularLymphomaFacilities = setIntraocularLymphomaFacilities (Csv.parse repo) model.facilities
+                | resultIntraocularLymphomaFacilities =
+                    setIntraocularLymphomaFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originIntraocularLymphomaFacilities = setIntraocularLymphomaFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1114,7 +1131,9 @@ update msg model =
 
         GotConjunctivalMalignantLymphomaCSV (Ok repo) ->
             ( { model
-                | resultConjunctivalMalignantLymphomaFacilities = setConjunctivalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+                | resultConjunctivalMalignantLymphomaFacilities =
+                    setConjunctivalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originConjunctivalMalignantLymphomaFacilities = setConjunctivalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1125,7 +1144,9 @@ update msg model =
 
         GotKeratoconjunctivalSquamousCellCarcinomaCSV (Ok repo) ->
             ( { model
-                | resultKeratoconjunctivalSquamousCellCarcinomaFacilities = setKeratoconjunctivalSquamousCellCarcinomaFacilities (Csv.parse repo) model.facilities
+                | resultKeratoconjunctivalSquamousCellCarcinomaFacilities =
+                    setKeratoconjunctivalSquamousCellCarcinomaFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originKeratoconjunctivalSquamousCellCarcinomaFacilities = setKeratoconjunctivalSquamousCellCarcinomaFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1136,7 +1157,9 @@ update msg model =
 
         GotConjunctivalMalignantMelanomaCSV (Ok repo) ->
             ( { model
-                | resultConjunctivalMalignantMelanomaFacilities = setConjunctivalMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+                | resultConjunctivalMalignantMelanomaFacilities =
+                    setConjunctivalMalignantMelanomaFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originConjunctivalMalignantMelanomaFacilities = setConjunctivalMalignantMelanomaFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1147,7 +1170,9 @@ update msg model =
 
         GotOrbitalMalignantLymphomaCSV (Ok repo) ->
             ( { model
-                | resultOrbitalMalignantLymphomaFacilities = setOrbitalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+                | resultOrbitalMalignantLymphomaFacilities =
+                    setOrbitalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originOrbitalMalignantLymphomaFacilities = setOrbitalMalignantLymphomaFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1158,7 +1183,9 @@ update msg model =
 
         GotLacrimalGlandCancerCSV (Ok repo) ->
             ( { model
-                | resultLacrimalGlandCancerFacilities = setLacrimalGlandCancerFacilities (Csv.parse repo) model.facilities
+                | resultLacrimalGlandCancerFacilities =
+                    setLacrimalGlandCancerFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
                 , originLacrimalGlandCancerFacilities = setLacrimalGlandCancerFacilities (Csv.parse repo) model.facilities
               }
             , Cmd.none
@@ -1176,6 +1203,19 @@ update msg model =
             )
 
         GotFacilitiesCsv (Err error) ->
+            ( model, Cmd.none )
+
+        GotEyelidCSV (Ok repo) ->
+            ( { model
+                | resultEyelidFacilities =
+                    setEyelidFacilities (Csv.parse repo) model.facilities
+                        |> filterGeneralCancerFacilityPrefecture model.selectedTodofuken
+                , originEyelidFacilities = setEyelidFacilities (Csv.parse repo) model.facilities
+              }
+            , Cmd.none
+            )
+
+        GotEyelidCSV (Err error) ->
             ( model, Cmd.none )
 
         --基準点の変更
@@ -1239,34 +1279,36 @@ toggleSoftTissueFacility id facility =
 view : Model -> Html Msg
 view model =
     div [ id "elmcontent" ]
+        --        [ section [ class "section" ]
+        --            [ div [ class "tabs" ]
+        --                [ ul []
+        --                    [ li
+        --                        [ if model.searchMode == Geolocation then
+        --                            class "is-active"
+        --
+        --                          else
+        --                            class "none"
+        --                        ]
+        --                        [ a [ onClick ModeGeolocation ]
+        --                            [ text "現在地から探す" ]
+        --                        ]
+        --
+        --                    --                    , li
+        --                    --                        [ if model.searchMode == Zipcode then
+        --                    --                            class "is-active"
+        --                    --
+        --                    --                          else
+        --                    --                            class "none"
+        --                    --                        ]
+        --                    --                        [ a [ onClick ModeZipcode ]
+        --                    --                            [ text "郵便番号から探す" ]
+        --                    --                        ]
+        --                    ]
+        --                ]
+        --            ]
         [ section [ class "section first_section" ]
-            [ div [ class "tabs" ]
-                [ ul []
-                    [ li
-                        [ if model.searchMode == Geolocation then
-                            class "is-active"
-
-                          else
-                            class "none"
-                        ]
-                        [ a [ onClick ModeGeolocation ]
-                            [ text "現在地から探す" ]
-                        ]
-                    , li
-                        [ if model.searchMode == Zipcode then
-                            class "is-active"
-
-                          else
-                            class "none"
-                        ]
-                        [ a [ onClick ModeZipcode ]
-                            [ text "郵便番号から探す" ]
-                        ]
-                    ]
-                ]
-            ]
-        , section [ class "section" ]
             [ h2 [] [ text "がん情報を選ぶ" ]
+            , small [] [ text "眼腫瘍は二段階での検索になっており、2つ目のドロップダウンボックス内を選ぶと結果が表示されます" ]
             , case model.searchMode of
                 Zipcode ->
                     input [ placeholder "郵便番号を7桁で入力してください", onInput UpdateZipcode ] []
@@ -1283,7 +1325,9 @@ view model =
                         , selectOption "Orbital" "眼窩腫瘍"
                         , selectOption "Eyelid" "眼瞼腫瘍"
                         ]
-                    , unique model.selectedCancerType <|
+                    ]
+                , div [ class "select is-medium" ]
+                    [ unique model.selectedCancerType <|
                         case model.selectedCancerType of
                             "Intraocular" ->
                                 htmlSelectIntraocular
@@ -1294,9 +1338,6 @@ view model =
                             "Orbital" ->
                                 htmlSelectOrbital
 
-                            "Eyelid" ->
-                                htmlSelectEyelid
-
                             _ ->
                                 text ""
                     ]
@@ -1304,21 +1345,27 @@ view model =
             ]
         , section [ class "section" ]
             [ h2 [] [ text "地域を選ぶ" ]
+            , small [] [ text "" ]
             , div [ class "section_box" ]
-                [ div [ class "select is-medium" ]
-                    [ MultiSelect.multiSelect
-                        multiSelectTodofukenOptions
-                        []
-                        model.selectedTodofuken
+                [ div [ class "select is-multiple" ]
+                    [ unique "都道府県" <|
+                        MultiSelect.multiSelect
+                            multiSelectTodofukenOptions
+                            []
+                            model.selectedTodofuken
                     ]
                 ]
             ]
         , section [ class "section" ]
             [ h2 [] [ text "検索結果" ]
+            , small [] [ text "横にスライドさせると他の項目も閲覧できます" ]
             , div [ class "search_box box" ]
                 [ case model.selectedCancerType of
                     "SoftTissue" ->
                         Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities
+
+                    "Eylid" ->
+                        Table.view configGeneralCancer model.tableState model.resultEyelidFacilities
 
                     _ ->
                         case model.selectedCancerPart of
