@@ -200,6 +200,9 @@ filterSoftTissueFacilityPrefecture prefectures facilities =
     if List.member "全国" prefectures then
         facilities
 
+    else if List.isEmpty prefectures then
+        facilities
+
     else
         facilities
             |> List.filter
@@ -209,6 +212,9 @@ filterSoftTissueFacilityPrefecture prefectures facilities =
 filterGeneralCancerFacilityPrefecture : List String -> List GeneralCancerFacility -> List GeneralCancerFacility
 filterGeneralCancerFacilityPrefecture prefectures facilities =
     if List.member "全国" prefectures then
+        facilities
+
+    else if List.isEmpty prefectures then
         facilities
 
     else

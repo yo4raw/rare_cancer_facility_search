@@ -85,20 +85,20 @@ app.ports.openNewWindow.subscribe(function (data) {
 });
 
 
-app.ports.changeCurrentLocationFromAddress.subscribe(function (data) {
-    fetch('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyB-vCwUPSFhr0-krhHLB-KiFGSJpZ6tSNY&langage=ja&sensor=false&address=' + data,
-        {mode: 'cors'}
-    )
-        .then(function (response) {
-            return response.json()
-        }).then(function (json) {
-        if (json.status == "OK") {
-            var currentLat = json.results[0].geometry.location.lat;
-            var currentLng = json.results[0].geometry.location.lng;
-            app.ports.updateCurrentLocation.send({lat: currentLat, lng: currentLng})
-        } else {
-            alert("場所が特定できませんでした。別の値で試してください。")
-        }
-
-    });
-});
+// app.ports.changeCurrentLocationFromAddress.subscribe(function (data) {
+//     fetch('https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyB-vCwUPSFhr0-krhHLB-KiFGSJpZ6tSNY&langage=ja&sensor=false&address=' + data,
+//         {mode: 'cors'}
+//     )
+//         .then(function (response) {
+//             return response.json()
+//         }).then(function (json) {
+//         if (json.status == "OK") {
+//             var currentLat = json.results[0].geometry.location.lat;
+//             var currentLng = json.results[0].geometry.location.lng;
+//             app.ports.updateCurrentLocation.send({lat: currentLat, lng: currentLng})
+//         } else {
+//             alert("場所が特定できませんでした。別の値で試してください。")
+//         }
+//
+//     });
+// });
