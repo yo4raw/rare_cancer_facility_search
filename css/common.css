@@ -145,7 +145,6 @@ input[type="radio"], input[type="checkbox"] {
         word-break: break-all;
     }
 }
-
 /*----- スタイルガイド -----*/
 /*幅調整*/
 .margin_none {
@@ -398,7 +397,6 @@ input[type="radio"], input[type="checkbox"] {
         color: #fff;
     }
 }
-
 /*---PC footer---*/
 .pc_footer {
     border-top: 2px solid #eba662;
@@ -847,7 +845,7 @@ small {
     overflow: auto;
     white-space: nowrap;
     max-height: 400px;
-    max-width: 1280px;
+    max-width: 900px;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -862,9 +860,10 @@ small {
 
 .search_box thead tr th {
     text-align: center;
-    min-width: 130px;
     border-left: 1px solid #ddd;
-    padding: 0 10px;
+    padding: 0 16px;
+    font-size: 14px;
+    white-space: normal;
 }
 
 .search_box thead tr th:first-child {
@@ -875,12 +874,36 @@ small {
     text-align: center;
     border-left: 1px solid #ddd;
     background-color: #eee;
-    padding: 5px 20px;
+    padding: 5px;
+    font-size: 14px;
+    white-space: normal;
 }
 
 .search_box tbody tr td:first-child {
     text-align: left;
     border: none;
+    width: 140px;
+    font-size: 14px;
+    white-space: normal;
+    display: inline-table;
+    color: white;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8; /*ボタン色*/
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+
+.search_box tbody tr td:first-child:active {
+    text-align: left;
+    border: none;
+    width: 140px;
+    font-size: 14px;
+    white-space: normal;
+    display: inline-table;
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px); /*下に動く*/
+    border-bottom: none; /*線を消す*/
 }
 
 .sort_btn {
