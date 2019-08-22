@@ -231,16 +231,16 @@ var _JsArray_appendN = F3(function(n, dest, source)
 });
 
 
-	var _List_Nil = {$: 0};
-	var _List_Nil_UNUSED = {$: '[]'};
+    var _List_Nil = {$: 0};
+    var _List_Nil_UNUSED = {$: '[]'};
 
-	function _List_Cons(hd, tl) {
-		return {$: 1, a: hd, b: tl};
-	}
+    function _List_Cons(hd, tl) {
+        return {$: 1, a: hd, b: tl};
+    }
 
-	function _List_Cons_UNUSED(hd, tl) {
-		return {$: '::', a: hd, b: tl};
-	}
+    function _List_Cons_UNUSED(hd, tl) {
+        return {$: '::', a: hd, b: tl};
+    }
 
 
 var _List_cons = F2(_List_Cons);
@@ -319,13 +319,13 @@ var _List_sortWith = F2(function(f, xs)
 
 // LOG
 
-	var _Debug_log = F2(function (tag, value) {
-		return value;
+    var _Debug_log = F2(function (tag, value) {
+        return value;
 });
 
-	var _Debug_log_UNUSED = F2(function (tag, value) {
-		console.log(tag + ': ' + _Debug_toString(value));
-		return value;
+    var _Debug_log_UNUSED = F2(function (tag, value) {
+        console.log(tag + ': ' + _Debug_toString(value));
+        return value;
 });
 
 
@@ -348,11 +348,11 @@ function _Debug_todoCase(moduleName, region, value)
 
 // TO STRING
 
-	function _Debug_toString(value) {
-		return '<internals>';
-	}
+    function _Debug_toString(value) {
+        return '<internals>';
+    }
 
-	function _Debug_toString_UNUSED(value)
+    function _Debug_toString_UNUSED(value)
 {
 	return _Debug_toAnsiString(false, value);
 }
@@ -537,13 +537,13 @@ function _Debug_toHexDigit(n)
 // CRASH
 
 
-	function _Debug_crash(identifier)
+    function _Debug_crash(identifier)
 {
 	throw new Error('https://github.com/elm/core/blob/1.0.0/hints/' + identifier + '.md');
 }
 
 
-	function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
+    function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 {
 	switch(identifier)
 	{
@@ -601,7 +601,7 @@ function _Debug_toHexDigit(n)
 
 function _Debug_regionToString(region)
 {
-	if (region.a0.ae === region.bg.ae) {
+    if (region.a0.ae === region.bg.ae) {
 		return 'on line ' + region.a0.ae;
 	}
 	return 'on lines ' + region.a0.ae + ' through ' + region.bg.ae;
@@ -732,32 +732,32 @@ var _Utils_compare = F2(function(x, y)
 
 // COMMON VALUES
 
-	var _Utils_Tuple0 = 0;
-	var _Utils_Tuple0_UNUSED = {$: '#0'};
+    var _Utils_Tuple0 = 0;
+    var _Utils_Tuple0_UNUSED = {$: '#0'};
 
-	function _Utils_Tuple2(a, b) {
-		return {a: a, b: b};
-	}
+    function _Utils_Tuple2(a, b) {
+        return {a: a, b: b};
+    }
 
-	function _Utils_Tuple2_UNUSED(a, b) {
-		return {$: '#2', a: a, b: b};
-	}
+    function _Utils_Tuple2_UNUSED(a, b) {
+        return {$: '#2', a: a, b: b};
+    }
 
-	function _Utils_Tuple3(a, b, c) {
-		return {a: a, b: b, c: c};
-	}
+    function _Utils_Tuple3(a, b, c) {
+        return {a: a, b: b, c: c};
+    }
 
-	function _Utils_Tuple3_UNUSED(a, b, c) {
-		return {$: '#3', a: a, b: b, c: c};
-	}
+    function _Utils_Tuple3_UNUSED(a, b, c) {
+        return {$: '#3', a: a, b: b, c: c};
+    }
 
-	function _Utils_chr(c) {
-		return c;
-	}
+    function _Utils_chr(c) {
+        return c;
+    }
 
-	function _Utils_chr_UNUSED(c) {
-		return String(c);
-	}
+    function _Utils_chr_UNUSED(c) {
+        return String(c);
+    }
 
 
 // RECORDS
@@ -1225,7 +1225,7 @@ function _String_fromList(chars)
 }
 
 
-	/**_UNUSED/
+    /**_UNUSED/
 function _Json_errorToString(error)
 {
 	return elm$json$Json$Decode$errorToString(error);
@@ -1629,21 +1629,21 @@ var _Json_encode = F2(function(indentLevel, value)
 	return JSON.stringify(_Json_unwrap(value), null, indentLevel) + '';
 });
 
-	function _Json_wrap_UNUSED(value) {
-		return {$: 0, a: value};
-	}
+    function _Json_wrap_UNUSED(value) {
+        return {$: 0, a: value};
+    }
 
-	function _Json_unwrap_UNUSED(value) {
-		return value.a;
-	}
+    function _Json_unwrap_UNUSED(value) {
+        return value.a;
+    }
 
-	function _Json_wrap(value) {
-		return value;
-	}
+    function _Json_wrap(value) {
+        return value;
+    }
 
-	function _Json_unwrap(value) {
-		return value;
-	}
+    function _Json_unwrap(value) {
+        return value;
+    }
 
 function _Json_emptyArray() { return []; }
 function _Json_emptyObject() { return {}; }
@@ -2294,7 +2294,7 @@ function _Platform_setupIncomingPort(name, sendToApp)
 //
 
 
-	function _Platform_export(exports)
+    function _Platform_export(exports)
 {
 	scope['Elm']
 		? _Platform_mergeExportsProd(scope['Elm'], exports)
@@ -2315,7 +2315,7 @@ function _Platform_mergeExportsProd(obj, exports)
 }
 
 
-	function _Platform_export_UNUSED(exports)
+    function _Platform_export_UNUSED(exports)
 {
 	scope['Elm']
 		? _Platform_mergeExportsDebug('Elm', scope['Elm'], exports)
@@ -2350,9 +2350,9 @@ var _Http_toTask = F3(function(router, toTask, request)
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener('error', function() { done(elm$http$Http$NetworkError_); });
 		xhr.addEventListener('timeout', function() { done(elm$http$Http$Timeout_); });
-		xhr.addEventListener('load', function () {
-			done(_Http_toResponse(request.u.b, xhr));
-		});
+        xhr.addEventListener('load', function () {
+            done(_Http_toResponse(request.u.b, xhr));
+        });
 		elm$core$Maybe$isJust(request.D) && _Http_track(router, xhr, request.D.a);
 
 		try {
@@ -2790,24 +2790,24 @@ function _VirtualDom_noInnerHtmlOrFormAction(key)
 	return key == 'innerHTML' || key == 'formAction' ? 'data-' + key : key;
 }
 
-	function _VirtualDom_noJavaScriptUri(value) {
-		return /^javascript:/i.test(value.replace(/\s/g, '')) ? '' : value;
-	}
+    function _VirtualDom_noJavaScriptUri(value) {
+        return /^javascript:/i.test(value.replace(/\s/g, '')) ? '' : value;
+    }
 
-	function _VirtualDom_noJavaScriptUri_UNUSED(value) {
-		return /^javascript:/i.test(value.replace(/\s/g, ''))
-			? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
-			: value;
-	}
+    function _VirtualDom_noJavaScriptUri_UNUSED(value) {
+        return /^javascript:/i.test(value.replace(/\s/g, ''))
+            ? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
+            : value;
+    }
 
-	function _VirtualDom_noJavaScriptOrHtmlUri(value) {
-		return /^\s*(javascript:|data:text\/html)/i.test(value) ? '' : value;
-	}
+    function _VirtualDom_noJavaScriptOrHtmlUri(value) {
+        return /^\s*(javascript:|data:text\/html)/i.test(value) ? '' : value;
+    }
 
-	function _VirtualDom_noJavaScriptOrHtmlUri_UNUSED(value) {
-		return /^\s*(javascript:|data:text\/html)/i.test(value)
-			? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
-			: value;
+    function _VirtualDom_noJavaScriptOrHtmlUri_UNUSED(value) {
+        return /^\s*(javascript:|data:text\/html)/i.test(value)
+            ? 'javascript:alert("This is an XSS vector. Please use ports or web components instead.")'
+            : value;
 }
 
 
@@ -4194,7 +4194,7 @@ function _Browser_application(impl)
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		aq: function (sendToApp)
+        aq: function (sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4220,7 +4220,7 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		b0: function (flags) {
+        b0: function (flags) {
 			return A3(impl.b0, flags, _Browser_getUrl(), key);
 		},
 		ch: impl.ch,
@@ -4291,17 +4291,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? {bZ: 'hidden', bT: 'visibilitychange'}
+        ? {bZ: 'hidden', bT: 'visibilitychange'}
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? {bZ: 'mozHidden', bT: 'mozvisibilitychange'}
+        ? {bZ: 'mozHidden', bT: 'mozvisibilitychange'}
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? {bZ: 'msHidden', bT: 'msvisibilitychange'}
+        ? {bZ: 'msHidden', bT: 'msvisibilitychange'}
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? {bZ: 'webkitHidden', bT: 'webkitvisibilitychange'}
-		: {bZ: 'hidden', bT: 'visibilitychange'};
+        ? {bZ: 'webkitHidden', bT: 'webkitvisibilitychange'}
+        : {bZ: 'hidden', bT: 'visibilitychange'};
 }
 
 
@@ -4509,15 +4509,15 @@ var author$project$Main$Csv = F2(
 	function (headers, records) {
 		return {bY: headers, w: records};
 	});
-	var author$project$Main$Geolocation = 0;
-	var author$project$Main$Location = F2(
+    var author$project$Main$Geolocation = 0;
+    var author$project$Main$Location = F2(
 	function (lat, lng) {
 		return {q: lat, r: lng};
 	});
 var author$project$Main$GotFacilitiesCsv = function (a) {
 	return {$: 7, a: a};
 };
-	var author$project$Main$targetUrl = 'https://www.ossia.co.jp/forimake/';
+    var author$project$Main$targetUrl = 'https://www.ossia.co.jp/forimake/';
 var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
 var elm$core$Array$foldr = F3(
 	function (func, baseCase, _n0) {
@@ -4539,13 +4539,13 @@ var elm$core$Array$foldr = F3(
 			A3(elm$core$Elm$JsArray$foldr, func, baseCase, tail),
 			tree);
 	});
-	var elm$core$Basics$EQ = 1;
-	var elm$core$Basics$LT = 0;
+    var elm$core$Basics$EQ = 1;
+    var elm$core$Basics$LT = 0;
 var elm$core$List$cons = _List_cons;
 var elm$core$Array$toList = function (array) {
 	return A3(elm$core$Array$foldr, elm$core$List$cons, _List_Nil, array);
 };
-	var elm$core$Basics$GT = 2;
+    var elm$core$Basics$GT = 2;
 var elm$core$Dict$foldr = F3(
 	function (func, acc, t) {
 		foldr:
@@ -4598,25 +4598,25 @@ var elm$core$Set$toList = function (_n0) {
 	var dict = _n0;
 	return elm$core$Dict$keys(dict);
 };
-	var elm$core$Basics$append = _Utils_append;
-	var elm$core$Result$Ok = function (a) {
-		return {$: 0, a: a};
-	};
-	var elm$core$Basics$composeR = F3(
-		function (f, g, x) {
-			return g(
-				f(x));
-		});
-	var elm$core$Basics$identity = function (x) {
-		return x;
-	};
-	var elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
-	var elm$core$Dict$empty = elm$core$Dict$RBEmpty_elm_builtin;
+    var elm$core$Basics$append = _Utils_append;
+    var elm$core$Result$Ok = function (a) {
+        return {$: 0, a: a};
+    };
+    var elm$core$Basics$composeR = F3(
+        function (f, g, x) {
+            return g(
+                f(x));
+        });
+    var elm$core$Basics$identity = function (x) {
+        return x;
+    };
+    var elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
+    var elm$core$Dict$empty = elm$core$Dict$RBEmpty_elm_builtin;
 var elm$core$Basics$compare = _Utils_compare;
 var elm$core$Maybe$Just = function (a) {
 	return {$: 0, a: a};
 };
-	var elm$core$Maybe$Nothing = {$: 1};
+    var elm$core$Maybe$Nothing = {$: 1};
 var elm$core$Dict$get = F2(
 	function (targetKey, dict) {
 		while (true) {
@@ -4647,12 +4647,12 @@ var elm$core$Dict$get = F2(
 			}
 		}
 	});
-	var elm$core$Dict$Black = 1;
+    var elm$core$Dict$Black = 1;
 var elm$core$Dict$RBNode_elm_builtin = F5(
 	function (a, b, c, d, e) {
 		return {$: -1, a: a, b: b, c: c, d: d, e: e};
 	});
-	var elm$core$Dict$Red = 0;
+    var elm$core$Dict$Red = 0;
 var elm$core$Dict$balance = F5(
 	function (color, key, value, left, right) {
 		if ((right.$ === -1) && (!right.a)) {
@@ -5130,8 +5130,8 @@ var elm$core$Dict$update = F3(
 			return A2(elm$core$Dict$remove, targetKey, dictionary);
 		}
 	});
-	var elm$core$Basics$False = 1;
-	var elm$core$Basics$True = 0;
+    var elm$core$Basics$False = 1;
+    var elm$core$Basics$True = 0;
 var elm$core$Maybe$isJust = function (maybe) {
 	if (!maybe.$) {
 		return true;
@@ -5546,14 +5546,14 @@ var elm$http$Http$GoodStatus_ = F2(
 	function (a, b) {
 		return {$: 4, a: a, b: b};
 	});
-	var elm$http$Http$NetworkError_ = {$: 2};
+    var elm$http$Http$NetworkError_ = {$: 2};
 var elm$http$Http$Receiving = function (a) {
 	return {$: 1, a: a};
 };
 var elm$http$Http$Sending = function (a) {
 	return {$: 0, a: a};
 };
-	var elm$http$Http$Timeout_ = {$: 1};
+    var elm$http$Http$Timeout_ = {$: 1};
 var elm$http$Http$expectStringResponse = F2(
 	function (toMsg, toResult) {
 		return A3(
@@ -5582,8 +5582,8 @@ var elm$http$Http$BadStatus = function (a) {
 var elm$http$Http$BadUrl = function (a) {
 	return {$: 0, a: a};
 };
-	var elm$http$Http$NetworkError = {$: 2};
-	var elm$http$Http$Timeout = {$: 1};
+    var elm$http$Http$NetworkError = {$: 2};
+    var elm$http$Http$Timeout = {$: 1};
 var elm$http$Http$resolve = F2(
 	function (toResult, response) {
 		switch (response.$) {
@@ -5863,15 +5863,15 @@ var elm$http$Http$request = function (r) {
 };
 var elm$http$Http$get = function (r) {
 	return elm$http$Http$request(
-		{
-			bS: elm$http$Http$emptyBody,
-			u: r.u,
-			bY: _List_Nil,
-			v: 'GET',
-			y: elm$core$Maybe$Nothing,
-			D: elm$core$Maybe$Nothing,
-			z: r.z
-		});
+        {
+            bS: elm$http$Http$emptyBody,
+            u: r.u,
+            bY: _List_Nil,
+            v: 'GET',
+            y: elm$core$Maybe$Nothing,
+            D: elm$core$Maybe$Nothing,
+            z: r.z
+        });
 };
 var author$project$Main$getFacilitiesCsv = elm$http$Http$get(
 	{
@@ -5977,218 +5977,218 @@ var author$project$Main$updateCurrentLocation = _Platform_incomingPort(
 var author$project$Main$subscriptions = function (model) {
 	return author$project$Main$updateCurrentLocation(author$project$Main$UpdateCurrentLocation);
 };
-	var author$project$Main$ConjunctivalMalignantLymphomaCSV = 4;
-	var author$project$Main$ConjunctivalMalignantMelanomaCSV = 6;
-	var author$project$Main$EyelidCSV = 9;
-	var author$project$Main$IntraocularLymphomaCSV = 3;
-	var author$project$Main$KeratoconjunctivalSquamousCellCarcinomaCSV = 5;
-	var author$project$Main$LacrimalGlandCancerCSV = 8;
-	var author$project$Main$OrbitalMalignantLymphomaCSV = 7;
-	var author$project$Main$RetinoblastomaCSV = 1;
-	var author$project$Main$SoftTissueCSV = 0;
-	var author$project$Main$UvealMalignantMelanomaCSV = 2;
-	var author$project$Main$Zipcode = 1;
-	var elm$core$List$filter = F2(
-		function (isGood, list) {
-			return A3(
-				elm$core$List$foldr,
-				F2(
-					function (x, xs) {
-						return isGood(x) ? A2(elm$core$List$cons, x, xs) : xs;
-					}),
-				_List_Nil,
-				list);
-		});
-	var elm$core$List$isEmpty = function (xs) {
-		if (!xs.b) {
-			return true;
-		} else {
-			return false;
-		}
-	};
-	var elm$core$List$any = F2(
-		function (isOkay, list) {
-			any:
-				while (true) {
-					if (!list.b) {
-						return false;
-					} else {
-						var x = list.a;
-						var xs = list.b;
-						if (isOkay(x)) {
-							return true;
-						} else {
-							var $temp$isOkay = isOkay,
-								$temp$list = xs;
-							isOkay = $temp$isOkay;
-							list = $temp$list;
+    var author$project$Main$ConjunctivalMalignantLymphomaCSV = 4;
+    var author$project$Main$ConjunctivalMalignantMelanomaCSV = 6;
+    var author$project$Main$EyelidCSV = 9;
+    var author$project$Main$IntraocularLymphomaCSV = 3;
+    var author$project$Main$KeratoconjunctivalSquamousCellCarcinomaCSV = 5;
+    var author$project$Main$LacrimalGlandCancerCSV = 8;
+    var author$project$Main$OrbitalMalignantLymphomaCSV = 7;
+    var author$project$Main$RetinoblastomaCSV = 1;
+    var author$project$Main$SoftTissueCSV = 0;
+    var author$project$Main$UvealMalignantMelanomaCSV = 2;
+    var author$project$Main$Zipcode = 1;
+    var elm$core$List$filter = F2(
+        function (isGood, list) {
+            return A3(
+                elm$core$List$foldr,
+                F2(
+                    function (x, xs) {
+                        return isGood(x) ? A2(elm$core$List$cons, x, xs) : xs;
+                    }),
+                _List_Nil,
+                list);
+        });
+    var elm$core$List$isEmpty = function (xs) {
+        if (!xs.b) {
+            return true;
+        } else {
+            return false;
+        }
+    };
+    var elm$core$List$any = F2(
+        function (isOkay, list) {
+            any:
+                while (true) {
+                    if (!list.b) {
+                        return false;
+                    } else {
+                        var x = list.a;
+                        var xs = list.b;
+                        if (isOkay(x)) {
+                            return true;
+                        } else {
+                            var $temp$isOkay = isOkay,
+                                $temp$list = xs;
+                            isOkay = $temp$isOkay;
+                            list = $temp$list;
 
-						}
-					}
-				}
-		});
-	var elm$core$List$member = F2(
-		function (x, xs) {
-			return A2(
-				elm$core$List$any,
-				function (a) {
-					return _Utils_eq(a, x);
-				},
-				xs);
-		});
-	var elm$core$Maybe$withDefault = F2(
-		function (_default, maybe) {
-			if (!maybe.$) {
-				var value = maybe.a;
-				return value;
-			} else {
-				return _default;
-			}
-		});
-	var author$project$Main$filterGeneralCancerFacilityPrefecture = F2(
-		function (prefectures, facilities) {
-			return A2(elm$core$List$member, '全国', prefectures) ? facilities : (elm$core$List$isEmpty(prefectures) ? facilities : A2(
-				elm$core$List$filter,
-				function (facility) {
-					return A2(
-						elm$core$List$member,
-						A2(elm$core$Maybe$withDefault, '', facility.m),
-						prefectures);
-				},
-				facilities));
-		});
-	var author$project$Main$filterSoftTissueFacilityPrefecture = F2(
-		function (prefectures, facilities) {
-			return A2(elm$core$List$member, '全国', prefectures) ? facilities : (elm$core$List$isEmpty(prefectures) ? facilities : A2(
-				elm$core$List$filter,
-				function (facility) {
-					return A2(
-						elm$core$List$member,
-						A2(elm$core$Maybe$withDefault, '', facility.m),
-						prefectures);
-				},
-				facilities));
-		});
-	var author$project$Main$GotConjunctivalMalignantLymphomaCSV = function (a) {
-		return {$: 12, a: a};
-	};
-	var author$project$Main$GotConjunctivalMalignantMelanomaCSV = function (a) {
-		return {$: 14, a: a};
-	};
-	var author$project$Main$GotEyelidCSV = function (a) {
-		return {$: 17, a: a};
-	};
-	var author$project$Main$GotIntraocularLymphomaCSV = function (a) {
-		return {$: 11, a: a};
-	};
-	var author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV = function (a) {
-		return {$: 13, a: a};
-	};
-	var author$project$Main$GotLacrimalGlandCancerCSV = function (a) {
-		return {$: 16, a: a};
-	};
-	var author$project$Main$GotOrbitalMalignantLymphomaCSV = function (a) {
-		return {$: 15, a: a};
-	};
-	var author$project$Main$GotRetinoblastomaCSV = function (a) {
-		return {$: 9, a: a};
-	};
+                        }
+                    }
+                }
+        });
+    var elm$core$List$member = F2(
+        function (x, xs) {
+            return A2(
+                elm$core$List$any,
+                function (a) {
+                    return _Utils_eq(a, x);
+                },
+                xs);
+        });
+    var elm$core$Maybe$withDefault = F2(
+        function (_default, maybe) {
+            if (!maybe.$) {
+                var value = maybe.a;
+                return value;
+            } else {
+                return _default;
+            }
+        });
+    var author$project$Main$filterGeneralCancerFacilityPrefecture = F2(
+        function (prefectures, facilities) {
+            return A2(elm$core$List$member, '全国', prefectures) ? facilities : (elm$core$List$isEmpty(prefectures) ? facilities : A2(
+                elm$core$List$filter,
+                function (facility) {
+                    return A2(
+                        elm$core$List$member,
+                        A2(elm$core$Maybe$withDefault, '', facility.m),
+                        prefectures);
+                },
+                facilities));
+        });
+    var author$project$Main$filterSoftTissueFacilityPrefecture = F2(
+        function (prefectures, facilities) {
+            return A2(elm$core$List$member, '全国', prefectures) ? facilities : (elm$core$List$isEmpty(prefectures) ? facilities : A2(
+                elm$core$List$filter,
+                function (facility) {
+                    return A2(
+                        elm$core$List$member,
+                        A2(elm$core$Maybe$withDefault, '', facility.m),
+                        prefectures);
+                },
+                facilities));
+        });
+    var author$project$Main$GotConjunctivalMalignantLymphomaCSV = function (a) {
+        return {$: 12, a: a};
+    };
+    var author$project$Main$GotConjunctivalMalignantMelanomaCSV = function (a) {
+        return {$: 14, a: a};
+    };
+    var author$project$Main$GotEyelidCSV = function (a) {
+        return {$: 17, a: a};
+    };
+    var author$project$Main$GotIntraocularLymphomaCSV = function (a) {
+        return {$: 11, a: a};
+    };
+    var author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV = function (a) {
+        return {$: 13, a: a};
+    };
+    var author$project$Main$GotLacrimalGlandCancerCSV = function (a) {
+        return {$: 16, a: a};
+    };
+    var author$project$Main$GotOrbitalMalignantLymphomaCSV = function (a) {
+        return {$: 15, a: a};
+    };
+    var author$project$Main$GotRetinoblastomaCSV = function (a) {
+        return {$: 9, a: a};
+    };
 var author$project$Main$GotSoftTissueCsv = function (a) {
 	return {$: 8, a: a};
 };
-	var author$project$Main$GotUvealMalignantMelanomaCSV = function (a) {
-		return {$: 10, a: a};
-	};
-	var author$project$Main$getCsv = function (csvType) {
-		switch (csvType) {
-			case 0:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotSoftTissueCsv),
-						z: author$project$Main$targetUrl + 'csv/SoftTissue.csv'
-					});
-			case 1:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotRetinoblastomaCSV),
-						z: author$project$Main$targetUrl + 'csv/Intraocular.csv'
-					});
-			case 2:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotUvealMalignantMelanomaCSV),
-						z: author$project$Main$targetUrl + 'csv/Intraocular.csv'
-					});
-			case 3:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotIntraocularLymphomaCSV),
-						z: author$project$Main$targetUrl + 'csv/Intraocular.csv'
-					});
-			case 4:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantLymphomaCSV),
-						z: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
-					});
-			case 5:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV),
-						z: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
-					});
-			case 6:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantMelanomaCSV),
-						z: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
-					});
-			case 7:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotOrbitalMalignantLymphomaCSV),
-						z: author$project$Main$targetUrl + 'csv/Orbital.csv'
-					});
-			case 8:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotLacrimalGlandCancerCSV),
-						z: author$project$Main$targetUrl + 'csv/Orbital.csv'
-					});
-			default:
-				return elm$http$Http$get(
-					{
-						u: elm$http$Http$expectString(author$project$Main$GotEyelidCSV),
-						z: author$project$Main$targetUrl + 'csv/Eyelid.csv'
-					});
-		}
-	};
-	var author$project$Main$GotLocationFromZipcode = function (a) {
-		return {$: 5, a: a};
-	};
-	var author$project$Main$getLocationFromZipcode = function (zipcode) {
-		return elm$http$Http$get(
-			{
-				u: elm$http$Http$expectString(author$project$Main$GotLocationFromZipcode),
-				z: 'https://geoapi.heartrails.com/api/json?method=searchByPostal&postal=' + zipcode
-			});
-	};
-	var elm$json$Json$Encode$string = _Json_wrap;
-	var author$project$Main$openNewWindow = _Platform_outgoingPort('openNewWindow', elm$json$Json$Encode$string);
-	var elm$core$List$map = F2(
-		function (f, xs) {
-			return A3(
-				elm$core$List$foldr,
-				F2(
-					function (x, acc) {
-						return A2(
-							elm$core$List$cons,
-							f(x),
-							acc);
-					}),
-				_List_Nil,
-				xs);
-		});
+    var author$project$Main$GotUvealMalignantMelanomaCSV = function (a) {
+        return {$: 10, a: a};
+    };
+    var author$project$Main$getCsv = function (csvType) {
+        switch (csvType) {
+            case 0:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotSoftTissueCsv),
+                        z: author$project$Main$targetUrl + 'csv/SoftTissue.csv'
+                    });
+            case 1:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotRetinoblastomaCSV),
+                        z: author$project$Main$targetUrl + 'csv/Intraocular.csv'
+                    });
+            case 2:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotUvealMalignantMelanomaCSV),
+                        z: author$project$Main$targetUrl + 'csv/Intraocular.csv'
+                    });
+            case 3:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotIntraocularLymphomaCSV),
+                        z: author$project$Main$targetUrl + 'csv/Intraocular.csv'
+                    });
+            case 4:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantLymphomaCSV),
+                        z: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
+                    });
+            case 5:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotKeratoconjunctivalSquamousCellCarcinomaCSV),
+                        z: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
+                    });
+            case 6:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotConjunctivalMalignantMelanomaCSV),
+                        z: author$project$Main$targetUrl + 'csv/Keratoconjunctival.csv'
+                    });
+            case 7:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotOrbitalMalignantLymphomaCSV),
+                        z: author$project$Main$targetUrl + 'csv/Orbital.csv'
+                    });
+            case 8:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotLacrimalGlandCancerCSV),
+                        z: author$project$Main$targetUrl + 'csv/Orbital.csv'
+                    });
+            default:
+                return elm$http$Http$get(
+                    {
+                        u: elm$http$Http$expectString(author$project$Main$GotEyelidCSV),
+                        z: author$project$Main$targetUrl + 'csv/Eyelid.csv'
+                    });
+        }
+    };
+    var author$project$Main$GotLocationFromZipcode = function (a) {
+        return {$: 5, a: a};
+    };
+    var author$project$Main$getLocationFromZipcode = function (zipcode) {
+        return elm$http$Http$get(
+            {
+                u: elm$http$Http$expectString(author$project$Main$GotLocationFromZipcode),
+                z: 'https://geoapi.heartrails.com/api/json?method=searchByPostal&postal=' + zipcode
+            });
+    };
+    var elm$json$Json$Encode$string = _Json_wrap;
+    var author$project$Main$openNewWindow = _Platform_outgoingPort('openNewWindow', elm$json$Json$Encode$string);
+    var elm$core$List$map = F2(
+        function (f, xs) {
+            return A3(
+                elm$core$List$foldr,
+                F2(
+                    function (x, acc) {
+                        return A2(
+                            elm$core$List$cons,
+                            f(x),
+                            acc);
+                    }),
+                _List_Nil,
+                xs);
+        });
 var elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -6211,79 +6211,79 @@ var author$project$Main$helperGetDistance = F2(
 				},
 				facilities));
 	});
-	var elm$core$Basics$neq = _Utils_notEqual;
-	var elm$core$List$head = function (list) {
-		if (list.b) {
-			var x = list.a;
-			var xs = list.b;
-			return elm$core$Maybe$Just(x);
-		} else {
-			return elm$core$Maybe$Nothing;
-		}
-	};
-	var author$project$Main$helperGetLocation = F2(
-		function (facilityId, facilities) {
-			return A2(
-				elm$core$Maybe$withDefault,
-				{q: elm$core$Maybe$Nothing, r: elm$core$Maybe$Nothing},
-				elm$core$List$head(
-					A2(
-						elm$core$List$filter,
-						function (location) {
-							return (!_Utils_eq(location.q, elm$core$Maybe$Nothing)) && (!_Utils_eq(location.r, elm$core$Maybe$Nothing));
-						},
-						A2(
-							elm$core$List$map,
-							function (facility) {
-								return _Utils_eq(
-									A2(elm$core$Maybe$withDefault, '', facility.e),
-									facilityId) ? {q: facility.f.q, r: facility.f.r} : {
-									q: elm$core$Maybe$Nothing,
-									r: elm$core$Maybe$Nothing
-								};
-							},
-							facilities))));
-		});
-	var author$project$Main$helperGetPrefecture = F2(
-		function (facilityId, facilities) {
-			return A2(
-				elm$core$Maybe$withDefault,
-				elm$core$Maybe$Nothing,
-				elm$core$List$head(
-					A2(
-						elm$core$List$filter,
-						function (prefecture) {
-							return !_Utils_eq(prefecture, elm$core$Maybe$Nothing);
-						},
-						A2(
-							elm$core$List$map,
-							function (facility) {
-								return _Utils_eq(
-									A2(elm$core$Maybe$withDefault, '', facility.e),
-									facilityId) ? facility.m : elm$core$Maybe$Nothing;
-							},
-							facilities))));
-		});
-	var author$project$Main$helperGetRegion = F2(
-		function (facilityId, facilities) {
-			return A2(
-				elm$core$Maybe$withDefault,
-				elm$core$Maybe$Nothing,
-				elm$core$List$head(
-					A2(
-						elm$core$List$filter,
-						function (region) {
-							return !_Utils_eq(region, elm$core$Maybe$Nothing);
-						},
-						A2(
-							elm$core$List$map,
-							function (facility) {
-								return _Utils_eq(
-									A2(elm$core$Maybe$withDefault, '', facility.e),
-									facilityId) ? facility.n : elm$core$Maybe$Nothing;
-							},
-							facilities))));
-		});
+    var elm$core$Basics$neq = _Utils_notEqual;
+    var elm$core$List$head = function (list) {
+        if (list.b) {
+            var x = list.a;
+            var xs = list.b;
+            return elm$core$Maybe$Just(x);
+        } else {
+            return elm$core$Maybe$Nothing;
+        }
+    };
+    var author$project$Main$helperGetLocation = F2(
+        function (facilityId, facilities) {
+            return A2(
+                elm$core$Maybe$withDefault,
+                {q: elm$core$Maybe$Nothing, r: elm$core$Maybe$Nothing},
+                elm$core$List$head(
+                    A2(
+                        elm$core$List$filter,
+                        function (location) {
+                            return (!_Utils_eq(location.q, elm$core$Maybe$Nothing)) && (!_Utils_eq(location.r, elm$core$Maybe$Nothing));
+                        },
+                        A2(
+                            elm$core$List$map,
+                            function (facility) {
+                                return _Utils_eq(
+                                    A2(elm$core$Maybe$withDefault, '', facility.e),
+                                    facilityId) ? {q: facility.f.q, r: facility.f.r} : {
+                                    q: elm$core$Maybe$Nothing,
+                                    r: elm$core$Maybe$Nothing
+                                };
+                            },
+                            facilities))));
+        });
+    var author$project$Main$helperGetPrefecture = F2(
+        function (facilityId, facilities) {
+            return A2(
+                elm$core$Maybe$withDefault,
+                elm$core$Maybe$Nothing,
+                elm$core$List$head(
+                    A2(
+                        elm$core$List$filter,
+                        function (prefecture) {
+                            return !_Utils_eq(prefecture, elm$core$Maybe$Nothing);
+                        },
+                        A2(
+                            elm$core$List$map,
+                            function (facility) {
+                                return _Utils_eq(
+                                    A2(elm$core$Maybe$withDefault, '', facility.e),
+                                    facilityId) ? facility.m : elm$core$Maybe$Nothing;
+                            },
+                            facilities))));
+        });
+    var author$project$Main$helperGetRegion = F2(
+        function (facilityId, facilities) {
+            return A2(
+                elm$core$Maybe$withDefault,
+                elm$core$Maybe$Nothing,
+                elm$core$List$head(
+                    A2(
+                        elm$core$List$filter,
+                        function (region) {
+                            return !_Utils_eq(region, elm$core$Maybe$Nothing);
+                        },
+                        A2(
+                            elm$core$List$map,
+                            function (facility) {
+                                return _Utils_eq(
+                                    A2(elm$core$Maybe$withDefault, '', facility.e),
+                                    facilityId) ? facility.n : elm$core$Maybe$Nothing;
+                            },
+                            facilities))));
+        });
 var elm$core$Basics$negate = function (n) {
 	return -n;
 };
@@ -6295,581 +6295,581 @@ var author$project$Main$maybeStringtoInt = function (string) {
 		elm$core$String$toInt(
 			A2(elm$core$Maybe$withDefault, '-1', string)));
 };
-	var elm$core$List$drop = F2(
-		function (n, list) {
-			drop:
-				while (true) {
-					if (n <= 0) {
-						return list;
-					} else {
-						if (!list.b) {
-							return list;
-						} else {
-							var x = list.a;
-							var xs = list.b;
-							var $temp$n = n - 1,
-								$temp$list = xs;
-							n = $temp$n;
-							list = $temp$list;
+    var elm$core$List$drop = F2(
+        function (n, list) {
+            drop:
+                while (true) {
+                    if (n <= 0) {
+                        return list;
+                    } else {
+                        if (!list.b) {
+                            return list;
+                        } else {
+                            var x = list.a;
+                            var xs = list.b;
+                            var $temp$n = n - 1,
+                                $temp$list = xs;
+                            n = $temp$n;
+                            list = $temp$list;
 
-						}
-					}
-				}
-		});
-	var elm_community$list_extra$List$Extra$getAt = F2(
-		function (idx, xs) {
-			return (idx < 0) ? elm$core$Maybe$Nothing : elm$core$List$head(
-				A2(elm$core$List$drop, idx, xs));
-		});
-	var author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 4, list))
-			};
-		});
-	var author$project$Main$setConjunctivalMalignantLymphomaFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility(facilities),
-				csv.w);
-		});
-	var author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 10, list))
-			};
-		});
-	var author$project$Main$setConjunctivalMalignantMelanomaFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility(facilities),
-				csv.w);
-		});
-	var author$project$Main$helperConvListToEyelidFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 4, list))
-			};
-		});
-	var author$project$Main$setEyelidFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToEyelidFacility(facilities),
-				csv.w);
-		});
-	var elm$core$String$toFloat = _String_toFloat;
-	var author$project$Main$helperConvListtoFacilityRecord = function (list) {
-		return {
-			h: elm$core$Maybe$Nothing,
-			e: A2(elm_community$list_extra$List$Extra$getAt, 0, list),
-			f: {
-				q: elm$core$String$toFloat(
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
-				r: elm$core$String$toFloat(
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 2, list)))
-			},
-			k: A2(elm_community$list_extra$List$Extra$getAt, 1, list),
-			m: A2(elm_community$list_extra$List$Extra$getAt, 4, list),
-			n: A2(elm_community$list_extra$List$Extra$getAt, 5, list)
-		};
-	};
-	var author$project$Main$setFacilities = function (csv) {
-		return A2(elm$core$List$map, author$project$Main$helperConvListtoFacilityRecord, csv.w);
-	};
-	var elm$core$Basics$acos = _Basics_acos;
-	var elm$core$Basics$cos = _Basics_cos;
-	var elm$core$Basics$pi = _Basics_pi;
-	var elm$core$Basics$round = _Basics_round;
-	var elm$core$Basics$sin = _Basics_sin;
-	var author$project$Distance$distance = F4(
-		function (lat1, lng1, lat2, lng2) {
-			return elm$core$Basics$round(
-				6371 * elm$core$Basics$acos(
+                        }
+                    }
+                }
+        });
+    var elm_community$list_extra$List$Extra$getAt = F2(
+        function (idx, xs) {
+            return (idx < 0) ? elm$core$Maybe$Nothing : elm$core$List$head(
+                A2(elm$core$List$drop, idx, xs));
+        });
+    var author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 4, list))
+            };
+        });
+    var author$project$Main$setConjunctivalMalignantLymphomaFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToConjunctivalMalignantLymphomaFacility(facilities),
+                csv.w);
+        });
+    var author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 10, list))
+            };
+        });
+    var author$project$Main$setConjunctivalMalignantMelanomaFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToConjunctivalMalignantMelanomaFacility(facilities),
+                csv.w);
+        });
+    var author$project$Main$helperConvListToEyelidFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 4, list))
+            };
+        });
+    var author$project$Main$setEyelidFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToEyelidFacility(facilities),
+                csv.w);
+        });
+    var elm$core$String$toFloat = _String_toFloat;
+    var author$project$Main$helperConvListtoFacilityRecord = function (list) {
+        return {
+            h: elm$core$Maybe$Nothing,
+            e: A2(elm_community$list_extra$List$Extra$getAt, 0, list),
+            f: {
+                q: elm$core$String$toFloat(
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 3, list))),
+                r: elm$core$String$toFloat(
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 2, list)))
+            },
+            k: A2(elm_community$list_extra$List$Extra$getAt, 1, list),
+            m: A2(elm_community$list_extra$List$Extra$getAt, 4, list),
+            n: A2(elm_community$list_extra$List$Extra$getAt, 5, list)
+        };
+    };
+    var author$project$Main$setFacilities = function (csv) {
+        return A2(elm$core$List$map, author$project$Main$helperConvListtoFacilityRecord, csv.w);
+    };
+    var elm$core$Basics$acos = _Basics_acos;
+    var elm$core$Basics$cos = _Basics_cos;
+    var elm$core$Basics$pi = _Basics_pi;
+    var elm$core$Basics$round = _Basics_round;
+    var elm$core$Basics$sin = _Basics_sin;
+    var author$project$Distance$distance = F4(
+        function (lat1, lng1, lat2, lng2) {
+            return elm$core$Basics$round(
+                6371 * elm$core$Basics$acos(
 				((elm$core$Basics$cos((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$cos((lat2 * elm$core$Basics$pi) / 180)) * elm$core$Basics$cos(((lng2 * elm$core$Basics$pi) / 180) - ((lng1 * elm$core$Basics$pi) / 180))) + (elm$core$Basics$sin((lat1 * elm$core$Basics$pi) / 180) * elm$core$Basics$sin((lat2 * elm$core$Basics$pi) / 180))));
-		});
-	var author$project$Main$setFacilityDistance = F2(
-		function (currentLocation, facility) {
-			return _Utils_update(
-				facility,
-				{
-					h: elm$core$Maybe$Just(
-						A4(
-							author$project$Distance$distance,
-							A2(elm$core$Maybe$withDefault, 0, facility.f.q),
-							A2(elm$core$Maybe$withDefault, 0, facility.f.r),
-							A2(elm$core$Maybe$withDefault, 0, currentLocation.q),
-							A2(elm$core$Maybe$withDefault, 0, currentLocation.r)))
-				});
-		});
-	var author$project$Main$setFacilitiesDistance = F2(
-		function (currentLocation, facilities) {
-			return A2(
-				elm$core$List$map,
-				function (facility) {
-					return A2(author$project$Main$setFacilityDistance, currentLocation, facility);
-				},
-				facilities);
-		});
-	var author$project$Main$helperConvListToIntraocularLymphomaFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 10, list))
-			};
-		});
-	var author$project$Main$setIntraocularLymphomaFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToIntraocularLymphomaFacility(facilities),
-				csv.w);
-		});
-	var author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 7, list))
-			};
-		});
-	var author$project$Main$setKeratoconjunctivalSquamousCellCarcinomaFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility(facilities),
-				csv.w);
-		});
-	var author$project$Main$helperConvListToLacrimalGlandCancerFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 7, list))
-			};
-		});
-	var author$project$Main$setLacrimalGlandCancerFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToLacrimalGlandCancerFacility(facilities),
-				csv.w);
-		});
-	var author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 4, list))
-			};
-		});
-	var author$project$Main$setOrbitalMalignantLymphomaFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility(facilities),
-				csv.w);
-		});
-	var author$project$Main$helperConvListToRetinoblastomaFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 4, list))
-			};
-		});
-	var author$project$Main$setRetinoblastomaFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToRetinoblastomaFacility(facilities),
-				csv.w);
-		});
-	var author$project$Main$helperConvListToSoftTissueFacility = F2(
-		function (facilities, list) {
+        });
+    var author$project$Main$setFacilityDistance = F2(
+        function (currentLocation, facility) {
+            return _Utils_update(
+                facility,
+                {
+                    h: elm$core$Maybe$Just(
+                        A4(
+                            author$project$Distance$distance,
+                            A2(elm$core$Maybe$withDefault, 0, facility.f.q),
+                            A2(elm$core$Maybe$withDefault, 0, facility.f.r),
+                            A2(elm$core$Maybe$withDefault, 0, currentLocation.q),
+                            A2(elm$core$Maybe$withDefault, 0, currentLocation.r)))
+                });
+        });
+    var author$project$Main$setFacilitiesDistance = F2(
+        function (currentLocation, facilities) {
+            return A2(
+                elm$core$List$map,
+                function (facility) {
+                    return A2(author$project$Main$setFacilityDistance, currentLocation, facility);
+                },
+                facilities);
+        });
+    var author$project$Main$helperConvListToIntraocularLymphomaFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 8, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 9, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 10, list))
+            };
+        });
+    var author$project$Main$setIntraocularLymphomaFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToIntraocularLymphomaFacility(facilities),
+                csv.w);
+        });
+    var author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 7, list))
+            };
+        });
+    var author$project$Main$setKeratoconjunctivalSquamousCellCarcinomaFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToKeratoconjunctivalSquamousCellCarcinomaFacility(facilities),
+                csv.w);
+        });
+    var author$project$Main$helperConvListToLacrimalGlandCancerFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 7, list))
+            };
+        });
+    var author$project$Main$setLacrimalGlandCancerFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToLacrimalGlandCancerFacility(facilities),
+                csv.w);
+        });
+    var author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 4, list))
+            };
+        });
+    var author$project$Main$setOrbitalMalignantLymphomaFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToOrbitalMalignantLymphomaFacility(facilities),
+                csv.w);
+        });
+    var author$project$Main$helperConvListToRetinoblastomaFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 2, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 3, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 4, list))
+            };
+        });
+    var author$project$Main$setRetinoblastomaFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToRetinoblastomaFacility(facilities),
+                csv.w);
+        });
+    var author$project$Main$helperConvListToSoftTissueFacility = F2(
+        function (facilities, list) {
 		return {
 			h: A2(
 				elm$core$Maybe$withDefault,
@@ -6929,76 +6929,76 @@ var author$project$Main$maybeStringtoInt = function (string) {
 				A2(elm_community$list_extra$List$Extra$getAt, 8, list))
 		};
 	});
-	var author$project$Main$setSoftTissueFacilities = F2(
-		function (csv, facilities) {
+    var author$project$Main$setSoftTissueFacilities = F2(
+        function (csv, facilities) {
 		return A2(
 			elm$core$List$map,
 			author$project$Main$helperConvListToSoftTissueFacility(facilities),
 			csv.w);
-		});
-	var author$project$Main$helperConvListToUvealMalignantMelanomaFacility = F2(
-		function (facilities, list) {
-			return {
-				A: author$project$Main$maybeStringtoInt(
-					A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
-				B: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
-				h: A2(
-					elm$core$Maybe$withDefault,
-					-1,
-					A2(
-						author$project$Main$helperGetDistance,
-						A2(
-							elm$core$Maybe$withDefault,
-							'0',
-							A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-						facilities)),
-				e: A2(
-					elm$core$Maybe$withDefault,
-					'00000',
-					A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-				f: A2(
-					author$project$Main$helperGetLocation,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				k: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
-				m: A2(
-					author$project$Main$helperGetPrefecture,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				n: A2(
-					author$project$Main$helperGetRegion,
-					A2(
-						elm$core$Maybe$withDefault,
-						'0',
-						A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
-					facilities),
-				E: A2(
-					elm$core$Maybe$withDefault,
-					'未設定',
-					A2(elm_community$list_extra$List$Extra$getAt, 7, list))
-			};
-		});
-	var author$project$Main$setUvealMalignantMelanomaFacilities = F2(
-		function (csv, facilities) {
-			return A2(
-				elm$core$List$map,
-				author$project$Main$helperConvListToUvealMalignantMelanomaFacility(facilities),
-				csv.w);
+        });
+    var author$project$Main$helperConvListToUvealMalignantMelanomaFacility = F2(
+        function (facilities, list) {
+            return {
+                A: author$project$Main$maybeStringtoInt(
+                    A2(elm_community$list_extra$List$Extra$getAt, 5, list)),
+                B: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 6, list)),
+                h: A2(
+                    elm$core$Maybe$withDefault,
+                    -1,
+                    A2(
+                        author$project$Main$helperGetDistance,
+                        A2(
+                            elm$core$Maybe$withDefault,
+                            '0',
+                            A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                        facilities)),
+                e: A2(
+                    elm$core$Maybe$withDefault,
+                    '00000',
+                    A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                f: A2(
+                    author$project$Main$helperGetLocation,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                k: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 1, list)),
+                m: A2(
+                    author$project$Main$helperGetPrefecture,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                n: A2(
+                    author$project$Main$helperGetRegion,
+                    A2(
+                        elm$core$Maybe$withDefault,
+                        '0',
+                        A2(elm_community$list_extra$List$Extra$getAt, 0, list)),
+                    facilities),
+                E: A2(
+                    elm$core$Maybe$withDefault,
+                    '未設定',
+                    A2(elm_community$list_extra$List$Extra$getAt, 7, list))
+            };
+        });
+    var author$project$Main$setUvealMalignantMelanomaFacilities = F2(
+        function (csv, facilities) {
+            return A2(
+                elm$core$List$map,
+                author$project$Main$helperConvListToUvealMalignantMelanomaFacility(facilities),
+                csv.w);
 	});
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
-	var elm$core$Basics$not = _Basics_not;
+    var elm$core$Basics$not = _Basics_not;
 var elm$core$String$isEmpty = function (string) {
 	return string === '';
 };
@@ -7566,221 +7566,220 @@ var author$project$Main$update = F2(
 					elm$core$Platform$Cmd$none);
 		}
 	});
-	var abadi199$elm_input_extra$MultiSelect$Option = F3(
-		function (value, text, selected) {
-			return {aI: selected, c: text, a: value};
-		});
-	var elm$json$Json$Decode$bool = _Json_decodeBool;
-	var elm$json$Json$Decode$map3 = _Json_map3;
-	var elm$json$Json$Decode$string = _Json_decodeString;
-	var abadi199$elm_input_extra$MultiSelect$optionDecoder = A4(
-		elm$json$Json$Decode$map3,
-		abadi199$elm_input_extra$MultiSelect$Option,
-		A2(elm$json$Json$Decode$field, 'value', elm$json$Json$Decode$string),
-		A2(elm$json$Json$Decode$field, 'text', elm$json$Json$Decode$string),
-		A2(elm$json$Json$Decode$field, 'selected', elm$json$Json$Decode$bool));
-	var elm$core$Maybe$map = F2(
-		function (f, maybe) {
-			if (!maybe.$) {
-				var value = maybe.a;
-				return elm$core$Maybe$Just(
-					f(value));
-			} else {
-				return elm$core$Maybe$Nothing;
-			}
-		});
-	var elm$json$Json$Decode$maybe = function (decoder) {
-		return elm$json$Json$Decode$oneOf(
-			_List_fromArray(
-				[
-					A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, decoder),
-					elm$json$Json$Decode$succeed(elm$core$Maybe$Nothing)
-				]));
-	};
-	var abadi199$elm_input_extra$MultiSelect$optionsDecoder = function () {
-		var loop = F2(
-			function (idx, xs) {
-				return A2(
-					elm$json$Json$Decode$andThen,
-					A2(
-						elm$core$Basics$composeR,
-						elm$core$Maybe$map(
-							function (x) {
-								return A2(
-									loop,
-									idx + 1,
-									A2(elm$core$List$cons, x, xs));
-							}),
-						elm$core$Maybe$withDefault(
-							elm$json$Json$Decode$succeed(xs))),
-					elm$json$Json$Decode$maybe(
-						A2(
-							elm$json$Json$Decode$field,
-							elm$core$String$fromInt(idx),
-							abadi199$elm_input_extra$MultiSelect$optionDecoder)));
-			});
-		return A2(
-			elm$json$Json$Decode$map,
-			elm$core$List$reverse,
-			A2(
-				elm$json$Json$Decode$field,
-				'options',
-				A2(loop, 0, _List_Nil)));
-	}();
-	var abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder = function () {
-		var filterSelected = function (options) {
-			return A2(
-				elm$core$List$map,
-				function ($) {
-					return $.a;
-				},
-				A2(
-					elm$core$List$filter,
-					function ($) {
-						return $.aI;
-					},
-					options));
-		};
-		return A2(
-			elm$json$Json$Decode$map,
-			filterSelected,
-			A2(elm$json$Json$Decode$field, 'target', abadi199$elm_input_extra$MultiSelect$optionsDecoder));
-	}();
-	var elm$virtual_dom$VirtualDom$Normal = function (a) {
-		return {$: 0, a: a};
-	};
-	var elm$json$Json$Decode$map2 = _Json_map2;
-	var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
-		switch (handler.$) {
-			case 0:
-				return 0;
-			case 1:
-				return 1;
-			case 2:
-				return 2;
-			default:
-				return 3;
-		}
-	};
-	var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-	var elm$html$Html$Events$on = F2(
-		function (event, decoder) {
-			return A2(
-				elm$virtual_dom$VirtualDom$on,
-				event,
-				elm$virtual_dom$VirtualDom$Normal(decoder));
-		});
-	var abadi199$elm_input_extra$MultiSelect$onChange = function (tagger) {
-		return A2(
-			elm$html$Html$Events$on,
-			'change',
-			A2(elm$json$Json$Decode$map, tagger, abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder));
-	};
-	var elm$html$Html$option = _VirtualDom_node('option');
-	var elm$html$Html$select = _VirtualDom_node('select');
-	var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-	var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
-	var elm$json$Json$Encode$bool = _Json_wrap;
-	var elm$html$Html$Attributes$boolProperty = F2(
-		function (key, bool) {
-			return A2(
-				_VirtualDom_property,
-				key,
-				elm$json$Json$Encode$bool(bool));
-		});
-	var elm$html$Html$Attributes$disabled = elm$html$Html$Attributes$boolProperty('disabled');
-	var elm$html$Html$Attributes$multiple = elm$html$Html$Attributes$boolProperty('multiple');
-	var elm$html$Html$Attributes$selected = elm$html$Html$Attributes$boolProperty('selected');
-	var elm$html$Html$Attributes$stringProperty = F2(
-		function (key, string) {
-			return A2(
-				_VirtualDom_property,
-				key,
-				elm$json$Json$Encode$string(string));
-		});
-	var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
-	var abadi199$elm_input_extra$MultiSelect$multiSelect = F3(
-		function (options, attributes, currentValue) {
-			var isSelected = function (value) {
-				return A2(
-					elm$core$List$any,
-					elm$core$Basics$eq(value),
-					currentValue);
-			};
-			var toOption = function (_n0) {
-				var value = _n0.a;
-				var text = _n0.c;
-				var enabled = _n0.b;
-				return A2(
-					elm$html$Html$option,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$value(value),
-							elm$html$Html$Attributes$selected(
-								isSelected(value)),
-							elm$html$Html$Attributes$disabled(!enabled)
-						]),
-					_List_fromArray(
-						[
-							elm$html$Html$text(text)
-						]));
-			};
-			return A2(
-				elm$html$Html$select,
-				_Utils_ap(
-					attributes,
-					_List_fromArray(
-						[
-							abadi199$elm_input_extra$MultiSelect$onChange(options.bs),
-							elm$html$Html$Attributes$multiple(true)
-						])),
-				A2(elm$core$List$map, toOption, options.b1));
-		});
+    var abadi199$elm_input_extra$MultiSelect$Option = F3(
+        function (value, text, selected) {
+            return {aI: selected, c: text, a: value};
+        });
+    var elm$json$Json$Decode$bool = _Json_decodeBool;
+    var elm$json$Json$Decode$map3 = _Json_map3;
+    var elm$json$Json$Decode$string = _Json_decodeString;
+    var abadi199$elm_input_extra$MultiSelect$optionDecoder = A4(
+        elm$json$Json$Decode$map3,
+        abadi199$elm_input_extra$MultiSelect$Option,
+        A2(elm$json$Json$Decode$field, 'value', elm$json$Json$Decode$string),
+        A2(elm$json$Json$Decode$field, 'text', elm$json$Json$Decode$string),
+        A2(elm$json$Json$Decode$field, 'selected', elm$json$Json$Decode$bool));
+    var elm$core$Maybe$map = F2(
+        function (f, maybe) {
+            if (!maybe.$) {
+                var value = maybe.a;
+                return elm$core$Maybe$Just(
+                    f(value));
+            } else {
+                return elm$core$Maybe$Nothing;
+            }
+        });
+    var elm$json$Json$Decode$maybe = function (decoder) {
+        return elm$json$Json$Decode$oneOf(
+            _List_fromArray(
+                [
+                    A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, decoder),
+                    elm$json$Json$Decode$succeed(elm$core$Maybe$Nothing)
+                ]));
+    };
+    var abadi199$elm_input_extra$MultiSelect$optionsDecoder = function () {
+        var loop = F2(
+            function (idx, xs) {
+                return A2(
+                    elm$json$Json$Decode$andThen,
+                    A2(
+                        elm$core$Basics$composeR,
+                        elm$core$Maybe$map(
+                            function (x) {
+                                return A2(
+                                    loop,
+                                    idx + 1,
+                                    A2(elm$core$List$cons, x, xs));
+                            }),
+                        elm$core$Maybe$withDefault(
+                            elm$json$Json$Decode$succeed(xs))),
+                    elm$json$Json$Decode$maybe(
+                        A2(
+                            elm$json$Json$Decode$field,
+                            elm$core$String$fromInt(idx),
+                            abadi199$elm_input_extra$MultiSelect$optionDecoder)));
+            });
+        return A2(
+            elm$json$Json$Decode$map,
+            elm$core$List$reverse,
+            A2(
+                elm$json$Json$Decode$field,
+                'options',
+                A2(loop, 0, _List_Nil)));
+    }();
+    var abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder = function () {
+        var filterSelected = function (options) {
+            return A2(
+                elm$core$List$map,
+                function ($) {
+                    return $.a;
+                },
+                A2(
+                    elm$core$List$filter,
+                    function ($) {
+                        return $.aI;
+                    },
+                    options));
+        };
+        return A2(
+            elm$json$Json$Decode$map,
+            filterSelected,
+            A2(elm$json$Json$Decode$field, 'target', abadi199$elm_input_extra$MultiSelect$optionsDecoder));
+    }();
+    var elm$virtual_dom$VirtualDom$Normal = function (a) {
+        return {$: 0, a: a};
+    };
+    var elm$json$Json$Decode$map2 = _Json_map2;
+    var elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
+        switch (handler.$) {
+            case 0:
+                return 0;
+            case 1:
+                return 1;
+            case 2:
+                return 2;
+            default:
+                return 3;
+        }
+    };
+    var elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+    var elm$html$Html$Events$on = F2(
+        function (event, decoder) {
+            return A2(
+                elm$virtual_dom$VirtualDom$on,
+                event,
+                elm$virtual_dom$VirtualDom$Normal(decoder));
+        });
+    var abadi199$elm_input_extra$MultiSelect$onChange = function (tagger) {
+        return A2(
+            elm$html$Html$Events$on,
+            'change',
+            A2(elm$json$Json$Decode$map, tagger, abadi199$elm_input_extra$MultiSelect$selectedOptionsDecoder));
+    };
+    var elm$html$Html$option = _VirtualDom_node('option');
+    var elm$html$Html$select = _VirtualDom_node('select');
+    var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+    var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
+    var elm$json$Json$Encode$bool = _Json_wrap;
+    var elm$html$Html$Attributes$boolProperty = F2(
+        function (key, bool) {
+            return A2(
+                _VirtualDom_property,
+                key,
+                elm$json$Json$Encode$bool(bool));
+        });
+    var elm$html$Html$Attributes$disabled = elm$html$Html$Attributes$boolProperty('disabled');
+    var elm$html$Html$Attributes$multiple = elm$html$Html$Attributes$boolProperty('multiple');
+    var elm$html$Html$Attributes$selected = elm$html$Html$Attributes$boolProperty('selected');
+    var elm$html$Html$Attributes$stringProperty = F2(
+        function (key, string) {
+            return A2(
+                _VirtualDom_property,
+                key,
+                elm$json$Json$Encode$string(string));
+        });
+    var elm$html$Html$Attributes$value = elm$html$Html$Attributes$stringProperty('value');
+    var abadi199$elm_input_extra$MultiSelect$multiSelect = F3(
+        function (options, attributes, currentValue) {
+            var isSelected = function (value) {
+                return A2(
+                    elm$core$List$any,
+                    elm$core$Basics$eq(value),
+                    currentValue);
+            };
+            var toOption = function (_n0) {
+                var value = _n0.a;
+                var text = _n0.c;
+                var enabled = _n0.b;
+                return A2(
+                    elm$html$Html$option,
+                    _List_fromArray(
+                        [
+                            elm$html$Html$Attributes$value(value),
+                            elm$html$Html$Attributes$selected(
+                                isSelected(value)),
+                            elm$html$Html$Attributes$disabled(!enabled)
+                        ]),
+                    _List_fromArray(
+                        [
+                            elm$html$Html$text(text)
+                        ]));
+            };
+            return A2(
+                elm$html$Html$select,
+                _Utils_ap(
+                    attributes,
+                    _List_fromArray(
+                        [
+                            abadi199$elm_input_extra$MultiSelect$onChange(options.bs),
+                            elm$html$Html$Attributes$multiple(true)
+                        ])),
+                A2(elm$core$List$map, toOption, options.b1));
+        });
 var author$project$Main$ChangedCancerType = function (a) {
 	return {$: 3, a: a};
 };
-	var author$project$Main$UpdateZipcode = function (a) {
-		return {$: 23, a: a};
+    var author$project$Main$UpdateZipcode = function (a) {
+        return {$: 23, a: a};
 };
 var author$project$Main$SetTableState = function (a) {
 	return {$: 19, a: a};
 };
-	var author$project$Main$ToggleGenelalCancerSelected = F2(
-		function (a, b) {
-			return {$: 21, a: a, b: b};
-		});
-	var elm$html$Html$Events$onClick = function (msg) {
-		return A2(
-			elm$html$Html$Events$on,
-			'click',
-			elm$json$Json$Decode$succeed(msg));
-	};
-	var author$project$Main$toRowAttrsGeneralCancer = function (facility) {
-		return _List_fromArray(
-			[
-				elm$html$Html$Events$onClick(
-					A2(author$project$Main$ToggleGenelalCancerSelected, facility.e, facility.f))
-			]);
-	};
-	var billstclair$elm_sortable_table$Table$Config = elm$core$Basics$identity;
-	var billstclair$elm_sortable_table$Table$customConfig = function (_n0) {
-		var toId = _n0.bM;
-		var toMsg = _n0.bN;
-		var columns = _n0.bd;
-		var customizations = _n0.be;
-		return {
-			bd: A2(
-				elm$core$List$map,
-				function (_n1) {
-					var cData = _n1;
-					return cData;
-				},
-				columns),
-			be: customizations,
-			bM: toId,
-			bN: toMsg
-		};
-	};
+    var author$project$Main$OpenNewWindow = function (a) {
+        return {$: 22, a: a};
+    };
+    var elm$html$Html$Events$onClick = function (msg) {
+        return A2(
+            elm$html$Html$Events$on,
+            'click',
+            elm$json$Json$Decode$succeed(msg));
+    };
+    var author$project$Main$toRowAttrsGeneralCancer = function (facility) {
+        return _List_fromArray(
+            [
+                elm$html$Html$Events$onClick(
+                    author$project$Main$OpenNewWindow('https://hospdb.ganjoho.jp/kyotendb.nsf/xpLeaflet.xsp?hospId=' + facility.e))
+            ]);
+    };
+    var billstclair$elm_sortable_table$Table$Config = elm$core$Basics$identity;
+    var billstclair$elm_sortable_table$Table$customConfig = function (_n0) {
+        var toId = _n0.bM;
+        var toMsg = _n0.bN;
+        var columns = _n0.bd;
+        var customizations = _n0.be;
+        return {
+            bd: A2(
+                elm$core$List$map,
+                function (_n1) {
+                    var cData = _n1;
+                    return cData;
+                },
+                columns),
+            be: customizations,
+            bM: toId,
+            bN: toMsg
+        };
+    };
 var billstclair$elm_sortable_table$Table$simpleRowAttrs = function (_n0) {
 	return _List_Nil;
 };
@@ -7796,8 +7795,8 @@ var billstclair$elm_sortable_table$Table$nbsp = elm$core$String$fromList(
 			elm$core$Char$fromCode(160)
 		]));
 var elm$html$Html$span = _VirtualDom_node('span');
-	var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-	var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
+    var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+    var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
 var billstclair$elm_sortable_table$Table$darkGrey = function (symbol) {
 	return A2(
 		elm$html$Html$span,
@@ -7874,15 +7873,15 @@ var billstclair$elm_sortable_table$Table$simpleThead = function (headers) {
 		_List_Nil,
 		A2(elm$core$List$map, billstclair$elm_sortable_table$Table$simpleTheadHelp, headers));
 };
-	var billstclair$elm_sortable_table$Table$defaultCustomizations = {
-		aM: elm$core$Maybe$Nothing,
-		bG: billstclair$elm_sortable_table$Table$simpleRowAttrs,
-		a1: _List_Nil,
-		a3: _List_Nil,
-		a5: elm$core$Maybe$Nothing,
-		a6: billstclair$elm_sortable_table$Table$simpleThead
-	};
-	var billstclair$elm_sortable_table$Table$Column = elm$core$Basics$identity;
+    var billstclair$elm_sortable_table$Table$defaultCustomizations = {
+        aM: elm$core$Maybe$Nothing,
+        bG: billstclair$elm_sortable_table$Table$simpleRowAttrs,
+        a1: _List_Nil,
+        a3: _List_Nil,
+        a5: elm$core$Maybe$Nothing,
+        a6: billstclair$elm_sortable_table$Table$simpleThead
+    };
+    var billstclair$elm_sortable_table$Table$Column = elm$core$Basics$identity;
 var billstclair$elm_sortable_table$Table$IncOrDec = function (a) {
 	return {$: 3, a: a};
 };
@@ -7924,59 +7923,56 @@ var billstclair$elm_sortable_table$Table$stringColumn = F2(
 			Z: A2(elm$core$Basics$composeL, billstclair$elm_sortable_table$Table$textDetails, toStr)
 		};
 	});
-	var author$project$Main$configGeneralCancer = billstclair$elm_sortable_table$Table$customConfig(
-		{
-			bd: _List_fromArray(
-				[
-					A2(
-						billstclair$elm_sortable_table$Table$stringColumn,
-						'施設名',
-						function ($) {
-							return $.k;
-						}),
-					A2(
-						billstclair$elm_sortable_table$Table$intColumn,
-						'距離(km)',
-						function ($) {
-							return $.h;
-						}),
-					A2(
-						billstclair$elm_sortable_table$Table$intColumn,
-						'件数',
-						function ($) {
-							return $.A;
-						}),
-					A2(
-						billstclair$elm_sortable_table$Table$stringColumn,
-						'診断',
-						function ($) {
-							return $.B;
-						}),
-					A2(
-						billstclair$elm_sortable_table$Table$stringColumn,
-						'治療',
-						function ($) {
-							return $.E;
-						})
-				]),
-			be: _Utils_update(
-				billstclair$elm_sortable_table$Table$defaultCustomizations,
-				{bG: author$project$Main$toRowAttrsGeneralCancer}),
-			bM: function ($) {
-				return $.e;
-			},
-			bN: author$project$Main$SetTableState
-		});
-	var author$project$Main$OpenNewWindow = function (a) {
-		return {$: 22, a: a};
-	};
-	var author$project$Main$toRowAttrsSoftTissue = function (facility) {
-		return _List_fromArray(
-			[
-				elm$html$Html$Events$onClick(
-					author$project$Main$OpenNewWindow('https://hospdb.ganjoho.jp/kyotendb.nsf/xpLeaflet.xsp?hospId=' + facility.e))
-			]);
-	};
+    var author$project$Main$configGeneralCancer = billstclair$elm_sortable_table$Table$customConfig(
+        {
+            bd: _List_fromArray(
+                [
+                    A2(
+                        billstclair$elm_sortable_table$Table$stringColumn,
+                        '施設名',
+                        function ($) {
+                            return $.k;
+                        }),
+                    A2(
+                        billstclair$elm_sortable_table$Table$intColumn,
+                        '距離(km)',
+                        function ($) {
+                            return $.h;
+                        }),
+                    A2(
+                        billstclair$elm_sortable_table$Table$intColumn,
+                        '件数',
+                        function ($) {
+                            return $.A;
+                        }),
+                    A2(
+                        billstclair$elm_sortable_table$Table$stringColumn,
+                        '診断',
+                        function ($) {
+                            return $.B;
+                        }),
+                    A2(
+                        billstclair$elm_sortable_table$Table$stringColumn,
+                        '治療',
+                        function ($) {
+                            return $.E;
+                        })
+                ]),
+            be: _Utils_update(
+                billstclair$elm_sortable_table$Table$defaultCustomizations,
+                {bG: author$project$Main$toRowAttrsGeneralCancer}),
+            bM: function ($) {
+                return $.e;
+            },
+            bN: author$project$Main$SetTableState
+        });
+    var author$project$Main$toRowAttrsSoftTissue = function (facility) {
+        return _List_fromArray(
+            [
+                elm$html$Html$Events$onClick(
+                    author$project$Main$OpenNewWindow('https://hospdb.ganjoho.jp/kyotendb.nsf/xpLeaflet.xsp?hospId=' + facility.e))
+            ]);
+    };
 var author$project$Main$configSoftTissue = billstclair$elm_sortable_table$Table$customConfig(
 	{
 		bd: _List_fromArray(
@@ -7995,19 +7991,19 @@ var author$project$Main$configSoftTissue = billstclair$elm_sortable_table$Table$
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
-					'初回治療開始件数:上肢',
+                    '初回治療開始件数:上肢',
 				function ($) {
 					return $.aP;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
-					'初回治療開始件数:下肢',
+                    '初回治療開始件数:下肢',
 				function ($) {
 					return $.aQ;
 				}),
 				A2(
 				billstclair$elm_sortable_table$Table$intColumn,
-					'初回治療開始件数:体幹(非内臓)',
+                    '初回治療開始件数:体幹(非内臓)',
 				function ($) {
 					return $.a2;
 				}),
@@ -8050,9 +8046,9 @@ var author$project$Main$configSoftTissue = billstclair$elm_sortable_table$Table$
 		},
 		bN: author$project$Main$SetTableState
 	});
-	var author$project$Main$ChangedCancerPart = function (a) {
-		return {$: 4, a: a};
-	};
+    var author$project$Main$ChangedCancerPart = function (a) {
+        return {$: 4, a: a};
+    };
 var author$project$Main$selectOption = F2(
 	function (inputValue, inputText) {
 		return A2(
@@ -8066,173 +8062,173 @@ var author$project$Main$selectOption = F2(
 					elm$html$Html$text(inputText)
 				]));
 	});
-	var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
-	var elm$json$Json$Decode$at = F2(
-		function (fields, decoder) {
-			return A3(elm$core$List$foldr, elm$json$Json$Decode$field, decoder, fields);
-		});
-	var elm$html$Html$Events$targetValue = A2(
-		elm$json$Json$Decode$at,
-		_List_fromArray(
-			['target', 'value']),
-		elm$json$Json$Decode$string);
-	var author$project$Main$htmlSelectIntraocular = A2(
-		elm$html$Html$select,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$id('cancerpart'),
-				A2(
-					elm$html$Html$Events$on,
-					'change',
-					A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-			]),
-		_List_fromArray(
-			[
-				A2(
-					elm$html$Html$option,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$selected(true)
-						]),
-					_List_fromArray(
-						[
-							elm$html$Html$text('選択してください')
-						])),
-				A2(author$project$Main$selectOption, 'Retinoblastoma', '網膜芽細胞腫'),
-				A2(author$project$Main$selectOption, 'UvealMalignantMelanoma', 'ぶどう膜悪性黒色腫'),
-				A2(author$project$Main$selectOption, 'IntraocularLymphoma', '眼内リンパ腫')
-			]));
-	var author$project$Main$htmlSelectKeratoconjunctival = A2(
-		elm$html$Html$select,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$id('cancerpart'),
-				A2(
-					elm$html$Html$Events$on,
-					'change',
-					A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-			]),
-		_List_fromArray(
-			[
-				A2(
-					elm$html$Html$option,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$selected(true)
-						]),
-					_List_fromArray(
-						[
-							elm$html$Html$text('選択してください')
-						])),
-				A2(author$project$Main$selectOption, 'ConjunctivalMalignantLymphoma', '結膜悪性リンパ腫'),
-				A2(author$project$Main$selectOption, 'KeratoconjunctivalSquamousCellCarcinoma', '角結膜扁平上皮癌'),
-				A2(author$project$Main$selectOption, 'ConjunctivalMalignantMelanoma', '結膜悪性黒色腫')
-			]));
-	var author$project$Main$htmlSelectOrbital = A2(
-		elm$html$Html$select,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$id('cancerpart'),
-				A2(
-					elm$html$Html$Events$on,
-					'change',
-					A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
-			]),
-		_List_fromArray(
-			[
-				A2(
-					elm$html$Html$option,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$selected(true)
-						]),
-					_List_fromArray(
-						[
-							elm$html$Html$text('選択してください')
-						])),
-				A2(author$project$Main$selectOption, 'OrbitalMalignantLymphoma', '眼窩悪性リンパ腫'),
-				A2(author$project$Main$selectOption, 'LacrimalGlandCancer', '涙腺がん')
-			]));
-	var abadi199$elm_input_extra$MultiSelect$defaultOptions = function (onChangeHandler) {
-		return {b1: _List_Nil, bs: onChangeHandler};
-	};
-	var author$project$Main$ChangeTodofuken = function (a) {
-		return {$: 24, a: a};
-	};
-	var author$project$Main$multiSelectTodofukenOptions = function () {
-		var defaultOptions = abadi199$elm_input_extra$MultiSelect$defaultOptions(author$project$Main$ChangeTodofuken);
-		return _Utils_update(
-			defaultOptions,
-			{
-				b1: _List_fromArray(
-					[
-						{b: true, c: '全国', a: '全国'},
-						{b: true, c: '北海道', a: '北海道'},
-						{b: true, c: '青森県', a: '青森県'},
-						{b: true, c: '岩手県', a: '岩手県'},
-						{b: true, c: '宮城県', a: '宮城県'},
-						{b: true, c: '秋田県', a: '秋田県'},
-						{b: true, c: '山形県', a: '山形県'},
-						{b: true, c: '福島県', a: '福島県'},
-						{b: true, c: '茨城県', a: '茨城県'},
-						{b: true, c: '栃木県', a: '栃木県'},
-						{b: true, c: '群馬県', a: '群馬県'},
-						{b: true, c: '埼玉県', a: '埼玉県'},
-						{b: true, c: '千葉県', a: '千葉県'},
-						{b: true, c: '東京都', a: '東京都'},
-						{b: true, c: '神奈川県', a: '神奈川県'},
-						{b: true, c: '新潟県', a: '新潟県'},
-						{b: true, c: '富山県', a: '富山県'},
-						{b: true, c: '石川県', a: '石川県'},
-						{b: true, c: '福井県', a: '福井県'},
-						{b: true, c: '山梨県', a: '山梨県'},
-						{b: true, c: '長野県', a: '長野県'},
-						{b: true, c: '岐阜県', a: '岐阜県'},
-						{b: true, c: '静岡県', a: '静岡県'},
-						{b: true, c: '愛知県', a: '愛知県'},
-						{b: true, c: '三重県', a: '三重県'},
-						{b: true, c: '滋賀県', a: '滋賀県'},
-						{b: true, c: '京都府', a: '京都府'},
-						{b: true, c: '大阪府', a: '大阪府'},
-						{b: true, c: '兵庫県', a: '兵庫県'},
-						{b: true, c: '奈良県', a: '奈良県'},
-						{b: true, c: '和歌山県', a: '和歌山県'},
-						{b: true, c: '鳥取県', a: '鳥取県'},
-						{b: true, c: '島根県', a: '島根県'},
-						{b: true, c: '岡山県', a: '岡山県'},
-						{b: true, c: '広島県', a: '広島県'},
-						{b: true, c: '山口県', a: '山口県'},
-						{b: true, c: '徳島県', a: '徳島県'},
-						{b: true, c: '香川県', a: '香川県'},
-						{b: true, c: '愛媛県', a: '愛媛県'},
-						{b: true, c: '高知県', a: '高知県'},
-						{b: true, c: '福岡県', a: '福岡県'},
-						{b: true, c: '佐賀県', a: '佐賀県'},
-						{b: true, c: '長崎県', a: '長崎県'},
-						{b: true, c: '熊本県', a: '熊本県'},
-						{b: true, c: '大分県', a: '大分県'},
-						{b: true, c: '宮崎県', a: '宮崎県'},
-						{b: true, c: '鹿児島県', a: '鹿児島県'},
-						{b: true, c: '沖縄県', a: '沖縄県'}
-					])
-			});
-	}();
-	var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
-		return _VirtualDom_keyedNode(
-			_VirtualDom_noScript(tag));
-	};
-	var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
-	var author$project$Main$unique = F2(
-		function (identifier, html) {
-			return A3(
-				elm$html$Html$Keyed$node,
-				'div',
-				_List_Nil,
-				_List_fromArray(
-					[
-						_Utils_Tuple2(identifier, html)
-					]));
-		});
+    var elm$html$Html$Attributes$id = elm$html$Html$Attributes$stringProperty('id');
+    var elm$json$Json$Decode$at = F2(
+        function (fields, decoder) {
+            return A3(elm$core$List$foldr, elm$json$Json$Decode$field, decoder, fields);
+        });
+    var elm$html$Html$Events$targetValue = A2(
+        elm$json$Json$Decode$at,
+        _List_fromArray(
+            ['target', 'value']),
+        elm$json$Json$Decode$string);
+    var author$project$Main$htmlSelectIntraocular = A2(
+        elm$html$Html$select,
+        _List_fromArray(
+            [
+                elm$html$Html$Attributes$id('cancerpart'),
+                A2(
+                    elm$html$Html$Events$on,
+                    'change',
+                    A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
+            ]),
+        _List_fromArray(
+            [
+                A2(
+                    elm$html$Html$option,
+                    _List_fromArray(
+                        [
+                            elm$html$Html$Attributes$selected(true)
+                        ]),
+                    _List_fromArray(
+                        [
+                            elm$html$Html$text('選択してください')
+                        ])),
+                A2(author$project$Main$selectOption, 'Retinoblastoma', '網膜芽細胞腫'),
+                A2(author$project$Main$selectOption, 'UvealMalignantMelanoma', 'ぶどう膜悪性黒色腫'),
+                A2(author$project$Main$selectOption, 'IntraocularLymphoma', '眼内リンパ腫')
+            ]));
+    var author$project$Main$htmlSelectKeratoconjunctival = A2(
+        elm$html$Html$select,
+        _List_fromArray(
+            [
+                elm$html$Html$Attributes$id('cancerpart'),
+                A2(
+                    elm$html$Html$Events$on,
+                    'change',
+                    A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
+            ]),
+        _List_fromArray(
+            [
+                A2(
+                    elm$html$Html$option,
+                    _List_fromArray(
+                        [
+                            elm$html$Html$Attributes$selected(true)
+                        ]),
+                    _List_fromArray(
+                        [
+                            elm$html$Html$text('選択してください')
+                        ])),
+                A2(author$project$Main$selectOption, 'ConjunctivalMalignantLymphoma', '結膜悪性リンパ腫'),
+                A2(author$project$Main$selectOption, 'KeratoconjunctivalSquamousCellCarcinoma', '角結膜扁平上皮癌'),
+                A2(author$project$Main$selectOption, 'ConjunctivalMalignantMelanoma', '結膜悪性黒色腫')
+            ]));
+    var author$project$Main$htmlSelectOrbital = A2(
+        elm$html$Html$select,
+        _List_fromArray(
+            [
+                elm$html$Html$Attributes$id('cancerpart'),
+                A2(
+                    elm$html$Html$Events$on,
+                    'change',
+                    A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerPart, elm$html$Html$Events$targetValue))
+            ]),
+        _List_fromArray(
+            [
+                A2(
+                    elm$html$Html$option,
+                    _List_fromArray(
+                        [
+                            elm$html$Html$Attributes$selected(true)
+                        ]),
+                    _List_fromArray(
+                        [
+                            elm$html$Html$text('選択してください')
+                        ])),
+                A2(author$project$Main$selectOption, 'OrbitalMalignantLymphoma', '眼窩悪性リンパ腫'),
+                A2(author$project$Main$selectOption, 'LacrimalGlandCancer', '涙腺がん')
+            ]));
+    var abadi199$elm_input_extra$MultiSelect$defaultOptions = function (onChangeHandler) {
+        return {b1: _List_Nil, bs: onChangeHandler};
+    };
+    var author$project$Main$ChangeTodofuken = function (a) {
+        return {$: 24, a: a};
+    };
+    var author$project$Main$multiSelectTodofukenOptions = function () {
+        var defaultOptions = abadi199$elm_input_extra$MultiSelect$defaultOptions(author$project$Main$ChangeTodofuken);
+        return _Utils_update(
+            defaultOptions,
+            {
+                b1: _List_fromArray(
+                    [
+                        {b: true, c: '全国', a: '全国'},
+                        {b: true, c: '北海道', a: '北海道'},
+                        {b: true, c: '青森県', a: '青森県'},
+                        {b: true, c: '岩手県', a: '岩手県'},
+                        {b: true, c: '宮城県', a: '宮城県'},
+                        {b: true, c: '秋田県', a: '秋田県'},
+                        {b: true, c: '山形県', a: '山形県'},
+                        {b: true, c: '福島県', a: '福島県'},
+                        {b: true, c: '茨城県', a: '茨城県'},
+                        {b: true, c: '栃木県', a: '栃木県'},
+                        {b: true, c: '群馬県', a: '群馬県'},
+                        {b: true, c: '埼玉県', a: '埼玉県'},
+                        {b: true, c: '千葉県', a: '千葉県'},
+                        {b: true, c: '東京都', a: '東京都'},
+                        {b: true, c: '神奈川県', a: '神奈川県'},
+                        {b: true, c: '新潟県', a: '新潟県'},
+                        {b: true, c: '富山県', a: '富山県'},
+                        {b: true, c: '石川県', a: '石川県'},
+                        {b: true, c: '福井県', a: '福井県'},
+                        {b: true, c: '山梨県', a: '山梨県'},
+                        {b: true, c: '長野県', a: '長野県'},
+                        {b: true, c: '岐阜県', a: '岐阜県'},
+                        {b: true, c: '静岡県', a: '静岡県'},
+                        {b: true, c: '愛知県', a: '愛知県'},
+                        {b: true, c: '三重県', a: '三重県'},
+                        {b: true, c: '滋賀県', a: '滋賀県'},
+                        {b: true, c: '京都府', a: '京都府'},
+                        {b: true, c: '大阪府', a: '大阪府'},
+                        {b: true, c: '兵庫県', a: '兵庫県'},
+                        {b: true, c: '奈良県', a: '奈良県'},
+                        {b: true, c: '和歌山県', a: '和歌山県'},
+                        {b: true, c: '鳥取県', a: '鳥取県'},
+                        {b: true, c: '島根県', a: '島根県'},
+                        {b: true, c: '岡山県', a: '岡山県'},
+                        {b: true, c: '広島県', a: '広島県'},
+                        {b: true, c: '山口県', a: '山口県'},
+                        {b: true, c: '徳島県', a: '徳島県'},
+                        {b: true, c: '香川県', a: '香川県'},
+                        {b: true, c: '愛媛県', a: '愛媛県'},
+                        {b: true, c: '高知県', a: '高知県'},
+                        {b: true, c: '福岡県', a: '福岡県'},
+                        {b: true, c: '佐賀県', a: '佐賀県'},
+                        {b: true, c: '長崎県', a: '長崎県'},
+                        {b: true, c: '熊本県', a: '熊本県'},
+                        {b: true, c: '大分県', a: '大分県'},
+                        {b: true, c: '宮崎県', a: '宮崎県'},
+                        {b: true, c: '鹿児島県', a: '鹿児島県'},
+                        {b: true, c: '沖縄県', a: '沖縄県'}
+                    ])
+            });
+    }();
+    var elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
+        return _VirtualDom_keyedNode(
+            _VirtualDom_noScript(tag));
+    };
+    var elm$html$Html$Keyed$node = elm$virtual_dom$VirtualDom$keyedNode;
+    var author$project$Main$unique = F2(
+        function (identifier, html) {
+            return A3(
+                elm$html$Html$Keyed$node,
+                'div',
+                _List_Nil,
+                _List_fromArray(
+                    [
+                        _Utils_Tuple2(identifier, html)
+                    ]));
+        });
 var billstclair$elm_sortable_table$Table$applySorter = F3(
 	function (isReversed, sorter, data) {
 		switch (sorter.$) {
@@ -8303,7 +8299,7 @@ var billstclair$elm_sortable_table$Table$Reversible = function (a) {
 var billstclair$elm_sortable_table$Table$Sortable = function (a) {
 	return {$: 1, a: a};
 };
-	var billstclair$elm_sortable_table$Table$Unsortable = {$: 0};
+    var billstclair$elm_sortable_table$Table$Unsortable = {$: 0};
 var billstclair$elm_sortable_table$Table$onClick = F3(
 	function (name, isReversed, toMsg) {
 		return A2(
@@ -8450,10 +8446,10 @@ var billstclair$elm_sortable_table$Table$view = F3(
 			}());
 	});
 var elm$html$Html$div = _VirtualDom_node('div');
-	var elm$html$Html$h2 = _VirtualDom_node('h2');
+    var elm$html$Html$h2 = _VirtualDom_node('h2');
 var elm$html$Html$input = _VirtualDom_node('input');
 var elm$html$Html$section = _VirtualDom_node('section');
-	var elm$html$Html$small = _VirtualDom_node('small');
+    var elm$html$Html$small = _VirtualDom_node('small');
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
 var elm$html$Html$Attributes$placeholder = elm$html$Html$Attributes$stringProperty('placeholder');
 var elm$html$Html$Events$alwaysStop = function (x) {
@@ -8496,22 +8492,22 @@ var author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						A2(
-							elm$html$Html$h2,
-							_List_Nil,
-							_List_fromArray(
-								[
-									elm$html$Html$text('がん情報を選ぶ')
-								])),
+                            elm$html$Html$h2,
+                            _List_Nil,
+                            _List_fromArray(
+                                [
+                                    elm$html$Html$text('がん情報を選ぶ')
+                                ])),
 						A2(
-							elm$html$Html$small,
-							_List_Nil,
-							_List_fromArray(
-								[
-									elm$html$Html$text('眼腫瘍は二段階での検索になっており、2つ目のドロップダウンボックス内を選ぶと結果が表示されます')
-								])),
+                            elm$html$Html$small,
+                            _List_Nil,
+                            _List_fromArray(
+                                [
+                                    elm$html$Html$text('眼腫瘍は二段階での検索になっており、2つ目のドロップダウンボックス内を選ぶと結果が表示されます')
+                                ])),
 						function () {
-							var _n0 = model.ap;
-							if (_n0 === 1) {
+                            var _n0 = model.ap;
+                            if (_n0 === 1) {
 							return A2(
 								elm$html$Html$input,
 								_List_fromArray(
@@ -8521,188 +8517,188 @@ var author$project$Main$view = function (model) {
 									]),
 								_List_Nil);
 						} else {
-								return elm$html$Html$text('');
-							}
-						}(),
+                                return elm$html$Html$text('');
+                            }
+                        }(),
 						A2(
-							elm$html$Html$div,
-							_List_fromArray(
-								[
-									elm$html$Html$Attributes$class('section_box')
-								]),
-							_List_fromArray(
-								[
-									A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('select is-medium')
-											]),
-										_List_fromArray(
-											[
-												A2(
-													elm$html$Html$select,
-													_List_fromArray(
-														[
-															A2(
-																elm$html$Html$Events$on,
-																'change',
-																A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerType, elm$html$Html$Events$targetValue))
-														]),
-													_List_fromArray(
-														[
-															A2(
-																elm$html$Html$option,
-																_List_fromArray(
-																	[
-																		elm$html$Html$Attributes$selected(true)
-																	]),
-																_List_fromArray(
-																	[
-																		elm$html$Html$text('選択してください')
-																	])),
-															A2(author$project$Main$selectOption, 'SoftTissue', '四肢軟部肉腫'),
-															A2(author$project$Main$selectOption, 'Intraocular', '眼内腫瘍'),
-															A2(author$project$Main$selectOption, 'Keratoconjunctival', '角結膜腫瘍'),
-															A2(author$project$Main$selectOption, 'Orbital', '眼窩腫瘍'),
-															A2(author$project$Main$selectOption, 'Eyelid', '眼瞼腫瘍')
-														]))
-											])),
-									A2(
-										elm$html$Html$div,
-										_List_fromArray(
-											[
-												elm$html$Html$Attributes$class('select is-medium')
-											]),
-										_List_fromArray(
-											[
-												A2(
-													author$project$Main$unique,
-													model.H,
-													function () {
-														var _n1 = model.H;
-														switch (_n1) {
-															case 'Intraocular':
-																return author$project$Main$htmlSelectIntraocular;
-															case 'Keratoconjunctival':
-																return author$project$Main$htmlSelectKeratoconjunctival;
-															case 'Orbital':
-																return author$project$Main$htmlSelectOrbital;
-															default:
-																return elm$html$Html$text('');
-														}
-													}())
-											]))
-								]))
+                            elm$html$Html$div,
+                            _List_fromArray(
+                                [
+                                    elm$html$Html$Attributes$class('section_box')
+                                ]),
+                            _List_fromArray(
+                                [
+                                    A2(
+                                        elm$html$Html$div,
+                                        _List_fromArray(
+                                            [
+                                                elm$html$Html$Attributes$class('select is-medium')
+                                            ]),
+                                        _List_fromArray(
+                                            [
+                                                A2(
+                                                    elm$html$Html$select,
+                                                    _List_fromArray(
+                                                        [
+                                                            A2(
+                                                                elm$html$Html$Events$on,
+                                                                'change',
+                                                                A2(elm$json$Json$Decode$map, author$project$Main$ChangedCancerType, elm$html$Html$Events$targetValue))
+                                                        ]),
+                                                    _List_fromArray(
+                                                        [
+                                                            A2(
+                                                                elm$html$Html$option,
+                                                                _List_fromArray(
+                                                                    [
+                                                                        elm$html$Html$Attributes$selected(true)
+                                                                    ]),
+                                                                _List_fromArray(
+                                                                    [
+                                                                        elm$html$Html$text('選択してください')
+                                                                    ])),
+                                                            A2(author$project$Main$selectOption, 'SoftTissue', '四肢軟部肉腫'),
+                                                            A2(author$project$Main$selectOption, 'Intraocular', '眼内腫瘍'),
+                                                            A2(author$project$Main$selectOption, 'Keratoconjunctival', '角結膜腫瘍'),
+                                                            A2(author$project$Main$selectOption, 'Orbital', '眼窩腫瘍'),
+                                                            A2(author$project$Main$selectOption, 'Eyelid', '眼瞼腫瘍')
+                                                        ]))
+                                            ])),
+                                    A2(
+                                        elm$html$Html$div,
+                                        _List_fromArray(
+                                            [
+                                                elm$html$Html$Attributes$class('select is-medium')
+                                            ]),
+                                        _List_fromArray(
+                                            [
+                                                A2(
+                                                    author$project$Main$unique,
+                                                    model.H,
+                                                    function () {
+                                                        var _n1 = model.H;
+                                                        switch (_n1) {
+                                                            case 'Intraocular':
+                                                                return author$project$Main$htmlSelectIntraocular;
+                                                            case 'Keratoconjunctival':
+                                                                return author$project$Main$htmlSelectKeratoconjunctival;
+                                                            case 'Orbital':
+                                                                return author$project$Main$htmlSelectOrbital;
+                                                            default:
+                                                                return elm$html$Html$text('');
+                                                        }
+                                                    }())
+                                            ]))
+                                ]))
 					])),
 				A2(
-					elm$html$Html$section,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$class('section')
-						]),
-					_List_fromArray(
-						[
-							A2(
-								elm$html$Html$h2,
-								_List_Nil,
-								_List_fromArray(
-									[
-										elm$html$Html$text('地域を選ぶ')
-									])),
-							A2(
-								elm$html$Html$small,
-								_List_Nil,
-								_List_fromArray(
-									[
-										elm$html$Html$text('')
-									])),
-							A2(
-								elm$html$Html$div,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('section_box')
-									]),
-								_List_fromArray(
-									[
-										A2(
-											elm$html$Html$div,
-											_List_fromArray(
-												[
-													elm$html$Html$Attributes$class('select is-multiple')
-												]),
-											_List_fromArray(
-												[
-													A2(
-														author$project$Main$unique,
-														'都道府県',
-														A3(abadi199$elm_input_extra$MultiSelect$multiSelect, author$project$Main$multiSelectTodofukenOptions, _List_Nil, model.o))
-												]))
-									]))
-						])),
+                    elm$html$Html$section,
+                    _List_fromArray(
+                        [
+                            elm$html$Html$Attributes$class('section')
+                        ]),
+                    _List_fromArray(
+                        [
+                            A2(
+                                elm$html$Html$h2,
+                                _List_Nil,
+                                _List_fromArray(
+                                    [
+                                        elm$html$Html$text('地域を選ぶ')
+                                    ])),
+                            A2(
+                                elm$html$Html$small,
+                                _List_Nil,
+                                _List_fromArray(
+                                    [
+                                        elm$html$Html$text('')
+                                    ])),
+                            A2(
+                                elm$html$Html$div,
+                                _List_fromArray(
+                                    [
+                                        elm$html$Html$Attributes$class('section_box')
+                                    ]),
+                                _List_fromArray(
+                                    [
+                                        A2(
+                                            elm$html$Html$div,
+                                            _List_fromArray(
+                                                [
+                                                    elm$html$Html$Attributes$class('select is-multiple')
+                                                ]),
+                                            _List_fromArray(
+                                                [
+                                                    A2(
+                                                        author$project$Main$unique,
+                                                        '都道府県',
+                                                        A3(abadi199$elm_input_extra$MultiSelect$multiSelect, author$project$Main$multiSelectTodofukenOptions, _List_Nil, model.o))
+                                                ]))
+                                    ]))
+                        ])),
 				A2(
-					elm$html$Html$section,
-					_List_fromArray(
-						[
-							elm$html$Html$Attributes$class('section')
-						]),
-					_List_fromArray(
-						[
-							A2(
-								elm$html$Html$h2,
-								_List_Nil,
-								_List_fromArray(
-									[
-										elm$html$Html$text('検索結果')
-									])),
-							A2(
-								elm$html$Html$small,
-								_List_Nil,
-								_List_fromArray(
-									[
-										elm$html$Html$text('横にスライドさせると他の項目も閲覧できます')
-									])),
-							A2(
-								elm$html$Html$div,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('search_box box')
-									]),
-								_List_fromArray(
-									[
-										function () {
-											var _n2 = model.H;
-											switch (_n2) {
-												case 'SoftTissue':
-													return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configSoftTissue, model.s, model.an);
-												case 'Eylid':
-													return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ah);
-												default:
-													var _n3 = model.x;
-													switch (_n3) {
-														case 'Retinoblastoma':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.am);
-														case 'UvealMalignantMelanoma':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ao);
-														case 'IntraocularLymphoma':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ai);
-														case 'ConjunctivalMalignantLymphoma':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.af);
-														case 'KeratoconjunctivalSquamousCellCarcinoma':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.aj);
-														case 'ConjunctivalMalignantMelanoma':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ag);
-														case 'OrbitalMalignantLymphoma':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.al);
-														case 'LacrimalGlandCancer':
-															return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ak);
-														default:
-															return elm$html$Html$text('');
-													}
-											}
-										}()
-									]))
-						]))
+                    elm$html$Html$section,
+                    _List_fromArray(
+                        [
+                            elm$html$Html$Attributes$class('section')
+                        ]),
+                    _List_fromArray(
+                        [
+                            A2(
+                                elm$html$Html$h2,
+                                _List_Nil,
+                                _List_fromArray(
+                                    [
+                                        elm$html$Html$text('検索結果')
+                                    ])),
+                            A2(
+                                elm$html$Html$small,
+                                _List_Nil,
+                                _List_fromArray(
+                                    [
+                                        elm$html$Html$text('横にスライドさせると他の項目も閲覧できます')
+                                    ])),
+                            A2(
+                                elm$html$Html$div,
+                                _List_fromArray(
+                                    [
+                                        elm$html$Html$Attributes$class('search_box box')
+                                    ]),
+                                _List_fromArray(
+                                    [
+                                        function () {
+                                            var _n2 = model.H;
+                                            switch (_n2) {
+                                                case 'SoftTissue':
+                                                    return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configSoftTissue, model.s, model.an);
+                                                case 'Eylid':
+                                                    return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ah);
+                                                default:
+                                                    var _n3 = model.x;
+                                                    switch (_n3) {
+                                                        case 'Retinoblastoma':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.am);
+                                                        case 'UvealMalignantMelanoma':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ao);
+                                                        case 'IntraocularLymphoma':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ai);
+                                                        case 'ConjunctivalMalignantLymphoma':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.af);
+                                                        case 'KeratoconjunctivalSquamousCellCarcinoma':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.aj);
+                                                        case 'ConjunctivalMalignantMelanoma':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ag);
+                                                        case 'OrbitalMalignantLymphoma':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.al);
+                                                        case 'LacrimalGlandCancer':
+                                                            return A3(billstclair$elm_sortable_table$Table$view, author$project$Main$configGeneralCancer, model.s, model.ak);
+                                                        default:
+                                                            return elm$html$Html$text('');
+                                                    }
+                                            }
+                                        }()
+                                    ]))
+                        ]))
 			]));
 };
 var elm$browser$Browser$External = function (a) {
@@ -8711,7 +8707,7 @@ var elm$browser$Browser$External = function (a) {
 var elm$browser$Browser$Internal = function (a) {
 	return {$: 0, a: a};
 };
-	var elm$browser$Browser$Dom$NotFound = elm$core$Basics$identity;
+    var elm$browser$Browser$Dom$NotFound = elm$core$Basics$identity;
 var elm$core$Basics$never = function (_n0) {
 	never:
 	while (true) {
@@ -8721,8 +8717,8 @@ var elm$core$Basics$never = function (_n0) {
 
 	}
 };
-	var elm$core$Task$Perform = elm$core$Basics$identity;
-	var elm$core$Task$init = elm$core$Task$succeed(0);
+    var elm$core$Task$Perform = elm$core$Basics$identity;
+    var elm$core$Task$init = elm$core$Task$succeed(0);
 var elm$core$Task$map = F2(
 	function (func, taskA) {
 		return A2(
@@ -8771,9 +8767,9 @@ var elm$core$Task$perform = F2(
 		return elm$core$Task$command(
 			A2(elm$core$Task$map, toMessage, task));
 	});
-	var elm$url$Url$Http = 0;
-	var elm$url$Url$Https = 1;
-	var elm$core$String$indexes = _String_indexes;
+    var elm$url$Url$Http = 0;
+    var elm$url$Url$Https = 1;
+    var elm$core$String$indexes = _String_indexes;
 var elm$core$String$left = F2(
 	function (n, string) {
 		return (n < 1) ? '' : A3(elm$core$String$slice, 0, n, string);
@@ -8887,12 +8883,12 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$element = _Browser_element;
 var author$project$Main$main = elm$browser$Browser$element(
-	{
-		b0: author$project$Main$init,
-		ce: author$project$Main$subscriptions,
-		cg: author$project$Main$update,
-		ch: author$project$Main$view
-	});
+    {
+        b0: author$project$Main$init,
+        ce: author$project$Main$subscriptions,
+        cg: author$project$Main$update,
+        ch: author$project$Main$view
+    });
 _Platform_export({'Main':{'init':author$project$Main$main(
 	A2(
 		elm$json$Json$Decode$andThen,
@@ -8921,7 +8917,7 @@ _Platform_export({'Main':{'init':author$project$Main$main(
 					[
 						elm$json$Json$Decode$null(elm$core$Maybe$Nothing),
 						A2(elm$json$Json$Decode$map, elm$core$Maybe$Just, elm$json$Json$Decode$float)
-					])))))(0)
-	}
+                    ])))))(0)
+    }
 });
 }(this));

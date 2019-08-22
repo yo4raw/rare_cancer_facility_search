@@ -1313,8 +1313,9 @@ view model =
         --                ]
         --            ]
         [ section [ class "section first_section" ]
-            [ h2 [] [ text "がん情報を選ぶ" ]
-            , small [] [ text "眼腫瘍は二段階での検索になっており、2つ目のドロップダウンボックス内を選ぶと結果が表示されます" ]
+            [ h2 [] [ text "がんの種類を選ぶ" ]
+            , small [] [ text "がんの種類と地域を選択し、診療実績等を一覧でご覧いただけます。 現在選択可能ながんは、四肢軟部肉腫、眼内腫瘍、角結膜腫瘍、眼窩腫瘍、眼瞼 腫瘍ですが、今後、他のがん種についても検索できるようにしていきます。" ]
+            , small [] [ text "※注意\u{3000}眼腫瘍の症例数は、3年間の症例数の合計です。" ]
             , case model.searchMode of
                 Zipcode ->
                     input [ placeholder "郵便番号を7桁で入力してください", onInput UpdateZipcode ] []
@@ -1350,8 +1351,8 @@ view model =
                 ]
             ]
         , section [ class "section" ]
-            [ h2 [] [ text "地域を選ぶ" ]
-            , small [] [ text "" ]
+            [ h2 [] [ text "都道府県を選ぶ" ]
+            , small [] [ text "複数選択も可能です。" ]
             , div [ class "section_box" ]
                 [ div [ class "select is-multiple" ]
                     [ unique "都道府県" <|
@@ -1364,7 +1365,7 @@ view model =
             ]
         , section [ class "section" ]
             [ h2 [] [ text "検索結果" ]
-            , small [] [ text "横にスライドさせると他の項目も閲覧できます" ]
+            , small [] [ text "病院名をクリックすると、詳細を確認することができます。距離は、現在地からの直線距離を概算しています。" ]
             , div [ class "search_box box" ]
                 [ case model.selectedCancerType of
                     "SoftTissue" ->
