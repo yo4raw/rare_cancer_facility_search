@@ -1314,7 +1314,9 @@ view model =
         --            ]
         [ section [ class "section first_section" ]
             [ h2 [] [ text "がんの種類を選ぶ" ]
-            , small [] [ text "がんの種類と地域を選択し、診療実績等を一覧でご覧いただけます。 現在選択可能ながんは、四肢軟部肉腫、眼内腫瘍、角結膜腫瘍、眼窩腫瘍、眼瞼 腫瘍ですが、今後、他のがん種についても検索できるようにしていきます。" ]
+            , small [] [ text "がんの種類と地域を選択し、診療実績等を一覧でご覧いただけます。" ]
+            , small [] [ text "現在選択可能ながんは、四肢軟部肉腫、眼内腫瘍、角結膜腫瘍、眼窩腫瘍、眼瞼腫瘍ですが" ]
+            , small [] [ text "今後、他のがん種についても検索できるようにしていきます。" ]
             , small [] [ text "※注意\u{3000}眼腫瘍の症例数は、3年間の症例数の合計です。" ]
             , case model.searchMode of
                 Zipcode ->
@@ -1353,6 +1355,7 @@ view model =
         , section [ class "section" ]
             [ h2 [] [ text "都道府県を選ぶ" ]
             , small [] [ text "複数選択も可能です。" ]
+            , small [] [ text "Winの場合は、Ctrlを押しながら、選択することで複数選択が可能です" ]
             , div [ class "section_box" ]
                 [ div [ class "select is-multiple" ]
                     [ unique "都道府県" <|
@@ -1366,12 +1369,13 @@ view model =
         , section [ class "section" ]
             [ h2 [] [ text "検索結果" ]
             , small [] [ text "病院名をクリックすると、詳細を確認することができます。距離は、現在地からの直線距離を概算しています。" ]
+            , small [] [ text "矢印を選択すると並び替えができます。" ]
             , div [ class "search_box box" ]
                 [ case model.selectedCancerType of
                     "SoftTissue" ->
                         Table.view configSoftTissue model.tableState model.resultSoftTissueFacilities
 
-                    "Eylid" ->
+                    "Eyelid" ->
                         Table.view configGeneralCancer model.tableState model.resultEyelidFacilities
 
                     _ ->
