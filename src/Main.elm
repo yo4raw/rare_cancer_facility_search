@@ -529,14 +529,14 @@ configSoftTissue =
         , columns =
             [ Table.stringColumn "施設名" .name
             , Table.intColumn "距離(km)" .distance
-            , Table.intColumn "初回治療開始件数:上肢" .joshi
-            , Table.intColumn "初回治療開始件数:下肢" .kashi
-            , Table.intColumn "初回治療開始件数:体幹(非内臓)" .taikan
+            , Table.intColumn "初回治療:上肢" .joshi
+            , Table.intColumn "初回治療:下肢" .kashi
+            , Table.intColumn "初回治療:体幹" .taikan
             , Table.intColumn "再発後初診" .saihatsushoshin
             , Table.intColumn "手術件数" .ope
             , Table.intColumn "放射線治療" .housyasen
             , Table.intColumn "薬物療法" .yakubutsu
-            , Table.intColumn "セカンドオピニオン" .secondopinion
+            , Table.intColumn "セカオピ" .secondopinion
             ]
         , customizations =
             { defaultCustomizations | rowAttrs = toRowAttrsSoftTissue }
@@ -1370,6 +1370,7 @@ view model =
             [ h2 [] [ text "検索結果" ]
             , small [] [ text "病院名をクリックすると、詳細を確認することができます。距離は、現在地からの直線距離を概算しています。" ]
             , small [] [ text "矢印を選択すると並び替えができます。" ]
+            , small [] [ text "※初回件数は初回治療件数、セカオピはセカンドオピニオンを意味します。" ]
             , div [ class "search_box box" ]
                 [ case model.selectedCancerType of
                     "SoftTissue" ->
