@@ -1,0 +1,334 @@
+div, a, img, strong {
+  margin: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+}
+
+:focus {
+  outline: 0;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.xspLink {
+  color: #105cb6;
+}
+
+.xspImage {
+  border: 0;
+  vertical-align: middle;
+}
+
+a:focus {
+  outline: #c0c0c0 dashed thin;
+}
+
+a:link {
+  color: #009900;
+}
+
+a:visited {
+  color: #005500;
+}
+
+a:hover {
+  color: #009900;
+}
+
+a:active {
+  color: #009900;
+}
+
+strong {
+  font-style: normal;
+  font-weight: bold;
+}
+
+#header {
+  width: 900px;
+  font-size: small;
+  color: #999999;
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  min-height: 1px;
+}
+
+.PageHeader {
+  margin-bottom: 10px;
+  width: 1054px;
+  margin: 0 auto;
+}
+
+.navigationBar {
+  height: 50px;
+  background-color: #7FD8AC;
+  border-radius: 5px;
+}
+
+#header {
+  margin: 0 0 10px;
+  width: 1048px;
+  position: relative;
+  line-height: 0px;
+}
+
+#header img {
+  border: none;
+}
+
+#header .logoGanjoho {
+  padding-right: 10px;
+  border-right: solid 1px #7FD8AC;
+  margin-right: 10px;
+}
+
+#header .searchForm {
+  width: 550px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  text-align: right;
+}
+
+.searchForm img {
+  vertical-align: bottom;
+}
+
+.searchForm a {
+  margin-left: 5px;
+}
+
+#gNavi {
+  font-family: 'Lucida Grande', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  margin: 0px 0px 20px 0px;
+  padding: 0px 0px 0px 2px;
+  height: 50px;
+}
+
+#gNavi ul {
+  position: absolute;
+  list-style: none;
+  z-index: 99;
+}
+
+#gNavi li {
+  float: left;
+  list-style-type: none;
+  margin: 5px 0px 0px 3px;
+  padding: 0px;
+  width: auto;
+  height: auto;
+}
+
+#gNavi li a {
+  display: block;
+  padding: 13px 0px 0px 0px;
+  background-color: #00B38E;
+  color: #fff;
+  font-size: 75%;
+  text-shadow: 1px 1px 3px #006633;
+  width: auto;
+  height: 41px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 100%;
+  box-shadow: 3px 3px 5px 0px rgba(255, 255, 255, 0.25) inset, -3px -3px 5px 0px rgba(0, 0, 0, 0.25) inset;
+  border: solid 1px #ffffff;
+}
+
+#gNavi li a strong {
+  font-size: 130%;
+}
+
+#gNavi li a:hover {
+  background-color: #00DDB0;
+}
+
+#gNavi li.gNavi1 > a {
+  width: 210px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#gNavi li.gNavi2 > a {
+  width: 200px;
+}
+
+#gNavi li.gNavi3 > a {
+  width: 170px;
+}
+
+#gNavi li.gNavi4 > a {
+  width: 220px;
+}
+
+#gNavi li.gNavi5 > a {
+  width: 230px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#gNavi li a.navigationButtonCurrent {
+  color: #008066;
+  text-shadow: none;
+  background-color: #ffffff;
+  box-shadow: -3px -3px 5px 0px rgba(255, 255, 255, 0.25) inset, 3px 3px 5px 0px rgba(0, 0, 0, 0.25) inset;
+  padding-top: 15px;
+  height: 41px;
+}
+
+#gNavi li.navigationButton ul {
+  display: none;
+}
+
+#gNavi li.navigationButton li {
+  width: 100%;
+  white-space: nowrap;
+  border: solid 1px #D0D0D0;
+  border-top: 0px;
+}
+
+#gNavi li.navigationButton li a {
+  background-color: #F9F9F9;
+  color: #000000;
+  text-shadow: none;
+  padding-left: 25px;
+  padding-right: 20px;
+  text-align: left;
+  font-size: 75%;
+  box-shadow: none;
+}
+
+#gNavi li.navigationButton:hover {
+  position: relative;
+}
+
+#gNavi li.navigationButton:hover > ul {
+  padding-top: 2px;
+  display: block;
+}
+
+#gNavi li.navigationButton:hover > ul li {
+  margin: 0px;
+}
+
+#gNavi li.navigationButton:hover > ul li a:hover {
+  background-color: #00DDB0;
+  color: #FFFFFF;
+}
+
+@media print {
+  .navigationBar {
+    display: none;
+  }
+  #gNavi {
+    display: none;
+  }
+}
+
+a.footer_lk:link {
+  color: #666666;
+  text-decoration: underline;
+}
+
+a.footer_lk:visited {
+  color: #666666;
+  text-decoration: underline;
+}
+
+a.footer_lk:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+
+a.footer_lk:active {
+  color: #666666;
+  text-decoration: underline;
+}
+
+#footer {
+  width: 1054px;
+  margin: 0 auto;
+}
+
+#footer_menu {
+  width: 600px;
+  float: left;
+  font-size: small;
+  color: #666666;
+}
+
+#copyright {
+  width: 300px;
+  float: left;
+  text-align: right;
+}
+
+br.clr {
+  clear: both;
+}
+
+#footer_line_kyoten {
+  background-image: url("https://hospdb.ganjoho.jp/kyotendb.nsf/bg_ftr.gif");
+  margin-bottom: 10px;
+  width: 1054px;
+  height: 10px;
+  background-repeat: repeat-x;
+  height: 5px;
+}
+
+#footer_line_kyoten {
+  background-image: url("https://hospdb.ganjoho.jp/kyotendb.nsf/bg_ftr.gif");
+  margin-bottom: 10px;
+  width: 1054px;
+  background-repeat: repeat-x;
+  height: 5px;
+}
+
+#footer_menu {
+  width: 750px;
+  float: left;
+  font-size: small;
+  color: #666666;
+}
+
+.floatPageTop img {
+  border: none;
+}
+
+.floatWordsBox {
+  position: fixed;
+  top: 10px;
+  right: 0px;
+  background-color: #A7906A;
+  padding: 10px 4px 10px 3px;
+  margin-bottom: 10px;
+  font-size: small;
+  border-radius: 5px 0px 0px 5px;
+  width: 26px;
+  height: 84px;
+}

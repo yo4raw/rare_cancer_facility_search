@@ -1,0 +1,462 @@
+@charset "utf-8";
+
+/*----- 変数格納 -----*/
+//メインカラー
+$main_color: #0D7345;
+//サブカラー
+$point_color: #7FD8AC;
+//ボタンカラー
+$btn_color1: #00C28D;
+$btn_color2: #00BBC2;
+//テキストリンクカラー
+$text_link: #487FB7;
+
+/*----- スタイルリセット -----*/
+* {
+  text-decoration: none;
+  color: #555;
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: #fff;
+}
+
+@media all and (-ms-high-contrast: none) {
+  * {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+  }
+}
+
+h1 {
+  font-family: HuiFontP109;
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+
+  &:before {
+    content: '';
+    background-color: $point_color;
+    position: absolute;
+    width: 100%;
+    height: 24px;
+    bottom: 5px;
+    z-index: -1;
+    left: 0;
+  }
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  color: $point_color;
+  font-size: 18px;
+  border-left: 4px solid $point_color;
+  padding-left: 12px;
+}
+
+h4 {
+  color: $point_color;
+  font-size: 16px;
+}
+
+h5 {
+  color: $main_color;
+  font-size: 16px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  margin-right: 4px;
+}
+
+dt {
+  margin-bottom: 10px;
+}
+
+dd {
+  line-height: 28px;
+}
+
+p {
+  margin: 0;
+  line-height: 28px;
+}
+
+a {
+  color: $point_color;
+  word-break: break-all;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    opacity: .5;
+  }
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  border: none;
+  padding: 10px;
+}
+
+textarea {
+  border: none;
+  padding: 10px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+.bootstrap-switch {
+  display: block;
+}
+
+@media (max-width: 768px) {
+
+  h1,
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  table {
+    word-break: break-all;
+  }
+}
+
+/*----- スタイルガイド -----*/
+
+/*幅調整*/
+.margin_none {
+  margin: 0;
+}
+
+.width_normal {
+  width: inherit !important;
+}
+
+.width_max {
+  width: 100%;
+}
+
+.width_half {
+  width: 50%;
+}
+
+.width_40 {
+  width: 40px;
+}
+
+.width_50 {
+  width: 50px;
+}
+
+.wordw_bw {
+  word-wrap: break-word;
+}
+
+.p0 {
+  padding: 0;
+}
+
+.pr0 {
+  padding-right: 0;
+}
+
+.pr5 {
+  padding-right: 5px;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.pr10 {
+  padding-right: 10px;
+}
+
+.pl0 {
+  padding-left: 0;
+}
+
+.pl5 {
+  padding-left: 5px;
+}
+
+.pl10 {
+  padding-left: 10px;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.m0 {
+  margin: 0;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mt40 {
+  margin-top: 40px;
+}
+
+.mt50 {
+  margin-top: 50px;
+}
+
+.mt60 {
+  margin-top: 60px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+
+.mb40 {
+  margin-bottom: 40px;
+}
+
+.mb50 {
+  margin-bottom: 50px;
+}
+
+.mb80 {
+  margin-bottom: 80px;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+/*---PC header---*/
+.pc_header {
+
+}
+
+.sp_header_box {
+  display: none;
+}
+
+/*---SP header---*/
+@media (max-width: 768px) {
+  .section {
+    padding: 1rem;
+  }
+  .pc_header {
+    display: none;
+  }
+  .floatWordsBox {
+    display: none;
+  }
+  .sp_header_box {
+    display: inherit;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: #fff;
+  }
+  .sp_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+
+    .sp_header_logo {
+      margin-top: 6px;
+
+      .logoGanjoho {
+        padding-right: 10px;
+        border-right: solid 1px $point_color;
+        margin: 0 10px;
+      }
+
+      img {
+        height: 30px;
+      }
+    }
+
+    .sp_menu {
+      width: 60px;
+      height: 60px;
+      background-color: $point_color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      i {
+        color: #fff;
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+  }
+  .menu-container {
+    margin: 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+
+    .menu {
+      margin: 0;
+      padding: 20px 0;
+      width: 100%;
+      height: -webkit-fill-available;
+      display: none;
+      background-color: $point_color;
+
+      .menu-item {
+        margin: 0 0 20px;
+
+        a {
+          background: #fff;
+          border-radius: 200px;
+          text-align: center;
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 10px 10px 20px;
+          width: 80%;
+          margin: 0 auto;
+          font-size: 18px;
+          font-weight: bold;
+
+          p, span, i {
+            color: $main_color;
+          }
+
+          span {
+            font-size: 14px;
+            font-weight: normal;
+            flex-grow: 2;
+          }
+
+          &:last-child a {
+            border-bottom: none;
+          }
+        }
+      }
+
+      .contact-item {
+        a {
+          background: $main_color;
+          border: 2px solid #fff;
+          margin-top: 40px;
+
+          p, span, i {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*---PC footer---*/
+.pc_footer {
+  border-top: 2px solid #eba662;
+  padding: 10px 0 30px;
+}
+
+.sp_footer {
+  display: none;
+}
+
+/*---SP footer---*/
+@media (max-width: 768px) {
+  .pc_footer {
+    display: none;
+  }
+  .sp_footer {
+    display: inherit;
+    background-color: $point_color;
+    padding: 20px 10px;
+    margin-top: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    .sp_menu {
+      text-align: center;
+      margin-bottom: 20px;
+
+      a {
+        color: #fff;
+        font-size: 14px;
+        text-decoration: underline;
+      }
+    }
+
+    small {
+      color: #fff;
+      font-size: 10px;
+    }
+  }
+}
+
+@import "header_footer";
+@import "rare_cancer_facilitiy";
