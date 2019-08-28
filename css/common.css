@@ -892,6 +892,9 @@ small {
   font-size: 14px;
   white-space: normal;
   display: inline-table;
+    background: #668ad8;
+    border-bottom: solid 4px #627295;
+    color: white;
 }
 
 .sort_btn {
