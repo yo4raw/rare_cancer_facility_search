@@ -4186,7 +4186,7 @@ type alias Process =
 	var author$project$Main$GotFacilitiesCsv = function (a) {
 		return {$: 7, a: a};
 	};
-	var author$project$Main$targetUrl = 'https://www.ossia.co.jp/forimake/';
+	var author$project$Main$targetUrl = 'http://localhost:2222/';
 	var elm$core$Elm$JsArray$foldr = _JsArray_foldr;
 	var elm$core$Array$foldr = F3(
 		function (func, baseCase, _n0) {
