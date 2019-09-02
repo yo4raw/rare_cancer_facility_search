@@ -631,8 +631,7 @@ type CsvType
 
 targetUrl : String
 targetUrl =
-    "http://localhost:8000/"
-
+    "http://localhost:2222/"
 
 getLocationFromZipcode : String -> Cmd Msg
 getLocationFromZipcode zipcode =
