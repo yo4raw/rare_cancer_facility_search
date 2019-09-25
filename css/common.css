@@ -878,10 +878,11 @@ small {
 
 .search_box tbody tr td {
   text-align: center;
+    vertical-align: middle;
   border-left: 1px solid #ddd;
   background-color: #eee;
   padding: 5px;
-  font-size: 14px;
+    font-size: 25px;
   white-space: normal;
 }
 

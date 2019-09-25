@@ -428,7 +428,7 @@ function _Debug_toAnsiString(ansi, value)
 		{
 			var output = '[';
 
-			value.b && (output += _Debug_toAnsiString(ansi, value.a), value = value.b)
+            value.b && (output += _Debug_toAnsiString(ansi, value.a), value = value.b);
 
 			for (; value.b; value = value.b) // WHILE_CONS
 			{
@@ -742,7 +742,10 @@ function _Utils_Tuple3(a, b, c) { return { a: a, b: b, c: c }; }
 function _Utils_Tuple3_UNUSED(a, b, c) { return { $: '#3', a: a, b: b, c: c }; }
 
 function _Utils_chr(c) { return c; }
-function _Utils_chr_UNUSED(c) { return new String(c); }
+
+    function _Utils_chr_UNUSED(c) {
+        return String(c);
+    }
 
 
 // RECORDS
@@ -783,7 +786,7 @@ function _Utils_ap(xs, ys)
 		return ys;
 	}
 	var root = _List_Cons(xs.a, ys);
-	xs = xs.b
+    xs = xs.b;
 	for (var curr = root; xs.b; xs = xs.b) // WHILE_CONS
 	{
 		curr = curr.b = _List_Cons(xs.a, ys);
@@ -3828,7 +3831,7 @@ function _VirtualDom_applyPatchesHelp(rootDomNode, patches)
 	for (var i = 0; i < patches.length; i++)
 	{
 		var patch = patches[i];
-		var localDomNode = patch.t
+        var localDomNode = patch.t;
 		var newNode = _VirtualDom_applyPatch(localDomNode, patch);
 		if (localDomNode === rootDomNode)
 		{
@@ -4098,7 +4101,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.cg,
 		impl.ce,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.aq && impl.aq(sendToApp)
+            var divertHrefToApp = impl.aq && impl.aq(sendToApp);
 			var view = impl.ch;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
@@ -4528,7 +4531,6 @@ var elm$core$Array$toList = function (array) {
 var elm$core$Basics$GT = 2;
 var elm$core$Dict$foldr = F3(
 	function (func, acc, t) {
-		foldr:
 		while (true) {
 			if (t.$ === -2) {
 				return acc;
@@ -4547,7 +4549,7 @@ var elm$core$Dict$foldr = F3(
 				func = $temp$func;
 				acc = $temp$acc;
 				t = $temp$t;
-				continue foldr;
+
 			}
 		}
 	});
@@ -4599,7 +4601,6 @@ var elm$core$Maybe$Just = function (a) {
 var elm$core$Maybe$Nothing = {$: 1};
 var elm$core$Dict$get = F2(
 	function (targetKey, dict) {
-		get:
 		while (true) {
 			if (dict.$ === -2) {
 				return elm$core$Maybe$Nothing;
@@ -4623,7 +4624,7 @@ var elm$core$Dict$get = F2(
 							$temp$dict = right;
 						targetKey = $temp$targetKey;
 						dict = $temp$dict;
-						continue get;
+
 				}
 			}
 		}
@@ -4739,13 +4740,12 @@ var elm$core$Dict$insert = F3(
 var elm$core$Basics$eq = _Utils_equal;
 var elm$core$Basics$lt = _Utils_lt;
 var elm$core$Dict$getMin = function (dict) {
-	getMin:
 	while (true) {
 		if ((dict.$ === -1) && (dict.d.$ === -1)) {
 			var left = dict.d;
 			var $temp$dict = left;
 			dict = $temp$dict;
-			continue getMin;
+
 		} else {
 			return dict;
 		}
@@ -4915,7 +4915,6 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 				lLeft,
 				A5(elm$core$Dict$RBNode_elm_builtin, 0, key, value, lRight, right));
 		} else {
-			_n2$2:
 			while (true) {
 				if ((right.$ === -1) && (right.a === 1)) {
 					if (right.d.$ === -1) {
@@ -4925,7 +4924,7 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 							var _n5 = _n4.a;
 							return elm$core$Dict$moveRedRight(dict);
 						} else {
-							break _n2$2;
+                            break;
 						}
 					} else {
 						var _n6 = right.a;
@@ -4933,7 +4932,7 @@ var elm$core$Dict$removeHelpPrepEQGT = F7(
 						return elm$core$Dict$moveRedRight(dict);
 					}
 				} else {
-					break _n2$2;
+                    break;
 				}
 			}
 			return dict;
@@ -5152,7 +5151,6 @@ var elm$core$Array$SubTree = function (a) {
 var elm$core$Elm$JsArray$initializeFromList = _JsArray_initializeFromList;
 var elm$core$List$foldl = F3(
 	function (func, acc, list) {
-		foldl:
 		while (true) {
 			if (!list.b) {
 				return acc;
@@ -5165,7 +5163,7 @@ var elm$core$List$foldl = F3(
 				func = $temp$func;
 				acc = $temp$acc;
 				list = $temp$list;
-				continue foldl;
+
 			}
 		}
 	});
@@ -5174,7 +5172,6 @@ var elm$core$List$reverse = function (list) {
 };
 var elm$core$Array$compressNodes = F2(
 	function (nodes, acc) {
-		compressNodes:
 		while (true) {
 			var _n0 = A2(elm$core$Elm$JsArray$initializeFromList, elm$core$Array$branchFactor, nodes);
 			var node = _n0.a;
@@ -5190,8 +5187,8 @@ var elm$core$Array$compressNodes = F2(
 					$temp$acc = newAcc;
 				nodes = $temp$nodes;
 				acc = $temp$acc;
-				continue compressNodes;
-			}
+
+            }
 		}
 	});
 var elm$core$Basics$apR = F2(
@@ -5204,7 +5201,6 @@ var elm$core$Tuple$first = function (_n0) {
 };
 var elm$core$Array$treeFromBuilder = F2(
 	function (nodeList, nodeListSize) {
-		treeFromBuilder:
 		while (true) {
 			var newNodeSize = elm$core$Basics$ceiling(nodeListSize / elm$core$Array$branchFactor);
 			if (newNodeSize === 1) {
@@ -5214,8 +5210,8 @@ var elm$core$Array$treeFromBuilder = F2(
 					$temp$nodeListSize = newNodeSize;
 				nodeList = $temp$nodeList;
 				nodeListSize = $temp$nodeListSize;
-				continue treeFromBuilder;
-			}
+
+            }
 		}
 	});
 var elm$core$Basics$add = _Basics_add;
@@ -5259,7 +5255,6 @@ var elm$core$Basics$idiv = _Basics_idiv;
 var elm$core$Elm$JsArray$initialize = _JsArray_initialize;
 var elm$core$Array$initializeHelp = F5(
 	function (fn, fromIndex, len, nodeList, tail) {
-		initializeHelp:
 		while (true) {
 			if (fromIndex < 0) {
 				return A2(
@@ -5279,8 +5274,8 @@ var elm$core$Array$initializeHelp = F5(
 				len = $temp$len;
 				nodeList = $temp$nodeList;
 				tail = $temp$tail;
-				continue initializeHelp;
-			}
+
+            }
 		}
 	});
 var elm$core$Basics$le = _Utils_le;
@@ -5348,7 +5343,6 @@ var elm$core$List$length = function (xs) {
 var elm$core$List$map2 = _List_map2;
 var elm$core$List$rangeHelp = F3(
 	function (lo, hi, list) {
-		rangeHelp:
 		while (true) {
 			if (_Utils_cmp(lo, hi) < 1) {
 				var $temp$lo = lo,
@@ -5357,8 +5351,8 @@ var elm$core$List$rangeHelp = F3(
 				lo = $temp$lo;
 				hi = $temp$hi;
 				list = $temp$list;
-				continue rangeHelp;
-			} else {
+
+            } else {
 				return list;
 			}
 		}
@@ -5410,7 +5404,6 @@ var elm$json$Json$Decode$errorToString = function (error) {
 };
 var elm$json$Json$Decode$errorToStringHelp = F2(
 	function (error, context) {
-		errorToStringHelp:
 		while (true) {
 			switch (error.$) {
 				case 0:
@@ -5432,7 +5425,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 						$temp$context = A2(elm$core$List$cons, fieldName, context);
 					error = $temp$error;
 					context = $temp$context;
-					continue errorToStringHelp;
+                    continue;
 				case 1:
 					var i = error.a;
 					var err = error.b;
@@ -5441,7 +5434,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 						$temp$context = A2(elm$core$List$cons, indexName, context);
 					error = $temp$error;
 					context = $temp$context;
-					continue errorToStringHelp;
+                    continue;
 				case 2:
 					var errors = error.a;
 					if (!errors.b) {
@@ -5462,7 +5455,7 @@ var elm$json$Json$Decode$errorToStringHelp = F2(
 								$temp$context = context;
 							error = $temp$error;
 							context = $temp$context;
-							continue errorToStringHelp;
+                            continue;
 						} else {
 							var starter = function () {
 								if (!context.b) {
@@ -5610,7 +5603,6 @@ var elm$core$Process$kill = _Scheduler_kill;
 var elm$core$Process$spawn = _Scheduler_spawn;
 var elm$http$Http$updateReqs = F3(
 	function (router, cmds, reqs) {
-		updateReqs:
 		while (true) {
 			if (!cmds.b) {
 				return elm$core$Task$succeed(reqs);
@@ -5627,8 +5619,8 @@ var elm$http$Http$updateReqs = F3(
 						router = $temp$router;
 						cmds = $temp$cmds;
 						reqs = $temp$reqs;
-						continue updateReqs;
-					} else {
+
+                    } else {
 						var pid = _n2.a;
 						return A2(
 							elm$core$Task$andThen,
@@ -5981,7 +5973,6 @@ var elm$core$List$isEmpty = function (xs) {
 };
 var elm$core$List$any = F2(
 	function (isOkay, list) {
-		any:
 		while (true) {
 			if (!list.b) {
 				return false;
@@ -5995,8 +5986,8 @@ var elm$core$List$any = F2(
 						$temp$list = xs;
 					isOkay = $temp$isOkay;
 					list = $temp$list;
-					continue any;
-				}
+
+                }
 			}
 		}
 	});
@@ -6267,7 +6258,6 @@ var author$project$Main$maybeStringtoInt = function (string) {
 };
 var elm$core$List$drop = F2(
 	function (n, list) {
-		drop:
 		while (true) {
 			if (n <= 0) {
 				return list;
@@ -6281,8 +6271,8 @@ var elm$core$List$drop = F2(
 						$temp$list = xs;
 					n = $temp$n;
 					list = $temp$list;
-					continue drop;
-				}
+
+                }
 			}
 		}
 	});
@@ -6995,7 +6985,6 @@ var elm$core$String$dropLeft = F2(
 var elm$core$String$startsWith = _String_startsWith;
 var lovasoa$elm_csv$Helper$parseRemaining = F4(
 	function (separator, quoted, remaining, done) {
-		parseRemaining:
 		while (true) {
 			if (remaining === '') {
 				return done;
@@ -7014,8 +7003,8 @@ var lovasoa$elm_csv$Helper$parseRemaining = F4(
 					quoted = $temp$quoted;
 					remaining = $temp$remaining;
 					done = $temp$done;
-					continue parseRemaining;
-				} else {
+
+                } else {
 					var others = A2(
 						elm$core$Maybe$withDefault,
 						_List_Nil,
@@ -7047,8 +7036,8 @@ var lovasoa$elm_csv$Helper$parseRemaining = F4(
 					quoted = $temp$quoted;
 					remaining = $temp$remaining;
 					done = $temp$done;
-					continue parseRemaining;
-				}
+
+                }
 			}
 		}
 	});
@@ -8216,7 +8205,6 @@ var billstclair$elm_sortable_table$Table$applySorter = F3(
 	});
 var billstclair$elm_sortable_table$Table$findSorter = F2(
 	function (selectedColumn, columnData) {
-		findSorter:
 		while (true) {
 			if (!columnData.b) {
 				return elm$core$Maybe$Nothing;
@@ -8231,8 +8219,8 @@ var billstclair$elm_sortable_table$Table$findSorter = F2(
 						$temp$columnData = remainingColumnData;
 					selectedColumn = $temp$selectedColumn;
 					columnData = $temp$columnData;
-					continue findSorter;
-				}
+
+                }
 			}
 		}
 	});
@@ -8605,27 +8593,34 @@ var author$project$Main$view = function (model) {
 								elm$html$Html$text('Winの場合は、Ctrlを押しながら、選択することで複数選択が可能です')
 							])),
 						A2(
-						elm$html$Html$div,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$class('section_box')
-							]),
-						_List_fromArray(
-							[
-								A2(
-								elm$html$Html$div,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('select is-multiple')
-									]),
-								_List_fromArray(
-									[
-										A2(
-										author$project$Main$unique,
-										'都道府県',
-										A3(abadi199$elm_input_extra$MultiSelect$multiSelect, author$project$Main$multiSelectTodofukenOptions, _List_Nil, model.o))
-									]))
-							]))
+                            elm$html$Html$small,
+                            _List_Nil,
+                            _List_fromArray(
+                                [
+                                    elm$html$Html$text('※全国が選択されている場合は全国の表示となります。')
+                                ])),
+                        A2(
+                            elm$html$Html$div,
+                            _List_fromArray(
+                                [
+                                    elm$html$Html$Attributes$class('section_box')
+                                ]),
+                            _List_fromArray(
+                                [
+                                    A2(
+                                        elm$html$Html$div,
+                                        _List_fromArray(
+                                            [
+                                                elm$html$Html$Attributes$class('select is-multiple')
+                                            ]),
+                                        _List_fromArray(
+                                            [
+                                                A2(
+                                                    author$project$Main$unique,
+                                                    '都道府県',
+                                                    A3(abadi199$elm_input_extra$MultiSelect$multiSelect, author$project$Main$multiSelectTodofukenOptions, _List_Nil, model.o))
+                                            ]))
+                                ]))
 					])),
 				A2(
 				elm$html$Html$section,
@@ -8714,13 +8709,12 @@ var elm$browser$Browser$Internal = function (a) {
 };
 var elm$browser$Browser$Dom$NotFound = elm$core$Basics$identity;
 var elm$core$Basics$never = function (_n0) {
-	never:
 	while (true) {
 		var nvr = _n0;
 		var $temp$_n0 = nvr;
 		_n0 = $temp$_n0;
-		continue never;
-	}
+
+    }
 };
 var elm$core$Task$Perform = elm$core$Basics$identity;
 var elm$core$Task$init = elm$core$Task$succeed(0);
